@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="YoureOnGenNHibernate"
+		                   namespace="YoureOnGenNHibernate.EN.YoureOn">
+		    
+		    
+			
+				<class name="ReporteEN" table="Reporte"> 
+				  	
+						<id name="Id" column="idReporte" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+			
+			
+			
+		  			
+						<many-to-one name="Usuario" class="YoureOnGenNHibernate.EN.YoureOn.UsuarioEN" >	
+								<column name="FK_emailUsuario_idUsuario"/> 
+						</many-to-one>
+											 					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="ReporteENReadAllHQL">from ReporteEN</query>
+		</hibernate-mapping>
+	

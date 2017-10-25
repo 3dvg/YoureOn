@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="YoureOnGenNHibernate"
+		                   namespace="YoureOnGenNHibernate.EN.YoureOn">
+		    
+		    
+			
+				
+<joined-subclass name="TextoEN" extends="YoureOnGenNHibernate.EN.YoureOn.ContenidoEN" table="Texto"> 
+	<key>
+    	
+				<column name="titulo"/>
+		
+    	
+   	</key>
+
+			
+					
+					<property name="NumeroPaginas" type="integer"> 
+						<column name="numeroPaginas"  not-null="true"/>
+					</property>
+			
+			
+					
+		
+ 	  
+		 </joined-subclass>
+		  
+		  <query name="TextoENReadAllHQL">from TextoEN</query>
+		</hibernate-mapping>
+	

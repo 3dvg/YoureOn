@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="YoureOnGenNHibernate"
+		                   namespace="YoureOnGenNHibernate.EN.YoureOn">
+		    
+		    
+			
+				<class name="YoureOnEN" table="YoureOn"> 
+				  	
+						<id name="Id" column="idYoureOn" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+			
+			
+					
+		
+		 </class>	
+		  
+		  <query name="YoureOnENReadAllHQL">from YoureOnEN</query>
+		</hibernate-mapping>
+	
