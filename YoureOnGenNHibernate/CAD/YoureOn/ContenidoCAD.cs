@@ -224,5 +224,36 @@ public void Borrar (string titulo
                 SessionClose ();
         }
 }
+
+public System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ContenidoEN> DameContenidoPorTitulo (string arg0)
+{
+        System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ContenidoEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM ContenidoEN self where FROM ContenidoEN where ContenidoEN.titulo = c_titulo;";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("ContenidoENdameContenidoPorTituloHQL");
+                query.SetParameter ("arg0", arg0);
+
+                result = query.List<YoureOnGenNHibernate.EN.YoureOn.ContenidoEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is YoureOnGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new YoureOnGenNHibernate.Exceptions.DataLayerException ("Error in ContenidoCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

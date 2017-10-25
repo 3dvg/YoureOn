@@ -20,5 +20,10 @@ void Editar (ContenidoEN contenido);
 
 void Borrar (string titulo
              );
+
+
+
+
+System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ContenidoEN> DameContenidoPorTitulo (string arg0);
 }
 }
