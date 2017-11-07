@@ -231,7 +231,7 @@ public System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.Contenid
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM ContenidoEN self where FROM ContenidoEN where ContenidoEN.titulo = c_titulo;";
+                //String sql = @"FROM ContenidoEN self where FROM ContenidoEN as cont where cont.titulo = c_titulo;";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("ContenidoENdameContenidoPorTituloHQL");
                 query.SetParameter ("arg0", arg0);

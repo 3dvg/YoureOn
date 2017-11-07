@@ -24,8 +24,9 @@ public void PoneFalta (string p_oid)
         /*PROTECTED REGION ID(YoureOnGenNHibernate.CEN.YoureOn_Moderador_poneFalta) ENABLED START*/
 
         // Write here your custom code...
+        FaltaEN faltaUsuario = new FaltaEN();
 
-        throw new NotImplementedException ("Method PoneFalta() not yet implemented.");
+        //throw new NotImplementedException ("Method PoneFalta() not yet implemented.");
 
         /*PROTECTED REGION END*/
 }

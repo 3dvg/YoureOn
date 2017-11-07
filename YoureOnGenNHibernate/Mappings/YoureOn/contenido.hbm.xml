@@ -96,6 +96,6 @@
 		 </class>	
 		  
 		  <query name="ContenidoENReadAllHQL">from ContenidoEN</query>
-		  <query name="ContenidoENdameContenidoPorTituloHQL"><![CDATA[FROM ContenidoEN where ContenidoEN.titulo = c_titulo;]]></query>
+		  <query name="ContenidoENdameContenidoPorTituloHQL"><![CDATA[FROM ContenidoEN as cont where cont.titulo = c_titulo;]]></query>
 		</hibernate-mapping>
 	
