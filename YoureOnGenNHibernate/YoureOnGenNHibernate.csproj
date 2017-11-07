@@ -121,7 +121,7 @@
 			
 			<Compile Include="CEN\YoureOn\UsuarioCEN_RecuperarPassword.cs" />
 			
-			<Compile Include="CEN\YoureOn\UsuarioCEN_CargarParfil.cs" />
+			<Compile Include="CEN\YoureOn\UsuarioCEN_CargarPerfil.cs" />
 			
 	<Compile Include="EN\YoureOn\ContenidoEN.cs" />
 	<Compile Include="CEN\YoureOn\ContenidoCEN.cs" />
