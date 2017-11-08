@@ -10,7 +10,6 @@ using YoureOnGenNHibernate.Exceptions;
 using YoureOnGenNHibernate.EN.YoureOn;
 using YoureOnGenNHibernate.CAD.YoureOn;
 
-
 /*PROTECTED REGION ID(usingYoureOnGenNHibernate.CEN.YoureOn_Usuario_getPuntuacion) ENABLED START*/
 //  references to other libraries
 /*PROTECTED REGION END*/
@@ -23,10 +22,15 @@ public float GetPuntuacion (string p_oid)
 {
         /*PROTECTED REGION ID(YoureOnGenNHibernate.CEN.YoureOn_Usuario_getPuntuacion) ENABLED START*/
 
-        // Write here your custom code...
+        UsuarioEN usuarioEN = null;
 
-        throw new NotImplementedException ("Method GetPuntuacion() not yet implemented.");
+        //Initialized UsuarioEN
+        usuarioEN = new UsuarioEN();
+        usuarioEN.Email = p_oid;
+        //Call to UsuarioCAD
 
+        return _IUsuarioCAD.GetPuntuacion(usuarioEN);
+        
         /*PROTECTED REGION END*/
 }
 }
