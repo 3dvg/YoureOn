@@ -87,17 +87,6 @@
 					
 			
 		  			
-						<bag name="Valoracion" table="[valoracion_usuario]" inverse="true" >
-							<key>
-								
-									<column name="FK_emailUsuario_idUsuario"/> 
-							</key>
-      						<many-to-many class="YoureOnGenNHibernate.EN.YoureOn.ValoracionEN">
-									<column name="FK_idValoracion_idValoracion"/> 
-      						</many-to-many>
-    					</bag>
-			
-		  			
 						<bag name="Reporte" >
 							<key>
 							
@@ -106,7 +95,6 @@
 					      	</key>
 							<one-to-many class="YoureOnGenNHibernate.EN.YoureOn.ReporteEN"/>
 					    </bag>
-					
 					
 					
 					

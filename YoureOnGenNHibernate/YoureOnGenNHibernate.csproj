@@ -1,376 +1,281 @@
-<?xml version="1.0" encoding="utf-8"?>
-		<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-		  <PropertyGroup>
-		    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-		    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-		    <ProductVersion>8.0.30703</ProductVersion>
-		    <SchemaVersion>2.0</SchemaVersion>
-		    <ProjectGuid>{66C66636-FD6A-4A3F-A7C5-FE88BBA117AF}</ProjectGuid>
-		    <OutputType>Library</OutputType>
-		    <AppDesignerFolder>Properties</AppDesignerFolder>
-		    <RootNamespace>YoureOnGenNHibernate</RootNamespace>
-		    <AssemblyName>YoureOnGenNHibernate</AssemblyName>
-		    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-		    <FileAlignment>512</FileAlignment>
-		    <PublishUrl>publish\</PublishUrl>
-		    <Install>true</Install>
-		    <InstallFrom>Disk</InstallFrom>
-		    <UpdateEnabled>false</UpdateEnabled>
-		    <UpdateMode>Foreground</UpdateMode>
-		    <UpdateInterval>7</UpdateInterval>
-		    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
-		    <UpdatePeriodically>false</UpdatePeriodically>
-		    <UpdateRequired>false</UpdateRequired>
-		    <MapFileExtensions>true</MapFileExtensions>
-		    <ApplicationRevision>0</ApplicationRevision>
-		    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-		    <IsWebBootstrapper>false</IsWebBootstrapper>
-		    <UseApplicationTrust>false</UseApplicationTrust>
-		    <BootstrapperEnabled>true</BootstrapperEnabled>
-		  </PropertyGroup>
-		  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-		    <DebugSymbols>true</DebugSymbols>
-		    <DebugType>full</DebugType>
-		    <Optimize>false</Optimize>
-		    <OutputPath>bin\Debug\</OutputPath>
-		    <DefineConstants>DEBUG;TRACE</DefineConstants>
-		    <ErrorReport>prompt</ErrorReport>
-		    <WarningLevel>4</WarningLevel>
-		  </PropertyGroup>
-		  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-		    <DebugType>pdbonly</DebugType>
-		    <Optimize>true</Optimize>
-		    <OutputPath>bin\Release\</OutputPath>
-		    <DefineConstants>TRACE</DefineConstants>
-		    <ErrorReport>prompt</ErrorReport>
-		    <WarningLevel>4</WarningLevel>
-		  </PropertyGroup>
-		<ItemGroup>
-		    <Reference Include="Castle.DynamicProxy2, Version=2.1.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
-		      <SpecificVersion>False</SpecificVersion>
-		      <HintPath>..\YoureOnGenNHibernate\AppLib\Castle.DynamicProxy2.dll</HintPath>
-		    </Reference>
-		    <Reference Include="LinFu.DynamicProxy, Version=1.0.3.14911, Culture=neutral, PublicKeyToken=62a6874124340d6e, processorArchitecture=MSIL">
-		      <SpecificVersion>False</SpecificVersion>
-		      <HintPath>..\YoureOnGenNHibernate\AppLib\LinFu.DynamicProxy.dll</HintPath>
-		    </Reference>
-		    <Reference Include="NHibernate, Version=2.1.2.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
-		      <SpecificVersion>False</SpecificVersion>
-		      <HintPath>..\YoureOnGenNHibernate\AppLib\NHibernate.dll</HintPath>
-		    </Reference>
-		    <Reference Include="NHibernate.ByteCode.Castle, Version=2.1.2.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
-		      <SpecificVersion>False</SpecificVersion>
-		      <HintPath>..\YoureOnGenNHibernate\AppLib\NHibernate.ByteCode.Castle.dll</HintPath>
-		    </Reference>
-		    <Reference Include="NHibernate.ByteCode.LinFu, Version=2.1.2.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
-		      <SpecificVersion>False</SpecificVersion>
-		      <HintPath>..\YoureOnGenNHibernate\AppLib\NHibernate.ByteCode.LinFu.dll</HintPath>
-		    </Reference>
-		    <Reference Include="System" />
-		    <Reference Include="System.Core">
-		      <RequiredTargetFramework>4.0</RequiredTargetFramework>
-		    </Reference>
-		    <Reference Include="System.Data.SqlServerCe, Version=3.5.1.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
-		    <Reference Include="System.Transactions" />
-		    <Reference Include="System.Xml.Linq">
-		      <RequiredTargetFramework>4.0</RequiredTargetFramework>
-		    </Reference>
-		    <Reference Include="System.Data.DataSetExtensions">
-		      <RequiredTargetFramework>4.0</RequiredTargetFramework>
-		    </Reference>
-		    <Reference Include="System.Data" />
-		    <Reference Include="System.Xml" />
-		</ItemGroup>
-		
-		<ItemGroup>
-		    <Content Include="..\YoureOnGenNHibernate\AppLib\Antlr3.Runtime.dll" />
-		    <Content Include="..\YoureOnGenNHibernate\AppLib\Castle.DynamicProxy2.dll" />
-		    <Content Include="..\YoureOnGenNHibernate\AppLib\Iesi.Collections.dll" />
-		    <Content Include="..\YoureOnGenNHibernate\AppLib\LinFu.DynamicProxy.dll" />
-		    <Content Include="..\YoureOnGenNHibernate\AppLib\log4net.dll" />
-		    <Content Include="..\YoureOnGenNHibernate\AppLib\NHibernate.ByteCode.Castle.dll" />
-		    <Content Include="..\YoureOnGenNHibernate\AppLib\NHibernate.ByteCode.LinFu.dll" />
-		    <Content Include="..\YoureOnGenNHibernate\AppLib\NHibernate.dll" />
-		    <Content Include="..\YoureOnGenNHibernate\AppLib\nunit.core.dll" />
-		    <Content Include="..\YoureOnGenNHibernate\AppLib\nunit.framework.dll" />
-  		</ItemGroup>
-  		
-		<ItemGroup>
-			<Compile Include="NHibernateHelper.cs" />
-		    <Compile Include="Utils\Util.cs" />
-		    <Compile Include="Exceptions\ModelException.cs"/>
-		    <Compile Include="Exceptions\DataLayerException.cs"/>
-		    
-	<Compile Include="CAD\BasicCAD.cs"/>
-	<Compile Include="CP\BasicCP.cs"/>
-	<Compile Include="EN\YoureOn\UsuarioEN.cs" />
-	<Compile Include="CEN\YoureOn\UsuarioCEN.cs" />
-	<Compile Include="CAD\YoureOn\IUsuarioCAD.cs" />
-	<Compile Include="CAD\YoureOn\UsuarioCAD.cs" />
-	<Compile Include="CP\YoureOn\UsuarioCP.cs" />
-			
-			
-			
-			<Compile Include="CEN\YoureOn\UsuarioCEN_Login.cs" />
-			
-			<Compile Include="CEN\YoureOn\UsuarioCEN_GetPuntuacion.cs" />
-			
-			<Compile Include="CEN\YoureOn\UsuarioCEN_Comentar.cs" />
-			
-			<Compile Include="CEN\YoureOn\UsuarioCEN_Logout.cs" />
-			
-			<Compile Include="CEN\YoureOn\UsuarioCEN_RecuperarPassword.cs" />
-			
-			<Compile Include="CEN\YoureOn\UsuarioCEN_CargarPerfil.cs" />
-			
-	<Compile Include="EN\YoureOn\ContenidoEN.cs" />
-	<Compile Include="CEN\YoureOn\ContenidoCEN.cs" />
-	<Compile Include="CAD\YoureOn\IContenidoCAD.cs" />
-	<Compile Include="CAD\YoureOn\ContenidoCAD.cs" />
-	<Compile Include="CP\YoureOn\ContenidoCP.cs" />
-			
-			
-			
-			<Compile Include="CEN\YoureOn\ContenidoCEN_Votar.cs" />
-			
-			<Compile Include="CEN\YoureOn\ContenidoCEN_CargarContenido.cs" />
-			
-			
-	<Compile Include="EN\YoureOn\ComentarioEN.cs" />
-	<Compile Include="CEN\YoureOn\ComentarioCEN.cs" />
-	<Compile Include="CAD\YoureOn\IComentarioCAD.cs" />
-	<Compile Include="CAD\YoureOn\ComentarioCAD.cs" />
-	<Compile Include="CP\YoureOn\ComentarioCP.cs" />
-			
-			
-			
-	<Compile Include="EN\YoureOn\TextoEN.cs" />
-	<Compile Include="CEN\YoureOn\TextoCEN.cs" />
-	<Compile Include="CAD\YoureOn\ITextoCAD.cs" />
-	<Compile Include="CAD\YoureOn\TextoCAD.cs" />
-	<Compile Include="CP\YoureOn\TextoCP.cs" />
-			
-			
-			
-	<Compile Include="EN\YoureOn\ImagenEN.cs" />
-	<Compile Include="CEN\YoureOn\ImagenCEN.cs" />
-	<Compile Include="CAD\YoureOn\IImagenCAD.cs" />
-	<Compile Include="CAD\YoureOn\ImagenCAD.cs" />
-	<Compile Include="CP\YoureOn\ImagenCP.cs" />
-			
-			
-			
-	<Compile Include="EN\YoureOn\VideoEN.cs" />
-	<Compile Include="CEN\YoureOn\VideoCEN.cs" />
-	<Compile Include="CAD\YoureOn\IVideoCAD.cs" />
-	<Compile Include="CAD\YoureOn\VideoCAD.cs" />
-	<Compile Include="CP\YoureOn\VideoCP.cs" />
-			
-			
-			
-	<Compile Include="EN\YoureOn\AudioEN.cs" />
-	<Compile Include="CEN\YoureOn\AudioCEN.cs" />
-	<Compile Include="CAD\YoureOn\IAudioCAD.cs" />
-	<Compile Include="CAD\YoureOn\AudioCAD.cs" />
-	<Compile Include="CP\YoureOn\AudioCP.cs" />
-			
-			
-			
-	<Compile Include="EN\YoureOn\BibliotecaEN.cs" />
-	<Compile Include="CEN\YoureOn\BibliotecaCEN.cs" />
-	<Compile Include="CAD\YoureOn\IBibliotecaCAD.cs" />
-	<Compile Include="CAD\YoureOn\BibliotecaCAD.cs" />
-	<Compile Include="CP\YoureOn\BibliotecaCP.cs" />
-			
-			
-			
-			<Compile Include="CEN\YoureOn\BibliotecaCEN_Anyadir_a_biblioteca.cs" />
-			
-			<Compile Include="CEN\YoureOn\BibliotecaCEN_CargarBiblioteca.cs" />
-			
-			<Compile Include="CEN\YoureOn\BibliotecaCEN_OrdenarBiblioteca.cs" />
-			
-	<Compile Include="EN\YoureOn\ValoracionEN.cs" />
-	<Compile Include="CEN\YoureOn\ValoracionCEN.cs" />
-	<Compile Include="CAD\YoureOn\IValoracionCAD.cs" />
-	<Compile Include="CAD\YoureOn\ValoracionCAD.cs" />
-	<Compile Include="CP\YoureOn\ValoracionCP.cs" />
-			
-			
-			
-	<Compile Include="EN\YoureOn\FaltaEN.cs" />
-	<Compile Include="CEN\YoureOn\FaltaCEN.cs" />
-	<Compile Include="CAD\YoureOn\IFaltaCAD.cs" />
-	<Compile Include="CAD\YoureOn\FaltaCAD.cs" />
-	<Compile Include="CP\YoureOn\FaltaCP.cs" />
-			
-			
-			
-	<Compile Include="EN\YoureOn\ValoracionContenidoEN.cs" />
-	<Compile Include="CEN\YoureOn\ValoracionContenidoCEN.cs" />
-	<Compile Include="CAD\YoureOn\IValoracionContenidoCAD.cs" />
-	<Compile Include="CAD\YoureOn\ValoracionContenidoCAD.cs" />
-	<Compile Include="CP\YoureOn\ValoracionContenidoCP.cs" />
-			
-			
-			
-	<Compile Include="EN\YoureOn\ValoracionComentarioEN.cs" />
-	<Compile Include="CEN\YoureOn\ValoracionComentarioCEN.cs" />
-	<Compile Include="CAD\YoureOn\IValoracionComentarioCAD.cs" />
-	<Compile Include="CAD\YoureOn\ValoracionComentarioCAD.cs" />
-	<Compile Include="CP\YoureOn\ValoracionComentarioCP.cs" />
-			
-			
-			
-	<Compile Include="EN\YoureOn\ModeradorEN.cs" />
-	<Compile Include="CEN\YoureOn\ModeradorCEN.cs" />
-	<Compile Include="CAD\YoureOn\IModeradorCAD.cs" />
-	<Compile Include="CAD\YoureOn\ModeradorCAD.cs" />
-	<Compile Include="CP\YoureOn\ModeradorCP.cs" />
-			
-			
-			
-			<Compile Include="CEN\YoureOn\ModeradorCEN_PoneFalta.cs" />
-			
-			<Compile Include="CEN\YoureOn\ModeradorCEN_EnviarNotificacion.cs" />
-			
-	<Compile Include="EN\YoureOn\AdministradorEN.cs" />
-	<Compile Include="CEN\YoureOn\AdministradorCEN.cs" />
-	<Compile Include="CAD\YoureOn\IAdministradorCAD.cs" />
-	<Compile Include="CAD\YoureOn\AdministradorCAD.cs" />
-	<Compile Include="CP\YoureOn\AdministradorCP.cs" />
-			
-			
-			
-			<Compile Include="CEN\YoureOn\AdministradorCEN_VetarUsuario.cs" />
-			
-	<Compile Include="EN\YoureOn\NotificacionesEN.cs" />
-	<Compile Include="CEN\YoureOn\NotificacionesCEN.cs" />
-	<Compile Include="CAD\YoureOn\INotificacionesCAD.cs" />
-	<Compile Include="CAD\YoureOn\NotificacionesCAD.cs" />
-	<Compile Include="CP\YoureOn\NotificacionesCP.cs" />
-			
-			
-			
-	<Compile Include="EN\YoureOn\ReporteEN.cs" />
-	<Compile Include="CEN\YoureOn\ReporteCEN.cs" />
-	<Compile Include="CAD\YoureOn\IReporteCAD.cs" />
-	<Compile Include="CAD\YoureOn\ReporteCAD.cs" />
-	<Compile Include="CP\YoureOn\ReporteCP.cs" />
-			
-			
-			
-	<Compile Include="EN\YoureOn\ReporeteContenidoEN.cs" />
-	<Compile Include="CEN\YoureOn\ReporeteContenidoCEN.cs" />
-	<Compile Include="CAD\YoureOn\IReporeteContenidoCAD.cs" />
-	<Compile Include="CAD\YoureOn\ReporeteContenidoCAD.cs" />
-	<Compile Include="CP\YoureOn\ReporeteContenidoCP.cs" />
-			
-			
-			
-	<Compile Include="EN\YoureOn\ReporteComentarioEN.cs" />
-	<Compile Include="CEN\YoureOn\ReporteComentarioCEN.cs" />
-	<Compile Include="CAD\YoureOn\IReporteComentarioCAD.cs" />
-	<Compile Include="CAD\YoureOn\ReporteComentarioCAD.cs" />
-	<Compile Include="CP\YoureOn\ReporteComentarioCP.cs" />
-			
-			
-			
-	<Compile Include="EN\YoureOn\FooterEN.cs" />
-	<Compile Include="CEN\YoureOn\FooterCEN.cs" />
-	<Compile Include="CAD\YoureOn\IFooterCAD.cs" />
-	<Compile Include="CAD\YoureOn\FooterCAD.cs" />
-	<Compile Include="CP\YoureOn\FooterCP.cs" />
-			
-			
-			
-			<Compile Include="CEN\YoureOn\FooterCEN_CargarFaQ.cs" />
-			
-			<Compile Include="CEN\YoureOn\FooterCEN_CargarCookies.cs" />
-			
-			<Compile Include="CEN\YoureOn\FooterCEN_CargarTerminos.cs" />
-			
-			<Compile Include="CEN\YoureOn\FooterCEN_CargarAyuda.cs" />
-			
-	<Compile Include="EN\YoureOn\IdiomaEN.cs" />
-	<Compile Include="CEN\YoureOn\IdiomaCEN.cs" />
-	<Compile Include="CAD\YoureOn\IIdiomaCAD.cs" />
-	<Compile Include="CAD\YoureOn\IdiomaCAD.cs" />
-	<Compile Include="CP\YoureOn\IdiomaCP.cs" />
-			
-			
-			
-	<Compile Include="Enumerated\YoureOn\TipoArchivoEnum.cs" />
-	<Compile Include="Enumerated\YoureOn\TipoFaltaEnum.cs" />
-	<Compile Include="Enumerated\YoureOn\FormatoAudioEnum.cs" />
-	<Compile Include="Enumerated\YoureOn\FormatoVideoEnum.cs" />
-	<Compile Include="Enumerated\YoureOn\FormatoImagenEnum.cs" />
-	
-	
-
-		    
-	
-
-		    <Compile Include="Properties\AssemblyInfo.cs" />
-		    <Compile Include="Properties\Settings.Designer.cs">
-		      <AutoGen>True</AutoGen>
-		      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-		      <DependentUpon>Settings.settings</DependentUpon>
-		    </Compile>
-		  </ItemGroup>
-		  <ItemGroup>
-		  
-	<EmbeddedResource Include="Mappings\YoureOn\usuario.hbm.xml" />
-	<EmbeddedResource Include="Mappings\YoureOn\contenido.hbm.xml" />
-	<EmbeddedResource Include="Mappings\YoureOn\comentario.hbm.xml" />
-	<EmbeddedResource Include="Mappings\YoureOn\texto.hbm.xml" />
-	<EmbeddedResource Include="Mappings\YoureOn\imagen.hbm.xml" />
-	<EmbeddedResource Include="Mappings\YoureOn\video.hbm.xml" />
-	<EmbeddedResource Include="Mappings\YoureOn\audio.hbm.xml" />
-	<EmbeddedResource Include="Mappings\YoureOn\biblioteca.hbm.xml" />
-	<EmbeddedResource Include="Mappings\YoureOn\valoracion.hbm.xml" />
-	<EmbeddedResource Include="Mappings\YoureOn\falta.hbm.xml" />
-	<EmbeddedResource Include="Mappings\YoureOn\valoracioncontenido.hbm.xml" />
-	<EmbeddedResource Include="Mappings\YoureOn\valoracioncomentario.hbm.xml" />
-	<EmbeddedResource Include="Mappings\YoureOn\moderador.hbm.xml" />
-	<EmbeddedResource Include="Mappings\YoureOn\administrador.hbm.xml" />
-	<EmbeddedResource Include="Mappings\YoureOn\notificaciones.hbm.xml" />
-	<EmbeddedResource Include="Mappings\YoureOn\reporte.hbm.xml" />
-	<EmbeddedResource Include="Mappings\YoureOn\reporetecontenido.hbm.xml" />
-	<EmbeddedResource Include="Mappings\YoureOn\reportecomentario.hbm.xml" />
-	<EmbeddedResource Include="Mappings\YoureOn\footer.hbm.xml" />
-	<EmbeddedResource Include="Mappings\YoureOn\idioma.hbm.xml" />
-	
-	
-
-		  </ItemGroup>
-		  <ItemGroup>
-		    <Content Include="hibernate.cfg.xml">
-		      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		    </Content>
-		  </ItemGroup>
-		  <ItemGroup>
-		    <None Include="app.config" />
-		    <None Include="Properties\Settings.settings">
-		      <Generator>SettingsSingleFileGenerator</Generator>
-		      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-		    </None>
-		        <None Include="Resources\xsd\nhibernate-configuration.xsd">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{66C66636-FD6A-4A3F-A7C5-FE88BBA117AF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>YoureOnGenNHibernate</RootNamespace>
+    <AssemblyName>YoureOnGenNHibernate</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.DynamicProxy2, Version=2.1.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\YoureOnGenNHibernate\AppLib\Castle.DynamicProxy2.dll</HintPath>
+    </Reference>
+    <Reference Include="LinFu.DynamicProxy, Version=1.0.3.14911, Culture=neutral, PublicKeyToken=62a6874124340d6e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\YoureOnGenNHibernate\AppLib\LinFu.DynamicProxy.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=2.1.2.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\YoureOnGenNHibernate\AppLib\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.ByteCode.Castle, Version=2.1.2.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\YoureOnGenNHibernate\AppLib\NHibernate.ByteCode.Castle.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.ByteCode.LinFu, Version=2.1.2.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\YoureOnGenNHibernate\AppLib\NHibernate.ByteCode.LinFu.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.SqlServerCe, Version=3.5.1.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\YoureOnGenNHibernate\AppLib\Antlr3.Runtime.dll" />
+    <Content Include="..\YoureOnGenNHibernate\AppLib\Castle.DynamicProxy2.dll" />
+    <Content Include="..\YoureOnGenNHibernate\AppLib\Iesi.Collections.dll" />
+    <Content Include="..\YoureOnGenNHibernate\AppLib\LinFu.DynamicProxy.dll" />
+    <Content Include="..\YoureOnGenNHibernate\AppLib\log4net.dll" />
+    <Content Include="..\YoureOnGenNHibernate\AppLib\NHibernate.ByteCode.Castle.dll" />
+    <Content Include="..\YoureOnGenNHibernate\AppLib\NHibernate.ByteCode.LinFu.dll" />
+    <Content Include="..\YoureOnGenNHibernate\AppLib\NHibernate.dll" />
+    <Content Include="..\YoureOnGenNHibernate\AppLib\nunit.core.dll" />
+    <Content Include="..\YoureOnGenNHibernate\AppLib\nunit.framework.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="NHibernateHelper.cs" />
+    <Compile Include="Utils\Util.cs" />
+    <Compile Include="Exceptions\ModelException.cs" />
+    <Compile Include="Exceptions\DataLayerException.cs" />
+    <Compile Include="CAD\BasicCAD.cs" />
+    <Compile Include="CP\BasicCP.cs" />
+    <Compile Include="EN\YoureOn\UsuarioEN.cs" />
+    <Compile Include="CEN\YoureOn\UsuarioCEN.cs" />
+    <Compile Include="CAD\YoureOn\IUsuarioCAD.cs" />
+    <Compile Include="CAD\YoureOn\UsuarioCAD.cs" />
+    <Compile Include="CP\YoureOn\UsuarioCP.cs" />
+    <Compile Include="CEN\YoureOn\UsuarioCEN_Login.cs" />
+    <Compile Include="CP\YoureOn\UsuarioCP_GetPuntuacion.cs" />
+    <Compile Include="CEN\YoureOn\UsuarioCEN_Comentar.cs" />
+    <Compile Include="CEN\YoureOn\UsuarioCEN_RecuperarPassword.cs" />
+    <Compile Include="CEN\YoureOn\UsuarioCEN_CargarPerfil.cs" />
+    <Compile Include="EN\YoureOn\ContenidoEN.cs" />
+    <Compile Include="CEN\YoureOn\ContenidoCEN.cs" />
+    <Compile Include="CAD\YoureOn\IContenidoCAD.cs" />
+    <Compile Include="CAD\YoureOn\ContenidoCAD.cs" />
+    <Compile Include="CP\YoureOn\ContenidoCP.cs" />
+    <Compile Include="CEN\YoureOn\ContenidoCEN_Votar.cs" />
+    <Compile Include="CEN\YoureOn\ContenidoCEN_CargarContenido.cs" />
+    <Compile Include="EN\YoureOn\ComentarioEN.cs" />
+    <Compile Include="CEN\YoureOn\ComentarioCEN.cs" />
+    <Compile Include="CAD\YoureOn\IComentarioCAD.cs" />
+    <Compile Include="CAD\YoureOn\ComentarioCAD.cs" />
+    <Compile Include="CP\YoureOn\ComentarioCP.cs" />
+    <Compile Include="EN\YoureOn\TextoEN.cs" />
+    <Compile Include="CEN\YoureOn\TextoCEN.cs" />
+    <Compile Include="CAD\YoureOn\ITextoCAD.cs" />
+    <Compile Include="CAD\YoureOn\TextoCAD.cs" />
+    <Compile Include="CP\YoureOn\TextoCP.cs" />
+    <Compile Include="EN\YoureOn\ImagenEN.cs" />
+    <Compile Include="CEN\YoureOn\ImagenCEN.cs" />
+    <Compile Include="CAD\YoureOn\IImagenCAD.cs" />
+    <Compile Include="CAD\YoureOn\ImagenCAD.cs" />
+    <Compile Include="CP\YoureOn\ImagenCP.cs" />
+    <Compile Include="EN\YoureOn\VideoEN.cs" />
+    <Compile Include="CEN\YoureOn\VideoCEN.cs" />
+    <Compile Include="CAD\YoureOn\IVideoCAD.cs" />
+    <Compile Include="CAD\YoureOn\VideoCAD.cs" />
+    <Compile Include="CP\YoureOn\VideoCP.cs" />
+    <Compile Include="EN\YoureOn\AudioEN.cs" />
+    <Compile Include="CEN\YoureOn\AudioCEN.cs" />
+    <Compile Include="CAD\YoureOn\IAudioCAD.cs" />
+    <Compile Include="CAD\YoureOn\AudioCAD.cs" />
+    <Compile Include="CP\YoureOn\AudioCP.cs" />
+    <Compile Include="EN\YoureOn\BibliotecaEN.cs" />
+    <Compile Include="CEN\YoureOn\BibliotecaCEN.cs" />
+    <Compile Include="CAD\YoureOn\IBibliotecaCAD.cs" />
+    <Compile Include="CAD\YoureOn\BibliotecaCAD.cs" />
+    <Compile Include="CP\YoureOn\BibliotecaCP.cs" />
+    <Compile Include="CEN\YoureOn\BibliotecaCEN_Anyadir_a_biblioteca.cs" />
+    <Compile Include="CEN\YoureOn\BibliotecaCEN_CargarBiblioteca.cs" />
+    <Compile Include="CEN\YoureOn\BibliotecaCEN_OrdenarBiblioteca.cs" />
+    <Compile Include="EN\YoureOn\ValoracionEN.cs" />
+    <Compile Include="CEN\YoureOn\ValoracionCEN.cs" />
+    <Compile Include="CAD\YoureOn\IValoracionCAD.cs" />
+    <Compile Include="CAD\YoureOn\ValoracionCAD.cs" />
+    <Compile Include="CP\YoureOn\ValoracionCP.cs" />
+    <Compile Include="EN\YoureOn\FaltaEN.cs" />
+    <Compile Include="CEN\YoureOn\FaltaCEN.cs" />
+    <Compile Include="CAD\YoureOn\IFaltaCAD.cs" />
+    <Compile Include="CAD\YoureOn\FaltaCAD.cs" />
+    <Compile Include="CP\YoureOn\FaltaCP.cs" />
+    <Compile Include="EN\YoureOn\ValoracionContenidoEN.cs" />
+    <Compile Include="CEN\YoureOn\ValoracionContenidoCEN.cs" />
+    <Compile Include="CAD\YoureOn\IValoracionContenidoCAD.cs" />
+    <Compile Include="CAD\YoureOn\ValoracionContenidoCAD.cs" />
+    <Compile Include="CP\YoureOn\ValoracionContenidoCP.cs" />
+    <Compile Include="EN\YoureOn\ValoracionComentarioEN.cs" />
+    <Compile Include="CEN\YoureOn\ValoracionComentarioCEN.cs" />
+    <Compile Include="CAD\YoureOn\IValoracionComentarioCAD.cs" />
+    <Compile Include="CAD\YoureOn\ValoracionComentarioCAD.cs" />
+    <Compile Include="CP\YoureOn\ValoracionComentarioCP.cs" />
+    <Compile Include="EN\YoureOn\ModeradorEN.cs" />
+    <Compile Include="CEN\YoureOn\ModeradorCEN.cs" />
+    <Compile Include="CAD\YoureOn\IModeradorCAD.cs" />
+    <Compile Include="CAD\YoureOn\ModeradorCAD.cs" />
+    <Compile Include="CP\YoureOn\ModeradorCP.cs" />
+    <Compile Include="CEN\YoureOn\ModeradorCEN_PoneFalta.cs" />
+    <Compile Include="CEN\YoureOn\ModeradorCEN_EnviarNotificacion.cs" />
+    <Compile Include="EN\YoureOn\AdministradorEN.cs" />
+    <Compile Include="CEN\YoureOn\AdministradorCEN.cs" />
+    <Compile Include="CAD\YoureOn\IAdministradorCAD.cs" />
+    <Compile Include="CAD\YoureOn\AdministradorCAD.cs" />
+    <Compile Include="CP\YoureOn\AdministradorCP.cs" />
+    <Compile Include="CEN\YoureOn\AdministradorCEN_VetarUsuario.cs" />
+    <Compile Include="EN\YoureOn\NotificacionesEN.cs" />
+    <Compile Include="CEN\YoureOn\NotificacionesCEN.cs" />
+    <Compile Include="CAD\YoureOn\INotificacionesCAD.cs" />
+    <Compile Include="CAD\YoureOn\NotificacionesCAD.cs" />
+    <Compile Include="CP\YoureOn\NotificacionesCP.cs" />
+    <Compile Include="EN\YoureOn\ReporteEN.cs" />
+    <Compile Include="CEN\YoureOn\ReporteCEN.cs" />
+    <Compile Include="CAD\YoureOn\IReporteCAD.cs" />
+    <Compile Include="CAD\YoureOn\ReporteCAD.cs" />
+    <Compile Include="CP\YoureOn\ReporteCP.cs" />
+    <Compile Include="EN\YoureOn\ReporeteContenidoEN.cs" />
+    <Compile Include="CEN\YoureOn\ReporeteContenidoCEN.cs" />
+    <Compile Include="CAD\YoureOn\IReporeteContenidoCAD.cs" />
+    <Compile Include="CAD\YoureOn\ReporeteContenidoCAD.cs" />
+    <Compile Include="CP\YoureOn\ReporeteContenidoCP.cs" />
+    <Compile Include="EN\YoureOn\ReporteComentarioEN.cs" />
+    <Compile Include="CEN\YoureOn\ReporteComentarioCEN.cs" />
+    <Compile Include="CAD\YoureOn\IReporteComentarioCAD.cs" />
+    <Compile Include="CAD\YoureOn\ReporteComentarioCAD.cs" />
+    <Compile Include="CP\YoureOn\ReporteComentarioCP.cs" />
+    <Compile Include="EN\YoureOn\FooterEN.cs" />
+    <Compile Include="CEN\YoureOn\FooterCEN.cs" />
+    <Compile Include="CAD\YoureOn\IFooterCAD.cs" />
+    <Compile Include="CAD\YoureOn\FooterCAD.cs" />
+    <Compile Include="CP\YoureOn\FooterCP.cs" />
+    <Compile Include="CEN\YoureOn\FooterCEN_CargarFaQ.cs" />
+    <Compile Include="CEN\YoureOn\FooterCEN_CargarCookies.cs" />
+    <Compile Include="CEN\YoureOn\FooterCEN_CargarTerminos.cs" />
+    <Compile Include="CEN\YoureOn\FooterCEN_CargarAyuda.cs" />
+    <Compile Include="EN\YoureOn\IdiomaEN.cs" />
+    <Compile Include="CEN\YoureOn\IdiomaCEN.cs" />
+    <Compile Include="CAD\YoureOn\IIdiomaCAD.cs" />
+    <Compile Include="CAD\YoureOn\IdiomaCAD.cs" />
+    <Compile Include="CP\YoureOn\IdiomaCP.cs" />
+    <Compile Include="Enumerated\YoureOn\TipoArchivoEnum.cs" />
+    <Compile Include="Enumerated\YoureOn\TipoFaltaEnum.cs" />
+    <Compile Include="Enumerated\YoureOn\FormatoAudioEnum.cs" />
+    <Compile Include="Enumerated\YoureOn\FormatoVideoEnum.cs" />
+    <Compile Include="Enumerated\YoureOn\FormatoImagenEnum.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\YoureOn\usuario.hbm.xml" />
+    <EmbeddedResource Include="Mappings\YoureOn\contenido.hbm.xml" />
+    <EmbeddedResource Include="Mappings\YoureOn\comentario.hbm.xml" />
+    <EmbeddedResource Include="Mappings\YoureOn\texto.hbm.xml" />
+    <EmbeddedResource Include="Mappings\YoureOn\imagen.hbm.xml" />
+    <EmbeddedResource Include="Mappings\YoureOn\video.hbm.xml" />
+    <EmbeddedResource Include="Mappings\YoureOn\audio.hbm.xml" />
+    <EmbeddedResource Include="Mappings\YoureOn\biblioteca.hbm.xml" />
+    <EmbeddedResource Include="Mappings\YoureOn\valoracion.hbm.xml" />
+    <EmbeddedResource Include="Mappings\YoureOn\falta.hbm.xml" />
+    <EmbeddedResource Include="Mappings\YoureOn\valoracioncontenido.hbm.xml" />
+    <EmbeddedResource Include="Mappings\YoureOn\valoracioncomentario.hbm.xml" />
+    <EmbeddedResource Include="Mappings\YoureOn\moderador.hbm.xml" />
+    <EmbeddedResource Include="Mappings\YoureOn\administrador.hbm.xml" />
+    <EmbeddedResource Include="Mappings\YoureOn\notificaciones.hbm.xml" />
+    <EmbeddedResource Include="Mappings\YoureOn\reporte.hbm.xml" />
+    <EmbeddedResource Include="Mappings\YoureOn\reporetecontenido.hbm.xml" />
+    <EmbeddedResource Include="Mappings\YoureOn\reportecomentario.hbm.xml" />
+    <EmbeddedResource Include="Mappings\YoureOn\footer.hbm.xml" />
+    <EmbeddedResource Include="Mappings\YoureOn\idioma.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="hibernate.cfg.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Resources\xsd\nhibernate-configuration.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Resources\xsd\nhibernate-mapping.xsd">
       <SubType>Designer</SubType>
     </None>
-		  </ItemGroup>
-	 	
-		
-	
-		  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-		  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
 		       Other similar extension points exist, see Microsoft.Common.targets.
 		  <Target Name="BeforeBuild">
 		  </Target>
 		  <Target Name="AfterBuild">
 		  </Target>
 		  -->
-		</Project>
+</Project>

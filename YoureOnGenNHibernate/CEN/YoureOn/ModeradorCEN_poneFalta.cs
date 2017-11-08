@@ -24,14 +24,12 @@ public void PoneFalta (string p_oid, YoureOnGenNHibernate.Enumerated.YoureOn.Tip
         /*PROTECTED REGION ID(YoureOnGenNHibernate.CEN.YoureOn_Moderador_poneFalta) ENABLED START*/
 
         // Write here your custom code...
-        Boolean creaFalta = false;
-            if (p_oid != null) ;
-           /* {
-                if(p_oid!FaltaCAD.Equals)
-            }*/
-        FaltaEN faltaUsuario = new FaltaEN (p_oid, tipoFalta, usuario, fechaFalta, moderadorFalta);
+        //Boolean creaFalta = false;
+       //     if (p_oid != null)
 
-        //throw new NotImplementedException ("Method PoneFalta() not yet implemented.");
+       // FaltaEN faltaUsuario = new FaltaEN (p_oid, tipoFalta, usuario, fechaFalta, moderadorFalta);
+
+        throw new NotImplementedException ("Method PoneFalta() not yet implemented.");
 
         /*PROTECTED REGION END*/
 }
