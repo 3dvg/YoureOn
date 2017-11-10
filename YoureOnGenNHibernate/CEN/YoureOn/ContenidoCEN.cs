@@ -93,7 +93,14 @@ public void Borrar (string titulo
 {
         _IContenidoCAD.Borrar (titulo);
 }
-
+public void Votar(int nota){
+     ContenidoEN contenidoEN = null;
+   // if(voto >= 0 && voto <= 5){
+        contenidoEN.PuntuacionIndividual = (contenidoEN.PuntuacionIndividual + nota);
+        contenidoEN.NumeroDeVotos = contenidoEN.NumeroDeVotos + 1;
+        contenidoEN.PuntuacionFinal = contenidoEN.PuntuacionIndividual / contenidoEN.NumeroDeVotos;
+   // }
+}
 public System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ContenidoEN> DameContenidoPorTitulo (string c_titulo)
 {
         return _IContenidoCAD.DameContenidoPorTitulo (c_titulo);
