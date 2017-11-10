@@ -65,6 +65,12 @@ public string SubirContenido (string p_titulo, YoureOnGenNHibernate.Enumerated.Y
 
         contenidoEN.EnBiblioteca = p_enBiblioteca;
 
+        //edits
+            contenidoEN.NumeroDeVotos = 0;
+            contenidoEN.PuntuacionFinal = 0;
+            contenidoEN.PuntuacionIndividual = 0;
+        
+
         //Call to ContenidoCAD
 
         oid = _IContenidoCAD.SubirContenido (contenidoEN);
@@ -83,6 +89,7 @@ public void Editar (string p_Contenido_OID, YoureOnGenNHibernate.Enumerated.Your
         contenidoEN.Licencia = p_licencia;
         contenidoEN.Autor = p_autor;
         contenidoEN.EnBiblioteca = p_enBiblioteca;
+        
         //Call to ContenidoCAD
 
         _IContenidoCAD.Editar (contenidoEN);
