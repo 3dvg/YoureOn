@@ -20,16 +20,17 @@ public partial class UsuarioCEN
 {
 public float GetPuntuacion (string p_oid)
 {
-        /*PROTECTED REGION ID(YoureOnGenNHibernate.CEN.YoureOn_Usuario_getPuntuacion) ENABLED START*/
+            /*PROTECTED REGION ID(YoureOnGenNHibernate.CEN.YoureOn_Usuario_getPuntuacion) ENABLED START*/
 
-        UsuarioEN usuarioEN = null;
+            /*UsuarioEN usuarioEN = null;
 
-        //Initialized UsuarioEN
-        usuarioEN = new UsuarioEN();
-        usuarioEN.Email = p_oid;
-        //Call to UsuarioCAD
+            //Initialized UsuarioEN
+            usuarioEN = new UsuarioEN();
+            usuarioEN.Email = p_oid;
+            //Call to UsuarioCAD
 
-        return _IUsuarioCAD.GetPuntuacion(usuarioEN);
+            return _IUsuarioCAD.GetPuntuacion(usuarioEN);*/
+            return 0;
         
         /*PROTECTED REGION END*/
 }

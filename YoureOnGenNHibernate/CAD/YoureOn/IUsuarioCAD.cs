@@ -20,6 +20,5 @@ void EditarPerfil (UsuarioEN usuario);
 
 void Destroy (string email
               );
-        float GetPuntuacion(UsuarioEN usuarioEN);
     }
 }
