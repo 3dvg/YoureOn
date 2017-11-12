@@ -102,14 +102,14 @@ public virtual string Titulo {
         get { return titulo; } set { titulo = value;  }
 }
 
-public virtual string PuntuacionFinal {
+public virtual int PuntuacionFinal {
         get { return puntuacionFinal; } set { puntuacionFinal = value;  }
         }
 
-public virtual string PuntuacionIndividual {
+public virtual int PuntuacionIndividual {
         get { return puntuacionIndividual; } set { puntuacionIndividual = value;  }
         }
-public virtual string NumeroDeVotos {
+public virtual int NumeroDeVotos {
             get { return numeroDeVotos; } set { numeroDeVotos = value;  }
         }
 
