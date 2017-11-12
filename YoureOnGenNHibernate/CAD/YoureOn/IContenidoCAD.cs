@@ -24,6 +24,6 @@ void Borrar (string titulo
 
 
 
-System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ContenidoEN> DameContenidoPorTitulo (string arg0);
+System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ContenidoEN> DameContenidoPorTitulo (string c_titulo);
 }
 }

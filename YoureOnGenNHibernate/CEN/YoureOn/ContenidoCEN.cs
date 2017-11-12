@@ -94,9 +94,9 @@ public void Borrar (string titulo
         _IContenidoCAD.Borrar (titulo);
 }
 
-public System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ContenidoEN> DameContenidoPorTitulo (string arg0)
+public System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ContenidoEN> DameContenidoPorTitulo (string c_titulo)
 {
-        return _IContenidoCAD.DameContenidoPorTitulo (arg0);
+        return _IContenidoCAD.DameContenidoPorTitulo (c_titulo);
 }
 }
 }

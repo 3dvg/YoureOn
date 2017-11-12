@@ -113,7 +113,7 @@
 			
 			<Compile Include="CEN\YoureOn\UsuarioCEN_Login.cs" />
 			
-			<Compile Include="CEN\YoureOn\UsuarioCEN_GetPuntuacion.cs" />
+			<Compile Include="CP\YoureOn\UsuarioCP_GetPuntuacion.cs" />
 			
 			<Compile Include="CEN\YoureOn\UsuarioCEN_Comentar.cs" />
 			
