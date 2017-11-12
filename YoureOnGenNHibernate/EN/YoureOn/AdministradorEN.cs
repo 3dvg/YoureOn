@@ -35,20 +35,20 @@ public AdministradorEN(string email, string permisoAdministrador
                        , string permisoModerador, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.FaltaEN> pone_falta, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.NotificacionesEN> notificacion_enviada
                        , string nombre, string apellidos, Nullable<DateTime> fechaNac, string nIF, string foto, String contrasenya, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ContenidoEN> contenido, YoureOnGenNHibernate.EN.YoureOn.BibliotecaEN biblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ComentarioEN> comentario, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.FaltaEN> falta, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.NotificacionesEN> notificaciones, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ReporteEN> reporte
                        )
-{
-        this.init (Email, permisoAdministrador, permisoModerador, pone_falta, notificacion_enviada, nombre, apellidos, fechaNac, nIF, foto, contrasenya, contenido, biblioteca, comentario, falta, notificaciones, reporte);
-}
+        {
+            this.init (Email, permisoAdministrador, permisoModerador, pone_falta, notificacion_enviada, nombre, apellidos, fechaNac, nIF, foto, contrasenya, contenido, biblioteca, comentario, falta, notificaciones, reporte);
+        }
 
 
-public AdministradorEN(AdministradorEN administrador)
-{
-        this.init (Email, administrador.PermisoAdministrador, administrador.PermisoModerador, administrador.Pone_falta, administrador.Notificacion_enviada, administrador.Nombre, administrador.Apellidos, administrador.FechaNac, administrador.NIF, administrador.Foto, administrador.Contrasenya, administrador.Contenido, administrador.Biblioteca, administrador.Comentario, administrador.Falta, administrador.Notificaciones, administrador.Reporte);
-}
+        public AdministradorEN(AdministradorEN administrador)
+        {
+            this.init (Email, administrador.PermisoAdministrador, administrador.PermisoModerador, administrador.Pone_falta, administrador.Notificacion_enviada, administrador.Nombre, administrador.Apellidos, administrador.FechaNac, administrador.NIF, administrador.Foto, administrador.Contrasenya, administrador.Contenido, administrador.Biblioteca, administrador.Comentario, administrador.Falta, administrador.Notificaciones, administrador.Reporte);
+        }
 
-private void init (string email
-                   , string permisoAdministrador, string permisoModerador, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.FaltaEN> pone_falta, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.NotificacionesEN> notificacion_enviada, string nombre, string apellidos, Nullable<DateTime> fechaNac, string nIF, string foto, String contrasenya, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ContenidoEN> contenido, YoureOnGenNHibernate.EN.YoureOn.BibliotecaEN biblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ComentarioEN> comentario, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.FaltaEN> falta, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.NotificacionesEN> notificaciones, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ReporteEN> reporte)
-{
-        this.Email = email;
+        private void init (string email
+                           , string permisoAdministrador, string permisoModerador, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.FaltaEN> pone_falta, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.NotificacionesEN> notificacion_enviada, string nombre, string apellidos, Nullable<DateTime> fechaNac, string nIF, string foto, String contrasenya, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ContenidoEN> contenido, YoureOnGenNHibernate.EN.YoureOn.BibliotecaEN biblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ComentarioEN> comentario, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.FaltaEN> falta, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.NotificacionesEN> notificaciones, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ReporteEN> reporte)
+        {
+            this.Email = email;
 
 
         this.PermisoAdministrador = permisoAdministrador;

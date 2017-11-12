@@ -83,16 +83,7 @@ public static void InitializeData ()
                 // p.e. CustomerCEN customer = new CustomerCEN();
                 // customer.New_ (p_user:"user", p_password:"1234");
 
-                UsuarioCEN usuario1 = new UsuarioCEN ();
-                string email = usuario1.CrearUsuario ("deb8192@gmail.com", "Debora", "Galdeano Gonzalez", new DateTime (1992, 1, 8), "53244933w", "foto", "contrasenya");
 
-                ContenidoCEN contenido1 = new ContenidoCEN();
-                string contenidoID = contenido1.SubirContenido("micontenido", YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum.video, "es un contenido", "licencia", email, "autor", false); 
-
-                ComentarioCEN comentario1 = new ComentarioCEN();
-                comentario1.New_("com0000", "Ola q ase", new DateTime(2017, 1, 8), email, contenidoID);
-
-                
 
                 /*PROTECTED REGION END*/
         }

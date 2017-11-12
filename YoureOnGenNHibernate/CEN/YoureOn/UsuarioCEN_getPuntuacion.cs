@@ -16,10 +16,10 @@ using YoureOnGenNHibernate.CAD.YoureOn;
 
 namespace YoureOnGenNHibernate.CEN.YoureOn
 {
-public partial class UsuarioCEN
-{
-public float GetPuntuacion (string p_oid)
-{
+    public partial class UsuarioCEN
+    {
+        public float GetPuntuacion (string p_oid)
+        {
             /*PROTECTED REGION ID(YoureOnGenNHibernate.CEN.YoureOn_Usuario_getPuntuacion) ENABLED START*/
 
             /*UsuarioEN usuarioEN = null;
@@ -31,8 +31,8 @@ public float GetPuntuacion (string p_oid)
 
             return _IUsuarioCAD.GetPuntuacion(usuarioEN);*/
             return 0;
-        
-        /*PROTECTED REGION END*/
-}
+
+            /*PROTECTED REGION END*/
+        }
 }
 }

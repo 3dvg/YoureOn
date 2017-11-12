@@ -29,7 +29,7 @@ private float nota;
 
 
 
-public virtual string Id {
+        public virtual string Id {
         get { return id; } set { id = value;  }
 }
 

@@ -65,52 +65,52 @@ public string SubirContenido (string p_titulo, YoureOnGenNHibernate.Enumerated.Y
 
         contenidoEN.EnBiblioteca = p_enBiblioteca;
 
-        //edits
+            //edits
             contenidoEN.NumeroDeVotos = 0;
             contenidoEN.PuntuacionFinal = 0;
             contenidoEN.PuntuacionIndividual = 0;
-        
 
-        //Call to ContenidoCAD
 
-        oid = _IContenidoCAD.SubirContenido (contenidoEN);
-        return oid;
-}
+            //Call to ContenidoCAD
 
-public void Editar (string p_Contenido_OID, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum p_tipoArchivo, string p_descripcion, string p_licencia, string p_autor, bool p_enBiblioteca)
-{
-        ContenidoEN contenidoEN = null;
+            oid = _IContenidoCAD.SubirContenido (contenidoEN);
+            return oid;
+        }
 
-        //Initialized ContenidoEN
-        contenidoEN = new ContenidoEN ();
-        contenidoEN.Titulo = p_Contenido_OID;
-        contenidoEN.TipoArchivo = p_tipoArchivo;
-        contenidoEN.Descripcion = p_descripcion;
-        contenidoEN.Licencia = p_licencia;
-        contenidoEN.Autor = p_autor;
-        contenidoEN.EnBiblioteca = p_enBiblioteca;
-        
-        //Call to ContenidoCAD
+        public void Editar (string p_Contenido_OID, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum p_tipoArchivo, string p_descripcion, string p_licencia, string p_autor, bool p_enBiblioteca)
+        {
+            ContenidoEN contenidoEN = null;
 
-        _IContenidoCAD.Editar (contenidoEN);
-}
+            //Initialized ContenidoEN
+            contenidoEN = new ContenidoEN ();
+            contenidoEN.Titulo = p_Contenido_OID;
+            contenidoEN.TipoArchivo = p_tipoArchivo;
+            contenidoEN.Descripcion = p_descripcion;
+            contenidoEN.Licencia = p_licencia;
+            contenidoEN.Autor = p_autor;
+            contenidoEN.EnBiblioteca = p_enBiblioteca;
 
-public void Borrar (string titulo
-                    )
-{
-        _IContenidoCAD.Borrar (titulo);
-}
-public void Votar(int nota){
-     ContenidoEN contenidoEN = null;
-   // if(voto >= 0 && voto <= 5){
-        contenidoEN.PuntuacionIndividual = (contenidoEN.PuntuacionIndividual + nota);
-        contenidoEN.NumeroDeVotos = contenidoEN.NumeroDeVotos + 1;
-        contenidoEN.PuntuacionFinal = contenidoEN.PuntuacionIndividual / contenidoEN.NumeroDeVotos;
-   // }
-}
-public System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ContenidoEN> DameContenidoPorTitulo (string c_titulo)
-{
-        return _IContenidoCAD.DameContenidoPorTitulo (c_titulo);
-}
-}
+            //Call to ContenidoCAD
+
+            _IContenidoCAD.Editar (contenidoEN);
+        }
+
+        public void Borrar (string titulo
+                            )
+        {
+            _IContenidoCAD.Borrar (titulo);
+        }
+        public void Votar(int nota){
+            ContenidoEN contenidoEN = null;
+            // if(voto >= 0 && voto <= 5){
+            contenidoEN.PuntuacionIndividual = (contenidoEN.PuntuacionIndividual + nota);
+            contenidoEN.NumeroDeVotos = contenidoEN.NumeroDeVotos + 1;
+            contenidoEN.PuntuacionFinal = contenidoEN.PuntuacionIndividual / contenidoEN.NumeroDeVotos;
+            // }
+        }
+        public System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ContenidoEN> DameContenidoPorTitulo (string c_titulo)
+        {
+            return _IContenidoCAD.DameContenidoPorTitulo (c_titulo);
+        }
+    }
 }

@@ -86,7 +86,7 @@
 					    </bag>
 					
 			
-		  			
+		  				
 						<bag name="Reporte" >
 							<key>
 							
@@ -109,7 +109,7 @@
 					
 					
 					
-		
+						
 		 </class>	
 		  
 		  <query name="UsuarioENReadAllHQL">from UsuarioEN</query>
