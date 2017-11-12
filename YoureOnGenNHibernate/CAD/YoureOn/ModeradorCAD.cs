@@ -119,13 +119,6 @@ public string New_ (ModeradorEN moderador)
         try
         {
                 SessionInitializeTransaction ();
-                if (moderador.Valoracion != null) {
-                        // Argumento OID y no colección.
-                        moderador.Valoracion = (YoureOnGenNHibernate.EN.YoureOn.ValoracionEN)session.Load (typeof(YoureOnGenNHibernate.EN.YoureOn.ValoracionEN), moderador.Valoracion.Id);
-
-                        moderador.Valoracion.Usuario
-                        .Add (moderador);
-                }
 
                 session.Save (moderador);
                 SessionCommit ();

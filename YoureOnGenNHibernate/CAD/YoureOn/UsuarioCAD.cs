@@ -114,7 +114,6 @@ public void ModifyDefault (UsuarioEN usuario)
 
 
 
-
                 session.Update (usuarioEN);
                 SessionCommit ();
         }
@@ -139,13 +138,6 @@ public string CrearUsuario (UsuarioEN usuario)
         try
         {
                 SessionInitializeTransaction ();
-                if (usuario.Valoracion != null) {
-                        // Argumento OID y no colección.
-                        usuario.Valoracion = (YoureOnGenNHibernate.EN.YoureOn.ValoracionEN)session.Load (typeof(YoureOnGenNHibernate.EN.YoureOn.ValoracionEN), usuario.Valoracion.Id);
-
-                        usuario.Valoracion.Usuario
-                        .Add (usuario);
-                }
 
                 session.Save (usuario);
                 SessionCommit ();

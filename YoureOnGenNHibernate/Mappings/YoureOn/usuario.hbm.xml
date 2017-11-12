@@ -87,12 +87,6 @@
 					
 			
 		  			
-						<many-to-one name="Valoracion" class="YoureOnGenNHibernate.EN.YoureOn.ValoracionEN" >	
-								<column name="FK_idValoracion_idValoracion"/> 
-						</many-to-one>
-											 					
-			
-		  			
 						<bag name="Reporte" >
 							<key>
 							
@@ -101,7 +95,6 @@
 					      	</key>
 							<one-to-many class="YoureOnGenNHibernate.EN.YoureOn.ReporteEN"/>
 					    </bag>
-					
 					
 					
 					

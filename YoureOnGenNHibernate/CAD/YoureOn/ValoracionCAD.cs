@@ -96,7 +96,6 @@ public void ModifyDefault (ValoracionEN valoracion)
 
                 valoracionEN.Nota = valoracion.Nota;
 
-
                 session.Update (valoracionEN);
                 SessionCommit ();
         }

@@ -26,13 +26,6 @@ private float nota;
 
 
 
-/**
- *	Atributo usuario
- */
-private System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.UsuarioEN> usuario;
-
-
-
 
 
 
@@ -54,35 +47,28 @@ public virtual float Nota {
 
 
 
-public virtual System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.UsuarioEN> Usuario {
-        get { return usuario; } set { usuario = value;  }
-}
-
-
-
 
 
 public ValoracionEN()
 {
-        usuario = new System.Collections.Generic.List<YoureOnGenNHibernate.EN.YoureOn.UsuarioEN>();
 }
 
 
 
-public ValoracionEN(string id, Nullable<DateTime> fecha, float nota, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.UsuarioEN> usuario
+public ValoracionEN(string id, Nullable<DateTime> fecha, float nota
                     )
 {
-        this.init (Id, fecha, nota, usuario);
+        this.init (Id, fecha, nota);
 }
 
 
 public ValoracionEN(ValoracionEN valoracion)
 {
-        this.init (Id, valoracion.Fecha, valoracion.Nota, valoracion.Usuario);
+        this.init (Id, valoracion.Fecha, valoracion.Nota);
 }
 
 private void init (string id
-                   , Nullable<DateTime> fecha, float nota, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.UsuarioEN> usuario)
+                   , Nullable<DateTime> fecha, float nota)
 {
         this.Id = id;
 
@@ -90,8 +76,6 @@ private void init (string id
         this.Fecha = fecha;
 
         this.Nota = nota;
-
-        this.Usuario = usuario;
 }
 
 public override bool Equals (object obj)
