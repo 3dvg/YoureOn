@@ -60,22 +60,22 @@ public ModeradorEN() : base ()
 
 
 public ModeradorEN(string email, string permisoModerador, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.FaltaEN> pone_falta, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.NotificacionesEN> notificacion_enviada
-                  , string nombre, string apellidos, Nullable<DateTime> fechaNac, string nIF, string foto, String contrasenya, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ContenidoEN> contenido, YoureOnGenNHibernate.EN.YoureOn.BibliotecaEN biblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ComentarioEN> comentario, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.FaltaEN> falta, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.NotificacionesEN> notificaciones, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ReporteEN> reporte
-                  )
- {
-        this.init (Email, permisoModerador, pone_falta, notificacion_enviada, nombre, apellidos, fechaNac, nIF, foto, contrasenya, contenido, biblioteca, comentario, falta, notificaciones, reporte);
+                   , string nombre, string apellidos, Nullable<DateTime> fechaNac, string nIF, string foto, String contrasenya, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ContenidoEN> contenido, YoureOnGenNHibernate.EN.YoureOn.BibliotecaEN biblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ComentarioEN> comentario, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.FaltaEN> falta, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.NotificacionesEN> notificaciones, YoureOnGenNHibernate.EN.YoureOn.ValoracionEN valoracion, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ReporteEN> reporte
+                   )
+{
+        this.init (Email, permisoModerador, pone_falta, notificacion_enviada, nombre, apellidos, fechaNac, nIF, foto, contrasenya, contenido, biblioteca, comentario, falta, notificaciones, valoracion, reporte);
 }
 
 
 public ModeradorEN(ModeradorEN moderador)
 {
-        this.init (Email, moderador.PermisoModerador, moderador.Pone_falta, moderador.Notificacion_enviada, moderador.Nombre, moderador.Apellidos, moderador.FechaNac, moderador.NIF, moderador.Foto, moderador.Contrasenya, moderador.Contenido, moderador.Biblioteca, moderador.Comentario, moderador.Falta, moderador.Notificaciones, moderador.Reporte);
+        this.init (Email, moderador.PermisoModerador, moderador.Pone_falta, moderador.Notificacion_enviada, moderador.Nombre, moderador.Apellidos, moderador.FechaNac, moderador.NIF, moderador.Foto, moderador.Contrasenya, moderador.Contenido, moderador.Biblioteca, moderador.Comentario, moderador.Falta, moderador.Notificaciones, moderador.Valoracion, moderador.Reporte);
 }
 
 private void init (string email
-                   , string permisoModerador, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.FaltaEN> pone_falta, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.NotificacionesEN> notificacion_enviada, string nombre, string apellidos, Nullable<DateTime> fechaNac, string nIF, string foto, String contrasenya, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ContenidoEN> contenido, YoureOnGenNHibernate.EN.YoureOn.BibliotecaEN biblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ComentarioEN> comentario, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.FaltaEN> falta, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.NotificacionesEN> notificaciones, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ReporteEN> reporte)
+                   , string permisoModerador, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.FaltaEN> pone_falta, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.NotificacionesEN> notificacion_enviada, string nombre, string apellidos, Nullable<DateTime> fechaNac, string nIF, string foto, String contrasenya, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ContenidoEN> contenido, YoureOnGenNHibernate.EN.YoureOn.BibliotecaEN biblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ComentarioEN> comentario, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.FaltaEN> falta, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.NotificacionesEN> notificaciones, YoureOnGenNHibernate.EN.YoureOn.ValoracionEN valoracion, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ReporteEN> reporte)
 {
-            this.Email = email;
+        this.Email = email;
 
 
         this.PermisoModerador = permisoModerador;
@@ -105,6 +105,8 @@ private void init (string email
         this.Falta = falta;
 
         this.Notificaciones = notificaciones;
+
+        this.Valoracion = valoracion;
 
         this.Reporte = reporte;
 }

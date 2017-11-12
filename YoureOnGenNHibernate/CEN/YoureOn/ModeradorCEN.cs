@@ -38,7 +38,7 @@ public IModeradorCAD get_IModeradorCAD ()
         return this._IModeradorCAD;
 }
 
-public string New_ (string p_email, string p_nombre, string p_apellidos, Nullable<DateTime> p_fechaNac, string p_NIF, string p_foto, String p_contrasenya, string p_permisoModerador)
+public string New_ (string p_email, string p_nombre, string p_apellidos, Nullable<DateTime> p_fechaNac, string p_NIF, string p_foto, String p_contrasenya, string p_valoracion, string p_permisoModerador)
 {
         ModeradorEN moderadorEN = null;
         string oid;
@@ -58,6 +58,14 @@ public string New_ (string p_email, string p_nombre, string p_apellidos, Nullabl
         moderadorEN.Foto = p_foto;
 
         moderadorEN.Contrasenya = Utils.Util.GetEncondeMD5 (p_contrasenya);
+
+
+        if (p_valoracion != null) {
+                // El argumento p_valoracion -> Property valoracion es oid = false
+                // Lista de oids email
+                moderadorEN.Valoracion = new YoureOnGenNHibernate.EN.YoureOn.ValoracionEN ();
+                moderadorEN.Valoracion.Id = p_valoracion;
+        }
 
         moderadorEN.PermisoModerador = p_permisoModerador;
 

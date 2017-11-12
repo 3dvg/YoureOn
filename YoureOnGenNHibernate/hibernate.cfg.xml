@@ -5,13 +5,13 @@
 			    <property name="dialect">NHibernate.Dialect.MsSql2005Dialect</property>
 			    <property name="connection.driver_class">NHibernate.Driver.SqlClientDriver</property>
 			    <property name="connection.connection_string">
-            Data Source=(local);Initial Catalog=YoureOnGenNHibernate;User Id=nhibernateUser;Password=nhibernatePass;
-            <!--Data Source=(local)\sqlexpress;Initial Catalog=YoureOnGenNHibernate;User Id=nhibernateUser;Password=nhibernatePass;-->
+		  Data Source=(local);Initial Catalog=;User Id=nhibernateUser;Password=nhibernatePass; 
+           <!--Data Source=(local)\sqlexpress;Initial Catalog=YoureOnGenNHibernate;User Id=nhibernateUser;Password=nhibernatePass;-->
           </property>
 			    <property name="proxyfactory.factory_class">
 			      NHibernate.ByteCode.LinFu.ProxyFactoryFactory, NHibernate.ByteCode.LinFu
 			    </property>
 			    
-			    <property name="show_sql">true</property>
+			    <property name="show_sql">false</property>
 			  </session-factory>
 			</hibernate-configuration>

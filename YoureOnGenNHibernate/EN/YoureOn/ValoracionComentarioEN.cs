@@ -32,20 +32,20 @@ public ValoracionComentarioEN() : base ()
 
 
 public ValoracionComentarioEN(string id, YoureOnGenNHibernate.EN.YoureOn.ComentarioEN comentario
-                              , Nullable<DateTime> fecha, float nota
+                              , Nullable<DateTime> fecha, float nota, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.UsuarioEN> usuario
                               )
 {
-        this.init (Id, comentario, fecha, nota);
+        this.init (Id, comentario, fecha, nota, usuario);
 }
 
 
 public ValoracionComentarioEN(ValoracionComentarioEN valoracionComentario)
 {
-        this.init (Id, valoracionComentario.Comentario, valoracionComentario.Fecha, valoracionComentario.Nota);
+        this.init (Id, valoracionComentario.Comentario, valoracionComentario.Fecha, valoracionComentario.Nota, valoracionComentario.Usuario);
 }
 
 private void init (string id
-                   , YoureOnGenNHibernate.EN.YoureOn.ComentarioEN comentario, Nullable<DateTime> fecha, float nota)
+                   , YoureOnGenNHibernate.EN.YoureOn.ComentarioEN comentario, Nullable<DateTime> fecha, float nota, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.UsuarioEN> usuario)
 {
         this.Id = id;
 
@@ -55,6 +55,8 @@ private void init (string id
         this.Fecha = fecha;
 
         this.Nota = nota;
+
+        this.Usuario = usuario;
 }
 
 public override bool Equals (object obj)

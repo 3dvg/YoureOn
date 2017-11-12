@@ -86,7 +86,13 @@
 					    </bag>
 					
 			
-		  				
+		  			
+						<many-to-one name="Valoracion" class="YoureOnGenNHibernate.EN.YoureOn.ValoracionEN" >	
+								<column name="FK_idValoracion_idValoracion"/> 
+						</many-to-one>
+											 					
+			
+		  			
 						<bag name="Reporte" >
 							<key>
 							
@@ -109,7 +115,8 @@
 					
 					
 					
-						
+					
+		
 		 </class>	
 		  
 		  <query name="UsuarioENReadAllHQL">from UsuarioEN</query>

@@ -225,16 +225,16 @@ public void Borrar (string titulo
         }
 }
 
-public System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ContenidoEN> DameContenidoPorTitulo (string c_titulo)
+public System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ContenidoEN> DameContenidoPorTitulo (string arg0)
 {
         System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ContenidoEN> result;
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM ContenidoEN self where FROM ContenidoEN as cont where cont.Titulo = :c_titulo";
+                //String sql = @"FROM ContenidoEN self where FROM ContenidoEN as cont where cont.titulo = c_titulo;";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("ContenidoENdameContenidoPorTituloHQL");
-                query.SetParameter ("c_titulo", c_titulo);
+                query.SetParameter ("arg0", arg0);
 
                 result = query.List<YoureOnGenNHibernate.EN.YoureOn.ContenidoEN>();
                 SessionCommit ();

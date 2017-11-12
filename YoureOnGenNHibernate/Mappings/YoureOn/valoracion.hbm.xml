@@ -21,6 +21,18 @@
 			
 			
 		  			
+						<bag name="Usuario" >
+							<key>
+							
+								
+								<column name="FK_idValoracion_idValoracion"/>
+					      	</key>
+							<one-to-many class="YoureOnGenNHibernate.EN.YoureOn.UsuarioEN"/>
+					    </bag>
+					
+					
+					
+					
 					
 		
 		 </class>	

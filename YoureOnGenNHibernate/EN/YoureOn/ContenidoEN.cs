@@ -10,25 +10,12 @@ public partial class ContenidoEN
  */
 private string titulo;
 
-        /*
-         *  Atributo Puntuacion Final
-         */
-        private int puntuacionFinal;
 
-        /*
-         *  Atributo Numero de votos  
-         */
-        private int numeroDeVotos;
 
-        /*
-         *  Atributo Numero de votos  
-         */
-        private int puntuacionIndividual;
-
-        /**
-         *	Atributo tipoArchivo
-         */
-        private YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum tipoArchivo;
+/**
+ *	Atributo tipoArchivo
+ */
+private YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum tipoArchivo;
 
 
 
@@ -102,18 +89,9 @@ public virtual string Titulo {
         get { return titulo; } set { titulo = value;  }
 }
 
-public virtual int PuntuacionFinal {
-        get { return puntuacionFinal; } set { puntuacionFinal = value;  }
-        }
 
-public virtual int PuntuacionIndividual {
-        get { return puntuacionIndividual; } set { puntuacionIndividual = value;  }
-        }
-public virtual int NumeroDeVotos {
-            get { return numeroDeVotos; } set { numeroDeVotos = value;  }
-        }
 
-        public virtual YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum TipoArchivo {
+public virtual YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum TipoArchivo {
         get { return tipoArchivo; } set { tipoArchivo = value;  }
 }
 

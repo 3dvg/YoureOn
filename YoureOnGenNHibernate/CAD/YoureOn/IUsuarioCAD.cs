@@ -20,5 +20,5 @@ void EditarPerfil (UsuarioEN usuario);
 
 void Destroy (string email
               );
-    }
+}
 }

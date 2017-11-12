@@ -90,6 +90,13 @@ private System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.Notific
 
 
 /**
+ *	Atributo valoracion
+ */
+private YoureOnGenNHibernate.EN.YoureOn.ValoracionEN valoracion;
+
+
+
+/**
  *	Atributo reporte
  */
 private System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ReporteEN> reporte;
@@ -171,6 +178,12 @@ public virtual System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.
 
 
 
+public virtual YoureOnGenNHibernate.EN.YoureOn.ValoracionEN Valoracion {
+        get { return valoracion; } set { valoracion = value;  }
+}
+
+
+
 public virtual System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ReporteEN> Reporte {
         get { return reporte; } set { reporte = value;  }
 }
@@ -190,20 +203,20 @@ public UsuarioEN()
 
 
 
-public UsuarioEN(string email, string nombre, string apellidos, Nullable<DateTime> fechaNac, string nIF, string foto, String contrasenya, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ContenidoEN> contenido, YoureOnGenNHibernate.EN.YoureOn.BibliotecaEN biblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ComentarioEN> comentario, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.FaltaEN> falta, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.NotificacionesEN> notificaciones, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ReporteEN> reporte
+public UsuarioEN(string email, string nombre, string apellidos, Nullable<DateTime> fechaNac, string nIF, string foto, String contrasenya, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ContenidoEN> contenido, YoureOnGenNHibernate.EN.YoureOn.BibliotecaEN biblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ComentarioEN> comentario, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.FaltaEN> falta, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.NotificacionesEN> notificaciones, YoureOnGenNHibernate.EN.YoureOn.ValoracionEN valoracion, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ReporteEN> reporte
                  )
 {
-        this.init (Email, nombre, apellidos, fechaNac, nIF, foto, contrasenya, contenido, biblioteca, comentario, falta, notificaciones, reporte);
+        this.init (Email, nombre, apellidos, fechaNac, nIF, foto, contrasenya, contenido, biblioteca, comentario, falta, notificaciones, valoracion, reporte);
 }
 
 
 public UsuarioEN(UsuarioEN usuario)
 {
-        this.init (Email, usuario.Nombre, usuario.Apellidos, usuario.FechaNac, usuario.NIF, usuario.Foto, usuario.Contrasenya, usuario.Contenido, usuario.Biblioteca, usuario.Comentario, usuario.Falta, usuario.Notificaciones, usuario.Reporte);
+        this.init (Email, usuario.Nombre, usuario.Apellidos, usuario.FechaNac, usuario.NIF, usuario.Foto, usuario.Contrasenya, usuario.Contenido, usuario.Biblioteca, usuario.Comentario, usuario.Falta, usuario.Notificaciones, usuario.Valoracion, usuario.Reporte);
 }
 
 private void init (string email
-                   , string nombre, string apellidos, Nullable<DateTime> fechaNac, string nIF, string foto, String contrasenya, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ContenidoEN> contenido, YoureOnGenNHibernate.EN.YoureOn.BibliotecaEN biblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ComentarioEN> comentario, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.FaltaEN> falta, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.NotificacionesEN> notificaciones, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ReporteEN> reporte)
+                   , string nombre, string apellidos, Nullable<DateTime> fechaNac, string nIF, string foto, String contrasenya, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ContenidoEN> contenido, YoureOnGenNHibernate.EN.YoureOn.BibliotecaEN biblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ComentarioEN> comentario, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.FaltaEN> falta, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.NotificacionesEN> notificaciones, YoureOnGenNHibernate.EN.YoureOn.ValoracionEN valoracion, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ReporteEN> reporte)
 {
         this.Email = email;
 
@@ -229,6 +242,8 @@ private void init (string email
         this.Falta = falta;
 
         this.Notificaciones = notificaciones;
+
+        this.Valoracion = valoracion;
 
         this.Reporte = reporte;
 }

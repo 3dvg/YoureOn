@@ -117,6 +117,13 @@ public string New_ (AdministradorEN administrador)
         try
         {
                 SessionInitializeTransaction ();
+                if (administrador.Valoracion != null) {
+                        // Argumento OID y no colección.
+                        administrador.Valoracion = (YoureOnGenNHibernate.EN.YoureOn.ValoracionEN)session.Load (typeof(YoureOnGenNHibernate.EN.YoureOn.ValoracionEN), administrador.Valoracion.Id);
+
+                        administrador.Valoracion.Usuario
+                        .Add (administrador);
+                }
 
                 session.Save (administrador);
                 SessionCommit ();
