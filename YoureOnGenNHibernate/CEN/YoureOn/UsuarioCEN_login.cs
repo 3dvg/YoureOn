@@ -36,7 +36,7 @@ public int Login (string p_oid, String contrasenya)
                     {
                         inicio = 1; //Administrador
                     }
-                    else if (usuario.GetType() == typeof(ModeradorEN))
+                    else */if (usuario.GetType() == typeof(ModeradorEN))
                     {
                         inicio = 2; //Moderador
                     }
