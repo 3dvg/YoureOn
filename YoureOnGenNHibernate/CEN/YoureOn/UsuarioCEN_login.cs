@@ -32,7 +32,7 @@ public int Login (string p_oid, String contrasenya)
                 UsuarioEN usuario = _IUsuarioCAD.ReadOIDDefault(p_oid);
                 if (usuario != null && usuario.Contrasenya.Equals(Utils.Util.GetEncondeMD5(contrasenya)))
                 {
-                    if (usuario.GetType() == typeof(AdministradorEN))
+                    /*if (usuario.EsVetado)
                     {
                         inicio = 1; //Administrador
                     }
