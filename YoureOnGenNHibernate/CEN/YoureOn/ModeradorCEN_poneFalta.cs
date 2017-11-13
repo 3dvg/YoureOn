@@ -19,17 +19,21 @@ namespace YoureOnGenNHibernate.CEN.YoureOn
 {
 public partial class ModeradorCEN
 {
-public void PoneFalta (string p_oid)
+public void PoneFalta (string p_oid, YoureOnGenNHibernate.Enumerated.YoureOn.TipoFaltaEnum tipoFalta, YoureOnGenNHibernate.EN.YoureOn.UsuarioEN usuario, YoureOnGenNHibernate.EN.YoureOn.ModeradorEN moderador, Nullable<DateTime> fechaFalta)
 {
-        /*PROTECTED REGION ID(YoureOnGenNHibernate.CEN.YoureOn_Moderador_poneFalta) ENABLED START*/
+            /*PROTECTED REGION ID(YoureOnGenNHibernate.CEN.YoureOn_Moderador_poneFalta) ENABLED START*/
 
-        // Write here your custom code...
-        //Boolean creaFalta = false;
-        //     if (p_oid != null)
+            // Write here your custom code...
+            AdministradorEN administradorEN = new AdministradorEN();
+            NotificacionesEN notificacionEN = new NotificacionesEN()
+        if (p_oid != null) {
+                FaltaEN faltaUsuario = new FaltaEN (p_oid, tipoFalta, usuario, fechaFalta, moderador);
+                usuario.Falta.Add(faltaUsuario);
+                if(usuario.Falta.Count==3)
+                    this.EnviarNotificacion(administradorEN.)
+        }
 
-        // FaltaEN faltaUsuario = new FaltaEN (p_oid, tipoFalta, usuario, fechaFalta, moderadorFalta);
-
-        throw new NotImplementedException ("Method PoneFalta() not yet implemented.");
+        //throw new NotImplementedException ("Method PoneFalta() not yet implemented.");
 
         /*PROTECTED REGION END*/
 }
