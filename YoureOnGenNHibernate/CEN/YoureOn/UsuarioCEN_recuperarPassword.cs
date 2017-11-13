@@ -19,15 +19,35 @@ namespace YoureOnGenNHibernate.CEN.YoureOn
 {
 public partial class UsuarioCEN
 {
-public void RecuperarPassword (string p_oid, string email)
+public string RecuperarPassword (string p_oid, string email)
 {
-        /*PROTECTED REGION ID(YoureOnGenNHibernate.CEN.YoureOn_Usuario_recuperarPassword) ENABLED START*/
+            /*PROTECTED REGION ID(YoureOnGenNHibernate.CEN.YoureOn_Usuario_recuperarPassword) ENABLED START*/
 
-        // Write here your custom code...
+            // Write here your custom code...
 
-        throw new NotImplementedException ("Method RecuperarPassword() not yet implemented.");
+            string recuperar = null; //Error autenticacion
 
-        /*PROTECTED REGION END*/
-}
+            if (p_oid != null && email != null)
+            {
+                UsuarioEN usuario = _IUsuarioCAD.ReadOIDDefault(p_oid);
+                if (usuario != null && usuario.Email.Equals(email))
+                {
+                    // Generamos un numero aleatorio de 4cifras
+                    Random random = new Random();
+                    int numero = 0;
+                    recuperar = "";
+
+                    for (int i = 0; i<4; i++)
+                    {
+                        numero = random.Next(1, 10);
+                        recuperar += numero;
+                    }
+                }
+            }
+
+            return recuperar;
+
+            /*PROTECTED REGION END*/
+        }
 }
 }
