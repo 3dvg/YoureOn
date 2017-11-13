@@ -25,18 +25,14 @@ public int Login (string p_oid, String contrasenya)
 
             // Write here your custom code...
 
-            int inicio = -1; //Error autenticacion
+            int inicio = 0; //Error autenticacion
 
             if (p_oid != null && contrasenya != null)
             {
                 UsuarioEN usuario = _IUsuarioCAD.ReadOIDDefault(p_oid);
                 if (usuario != null && usuario.Contrasenya.Equals(Utils.Util.GetEncondeMD5(contrasenya)))
                 {
-                    /*if (usuario.esVetado)
-                    {
-                        inicio = 0; // Esta vetado
-                    }
-                    else */ if (usuario.GetType() == typeof(AdministradorEN))
+                    if (usuario.GetType() == typeof(AdministradorEN))
                     {
                         inicio = 1; //Administrador
                     }
