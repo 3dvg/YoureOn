@@ -24,13 +24,14 @@ public void PoneFalta (string p_oid, YoureOnGenNHibernate.Enumerated.YoureOn.Tip
             /*PROTECTED REGION ID(YoureOnGenNHibernate.CEN.YoureOn_Moderador_poneFalta) ENABLED START*/
 
             // Write here your custom code...
+            ModeradorEN moderadorEN = _IModeradorCAD.ReadOIDDefault(p_oid);
             AdministradorEN administradorEN = new AdministradorEN();
-            NotificacionesEN notificacionEN = new NotificacionesEN()
+            NotificacionesEN notificacionEN = new NotificacionesEN();
         if (p_oid != null) {
-                FaltaEN faltaUsuario = new FaltaEN (p_oid, tipoFalta, usuario, fechaFalta, moderador);
+                FaltaEN faltaUsuario = new FaltaEN (p_oid, tipoFalta, usuario, fechaFalta, moderadorEN);
                 usuario.Falta.Add(faltaUsuario);
-                if(usuario.Falta.Count==3)
-                    this.EnviarNotificacion(administradorEN.)
+                if (usuario.Falta.Count == 3)
+                    this.EnviarNotificacion(administradorEN.Email);
         }
 
         //throw new NotImplementedException ("Method PoneFalta() not yet implemented.");
