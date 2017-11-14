@@ -25,7 +25,6 @@ public void PoneFalta (string p_oid, YoureOnGenNHibernate.Enumerated.YoureOn.Tip
 
             // Write here your custom code...
             ModeradorEN moderadorEN = _IModeradorCAD.ReadOIDDefault(p_oid);
-            AdministradorEN administradorEN = new AdministradorEN();
             NotificacionesEN notificacionEN = new NotificacionesEN();
         if (p_oid != null) {
                 FaltaEN faltaUsuario = new FaltaEN (p_oid, tipoFalta, usuario, fechaFalta, moderadorEN);
