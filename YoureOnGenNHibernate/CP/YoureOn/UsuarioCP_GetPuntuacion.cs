@@ -25,34 +25,39 @@ public float GetPuntuacion (string usuario_oid)
 
         IUsuarioCAD usuarioCAD = null;
         UsuarioEN usuario = null;
-        float result, sumaContenido, sumaComentario, mediaContenidos, mediaComentarios;
+        ComentarioCAD comentarioCAD = null;
+        ComentarioCEN comentarioCEN = null;
+        ContenidoCAD contenidoCAD = null;
+        ContenidoCEN contenidoCEN = null;
+        float result, sumaContenido, sumaComentario;
 
         try
         {
                 SessionInitializeTransaction ();
                 usuarioCAD = new UsuarioCAD (session);
+                comentarioCAD = new ComentarioCAD(session);
+                contenidoCAD = new ContenidoCAD(session);
+
                 usuario = usuarioCAD.ReadOIDDefault (usuario_oid);
-                result = sumaContenido = sumaComentario = mediaContenidos = mediaComentarios = 0;
+                comentarioCEN = new ComentarioCEN(comentarioCAD);
+                contenidoCEN = new ContenidoCEN(contenidoCAD);
+
+                result = sumaContenido = sumaComentario = 0;
 
                 if (usuario != null) {
                         System.Collections.Generic.IList<ContenidoEN> lista_contenidos = usuario.Contenido;
                         System.Collections.Generic.IList<ComentarioEN> lista_comentarios = usuario.Comentario;
 
-                        foreach (ContenidoEN content in lista_contenidos) {
-                                foreach (ValoracionContenidoEN val_contenido in content.Valoracion_contenido) {
-                                        sumaContenido += val_contenido.Nota;
-                                }
+                        foreach (ContenidoEN contenido in lista_contenidos) {
+                            sumaContenido += contenidoCEN.GetPuntuacionContenido(contenido.Id_contenido);
                         }
 
-                        foreach (ComentarioEN comentario in lista_comentarios) {
-                                foreach (ValoracionComentarioEN val_comentario in comentario.Valoracion_comentario) {
-                                        sumaComentario += val_comentario.Nota;
-                                }
+                        foreach (ComentarioEN comentario in lista_comentarios)
+                        {
+                            sumaComentario += comentarioCEN.GetPuntuacionComentario(comentario.Id_comentario);
                         }
-
-                        mediaContenidos = sumaContenido / lista_contenidos.Count;
-                        mediaComentarios = sumaComentario / lista_comentarios.Count;
-                        result = (mediaContenidos + mediaComentarios) / 2;
+                        
+                        result = (sumaContenido + sumaComentario) / 2;
                 }
                 SessionCommit ();
         }
