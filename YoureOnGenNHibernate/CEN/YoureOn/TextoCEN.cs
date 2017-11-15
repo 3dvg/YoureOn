@@ -38,10 +38,10 @@ public ITextoCAD get_ITextoCAD ()
         return this._ITextoCAD;
 }
 
-public string New_ (string p_titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum p_tipoArchivo, string p_descripcion, string p_licencia, string p_usuario, string p_autor, bool p_enBiblioteca, int p_numeroPaginas)
+public int New_ (string p_titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum p_tipoArchivo, string p_descripcion, string p_licencia, string p_usuario, string p_autor, bool p_enBiblioteca, int p_numeroPaginas)
 {
         TextoEN textoEN = null;
-        string oid;
+        int oid;
 
         //Initialized TextoEN
         textoEN = new TextoEN ();
@@ -56,7 +56,7 @@ public string New_ (string p_titulo, YoureOnGenNHibernate.Enumerated.YoureOn.Tip
 
         if (p_usuario != null) {
                 // El argumento p_usuario -> Property usuario es oid = false
-                // Lista de oids titulo
+                // Lista de oids id_contenido
                 textoEN.Usuario = new YoureOnGenNHibernate.EN.YoureOn.UsuarioEN ();
                 textoEN.Usuario.Email = p_usuario;
         }
@@ -73,13 +73,14 @@ public string New_ (string p_titulo, YoureOnGenNHibernate.Enumerated.YoureOn.Tip
         return oid;
 }
 
-public void Modify (string p_Texto_OID, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum p_tipoArchivo, string p_descripcion, string p_licencia, string p_autor, bool p_enBiblioteca, int p_numeroPaginas)
+public void Modify (int p_Texto_OID, string p_titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum p_tipoArchivo, string p_descripcion, string p_licencia, string p_autor, bool p_enBiblioteca, int p_numeroPaginas)
 {
         TextoEN textoEN = null;
 
         //Initialized TextoEN
         textoEN = new TextoEN ();
-        textoEN.Titulo = p_Texto_OID;
+        textoEN.Id_contenido = p_Texto_OID;
+        textoEN.Titulo = p_titulo;
         textoEN.TipoArchivo = p_tipoArchivo;
         textoEN.Descripcion = p_descripcion;
         textoEN.Licencia = p_licencia;
@@ -91,10 +92,10 @@ public void Modify (string p_Texto_OID, YoureOnGenNHibernate.Enumerated.YoureOn.
         _ITextoCAD.Modify (textoEN);
 }
 
-public void Destroy (string titulo
+public void Destroy (int id_contenido
                      )
 {
-        _ITextoCAD.Destroy (titulo);
+        _ITextoCAD.Destroy (id_contenido);
 }
 }
 }

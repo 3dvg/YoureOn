@@ -7,30 +7,50 @@ public partial class ReporteComentarioEN                                        
 
 
 {
+/**
+ *	Atributo comentario
+ */
+private YoureOnGenNHibernate.EN.YoureOn.ComentarioEN comentario;
+
+
+
+
+
+
+public virtual YoureOnGenNHibernate.EN.YoureOn.ComentarioEN Comentario {
+        get { return comentario; } set { comentario = value;  }
+}
+
+
+
+
+
 public ReporteComentarioEN() : base ()
 {
 }
 
 
 
-public ReporteComentarioEN(int id,
-                           YoureOnGenNHibernate.EN.YoureOn.UsuarioEN usuario
+public ReporteComentarioEN(int id_reporte, YoureOnGenNHibernate.EN.YoureOn.ComentarioEN comentario
+                           , YoureOnGenNHibernate.EN.YoureOn.UsuarioEN usuario
                            )
 {
-        this.init (Id, usuario);
+        this.init (Id_reporte, comentario, usuario);
 }
 
 
 public ReporteComentarioEN(ReporteComentarioEN reporteComentario)
 {
-        this.init (Id, reporteComentario.Usuario);
+        this.init (Id_reporte, reporteComentario.Comentario, reporteComentario.Usuario);
 }
 
-private void init (int id
-                   , YoureOnGenNHibernate.EN.YoureOn.UsuarioEN usuario)
+private void init (int id_reporte
+                   , YoureOnGenNHibernate.EN.YoureOn.ComentarioEN comentario, YoureOnGenNHibernate.EN.YoureOn.UsuarioEN usuario)
 {
-        this.Id = id;
+        this.Id_reporte = id_reporte;
 
+
+        this.Comentario = comentario;
 
         this.Usuario = usuario;
 }
@@ -42,7 +62,7 @@ public override bool Equals (object obj)
         ReporteComentarioEN t = obj as ReporteComentarioEN;
         if (t == null)
                 return false;
-        if (Id.Equals (t.Id))
+        if (Id_reporte.Equals (t.Id_reporte))
                 return true;
         else
                 return false;
@@ -52,7 +72,7 @@ public override int GetHashCode ()
 {
         int hash = 13;
 
-        hash += this.Id.GetHashCode ();
+        hash += this.Id_reporte.GetHashCode ();
         return hash;
 }
 }

@@ -29,7 +29,7 @@ public AudioCAD(ISession sessionAux) : base (sessionAux)
 
 
 
-public AudioEN ReadOIDDefault (string titulo
+public AudioEN ReadOIDDefault (int id_contenido
                                )
 {
         AudioEN audioEN = null;
@@ -37,7 +37,7 @@ public AudioEN ReadOIDDefault (string titulo
         try
         {
                 SessionInitializeTransaction ();
-                audioEN = (AudioEN)session.Get (typeof(AudioEN), titulo);
+                audioEN = (AudioEN)session.Get (typeof(AudioEN), id_contenido);
                 SessionCommit ();
         }
 
@@ -89,7 +89,7 @@ public void ModifyDefault (AudioEN audio)
         try
         {
                 SessionInitializeTransaction ();
-                AudioEN audioEN = (AudioEN)session.Load (typeof(AudioEN), audio.Titulo);
+                AudioEN audioEN = (AudioEN)session.Load (typeof(AudioEN), audio.Id_contenido);
 
                 audioEN.Duracion = audio.Duracion;
 
@@ -115,7 +115,7 @@ public void ModifyDefault (AudioEN audio)
 }
 
 
-public string New_ (AudioEN audio)
+public int New_ (AudioEN audio)
 {
         try
         {
@@ -145,7 +145,7 @@ public string New_ (AudioEN audio)
                 SessionClose ();
         }
 
-        return audio.Titulo;
+        return audio.Id_contenido;
 }
 
 public void Modify (AudioEN audio)
@@ -153,7 +153,10 @@ public void Modify (AudioEN audio)
         try
         {
                 SessionInitializeTransaction ();
-                AudioEN audioEN = (AudioEN)session.Load (typeof(AudioEN), audio.Titulo);
+                AudioEN audioEN = (AudioEN)session.Load (typeof(AudioEN), audio.Id_contenido);
+
+                audioEN.Titulo = audio.Titulo;
+
 
                 audioEN.TipoArchivo = audio.TipoArchivo;
 
@@ -192,13 +195,13 @@ public void Modify (AudioEN audio)
                 SessionClose ();
         }
 }
-public void Destroy (string titulo
+public void Destroy (int id_contenido
                      )
 {
         try
         {
                 SessionInitializeTransaction ();
-                AudioEN audioEN = (AudioEN)session.Load (typeof(AudioEN), titulo);
+                AudioEN audioEN = (AudioEN)session.Load (typeof(AudioEN), id_contenido);
                 session.Delete (audioEN);
                 SessionCommit ();
         }

@@ -6,6 +6,13 @@ namespace YoureOnGenNHibernate.EN.YoureOn
 public partial class ContenidoEN
 {
 /**
+ *	Atributo id_contenido
+ */
+private int id_contenido;
+
+
+
+/**
  *	Atributo titulo
  */
 private string titulo;
@@ -78,10 +85,16 @@ private bool enBiblioteca;
 /**
  *	Atributo reporte
  */
-private System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ReporeteContenidoEN> reporte;
+private System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ReporteContenidoEN> reporte;
 
 
 
+
+
+
+public virtual int Id_contenido {
+        get { return id_contenido; } set { id_contenido = value;  }
+}
 
 
 
@@ -145,7 +158,7 @@ public virtual bool EnBiblioteca {
 
 
 
-public virtual System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ReporeteContenidoEN> Reporte {
+public virtual System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ReporteContenidoEN> Reporte {
         get { return reporte; } set { reporte = value;  }
 }
 
@@ -158,28 +171,30 @@ public ContenidoEN()
         valoracion_contenido = new System.Collections.Generic.List<YoureOnGenNHibernate.EN.YoureOn.ValoracionContenidoEN>();
         biblioteca = new System.Collections.Generic.List<YoureOnGenNHibernate.EN.YoureOn.BibliotecaEN>();
         comentario = new System.Collections.Generic.List<YoureOnGenNHibernate.EN.YoureOn.ComentarioEN>();
-        reporte = new System.Collections.Generic.List<YoureOnGenNHibernate.EN.YoureOn.ReporeteContenidoEN>();
+        reporte = new System.Collections.Generic.List<YoureOnGenNHibernate.EN.YoureOn.ReporteContenidoEN>();
 }
 
 
 
-public ContenidoEN(string titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum tipoArchivo, string descripcion, string licencia, YoureOnGenNHibernate.EN.YoureOn.UsuarioEN usuario, string autor, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ValoracionContenidoEN> valoracion_contenido, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.BibliotecaEN> biblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ComentarioEN> comentario, bool enBiblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ReporeteContenidoEN> reporte
+public ContenidoEN(int id_contenido, string titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum tipoArchivo, string descripcion, string licencia, YoureOnGenNHibernate.EN.YoureOn.UsuarioEN usuario, string autor, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ValoracionContenidoEN> valoracion_contenido, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.BibliotecaEN> biblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ComentarioEN> comentario, bool enBiblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ReporteContenidoEN> reporte
                    )
 {
-        this.init (Titulo, tipoArchivo, descripcion, licencia, usuario, autor, valoracion_contenido, biblioteca, comentario, enBiblioteca, reporte);
+        this.init (Id_contenido, titulo, tipoArchivo, descripcion, licencia, usuario, autor, valoracion_contenido, biblioteca, comentario, enBiblioteca, reporte);
 }
 
 
 public ContenidoEN(ContenidoEN contenido)
 {
-        this.init (Titulo, contenido.TipoArchivo, contenido.Descripcion, contenido.Licencia, contenido.Usuario, contenido.Autor, contenido.Valoracion_contenido, contenido.Biblioteca, contenido.Comentario, contenido.EnBiblioteca, contenido.Reporte);
+        this.init (Id_contenido, contenido.Titulo, contenido.TipoArchivo, contenido.Descripcion, contenido.Licencia, contenido.Usuario, contenido.Autor, contenido.Valoracion_contenido, contenido.Biblioteca, contenido.Comentario, contenido.EnBiblioteca, contenido.Reporte);
 }
 
-private void init (string titulo
-                   , YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum tipoArchivo, string descripcion, string licencia, YoureOnGenNHibernate.EN.YoureOn.UsuarioEN usuario, string autor, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ValoracionContenidoEN> valoracion_contenido, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.BibliotecaEN> biblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ComentarioEN> comentario, bool enBiblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ReporeteContenidoEN> reporte)
+private void init (int id_contenido
+                   , string titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum tipoArchivo, string descripcion, string licencia, YoureOnGenNHibernate.EN.YoureOn.UsuarioEN usuario, string autor, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ValoracionContenidoEN> valoracion_contenido, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.BibliotecaEN> biblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ComentarioEN> comentario, bool enBiblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ReporteContenidoEN> reporte)
 {
-        this.Titulo = titulo;
+        this.Id_contenido = id_contenido;
 
+
+        this.Titulo = titulo;
 
         this.TipoArchivo = tipoArchivo;
 
@@ -209,7 +224,7 @@ public override bool Equals (object obj)
         ContenidoEN t = obj as ContenidoEN;
         if (t == null)
                 return false;
-        if (Titulo.Equals (t.Titulo))
+        if (Id_contenido.Equals (t.Id_contenido))
                 return true;
         else
                 return false;
@@ -219,7 +234,7 @@ public override int GetHashCode ()
 {
         int hash = 13;
 
-        hash += this.Titulo.GetHashCode ();
+        hash += this.Id_contenido.GetHashCode ();
         return hash;
 }
 }

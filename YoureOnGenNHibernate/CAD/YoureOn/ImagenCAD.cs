@@ -29,7 +29,7 @@ public ImagenCAD(ISession sessionAux) : base (sessionAux)
 
 
 
-public ImagenEN ReadOIDDefault (string titulo
+public ImagenEN ReadOIDDefault (int id_contenido
                                 )
 {
         ImagenEN imagenEN = null;
@@ -37,7 +37,7 @@ public ImagenEN ReadOIDDefault (string titulo
         try
         {
                 SessionInitializeTransaction ();
-                imagenEN = (ImagenEN)session.Get (typeof(ImagenEN), titulo);
+                imagenEN = (ImagenEN)session.Get (typeof(ImagenEN), id_contenido);
                 SessionCommit ();
         }
 
@@ -89,7 +89,7 @@ public void ModifyDefault (ImagenEN imagen)
         try
         {
                 SessionInitializeTransaction ();
-                ImagenEN imagenEN = (ImagenEN)session.Load (typeof(ImagenEN), imagen.Titulo);
+                ImagenEN imagenEN = (ImagenEN)session.Load (typeof(ImagenEN), imagen.Id_contenido);
 
                 imagenEN.Resolucion = imagen.Resolucion;
 
@@ -115,7 +115,7 @@ public void ModifyDefault (ImagenEN imagen)
 }
 
 
-public string New_ (ImagenEN imagen)
+public int New_ (ImagenEN imagen)
 {
         try
         {
@@ -145,7 +145,7 @@ public string New_ (ImagenEN imagen)
                 SessionClose ();
         }
 
-        return imagen.Titulo;
+        return imagen.Id_contenido;
 }
 
 public void Modify (ImagenEN imagen)
@@ -153,7 +153,10 @@ public void Modify (ImagenEN imagen)
         try
         {
                 SessionInitializeTransaction ();
-                ImagenEN imagenEN = (ImagenEN)session.Load (typeof(ImagenEN), imagen.Titulo);
+                ImagenEN imagenEN = (ImagenEN)session.Load (typeof(ImagenEN), imagen.Id_contenido);
+
+                imagenEN.Titulo = imagen.Titulo;
+
 
                 imagenEN.TipoArchivo = imagen.TipoArchivo;
 
@@ -192,13 +195,13 @@ public void Modify (ImagenEN imagen)
                 SessionClose ();
         }
 }
-public void Destroy (string titulo
+public void Destroy (int id_contenido
                      )
 {
         try
         {
                 SessionInitializeTransaction ();
-                ImagenEN imagenEN = (ImagenEN)session.Load (typeof(ImagenEN), titulo);
+                ImagenEN imagenEN = (ImagenEN)session.Load (typeof(ImagenEN), id_contenido);
                 session.Delete (imagenEN);
                 SessionCommit ();
         }

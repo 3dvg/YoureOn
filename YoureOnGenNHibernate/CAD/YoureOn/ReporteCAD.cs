@@ -29,7 +29,7 @@ public ReporteCAD(ISession sessionAux) : base (sessionAux)
 
 
 
-public ReporteEN ReadOIDDefault (int id
+public ReporteEN ReadOIDDefault (int id_reporte
                                  )
 {
         ReporteEN reporteEN = null;
@@ -37,7 +37,7 @@ public ReporteEN ReadOIDDefault (int id
         try
         {
                 SessionInitializeTransaction ();
-                reporteEN = (ReporteEN)session.Get (typeof(ReporteEN), id);
+                reporteEN = (ReporteEN)session.Get (typeof(ReporteEN), id_reporte);
                 SessionCommit ();
         }
 
@@ -89,7 +89,7 @@ public void ModifyDefault (ReporteEN reporte)
         try
         {
                 SessionInitializeTransaction ();
-                ReporteEN reporteEN = (ReporteEN)session.Load (typeof(ReporteEN), reporte.Id);
+                ReporteEN reporteEN = (ReporteEN)session.Load (typeof(ReporteEN), reporte.Id_reporte);
 
                 session.Update (reporteEN);
                 SessionCommit ();
@@ -140,7 +140,7 @@ public int New_ (ReporteEN reporte)
                 SessionClose ();
         }
 
-        return reporte.Id;
+        return reporte.Id_reporte;
 }
 
 public void Modify (ReporteEN reporte)
@@ -148,7 +148,7 @@ public void Modify (ReporteEN reporte)
         try
         {
                 SessionInitializeTransaction ();
-                ReporteEN reporteEN = (ReporteEN)session.Load (typeof(ReporteEN), reporte.Id);
+                ReporteEN reporteEN = (ReporteEN)session.Load (typeof(ReporteEN), reporte.Id_reporte);
                 session.Update (reporteEN);
                 SessionCommit ();
         }
@@ -166,13 +166,13 @@ public void Modify (ReporteEN reporte)
                 SessionClose ();
         }
 }
-public void Destroy (int id
+public void Destroy (int id_reporte
                      )
 {
         try
         {
                 SessionInitializeTransaction ();
-                ReporteEN reporteEN = (ReporteEN)session.Load (typeof(ReporteEN), id);
+                ReporteEN reporteEN = (ReporteEN)session.Load (typeof(ReporteEN), id_reporte);
                 session.Delete (reporteEN);
                 SessionCommit ();
         }

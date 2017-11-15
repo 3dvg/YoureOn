@@ -6,9 +6,9 @@ namespace YoureOnGenNHibernate.EN.YoureOn
 public partial class ReporteEN
 {
 /**
- *	Atributo id
+ *	Atributo id_reporte
  */
-private int id;
+private int id_reporte;
 
 
 
@@ -22,8 +22,8 @@ private YoureOnGenNHibernate.EN.YoureOn.UsuarioEN usuario;
 
 
 
-public virtual int Id {
-        get { return id; } set { id = value;  }
+public virtual int Id_reporte {
+        get { return id_reporte; } set { id_reporte = value;  }
 }
 
 
@@ -42,22 +42,22 @@ public ReporteEN()
 
 
 
-public ReporteEN(int id, YoureOnGenNHibernate.EN.YoureOn.UsuarioEN usuario
+public ReporteEN(int id_reporte, YoureOnGenNHibernate.EN.YoureOn.UsuarioEN usuario
                  )
 {
-        this.init (Id, usuario);
+        this.init (Id_reporte, usuario);
 }
 
 
 public ReporteEN(ReporteEN reporte)
 {
-        this.init (Id, reporte.Usuario);
+        this.init (Id_reporte, reporte.Usuario);
 }
 
-private void init (int id
+private void init (int id_reporte
                    , YoureOnGenNHibernate.EN.YoureOn.UsuarioEN usuario)
 {
-        this.Id = id;
+        this.Id_reporte = id_reporte;
 
 
         this.Usuario = usuario;
@@ -70,7 +70,7 @@ public override bool Equals (object obj)
         ReporteEN t = obj as ReporteEN;
         if (t == null)
                 return false;
-        if (Id.Equals (t.Id))
+        if (Id_reporte.Equals (t.Id_reporte))
                 return true;
         else
                 return false;
@@ -80,7 +80,7 @@ public override int GetHashCode ()
 {
         int hash = 13;
 
-        hash += this.Id.GetHashCode ();
+        hash += this.Id_reporte.GetHashCode ();
         return hash;
 }
 }

@@ -29,7 +29,7 @@ public VideoCAD(ISession sessionAux) : base (sessionAux)
 
 
 
-public VideoEN ReadOIDDefault (string titulo
+public VideoEN ReadOIDDefault (int id_contenido
                                )
 {
         VideoEN videoEN = null;
@@ -37,7 +37,7 @@ public VideoEN ReadOIDDefault (string titulo
         try
         {
                 SessionInitializeTransaction ();
-                videoEN = (VideoEN)session.Get (typeof(VideoEN), titulo);
+                videoEN = (VideoEN)session.Get (typeof(VideoEN), id_contenido);
                 SessionCommit ();
         }
 
@@ -89,7 +89,7 @@ public void ModifyDefault (VideoEN video)
         try
         {
                 SessionInitializeTransaction ();
-                VideoEN videoEN = (VideoEN)session.Load (typeof(VideoEN), video.Titulo);
+                VideoEN videoEN = (VideoEN)session.Load (typeof(VideoEN), video.Id_contenido);
 
                 videoEN.Duracion = video.Duracion;
 
@@ -118,7 +118,7 @@ public void ModifyDefault (VideoEN video)
 }
 
 
-public string New_ (VideoEN video)
+public int New_ (VideoEN video)
 {
         try
         {
@@ -148,7 +148,7 @@ public string New_ (VideoEN video)
                 SessionClose ();
         }
 
-        return video.Titulo;
+        return video.Id_contenido;
 }
 
 public void Modify (VideoEN video)
@@ -156,7 +156,10 @@ public void Modify (VideoEN video)
         try
         {
                 SessionInitializeTransaction ();
-                VideoEN videoEN = (VideoEN)session.Load (typeof(VideoEN), video.Titulo);
+                VideoEN videoEN = (VideoEN)session.Load (typeof(VideoEN), video.Id_contenido);
+
+                videoEN.Titulo = video.Titulo;
+
 
                 videoEN.TipoArchivo = video.TipoArchivo;
 
@@ -198,13 +201,13 @@ public void Modify (VideoEN video)
                 SessionClose ();
         }
 }
-public void Destroy (string titulo
+public void Destroy (int id_contenido
                      )
 {
         try
         {
                 SessionInitializeTransaction ();
-                VideoEN videoEN = (VideoEN)session.Load (typeof(VideoEN), titulo);
+                VideoEN videoEN = (VideoEN)session.Load (typeof(VideoEN), id_contenido);
                 session.Delete (videoEN);
                 SessionCommit ();
         }

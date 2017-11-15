@@ -27,6 +27,9 @@
 					<property name="Contrasenya" type="string"> 
 						<column name="contrasenya"  not-null="true"/>
 					</property>
+					<property name="EsVetado" type="boolean"> 
+						<column name="esVetado"  not-null="true"/>
+					</property>
 			
 			
 			
@@ -95,6 +98,8 @@
 					      	</key>
 							<one-to-many class="YoureOnGenNHibernate.EN.YoureOn.ReporteEN"/>
 					    </bag>
+					
+			
 					
 					
 					

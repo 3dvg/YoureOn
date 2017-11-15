@@ -29,7 +29,7 @@ public ComentarioCAD(ISession sessionAux) : base (sessionAux)
 
 
 
-public ComentarioEN ReadOIDDefault (string id
+public ComentarioEN ReadOIDDefault (int id_comentario
                                     )
 {
         ComentarioEN comentarioEN = null;
@@ -37,7 +37,7 @@ public ComentarioEN ReadOIDDefault (string id
         try
         {
                 SessionInitializeTransaction ();
-                comentarioEN = (ComentarioEN)session.Get (typeof(ComentarioEN), id);
+                comentarioEN = (ComentarioEN)session.Get (typeof(ComentarioEN), id_comentario);
                 SessionCommit ();
         }
 
@@ -89,12 +89,13 @@ public void ModifyDefault (ComentarioEN comentario)
         try
         {
                 SessionInitializeTransaction ();
-                ComentarioEN comentarioEN = (ComentarioEN)session.Load (typeof(ComentarioEN), comentario.Id);
+                ComentarioEN comentarioEN = (ComentarioEN)session.Load (typeof(ComentarioEN), comentario.Id_comentario);
 
                 comentarioEN.Texto = comentario.Texto;
 
 
                 comentarioEN.Fecha = comentario.Fecha;
+
 
 
 
@@ -118,7 +119,7 @@ public void ModifyDefault (ComentarioEN comentario)
 }
 
 
-public string New_ (ComentarioEN comentario)
+public int New_ (ComentarioEN comentario)
 {
         try
         {
@@ -132,7 +133,7 @@ public string New_ (ComentarioEN comentario)
                 }
                 if (comentario.Contenido != null) {
                         // Argumento OID y no colección.
-                        comentario.Contenido = (YoureOnGenNHibernate.EN.YoureOn.ContenidoEN)session.Load (typeof(YoureOnGenNHibernate.EN.YoureOn.ContenidoEN), comentario.Contenido.Titulo);
+                        comentario.Contenido = (YoureOnGenNHibernate.EN.YoureOn.ContenidoEN)session.Load (typeof(YoureOnGenNHibernate.EN.YoureOn.ContenidoEN), comentario.Contenido.Id_contenido);
 
                         comentario.Contenido.Comentario
                         .Add (comentario);
@@ -155,7 +156,7 @@ public string New_ (ComentarioEN comentario)
                 SessionClose ();
         }
 
-        return comentario.Id;
+        return comentario.Id_comentario;
 }
 
 public void Editar (ComentarioEN comentario)
@@ -163,7 +164,7 @@ public void Editar (ComentarioEN comentario)
         try
         {
                 SessionInitializeTransaction ();
-                ComentarioEN comentarioEN = (ComentarioEN)session.Load (typeof(ComentarioEN), comentario.Id);
+                ComentarioEN comentarioEN = (ComentarioEN)session.Load (typeof(ComentarioEN), comentario.Id_comentario);
 
                 comentarioEN.Texto = comentario.Texto;
 
@@ -187,13 +188,13 @@ public void Editar (ComentarioEN comentario)
                 SessionClose ();
         }
 }
-public void Borrar (string id
+public void Borrar (int id_comentario
                     )
 {
         try
         {
                 SessionInitializeTransaction ();
-                ComentarioEN comentarioEN = (ComentarioEN)session.Load (typeof(ComentarioEN), id);
+                ComentarioEN comentarioEN = (ComentarioEN)session.Load (typeof(ComentarioEN), id_comentario);
                 session.Delete (comentarioEN);
                 SessionCommit ();
         }

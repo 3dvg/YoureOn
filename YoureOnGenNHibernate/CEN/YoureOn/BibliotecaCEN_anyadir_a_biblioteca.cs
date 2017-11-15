@@ -19,7 +19,7 @@ namespace YoureOnGenNHibernate.CEN.YoureOn
 {
 public partial class BibliotecaCEN
 {
-public void Anyadir_a_biblioteca (int p_oid, YoureOnGenNHibernate.EN.YoureOn.ContenidoEN contenido)
+public void Anyadir_a_biblioteca (int biblioteca_oid, YoureOnGenNHibernate.EN.YoureOn.ContenidoEN contenido)
 {
         /*PROTECTED REGION ID(YoureOnGenNHibernate.CEN.YoureOn_Biblioteca_anyadir_a_biblioteca) ENABLED START*/
 

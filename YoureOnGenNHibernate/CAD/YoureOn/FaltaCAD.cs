@@ -29,7 +29,7 @@ public FaltaCAD(ISession sessionAux) : base (sessionAux)
 
 
 
-public FaltaEN ReadOIDDefault (string id
+public FaltaEN ReadOIDDefault (int id_falta
                                )
 {
         FaltaEN faltaEN = null;
@@ -37,7 +37,7 @@ public FaltaEN ReadOIDDefault (string id
         try
         {
                 SessionInitializeTransaction ();
-                faltaEN = (FaltaEN)session.Get (typeof(FaltaEN), id);
+                faltaEN = (FaltaEN)session.Get (typeof(FaltaEN), id_falta);
                 SessionCommit ();
         }
 
@@ -89,7 +89,7 @@ public void ModifyDefault (FaltaEN falta)
         try
         {
                 SessionInitializeTransaction ();
-                FaltaEN faltaEN = (FaltaEN)session.Load (typeof(FaltaEN), falta.Id);
+                FaltaEN faltaEN = (FaltaEN)session.Load (typeof(FaltaEN), falta.Id_falta);
 
                 faltaEN.TipoFalta = falta.TipoFalta;
 
@@ -117,7 +117,7 @@ public void ModifyDefault (FaltaEN falta)
 }
 
 
-public string New_ (FaltaEN falta)
+public int New_ (FaltaEN falta)
 {
         try
         {
@@ -154,7 +154,7 @@ public string New_ (FaltaEN falta)
                 SessionClose ();
         }
 
-        return falta.Id;
+        return falta.Id_falta;
 }
 
 public void Modify (FaltaEN falta)
@@ -162,7 +162,7 @@ public void Modify (FaltaEN falta)
         try
         {
                 SessionInitializeTransaction ();
-                FaltaEN faltaEN = (FaltaEN)session.Load (typeof(FaltaEN), falta.Id);
+                FaltaEN faltaEN = (FaltaEN)session.Load (typeof(FaltaEN), falta.Id_falta);
 
                 faltaEN.TipoFalta = falta.TipoFalta;
 
@@ -186,13 +186,13 @@ public void Modify (FaltaEN falta)
                 SessionClose ();
         }
 }
-public void Destroy (string id
+public void Destroy (int id_falta
                      )
 {
         try
         {
                 SessionInitializeTransaction ();
-                FaltaEN faltaEN = (FaltaEN)session.Load (typeof(FaltaEN), id);
+                FaltaEN faltaEN = (FaltaEN)session.Load (typeof(FaltaEN), id_falta);
                 session.Delete (faltaEN);
                 SessionCommit ();
         }

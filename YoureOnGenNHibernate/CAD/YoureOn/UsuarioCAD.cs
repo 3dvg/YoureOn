@@ -114,6 +114,9 @@ public void ModifyDefault (UsuarioEN usuario)
 
 
 
+
+                usuarioEN.EsVetado = usuario.EsVetado;
+
                 session.Update (usuarioEN);
                 SessionCommit ();
         }
@@ -183,6 +186,9 @@ public void EditarPerfil (UsuarioEN usuario)
 
                 usuarioEN.Contrasenya = usuario.Contrasenya;
 
+
+                usuarioEN.EsVetado = usuario.EsVetado;
+
                 session.Update (usuarioEN);
                 SessionCommit ();
         }
@@ -223,6 +229,36 @@ public void Destroy (string email
         {
                 SessionClose ();
         }
+}
+
+//Sin e: CargarPerfil
+//Con e: UsuarioEN
+public UsuarioEN CargarPerfil (string email
+                               )
+{
+        UsuarioEN usuarioEN = null;
+
+        try
+        {
+                SessionInitializeTransaction ();
+                usuarioEN = (UsuarioEN)session.Get (typeof(UsuarioEN), email);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is YoureOnGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new YoureOnGenNHibernate.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return usuarioEN;
 }
 }
 }

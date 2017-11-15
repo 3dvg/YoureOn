@@ -48,7 +48,7 @@ public int New_ (string p_usuario)
 
         if (p_usuario != null) {
                 // El argumento p_usuario -> Property usuario es oid = false
-                // Lista de oids id
+                // Lista de oids id_reporte
                 reporteEN.Usuario = new YoureOnGenNHibernate.EN.YoureOn.UsuarioEN ();
                 reporteEN.Usuario.Email = p_usuario;
         }
@@ -65,16 +65,16 @@ public void Modify (int p_Reporte_OID)
 
         //Initialized ReporteEN
         reporteEN = new ReporteEN ();
-        reporteEN.Id = p_Reporte_OID;
+        reporteEN.Id_reporte = p_Reporte_OID;
         //Call to ReporteCAD
 
         _IReporteCAD.Modify (reporteEN);
 }
 
-public void Destroy (int id
+public void Destroy (int id_reporte
                      )
 {
-        _IReporteCAD.Destroy (id);
+        _IReporteCAD.Destroy (id_reporte);
 }
 }
 }

@@ -6,9 +6,9 @@ namespace YoureOnGenNHibernate.EN.YoureOn
 public partial class ComentarioEN
 {
 /**
- *	Atributo id
+ *	Atributo id_comentario
  */
-private string id;
+private int id_comentario;
 
 
 
@@ -47,11 +47,18 @@ private YoureOnGenNHibernate.EN.YoureOn.ContenidoEN contenido;
 
 
 
+/**
+ *	Atributo reporteComentario
+ */
+private System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ReporteComentarioEN> reporteComentario;
 
 
 
-public virtual string Id {
-        get { return id; } set { id = value;  }
+
+
+
+public virtual int Id_comentario {
+        get { return id_comentario; } set { id_comentario = value;  }
 }
 
 
@@ -86,31 +93,38 @@ public virtual YoureOnGenNHibernate.EN.YoureOn.ContenidoEN Contenido {
 
 
 
+public virtual System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ReporteComentarioEN> ReporteComentario {
+        get { return reporteComentario; } set { reporteComentario = value;  }
+}
+
+
+
 
 
 public ComentarioEN()
 {
         valoracion_comentario = new System.Collections.Generic.List<YoureOnGenNHibernate.EN.YoureOn.ValoracionComentarioEN>();
+        reporteComentario = new System.Collections.Generic.List<YoureOnGenNHibernate.EN.YoureOn.ReporteComentarioEN>();
 }
 
 
 
-public ComentarioEN(string id, string texto, Nullable<DateTime> fecha, YoureOnGenNHibernate.EN.YoureOn.UsuarioEN usuario, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ValoracionComentarioEN> valoracion_comentario, YoureOnGenNHibernate.EN.YoureOn.ContenidoEN contenido
+public ComentarioEN(int id_comentario, string texto, Nullable<DateTime> fecha, YoureOnGenNHibernate.EN.YoureOn.UsuarioEN usuario, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ValoracionComentarioEN> valoracion_comentario, YoureOnGenNHibernate.EN.YoureOn.ContenidoEN contenido, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ReporteComentarioEN> reporteComentario
                     )
 {
-        this.init (Id, texto, fecha, usuario, valoracion_comentario, contenido);
+        this.init (Id_comentario, texto, fecha, usuario, valoracion_comentario, contenido, reporteComentario);
 }
 
 
 public ComentarioEN(ComentarioEN comentario)
 {
-        this.init (Id, comentario.Texto, comentario.Fecha, comentario.Usuario, comentario.Valoracion_comentario, comentario.Contenido);
+        this.init (Id_comentario, comentario.Texto, comentario.Fecha, comentario.Usuario, comentario.Valoracion_comentario, comentario.Contenido, comentario.ReporteComentario);
 }
 
-private void init (string id
-                   , string texto, Nullable<DateTime> fecha, YoureOnGenNHibernate.EN.YoureOn.UsuarioEN usuario, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ValoracionComentarioEN> valoracion_comentario, YoureOnGenNHibernate.EN.YoureOn.ContenidoEN contenido)
+private void init (int id_comentario
+                   , string texto, Nullable<DateTime> fecha, YoureOnGenNHibernate.EN.YoureOn.UsuarioEN usuario, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ValoracionComentarioEN> valoracion_comentario, YoureOnGenNHibernate.EN.YoureOn.ContenidoEN contenido, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ReporteComentarioEN> reporteComentario)
 {
-        this.Id = id;
+        this.Id_comentario = id_comentario;
 
 
         this.Texto = texto;
@@ -122,6 +136,8 @@ private void init (string id
         this.Valoracion_comentario = valoracion_comentario;
 
         this.Contenido = contenido;
+
+        this.ReporteComentario = reporteComentario;
 }
 
 public override bool Equals (object obj)
@@ -131,7 +147,7 @@ public override bool Equals (object obj)
         ComentarioEN t = obj as ComentarioEN;
         if (t == null)
                 return false;
-        if (Id.Equals (t.Id))
+        if (Id_comentario.Equals (t.Id_comentario))
                 return true;
         else
                 return false;
@@ -141,7 +157,7 @@ public override int GetHashCode ()
 {
         int hash = 13;
 
-        hash += this.Id.GetHashCode ();
+        hash += this.Id_comentario.GetHashCode ();
         return hash;
 }
 }

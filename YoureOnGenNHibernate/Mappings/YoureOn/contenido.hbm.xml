@@ -6,9 +6,15 @@
 		    
 			
 				<class name="ContenidoEN" table="Contenido"> 
-						<id name="Titulo" column="titulo"/> 
+				  	
+						<id name="Id_contenido" column="id_contenido" type="integer"> 
+							<generator class="hilo"/>
+						</id>
 			
 					
+					<property name="Titulo" type="string"> 
+						<column name="titulo"  not-null="true"/>
+					</property>
 					<property name="TipoArchivo" > 
 						<column name="tipoArchivo"  not-null="true"/>
 					</property>
@@ -30,6 +36,7 @@
 			
 			
 			
+			
 		  			
 						<many-to-one name="Usuario" class="YoureOnGenNHibernate.EN.YoureOn.UsuarioEN" >	
 								<column name="FK_emailUsuario_idUsuario"/> 
@@ -42,7 +49,7 @@
 							<key>
 							
 								
-								<column name="FK_titulo_idContenido"/>
+								<column name="FK_id_contenido_idContenido"/>
 					      	</key>
 							<one-to-many class="YoureOnGenNHibernate.EN.YoureOn.ValoracionContenidoEN"/>
 					    </bag>
@@ -52,10 +59,10 @@
 						<bag name="Biblioteca" table="[biblioteca_contenido]" inverse="true" >
 							<key>
 								
-									<column name="FK_titulo_idContenido"/> 
+									<column name="FK_id_contenido_idContenido"/> 
 							</key>
       						<many-to-many class="YoureOnGenNHibernate.EN.YoureOn.BibliotecaEN">
-									<column name="FK_idBiblioteca_idBiblioteca"/> 
+									<column name="FK_id_biblioBiblioteca_idBiblioteca"/> 
       						</many-to-many>
     					</bag>
 			
@@ -64,7 +71,7 @@
 							<key>
 							
 								
-								<column name="FK_titulo_idContenido"/>
+								<column name="FK_id_contenido_idContenido"/>
 					      	</key>
 							<one-to-many class="YoureOnGenNHibernate.EN.YoureOn.ComentarioEN"/>
 					    </bag>
@@ -76,10 +83,11 @@
 							<key>
 							
 								
-								<column name="FK_titulo_idContenido"/>
+								<column name="FK_id_contenido_idContenido"/>
 					      	</key>
-							<one-to-many class="YoureOnGenNHibernate.EN.YoureOn.ReporeteContenidoEN"/>
+							<one-to-many class="YoureOnGenNHibernate.EN.YoureOn.ReporteContenidoEN"/>
 					    </bag>
+					
 					
 					
 					

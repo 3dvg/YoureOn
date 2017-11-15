@@ -6,19 +6,19 @@ namespace YoureOnGenNHibernate.CAD.YoureOn
 {
 public partial interface IValoracionCAD
 {
-ValoracionEN ReadOIDDefault (string id
+ValoracionEN ReadOIDDefault (int id_valoracion
                              );
 
 void ModifyDefault (ValoracionEN valoracion);
 
 
 
-string New_ (ValoracionEN valoracion);
+int New_ (ValoracionEN valoracion);
 
 void Modify (ValoracionEN valoracion);
 
 
-void Destroy (string id
+void Destroy (int id_valoracion
               );
 }
 }

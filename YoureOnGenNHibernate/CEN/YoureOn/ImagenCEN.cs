@@ -38,10 +38,10 @@ public IImagenCAD get_IImagenCAD ()
         return this._IImagenCAD;
 }
 
-public string New_ (string p_titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum p_tipoArchivo, string p_descripcion, string p_licencia, string p_usuario, string p_autor, bool p_enBiblioteca, int p_resolucion, YoureOnGenNHibernate.Enumerated.YoureOn.FormatoImagenEnum p_formatoImagen)
+public int New_ (string p_titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum p_tipoArchivo, string p_descripcion, string p_licencia, string p_usuario, string p_autor, bool p_enBiblioteca, int p_resolucion, YoureOnGenNHibernate.Enumerated.YoureOn.FormatoImagenEnum p_formatoImagen)
 {
         ImagenEN imagenEN = null;
-        string oid;
+        int oid;
 
         //Initialized ImagenEN
         imagenEN = new ImagenEN ();
@@ -56,7 +56,7 @@ public string New_ (string p_titulo, YoureOnGenNHibernate.Enumerated.YoureOn.Tip
 
         if (p_usuario != null) {
                 // El argumento p_usuario -> Property usuario es oid = false
-                // Lista de oids titulo
+                // Lista de oids id_contenido
                 imagenEN.Usuario = new YoureOnGenNHibernate.EN.YoureOn.UsuarioEN ();
                 imagenEN.Usuario.Email = p_usuario;
         }
@@ -75,13 +75,14 @@ public string New_ (string p_titulo, YoureOnGenNHibernate.Enumerated.YoureOn.Tip
         return oid;
 }
 
-public void Modify (string p_Imagen_OID, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum p_tipoArchivo, string p_descripcion, string p_licencia, string p_autor, bool p_enBiblioteca, int p_resolucion, YoureOnGenNHibernate.Enumerated.YoureOn.FormatoImagenEnum p_formatoImagen)
+public void Modify (int p_Imagen_OID, string p_titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum p_tipoArchivo, string p_descripcion, string p_licencia, string p_autor, bool p_enBiblioteca, int p_resolucion, YoureOnGenNHibernate.Enumerated.YoureOn.FormatoImagenEnum p_formatoImagen)
 {
         ImagenEN imagenEN = null;
 
         //Initialized ImagenEN
         imagenEN = new ImagenEN ();
-        imagenEN.Titulo = p_Imagen_OID;
+        imagenEN.Id_contenido = p_Imagen_OID;
+        imagenEN.Titulo = p_titulo;
         imagenEN.TipoArchivo = p_tipoArchivo;
         imagenEN.Descripcion = p_descripcion;
         imagenEN.Licencia = p_licencia;
@@ -94,10 +95,10 @@ public void Modify (string p_Imagen_OID, YoureOnGenNHibernate.Enumerated.YoureOn
         _IImagenCAD.Modify (imagenEN);
 }
 
-public void Destroy (string titulo
+public void Destroy (int id_contenido
                      )
 {
-        _IImagenCAD.Destroy (titulo);
+        _IImagenCAD.Destroy (id_contenido);
 }
 }
 }

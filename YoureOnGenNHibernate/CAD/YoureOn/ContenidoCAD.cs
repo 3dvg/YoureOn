@@ -29,7 +29,7 @@ public ContenidoCAD(ISession sessionAux) : base (sessionAux)
 
 
 
-public ContenidoEN ReadOIDDefault (string titulo
+public ContenidoEN ReadOIDDefault (int id_contenido
                                    )
 {
         ContenidoEN contenidoEN = null;
@@ -37,7 +37,7 @@ public ContenidoEN ReadOIDDefault (string titulo
         try
         {
                 SessionInitializeTransaction ();
-                contenidoEN = (ContenidoEN)session.Get (typeof(ContenidoEN), titulo);
+                contenidoEN = (ContenidoEN)session.Get (typeof(ContenidoEN), id_contenido);
                 SessionCommit ();
         }
 
@@ -89,7 +89,10 @@ public void ModifyDefault (ContenidoEN contenido)
         try
         {
                 SessionInitializeTransaction ();
-                ContenidoEN contenidoEN = (ContenidoEN)session.Load (typeof(ContenidoEN), contenido.Titulo);
+                ContenidoEN contenidoEN = (ContenidoEN)session.Load (typeof(ContenidoEN), contenido.Id_contenido);
+
+                contenidoEN.Titulo = contenido.Titulo;
+
 
                 contenidoEN.TipoArchivo = contenido.TipoArchivo;
 
@@ -129,7 +132,7 @@ public void ModifyDefault (ContenidoEN contenido)
 }
 
 
-public string SubirContenido (ContenidoEN contenido)
+public int SubirContenido (ContenidoEN contenido)
 {
         try
         {
@@ -159,7 +162,7 @@ public string SubirContenido (ContenidoEN contenido)
                 SessionClose ();
         }
 
-        return contenido.Titulo;
+        return contenido.Id_contenido;
 }
 
 public void Editar (ContenidoEN contenido)
@@ -167,7 +170,10 @@ public void Editar (ContenidoEN contenido)
         try
         {
                 SessionInitializeTransaction ();
-                ContenidoEN contenidoEN = (ContenidoEN)session.Load (typeof(ContenidoEN), contenido.Titulo);
+                ContenidoEN contenidoEN = (ContenidoEN)session.Load (typeof(ContenidoEN), contenido.Id_contenido);
+
+                contenidoEN.Titulo = contenido.Titulo;
+
 
                 contenidoEN.TipoArchivo = contenido.TipoArchivo;
 
@@ -200,13 +206,13 @@ public void Editar (ContenidoEN contenido)
                 SessionClose ();
         }
 }
-public void Borrar (string titulo
+public void Borrar (int id_contenido
                     )
 {
         try
         {
                 SessionInitializeTransaction ();
-                ContenidoEN contenidoEN = (ContenidoEN)session.Load (typeof(ContenidoEN), titulo);
+                ContenidoEN contenidoEN = (ContenidoEN)session.Load (typeof(ContenidoEN), id_contenido);
                 session.Delete (contenidoEN);
                 SessionCommit ();
         }
@@ -223,6 +229,36 @@ public void Borrar (string titulo
         {
                 SessionClose ();
         }
+}
+
+//Sin e: CargarContenido
+//Con e: ContenidoEN
+public ContenidoEN CargarContenido (int id_contenido
+                                    )
+{
+        ContenidoEN contenidoEN = null;
+
+        try
+        {
+                SessionInitializeTransaction ();
+                contenidoEN = (ContenidoEN)session.Get (typeof(ContenidoEN), id_contenido);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is YoureOnGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new YoureOnGenNHibernate.Exceptions.DataLayerException ("Error in ContenidoCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return contenidoEN;
 }
 
 public System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ContenidoEN> DameContenidoPorTitulo (string c_titulo)

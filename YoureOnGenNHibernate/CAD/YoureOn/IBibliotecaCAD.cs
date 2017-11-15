@@ -6,7 +6,7 @@ namespace YoureOnGenNHibernate.CAD.YoureOn
 {
 public partial interface IBibliotecaCAD
 {
-BibliotecaEN ReadOIDDefault (int id
+BibliotecaEN ReadOIDDefault (int id_biblio
                              );
 
 void ModifyDefault (BibliotecaEN biblioteca);
@@ -18,7 +18,12 @@ int New_ (BibliotecaEN biblioteca);
 void Modify (BibliotecaEN biblioteca);
 
 
-void Destroy (int id
+void Destroy (int id_biblio
               );
+
+
+
+BibliotecaEN CargarBiblioteca (int id_biblio
+                               );
 }
 }

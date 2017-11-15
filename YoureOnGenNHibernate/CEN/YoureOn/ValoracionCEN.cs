@@ -38,15 +38,13 @@ public IValoracionCAD get_IValoracionCAD ()
         return this._IValoracionCAD;
 }
 
-public string New_ (string p_id, Nullable<DateTime> p_fecha, float p_nota)
+public int New_ (Nullable<DateTime> p_fecha, int p_nota)
 {
         ValoracionEN valoracionEN = null;
-        string oid;
+        int oid;
 
         //Initialized ValoracionEN
         valoracionEN = new ValoracionEN ();
-        valoracionEN.Id = p_id;
-
         valoracionEN.Fecha = p_fecha;
 
         valoracionEN.Nota = p_nota;
@@ -57,13 +55,13 @@ public string New_ (string p_id, Nullable<DateTime> p_fecha, float p_nota)
         return oid;
 }
 
-public void Modify (string p_Valoracion_OID, Nullable<DateTime> p_fecha, float p_nota)
+public void Modify (int p_Valoracion_OID, Nullable<DateTime> p_fecha, int p_nota)
 {
         ValoracionEN valoracionEN = null;
 
         //Initialized ValoracionEN
         valoracionEN = new ValoracionEN ();
-        valoracionEN.Id = p_Valoracion_OID;
+        valoracionEN.Id_valoracion = p_Valoracion_OID;
         valoracionEN.Fecha = p_fecha;
         valoracionEN.Nota = p_nota;
         //Call to ValoracionCAD
@@ -71,10 +69,10 @@ public void Modify (string p_Valoracion_OID, Nullable<DateTime> p_fecha, float p
         _IValoracionCAD.Modify (valoracionEN);
 }
 
-public void Destroy (string id
+public void Destroy (int id_valoracion
                      )
 {
-        _IValoracionCAD.Destroy (id);
+        _IValoracionCAD.Destroy (id_valoracion);
 }
 }
 }

@@ -38,7 +38,7 @@ public IModeradorCAD get_IModeradorCAD ()
         return this._IModeradorCAD;
 }
 
-public string New_ (string p_email, string p_nombre, string p_apellidos, Nullable<DateTime> p_fechaNac, string p_NIF, string p_foto, String p_contrasenya, string p_permisoModerador)
+public string New_ (string p_email, string p_nombre, string p_apellidos, Nullable<DateTime> p_fechaNac, string p_NIF, string p_foto, String p_contrasenya, bool p_esVetado, string p_permisoModerador)
 {
         ModeradorEN moderadorEN = null;
         string oid;
@@ -59,6 +59,8 @@ public string New_ (string p_email, string p_nombre, string p_apellidos, Nullabl
 
         moderadorEN.Contrasenya = Utils.Util.GetEncondeMD5 (p_contrasenya);
 
+        moderadorEN.EsVetado = p_esVetado;
+
         moderadorEN.PermisoModerador = p_permisoModerador;
 
         //Call to ModeradorCAD
@@ -67,7 +69,7 @@ public string New_ (string p_email, string p_nombre, string p_apellidos, Nullabl
         return oid;
 }
 
-public void Modify (string p_Moderador_OID, string p_nombre, string p_apellidos, Nullable<DateTime> p_fechaNac, string p_NIF, string p_foto, String p_contrasenya, string p_permisoModerador)
+public void Modify (string p_Moderador_OID, string p_nombre, string p_apellidos, Nullable<DateTime> p_fechaNac, string p_NIF, string p_foto, String p_contrasenya, bool p_esVetado, string p_permisoModerador)
 {
         ModeradorEN moderadorEN = null;
 
@@ -80,6 +82,7 @@ public void Modify (string p_Moderador_OID, string p_nombre, string p_apellidos,
         moderadorEN.NIF = p_NIF;
         moderadorEN.Foto = p_foto;
         moderadorEN.Contrasenya = Utils.Util.GetEncondeMD5 (p_contrasenya);
+        moderadorEN.EsVetado = p_esVetado;
         moderadorEN.PermisoModerador = p_permisoModerador;
         //Call to ModeradorCAD
 

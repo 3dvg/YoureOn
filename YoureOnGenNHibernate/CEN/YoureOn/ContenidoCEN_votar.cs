@@ -19,13 +19,16 @@ namespace YoureOnGenNHibernate.CEN.YoureOn
 {
 public partial class ContenidoCEN
 {
-public void Votar (string p_oid, float puntos)
+public void Votar (int p_Contenido_OID, System.Collections.Generic.IList<int> p_valoracion_contenido_OIDs, int nota)
 {
         /*PROTECTED REGION ID(YoureOnGenNHibernate.CEN.YoureOn_Contenido_votar) ENABLED START*/
 
-        // Write here your custom code...
+        ValoracionContenidoEN valoracionContenidoEN = new ValoracionContenidoEN ();
+        ContenidoEN contenidoEN = _IContenidoCAD.ReadOIDDefault (p_Contenido_OID);
 
-        throw new NotImplementedException ("Method Votar() not yet implemented.");
+        valoracionContenidoEN = new ValoracionContenidoEN (valoracionContenidoEN.Id_valoracion, contenidoEN, DateTime.Today, nota);
+
+        //throw new NotImplementedException ("Method Votar() not yet implemented.");
 
         /*PROTECTED REGION END*/
 }

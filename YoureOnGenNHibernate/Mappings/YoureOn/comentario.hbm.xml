@@ -6,7 +6,10 @@
 		    
 			
 				<class name="ComentarioEN" table="Comentario"> 
-						<id name="Id" column="idComentario"/> 
+				  	
+						<id name="Id_comentario" column="id_comentarioComentario" type="integer"> 
+							<generator class="hilo"/>
+						</id>
 			
 					
 					<property name="Texto" type="string"> 
@@ -31,7 +34,7 @@
 							<key>
 							
 								
-								<column name="FK_idComentario_idComentario"/>
+								<column name="FK_id_comentarioComentario_idComentario"/>
 					      	</key>
 							<one-to-many class="YoureOnGenNHibernate.EN.YoureOn.ValoracionComentarioEN"/>
 					    </bag>
@@ -39,9 +42,21 @@
 			
 		  			
 						<many-to-one name="Contenido" class="YoureOnGenNHibernate.EN.YoureOn.ContenidoEN" >	
-								<column name="FK_titulo_idContenido"/> 
+								<column name="FK_id_contenido_idContenido"/> 
 						</many-to-one>
 											 					
+			
+		  			
+						<bag name="ReporteComentario" cascade="delete">
+							<key>
+							
+								
+								<column name="FK_id_comentarioComentario_idComentario"/>
+					      	</key>
+							<one-to-many class="YoureOnGenNHibernate.EN.YoureOn.ReporteComentarioEN"/>
+					    </bag>
+					
+					
 					
 					
 					

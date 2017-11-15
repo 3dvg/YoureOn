@@ -38,25 +38,23 @@ public IValoracionComentarioCAD get_IValoracionComentarioCAD ()
         return this._IValoracionComentarioCAD;
 }
 
-public string New_ (string p_id, Nullable<DateTime> p_fecha, float p_nota, string p_comentario)
+public int New_ (Nullable<DateTime> p_fecha, int p_nota, int p_comentario)
 {
         ValoracionComentarioEN valoracionComentarioEN = null;
-        string oid;
+        int oid;
 
         //Initialized ValoracionComentarioEN
         valoracionComentarioEN = new ValoracionComentarioEN ();
-        valoracionComentarioEN.Id = p_id;
-
         valoracionComentarioEN.Fecha = p_fecha;
 
         valoracionComentarioEN.Nota = p_nota;
 
 
-        if (p_comentario != null) {
+        if (p_comentario != -1) {
                 // El argumento p_comentario -> Property comentario es oid = false
-                // Lista de oids id
+                // Lista de oids id_valoracion
                 valoracionComentarioEN.Comentario = new YoureOnGenNHibernate.EN.YoureOn.ComentarioEN ();
-                valoracionComentarioEN.Comentario.Id = p_comentario;
+                valoracionComentarioEN.Comentario.Id_comentario = p_comentario;
         }
 
         //Call to ValoracionComentarioCAD
@@ -65,13 +63,13 @@ public string New_ (string p_id, Nullable<DateTime> p_fecha, float p_nota, strin
         return oid;
 }
 
-public void Modify (string p_ValoracionComentario_OID, Nullable<DateTime> p_fecha, float p_nota)
+public void Modify (int p_ValoracionComentario_OID, Nullable<DateTime> p_fecha, int p_nota)
 {
         ValoracionComentarioEN valoracionComentarioEN = null;
 
         //Initialized ValoracionComentarioEN
         valoracionComentarioEN = new ValoracionComentarioEN ();
-        valoracionComentarioEN.Id = p_ValoracionComentario_OID;
+        valoracionComentarioEN.Id_valoracion = p_ValoracionComentario_OID;
         valoracionComentarioEN.Fecha = p_fecha;
         valoracionComentarioEN.Nota = p_nota;
         //Call to ValoracionComentarioCAD
@@ -79,10 +77,10 @@ public void Modify (string p_ValoracionComentario_OID, Nullable<DateTime> p_fech
         _IValoracionComentarioCAD.Modify (valoracionComentarioEN);
 }
 
-public void Destroy (string id
+public void Destroy (int id_valoracion
                      )
 {
-        _IValoracionComentarioCAD.Destroy (id);
+        _IValoracionComentarioCAD.Destroy (id_valoracion);
 }
 }
 }

@@ -9,7 +9,6 @@ using NHibernate.Exceptions;
 using YoureOnGenNHibernate.EN.YoureOn;
 using YoureOnGenNHibernate.CAD.YoureOn;
 using YoureOnGenNHibernate.CEN.YoureOn;
-using System.Collections.Generic;
 
 
 /*PROTECTED REGION ID(usingYoureOnGenNHibernate.CP.YoureOn_Usuario_getPuntuacion) ENABLED START*/
@@ -20,7 +19,7 @@ namespace YoureOnGenNHibernate.CP.YoureOn
 {
 public partial class UsuarioCP : BasicCP
 {
-public float GetPuntuacion (string p_oid)
+public float GetPuntuacion (string usuario_oid)
 {
         /*PROTECTED REGION ID(YoureOnGenNHibernate.CP.YoureOn_Usuario_getPuntuacion) ENABLED START*/
 
@@ -32,33 +31,28 @@ public float GetPuntuacion (string p_oid)
         {
                 SessionInitializeTransaction ();
                 usuarioCAD = new UsuarioCAD (session);
-                usuario = usuarioCAD.ReadOIDDefault(p_oid);
+                usuario = usuarioCAD.ReadOIDDefault (usuario_oid);
                 result = sumaContenido = sumaComentario = mediaContenidos = mediaComentarios = 0;
 
-                if (usuario != null)
-                {
-                    IList<ContenidoEN> lista_contenidos = usuario.Contenido;
-                    IList<ComentarioEN> lista_comentarios = usuario.Comentario;
+                if (usuario != null) {
+                        System.Collections.Generic.IList<ContenidoEN> lista_contenidos = usuario.Contenido;
+                        System.Collections.Generic.IList<ComentarioEN> lista_comentarios = usuario.Comentario;
 
-                    foreach (ContenidoEN content in lista_contenidos)
-                    {
-                        foreach (ValoracionContenidoEN val_contenido in content.Valoracion_contenido)
-                        {
-                            sumaContenido += val_contenido.Nota;
+                        foreach (ContenidoEN content in lista_contenidos) {
+                                foreach (ValoracionContenidoEN val_contenido in content.Valoracion_contenido) {
+                                        sumaContenido += val_contenido.Nota;
+                                }
                         }
-                    }
 
-                    foreach (ComentarioEN comentario in lista_comentarios)
-                    {
-                        foreach (ValoracionComentarioEN val_comentario in comentario.Valoracion_comentario)
-                        {
-                            sumaComentario += val_comentario.Nota;
+                        foreach (ComentarioEN comentario in lista_comentarios) {
+                                foreach (ValoracionComentarioEN val_comentario in comentario.Valoracion_comentario) {
+                                        sumaComentario += val_comentario.Nota;
+                                }
                         }
-                    }
 
-                    mediaContenidos = sumaContenido / lista_contenidos.Count;
-                    mediaComentarios = sumaComentario / lista_comentarios.Count;
-                    result = (mediaContenidos + mediaComentarios) / 2;
+                        mediaContenidos = sumaContenido / lista_contenidos.Count;
+                        mediaComentarios = sumaComentario / lista_comentarios.Count;
+                        result = (mediaContenidos + mediaComentarios) / 2;
                 }
                 SessionCommit ();
         }

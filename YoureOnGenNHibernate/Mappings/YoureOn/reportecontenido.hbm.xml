@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="YoureOnGenNHibernate"
+		                   namespace="YoureOnGenNHibernate.EN.YoureOn">
+		    
+		    
+			
+				
+<joined-subclass name="ReporteContenidoEN" extends="YoureOnGenNHibernate.EN.YoureOn.ReporteEN" table="ReporteContenido"> 
+	<key>
+    	
+				<column name="id_reporteReporte"/>
+		
+    	
+   	</key>
+
+			
+					
+			
+			
+		  			
+						<many-to-one name="Contenido" class="YoureOnGenNHibernate.EN.YoureOn.ContenidoEN" >	
+								<column name="FK_id_contenido_idContenido"/> 
+						</many-to-one>
+											 					
+					
+		
+ 	  
+		 </joined-subclass>
+		  
+		  <query name="ReporteContenidoENReadAllHQL">from ReporteContenidoEN</query>
+		</hibernate-mapping>
+	

@@ -6,19 +6,19 @@ namespace YoureOnGenNHibernate.CAD.YoureOn
 {
 public partial interface IComentarioCAD
 {
-ComentarioEN ReadOIDDefault (string id
+ComentarioEN ReadOIDDefault (int id_comentario
                              );
 
 void ModifyDefault (ComentarioEN comentario);
 
 
 
-string New_ (ComentarioEN comentario);
+int New_ (ComentarioEN comentario);
 
 void Editar (ComentarioEN comentario);
 
 
-void Borrar (string id
+void Borrar (int id_comentario
              );
 }
 }

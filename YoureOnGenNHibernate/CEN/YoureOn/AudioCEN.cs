@@ -38,10 +38,10 @@ public IAudioCAD get_IAudioCAD ()
         return this._IAudioCAD;
 }
 
-public string New_ (string p_titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum p_tipoArchivo, string p_descripcion, string p_licencia, string p_usuario, string p_autor, bool p_enBiblioteca, Nullable<DateTime> p_duracion, YoureOnGenNHibernate.Enumerated.YoureOn.FormatoAudioEnum p_formatoAudio)
+public int New_ (string p_titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum p_tipoArchivo, string p_descripcion, string p_licencia, string p_usuario, string p_autor, bool p_enBiblioteca, Nullable<DateTime> p_duracion, YoureOnGenNHibernate.Enumerated.YoureOn.FormatoAudioEnum p_formatoAudio)
 {
         AudioEN audioEN = null;
-        string oid;
+        int oid;
 
         //Initialized AudioEN
         audioEN = new AudioEN ();
@@ -56,7 +56,7 @@ public string New_ (string p_titulo, YoureOnGenNHibernate.Enumerated.YoureOn.Tip
 
         if (p_usuario != null) {
                 // El argumento p_usuario -> Property usuario es oid = false
-                // Lista de oids titulo
+                // Lista de oids id_contenido
                 audioEN.Usuario = new YoureOnGenNHibernate.EN.YoureOn.UsuarioEN ();
                 audioEN.Usuario.Email = p_usuario;
         }
@@ -75,13 +75,14 @@ public string New_ (string p_titulo, YoureOnGenNHibernate.Enumerated.YoureOn.Tip
         return oid;
 }
 
-public void Modify (string p_Audio_OID, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum p_tipoArchivo, string p_descripcion, string p_licencia, string p_autor, bool p_enBiblioteca, Nullable<DateTime> p_duracion, YoureOnGenNHibernate.Enumerated.YoureOn.FormatoAudioEnum p_formatoAudio)
+public void Modify (int p_Audio_OID, string p_titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum p_tipoArchivo, string p_descripcion, string p_licencia, string p_autor, bool p_enBiblioteca, Nullable<DateTime> p_duracion, YoureOnGenNHibernate.Enumerated.YoureOn.FormatoAudioEnum p_formatoAudio)
 {
         AudioEN audioEN = null;
 
         //Initialized AudioEN
         audioEN = new AudioEN ();
-        audioEN.Titulo = p_Audio_OID;
+        audioEN.Id_contenido = p_Audio_OID;
+        audioEN.Titulo = p_titulo;
         audioEN.TipoArchivo = p_tipoArchivo;
         audioEN.Descripcion = p_descripcion;
         audioEN.Licencia = p_licencia;
@@ -94,10 +95,10 @@ public void Modify (string p_Audio_OID, YoureOnGenNHibernate.Enumerated.YoureOn.
         _IAudioCAD.Modify (audioEN);
 }
 
-public void Destroy (string titulo
+public void Destroy (int id_contenido
                      )
 {
-        _IAudioCAD.Destroy (titulo);
+        _IAudioCAD.Destroy (id_contenido);
 }
 }
 }

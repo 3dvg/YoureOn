@@ -44,28 +44,30 @@ public ImagenEN() : base ()
 
 
 
-public ImagenEN(string titulo, int resolucion, YoureOnGenNHibernate.Enumerated.YoureOn.FormatoImagenEnum formatoImagen
-                , YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum tipoArchivo, string descripcion, string licencia, YoureOnGenNHibernate.EN.YoureOn.UsuarioEN usuario, string autor, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ValoracionContenidoEN> valoracion_contenido, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.BibliotecaEN> biblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ComentarioEN> comentario, bool enBiblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ReporeteContenidoEN> reporte
+public ImagenEN(int id_contenido, int resolucion, YoureOnGenNHibernate.Enumerated.YoureOn.FormatoImagenEnum formatoImagen
+                , string titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum tipoArchivo, string descripcion, string licencia, YoureOnGenNHibernate.EN.YoureOn.UsuarioEN usuario, string autor, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ValoracionContenidoEN> valoracion_contenido, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.BibliotecaEN> biblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ComentarioEN> comentario, bool enBiblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ReporteContenidoEN> reporte
                 )
 {
-        this.init (Titulo, resolucion, formatoImagen, tipoArchivo, descripcion, licencia, usuario, autor, valoracion_contenido, biblioteca, comentario, enBiblioteca, reporte);
+        this.init (Id_contenido, resolucion, formatoImagen, titulo, tipoArchivo, descripcion, licencia, usuario, autor, valoracion_contenido, biblioteca, comentario, enBiblioteca, reporte);
 }
 
 
 public ImagenEN(ImagenEN imagen)
 {
-        this.init (Titulo, imagen.Resolucion, imagen.FormatoImagen, imagen.TipoArchivo, imagen.Descripcion, imagen.Licencia, imagen.Usuario, imagen.Autor, imagen.Valoracion_contenido, imagen.Biblioteca, imagen.Comentario, imagen.EnBiblioteca, imagen.Reporte);
+        this.init (Id_contenido, imagen.Resolucion, imagen.FormatoImagen, imagen.Titulo, imagen.TipoArchivo, imagen.Descripcion, imagen.Licencia, imagen.Usuario, imagen.Autor, imagen.Valoracion_contenido, imagen.Biblioteca, imagen.Comentario, imagen.EnBiblioteca, imagen.Reporte);
 }
 
-private void init (string titulo
-                   , int resolucion, YoureOnGenNHibernate.Enumerated.YoureOn.FormatoImagenEnum formatoImagen, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum tipoArchivo, string descripcion, string licencia, YoureOnGenNHibernate.EN.YoureOn.UsuarioEN usuario, string autor, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ValoracionContenidoEN> valoracion_contenido, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.BibliotecaEN> biblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ComentarioEN> comentario, bool enBiblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ReporeteContenidoEN> reporte)
+private void init (int id_contenido
+                   , int resolucion, YoureOnGenNHibernate.Enumerated.YoureOn.FormatoImagenEnum formatoImagen, string titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum tipoArchivo, string descripcion, string licencia, YoureOnGenNHibernate.EN.YoureOn.UsuarioEN usuario, string autor, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ValoracionContenidoEN> valoracion_contenido, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.BibliotecaEN> biblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ComentarioEN> comentario, bool enBiblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ReporteContenidoEN> reporte)
 {
-        this.Titulo = titulo;
+        this.Id_contenido = id_contenido;
 
 
         this.Resolucion = resolucion;
 
         this.FormatoImagen = formatoImagen;
+
+        this.Titulo = titulo;
 
         this.TipoArchivo = tipoArchivo;
 
@@ -95,7 +97,7 @@ public override bool Equals (object obj)
         ImagenEN t = obj as ImagenEN;
         if (t == null)
                 return false;
-        if (Titulo.Equals (t.Titulo))
+        if (Id_contenido.Equals (t.Id_contenido))
                 return true;
         else
                 return false;
@@ -105,7 +107,7 @@ public override int GetHashCode ()
 {
         int hash = 13;
 
-        hash += this.Titulo.GetHashCode ();
+        hash += this.Id_contenido.GetHashCode ();
         return hash;
 }
 }

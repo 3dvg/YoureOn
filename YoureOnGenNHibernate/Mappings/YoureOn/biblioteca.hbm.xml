@@ -7,7 +7,7 @@
 			
 				<class name="BibliotecaEN" table="Biblioteca"> 
 				  	
-						<id name="Id" column="idBiblioteca" type="integer"> 
+						<id name="Id_biblio" column="id_biblioBiblioteca" type="integer"> 
 							<generator class="hilo"/>
 						</id>
 			
@@ -27,10 +27,10 @@
 						<bag name="Contenido" table="[biblioteca_contenido]"  >
 							<key>
 								
-									<column name="FK_idBiblioteca_idBiblioteca"/> 
+									<column name="FK_id_biblioBiblioteca_idBiblioteca"/> 
 							</key>
       						<many-to-many class="YoureOnGenNHibernate.EN.YoureOn.ContenidoEN">
-									<column name="FK_titulo_idContenido"/> 
+									<column name="FK_id_contenido_idContenido"/> 
       						</many-to-many>
     					</bag>
 					

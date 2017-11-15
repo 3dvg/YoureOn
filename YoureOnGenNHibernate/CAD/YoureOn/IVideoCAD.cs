@@ -6,19 +6,19 @@ namespace YoureOnGenNHibernate.CAD.YoureOn
 {
 public partial interface IVideoCAD
 {
-VideoEN ReadOIDDefault (string titulo
+VideoEN ReadOIDDefault (int id_contenido
                         );
 
 void ModifyDefault (VideoEN video);
 
 
 
-string New_ (VideoEN video);
+int New_ (VideoEN video);
 
 void Modify (VideoEN video);
 
 
-void Destroy (string titulo
+void Destroy (int id_contenido
               );
 }
 }

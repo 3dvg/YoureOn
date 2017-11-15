@@ -38,7 +38,7 @@ public IAdministradorCAD get_IAdministradorCAD ()
         return this._IAdministradorCAD;
 }
 
-public string New_ (string p_email, string p_nombre, string p_apellidos, Nullable<DateTime> p_fechaNac, string p_NIF, string p_foto, String p_contrasenya, string p_permisoModerador, string p_permisoAdministrador)
+public string New_ (string p_email, string p_nombre, string p_apellidos, Nullable<DateTime> p_fechaNac, string p_NIF, string p_foto, String p_contrasenya, bool p_esVetado, string p_permisoModerador, string p_permisoAdministrador)
 {
         AdministradorEN administradorEN = null;
         string oid;
@@ -59,6 +59,8 @@ public string New_ (string p_email, string p_nombre, string p_apellidos, Nullabl
 
         administradorEN.Contrasenya = Utils.Util.GetEncondeMD5 (p_contrasenya);
 
+        administradorEN.EsVetado = p_esVetado;
+
         administradorEN.PermisoModerador = p_permisoModerador;
 
         administradorEN.PermisoAdministrador = p_permisoAdministrador;
@@ -69,7 +71,7 @@ public string New_ (string p_email, string p_nombre, string p_apellidos, Nullabl
         return oid;
 }
 
-public void Modify (string p_Administrador_OID, string p_nombre, string p_apellidos, Nullable<DateTime> p_fechaNac, string p_NIF, string p_foto, String p_contrasenya, string p_permisoModerador, string p_permisoAdministrador)
+public void Modify (string p_Administrador_OID, string p_nombre, string p_apellidos, Nullable<DateTime> p_fechaNac, string p_NIF, string p_foto, String p_contrasenya, bool p_esVetado, string p_permisoModerador, string p_permisoAdministrador)
 {
         AdministradorEN administradorEN = null;
 
@@ -82,6 +84,7 @@ public void Modify (string p_Administrador_OID, string p_nombre, string p_apelli
         administradorEN.NIF = p_NIF;
         administradorEN.Foto = p_foto;
         administradorEN.Contrasenya = Utils.Util.GetEncondeMD5 (p_contrasenya);
+        administradorEN.EsVetado = p_esVetado;
         administradorEN.PermisoModerador = p_permisoModerador;
         administradorEN.PermisoAdministrador = p_permisoAdministrador;
         //Call to AdministradorCAD

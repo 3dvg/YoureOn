@@ -38,10 +38,10 @@ public IContenidoCAD get_IContenidoCAD ()
         return this._IContenidoCAD;
 }
 
-public string SubirContenido (string p_titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum p_tipoArchivo, string p_descripcion, string p_licencia, string p_usuario, string p_autor, bool p_enBiblioteca)
+public int SubirContenido (string p_titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum p_tipoArchivo, string p_descripcion, string p_licencia, string p_usuario, string p_autor, bool p_enBiblioteca)
 {
         ContenidoEN contenidoEN = null;
-        string oid;
+        int oid;
 
         //Initialized ContenidoEN
         contenidoEN = new ContenidoEN ();
@@ -56,7 +56,7 @@ public string SubirContenido (string p_titulo, YoureOnGenNHibernate.Enumerated.Y
 
         if (p_usuario != null) {
                 // El argumento p_usuario -> Property usuario es oid = false
-                // Lista de oids titulo
+                // Lista de oids id_contenido
                 contenidoEN.Usuario = new YoureOnGenNHibernate.EN.YoureOn.UsuarioEN ();
                 contenidoEN.Usuario.Email = p_usuario;
         }
@@ -71,13 +71,14 @@ public string SubirContenido (string p_titulo, YoureOnGenNHibernate.Enumerated.Y
         return oid;
 }
 
-public void Editar (string p_Contenido_OID, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum p_tipoArchivo, string p_descripcion, string p_licencia, string p_autor, bool p_enBiblioteca)
+public void Editar (int p_Contenido_OID, string p_titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum p_tipoArchivo, string p_descripcion, string p_licencia, string p_autor, bool p_enBiblioteca)
 {
         ContenidoEN contenidoEN = null;
 
         //Initialized ContenidoEN
         contenidoEN = new ContenidoEN ();
-        contenidoEN.Titulo = p_Contenido_OID;
+        contenidoEN.Id_contenido = p_Contenido_OID;
+        contenidoEN.Titulo = p_titulo;
         contenidoEN.TipoArchivo = p_tipoArchivo;
         contenidoEN.Descripcion = p_descripcion;
         contenidoEN.Licencia = p_licencia;
@@ -88,10 +89,19 @@ public void Editar (string p_Contenido_OID, YoureOnGenNHibernate.Enumerated.Your
         _IContenidoCAD.Editar (contenidoEN);
 }
 
-public void Borrar (string titulo
+public void Borrar (int id_contenido
                     )
 {
-        _IContenidoCAD.Borrar (titulo);
+        _IContenidoCAD.Borrar (id_contenido);
+}
+
+public ContenidoEN CargarContenido (int id_contenido
+                                    )
+{
+        ContenidoEN contenidoEN = null;
+
+        contenidoEN = _IContenidoCAD.CargarContenido (id_contenido);
+        return contenidoEN;
 }
 
 public System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ContenidoEN> DameContenidoPorTitulo (string c_titulo)

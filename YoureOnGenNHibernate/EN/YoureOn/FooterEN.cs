@@ -6,17 +6,30 @@ namespace YoureOnGenNHibernate.EN.YoureOn
 public partial class FooterEN
 {
 /**
- *	Atributo id
+ *	Atributo id_footer
  */
-private int id;
+private int id_footer;
+
+
+
+/**
+ *	Atributo enlace
+ */
+private string enlace;
 
 
 
 
 
 
-public virtual int Id {
-        get { return id; } set { id = value;  }
+public virtual int Id_footer {
+        get { return id_footer; } set { id_footer = value;  }
+}
+
+
+
+public virtual string Enlace {
+        get { return enlace; } set { enlace = value;  }
 }
 
 
@@ -29,22 +42,25 @@ public FooterEN()
 
 
 
-public FooterEN(int id
+public FooterEN(int id_footer, string enlace
                 )
 {
-        this.init (Id);
+        this.init (Id_footer, enlace);
 }
 
 
 public FooterEN(FooterEN footer)
 {
-        this.init (Id);
+        this.init (Id_footer, footer.Enlace);
 }
 
-private void init (int id
-                   )
+private void init (int id_footer
+                   , string enlace)
 {
-        this.Id = id;
+        this.Id_footer = id_footer;
+
+
+        this.Enlace = enlace;
 }
 
 public override bool Equals (object obj)
@@ -54,7 +70,7 @@ public override bool Equals (object obj)
         FooterEN t = obj as FooterEN;
         if (t == null)
                 return false;
-        if (Id.Equals (t.Id))
+        if (Id_footer.Equals (t.Id_footer))
                 return true;
         else
                 return false;
@@ -64,7 +80,7 @@ public override int GetHashCode ()
 {
         int hash = 13;
 
-        hash += this.Id.GetHashCode ();
+        hash += this.Id_footer.GetHashCode ();
         return hash;
 }
 }

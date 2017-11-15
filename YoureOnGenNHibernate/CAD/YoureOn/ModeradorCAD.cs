@@ -165,6 +165,9 @@ public void Modify (ModeradorEN moderador)
                 moderadorEN.Contrasenya = moderador.Contrasenya;
 
 
+                moderadorEN.EsVetado = moderador.EsVetado;
+
+
                 moderadorEN.PermisoModerador = moderador.PermisoModerador;
 
                 session.Update (moderadorEN);

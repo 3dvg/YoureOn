@@ -29,7 +29,7 @@ public ValoracionCAD(ISession sessionAux) : base (sessionAux)
 
 
 
-public ValoracionEN ReadOIDDefault (string id
+public ValoracionEN ReadOIDDefault (int id_valoracion
                                     )
 {
         ValoracionEN valoracionEN = null;
@@ -37,7 +37,7 @@ public ValoracionEN ReadOIDDefault (string id
         try
         {
                 SessionInitializeTransaction ();
-                valoracionEN = (ValoracionEN)session.Get (typeof(ValoracionEN), id);
+                valoracionEN = (ValoracionEN)session.Get (typeof(ValoracionEN), id_valoracion);
                 SessionCommit ();
         }
 
@@ -89,7 +89,7 @@ public void ModifyDefault (ValoracionEN valoracion)
         try
         {
                 SessionInitializeTransaction ();
-                ValoracionEN valoracionEN = (ValoracionEN)session.Load (typeof(ValoracionEN), valoracion.Id);
+                ValoracionEN valoracionEN = (ValoracionEN)session.Load (typeof(ValoracionEN), valoracion.Id_valoracion);
 
                 valoracionEN.Fecha = valoracion.Fecha;
 
@@ -115,7 +115,7 @@ public void ModifyDefault (ValoracionEN valoracion)
 }
 
 
-public string New_ (ValoracionEN valoracion)
+public int New_ (ValoracionEN valoracion)
 {
         try
         {
@@ -138,7 +138,7 @@ public string New_ (ValoracionEN valoracion)
                 SessionClose ();
         }
 
-        return valoracion.Id;
+        return valoracion.Id_valoracion;
 }
 
 public void Modify (ValoracionEN valoracion)
@@ -146,7 +146,7 @@ public void Modify (ValoracionEN valoracion)
         try
         {
                 SessionInitializeTransaction ();
-                ValoracionEN valoracionEN = (ValoracionEN)session.Load (typeof(ValoracionEN), valoracion.Id);
+                ValoracionEN valoracionEN = (ValoracionEN)session.Load (typeof(ValoracionEN), valoracion.Id_valoracion);
 
                 valoracionEN.Fecha = valoracion.Fecha;
 
@@ -170,13 +170,13 @@ public void Modify (ValoracionEN valoracion)
                 SessionClose ();
         }
 }
-public void Destroy (string id
+public void Destroy (int id_valoracion
                      )
 {
         try
         {
                 SessionInitializeTransaction ();
-                ValoracionEN valoracionEN = (ValoracionEN)session.Load (typeof(ValoracionEN), id);
+                ValoracionEN valoracionEN = (ValoracionEN)session.Load (typeof(ValoracionEN), id_valoracion);
                 session.Delete (valoracionEN);
                 SessionCommit ();
         }

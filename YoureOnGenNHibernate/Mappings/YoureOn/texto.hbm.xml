@@ -9,7 +9,7 @@
 <joined-subclass name="TextoEN" extends="YoureOnGenNHibernate.EN.YoureOn.ContenidoEN" table="Texto"> 
 	<key>
     	
-				<column name="titulo"/>
+				<column name="id_contenido"/>
 		
     	
    	</key>

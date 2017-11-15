@@ -6,7 +6,10 @@
 		    
 			
 				<class name="FaltaEN" table="Falta"> 
-						<id name="Id" column="idFalta"/> 
+				  	
+						<id name="Id_falta" column="id_faltaFalta" type="integer"> 
+							<generator class="hilo"/>
+						</id>
 			
 					
 					<property name="TipoFalta" > 

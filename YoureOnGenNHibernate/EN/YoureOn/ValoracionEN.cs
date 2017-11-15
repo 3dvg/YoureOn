@@ -6,9 +6,9 @@ namespace YoureOnGenNHibernate.EN.YoureOn
 public partial class ValoracionEN
 {
 /**
- *	Atributo id
+ *	Atributo id_valoracion
  */
-private string id;
+private int id_valoracion;
 
 
 
@@ -22,15 +22,15 @@ private Nullable<DateTime> fecha;
 /**
  *	Atributo nota
  */
-private float nota;
+private int nota;
 
 
 
 
 
 
-public virtual string Id {
-        get { return id; } set { id = value;  }
+public virtual int Id_valoracion {
+        get { return id_valoracion; } set { id_valoracion = value;  }
 }
 
 
@@ -41,7 +41,7 @@ public virtual Nullable<DateTime> Fecha {
 
 
 
-public virtual float Nota {
+public virtual int Nota {
         get { return nota; } set { nota = value;  }
 }
 
@@ -55,22 +55,22 @@ public ValoracionEN()
 
 
 
-public ValoracionEN(string id, Nullable<DateTime> fecha, float nota
+public ValoracionEN(int id_valoracion, Nullable<DateTime> fecha, int nota
                     )
 {
-        this.init (Id, fecha, nota);
+        this.init (Id_valoracion, fecha, nota);
 }
 
 
 public ValoracionEN(ValoracionEN valoracion)
 {
-        this.init (Id, valoracion.Fecha, valoracion.Nota);
+        this.init (Id_valoracion, valoracion.Fecha, valoracion.Nota);
 }
 
-private void init (string id
-                   , Nullable<DateTime> fecha, float nota)
+private void init (int id_valoracion
+                   , Nullable<DateTime> fecha, int nota)
 {
-        this.Id = id;
+        this.Id_valoracion = id_valoracion;
 
 
         this.Fecha = fecha;
@@ -85,7 +85,7 @@ public override bool Equals (object obj)
         ValoracionEN t = obj as ValoracionEN;
         if (t == null)
                 return false;
-        if (Id.Equals (t.Id))
+        if (Id_valoracion.Equals (t.Id_valoracion))
                 return true;
         else
                 return false;
@@ -95,7 +95,7 @@ public override int GetHashCode ()
 {
         int hash = 13;
 
-        hash += this.Id.GetHashCode ();
+        hash += this.Id_valoracion.GetHashCode ();
         return hash;
 }
 }

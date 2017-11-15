@@ -29,7 +29,7 @@ public FooterCAD(ISession sessionAux) : base (sessionAux)
 
 
 
-public FooterEN ReadOIDDefault (int id
+public FooterEN ReadOIDDefault (int id_footer
                                 )
 {
         FooterEN footerEN = null;
@@ -37,7 +37,7 @@ public FooterEN ReadOIDDefault (int id
         try
         {
                 SessionInitializeTransaction ();
-                footerEN = (FooterEN)session.Get (typeof(FooterEN), id);
+                footerEN = (FooterEN)session.Get (typeof(FooterEN), id_footer);
                 SessionCommit ();
         }
 
@@ -89,7 +89,10 @@ public void ModifyDefault (FooterEN footer)
         try
         {
                 SessionInitializeTransaction ();
-                FooterEN footerEN = (FooterEN)session.Load (typeof(FooterEN), footer.Id);
+                FooterEN footerEN = (FooterEN)session.Load (typeof(FooterEN), footer.Id_footer);
+
+                footerEN.Enlace = footer.Enlace;
+
                 session.Update (footerEN);
                 SessionCommit ();
         }
@@ -132,7 +135,7 @@ public int New_ (FooterEN footer)
                 SessionClose ();
         }
 
-        return footer.Id;
+        return footer.Id_footer;
 }
 
 public void Modify (FooterEN footer)
@@ -140,7 +143,10 @@ public void Modify (FooterEN footer)
         try
         {
                 SessionInitializeTransaction ();
-                FooterEN footerEN = (FooterEN)session.Load (typeof(FooterEN), footer.Id);
+                FooterEN footerEN = (FooterEN)session.Load (typeof(FooterEN), footer.Id_footer);
+
+                footerEN.Enlace = footer.Enlace;
+
                 session.Update (footerEN);
                 SessionCommit ();
         }
@@ -158,13 +164,13 @@ public void Modify (FooterEN footer)
                 SessionClose ();
         }
 }
-public void Destroy (int id
+public void Destroy (int id_footer
                      )
 {
         try
         {
                 SessionInitializeTransaction ();
-                FooterEN footerEN = (FooterEN)session.Load (typeof(FooterEN), id);
+                FooterEN footerEN = (FooterEN)session.Load (typeof(FooterEN), id_footer);
                 session.Delete (footerEN);
                 SessionCommit ();
         }

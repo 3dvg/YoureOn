@@ -19,37 +19,33 @@ namespace YoureOnGenNHibernate.CEN.YoureOn
 {
 public partial class UsuarioCEN
 {
-public int Login (string p_oid, String contrasenya)
+public int Login (string usuario_oid, String contrasenya)
 {
-            /*PROTECTED REGION ID(YoureOnGenNHibernate.CEN.YoureOn_Usuario_login) ENABLED START*/
+        /*PROTECTED REGION ID(YoureOnGenNHibernate.CEN.YoureOn_Usuario_login) ENABLED START*/
 
-            // Write here your custom code...
+        // Write here your custom code...
 
-            int inicio = 0; //Error autenticacion
+        int inicio = 0;     //Error autenticacion
 
-            if (p_oid != null && contrasenya != null)
-            {
-                UsuarioEN usuario = _IUsuarioCAD.ReadOIDDefault(p_oid);
-                if (usuario != null && usuario.Contrasenya.Equals(Utils.Util.GetEncondeMD5(contrasenya)))
-                {
-                    /*if (usuario.EsVetado)
-                    {
-                        inicio = 1; //Administrador
-                    }
-                    else */if (usuario.GetType() == typeof(ModeradorEN))
-                    {
-                        inicio = 2; //Moderador
-                    }
-                    else
-                    {
-                        inicio = 3; //Registrado
-                    }
+        if (usuario_oid != null && contrasenya != null) {
+                UsuarioEN usuario = _IUsuarioCAD.ReadOIDDefault (usuario_oid);
+                if (usuario != null && usuario.Contrasenya.Equals (Utils.Util.GetEncondeMD5 (contrasenya))) {
+                        /*if (usuario.EsVetado)
+                         * {
+                         *  inicio = 1; //Administrador
+                         * }
+                         * else */if (usuario.GetType () == typeof(ModeradorEN)) {
+                                inicio = 2; //Moderador
+                        }
+                        else{
+                                inicio = 3; //Registrado
+                        }
                 }
-            }
-
-            return inicio;
-
-            /*PROTECTED REGION END*/
         }
+
+        return inicio;
+
+        /*PROTECTED REGION END*/
+}
 }
 }

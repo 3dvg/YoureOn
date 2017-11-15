@@ -7,13 +7,18 @@
 			
 				<class name="FooterEN" table="Footer"> 
 				  	
-						<id name="Id" column="idFooter" type="integer"> 
+						<id name="Id_footer" column="id_footerFooter" type="integer"> 
 							<generator class="hilo"/>
 						</id>
 			
 					
+					<property name="Enlace" type="string"> 
+						<column name="enlace"  not-null="true"/>
+					</property>
 			
 			
+			
+					
 					
 		
 		 </class>	

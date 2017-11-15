@@ -38,25 +38,23 @@ public IValoracionContenidoCAD get_IValoracionContenidoCAD ()
         return this._IValoracionContenidoCAD;
 }
 
-public string New_ (string p_id, Nullable<DateTime> p_fecha, float p_nota, string p_contenido)
+public int New_ (Nullable<DateTime> p_fecha, int p_nota, int p_contenido)
 {
         ValoracionContenidoEN valoracionContenidoEN = null;
-        string oid;
+        int oid;
 
         //Initialized ValoracionContenidoEN
         valoracionContenidoEN = new ValoracionContenidoEN ();
-        valoracionContenidoEN.Id = p_id;
-
         valoracionContenidoEN.Fecha = p_fecha;
 
         valoracionContenidoEN.Nota = p_nota;
 
 
-        if (p_contenido != null) {
+        if (p_contenido != -1) {
                 // El argumento p_contenido -> Property contenido es oid = false
-                // Lista de oids id
+                // Lista de oids id_valoracion
                 valoracionContenidoEN.Contenido = new YoureOnGenNHibernate.EN.YoureOn.ContenidoEN ();
-                valoracionContenidoEN.Contenido.Titulo = p_contenido;
+                valoracionContenidoEN.Contenido.Id_contenido = p_contenido;
         }
 
         //Call to ValoracionContenidoCAD
@@ -65,13 +63,13 @@ public string New_ (string p_id, Nullable<DateTime> p_fecha, float p_nota, strin
         return oid;
 }
 
-public void Modify (string p_ValoracionContenido_OID, Nullable<DateTime> p_fecha, float p_nota)
+public void Modify (int p_ValoracionContenido_OID, Nullable<DateTime> p_fecha, int p_nota)
 {
         ValoracionContenidoEN valoracionContenidoEN = null;
 
         //Initialized ValoracionContenidoEN
         valoracionContenidoEN = new ValoracionContenidoEN ();
-        valoracionContenidoEN.Id = p_ValoracionContenido_OID;
+        valoracionContenidoEN.Id_valoracion = p_ValoracionContenido_OID;
         valoracionContenidoEN.Fecha = p_fecha;
         valoracionContenidoEN.Nota = p_nota;
         //Call to ValoracionContenidoCAD
@@ -79,10 +77,10 @@ public void Modify (string p_ValoracionContenido_OID, Nullable<DateTime> p_fecha
         _IValoracionContenidoCAD.Modify (valoracionContenidoEN);
 }
 
-public void Destroy (string id
+public void Destroy (int id_valoracion
                      )
 {
-        _IValoracionContenidoCAD.Destroy (id);
+        _IValoracionContenidoCAD.Destroy (id_valoracion);
 }
 }
 }

@@ -29,7 +29,7 @@ public BibliotecaCAD(ISession sessionAux) : base (sessionAux)
 
 
 
-public BibliotecaEN ReadOIDDefault (int id
+public BibliotecaEN ReadOIDDefault (int id_biblio
                                     )
 {
         BibliotecaEN bibliotecaEN = null;
@@ -37,7 +37,7 @@ public BibliotecaEN ReadOIDDefault (int id
         try
         {
                 SessionInitializeTransaction ();
-                bibliotecaEN = (BibliotecaEN)session.Get (typeof(BibliotecaEN), id);
+                bibliotecaEN = (BibliotecaEN)session.Get (typeof(BibliotecaEN), id_biblio);
                 SessionCommit ();
         }
 
@@ -89,7 +89,7 @@ public void ModifyDefault (BibliotecaEN biblioteca)
         try
         {
                 SessionInitializeTransaction ();
-                BibliotecaEN bibliotecaEN = (BibliotecaEN)session.Load (typeof(BibliotecaEN), biblioteca.Id);
+                BibliotecaEN bibliotecaEN = (BibliotecaEN)session.Load (typeof(BibliotecaEN), biblioteca.Id_biblio);
 
 
                 session.Update (bibliotecaEN);
@@ -141,7 +141,7 @@ public int New_ (BibliotecaEN biblioteca)
                 SessionClose ();
         }
 
-        return biblioteca.Id;
+        return biblioteca.Id_biblio;
 }
 
 public void Modify (BibliotecaEN biblioteca)
@@ -149,7 +149,7 @@ public void Modify (BibliotecaEN biblioteca)
         try
         {
                 SessionInitializeTransaction ();
-                BibliotecaEN bibliotecaEN = (BibliotecaEN)session.Load (typeof(BibliotecaEN), biblioteca.Id);
+                BibliotecaEN bibliotecaEN = (BibliotecaEN)session.Load (typeof(BibliotecaEN), biblioteca.Id_biblio);
                 session.Update (bibliotecaEN);
                 SessionCommit ();
         }
@@ -167,13 +167,13 @@ public void Modify (BibliotecaEN biblioteca)
                 SessionClose ();
         }
 }
-public void Destroy (int id
+public void Destroy (int id_biblio
                      )
 {
         try
         {
                 SessionInitializeTransaction ();
-                BibliotecaEN bibliotecaEN = (BibliotecaEN)session.Load (typeof(BibliotecaEN), id);
+                BibliotecaEN bibliotecaEN = (BibliotecaEN)session.Load (typeof(BibliotecaEN), id_biblio);
                 session.Delete (bibliotecaEN);
                 SessionCommit ();
         }
@@ -190,6 +190,36 @@ public void Destroy (int id
         {
                 SessionClose ();
         }
+}
+
+//Sin e: CargarBiblioteca
+//Con e: BibliotecaEN
+public BibliotecaEN CargarBiblioteca (int id_biblio
+                                      )
+{
+        BibliotecaEN bibliotecaEN = null;
+
+        try
+        {
+                SessionInitializeTransaction ();
+                bibliotecaEN = (BibliotecaEN)session.Get (typeof(BibliotecaEN), id_biblio);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is YoureOnGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new YoureOnGenNHibernate.Exceptions.DataLayerException ("Error in BibliotecaCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return bibliotecaEN;
 }
 }
 }

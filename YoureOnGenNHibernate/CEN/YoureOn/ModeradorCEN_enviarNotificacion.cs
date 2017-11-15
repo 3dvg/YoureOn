@@ -19,13 +19,22 @@ namespace YoureOnGenNHibernate.CEN.YoureOn
 {
 public partial class ModeradorCEN
 {
-public void EnviarNotificacion (string p_oid)
+public void EnviarNotificacion (string moderador_oid, YoureOnGenNHibernate.EN.YoureOn.UsuarioEN usuario, string mensaje)
 {
         /*PROTECTED REGION ID(YoureOnGenNHibernate.CEN.YoureOn_Moderador_enviarNotificacion) ENABLED START*/
 
         // Write here your custom code...
 
-        throw new NotImplementedException ("Method EnviarNotificacion() not yet implemented.");
+        // Write here your custom code...
+        ModeradorEN moderador = new ModeradorEN ();
+
+        moderador = _IModeradorCAD.ReadOIDDefault (moderador.Email);
+        NotificacionesEN notificacion = new NotificacionesEN ();
+
+        if (usuario != null && !mensaje.Equals ("") && moderador != null) {
+                notificacion = new NotificacionesEN (notificacion.Id_notificacion, usuario, mensaje, moderador);
+        }
+
 
         /*PROTECTED REGION END*/
 }

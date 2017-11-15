@@ -48,7 +48,7 @@ public int New_ (string p_usuario)
 
         if (p_usuario != null) {
                 // El argumento p_usuario -> Property usuario es oid = false
-                // Lista de oids id
+                // Lista de oids id_biblio
                 bibliotecaEN.Usuario = new YoureOnGenNHibernate.EN.YoureOn.UsuarioEN ();
                 bibliotecaEN.Usuario.Email = p_usuario;
         }
@@ -65,16 +65,25 @@ public void Modify (int p_Biblioteca_OID)
 
         //Initialized BibliotecaEN
         bibliotecaEN = new BibliotecaEN ();
-        bibliotecaEN.Id = p_Biblioteca_OID;
+        bibliotecaEN.Id_biblio = p_Biblioteca_OID;
         //Call to BibliotecaCAD
 
         _IBibliotecaCAD.Modify (bibliotecaEN);
 }
 
-public void Destroy (int id
+public void Destroy (int id_biblio
                      )
 {
-        _IBibliotecaCAD.Destroy (id);
+        _IBibliotecaCAD.Destroy (id_biblio);
+}
+
+public BibliotecaEN CargarBiblioteca (int id_biblio
+                                      )
+{
+        BibliotecaEN bibliotecaEN = null;
+
+        bibliotecaEN = _IBibliotecaCAD.CargarBiblioteca (id_biblio);
+        return bibliotecaEN;
 }
 }
 }

@@ -38,7 +38,7 @@ public IUsuarioCAD get_IUsuarioCAD ()
         return this._IUsuarioCAD;
 }
 
-public string CrearUsuario (string p_email, string p_nombre, string p_apellidos, Nullable<DateTime> p_fechaNac, string p_NIF, string p_foto, String p_contrasenya)
+public string CrearUsuario (string p_email, string p_nombre, string p_apellidos, Nullable<DateTime> p_fechaNac, string p_NIF, string p_foto, String p_contrasenya, bool p_esVetado)
 {
         UsuarioEN usuarioEN = null;
         string oid;
@@ -59,13 +59,15 @@ public string CrearUsuario (string p_email, string p_nombre, string p_apellidos,
 
         usuarioEN.Contrasenya = Utils.Util.GetEncondeMD5 (p_contrasenya);
 
+        usuarioEN.EsVetado = p_esVetado;
+
         //Call to UsuarioCAD
 
         oid = _IUsuarioCAD.CrearUsuario (usuarioEN);
         return oid;
 }
 
-public void EditarPerfil (string p_Usuario_OID, string p_nombre, string p_apellidos, Nullable<DateTime> p_fechaNac, string p_NIF, string p_foto, String p_contrasenya)
+public void EditarPerfil (string p_Usuario_OID, string p_nombre, string p_apellidos, Nullable<DateTime> p_fechaNac, string p_NIF, string p_foto, String p_contrasenya, bool p_esVetado)
 {
         UsuarioEN usuarioEN = null;
 
@@ -78,6 +80,7 @@ public void EditarPerfil (string p_Usuario_OID, string p_nombre, string p_apelli
         usuarioEN.NIF = p_NIF;
         usuarioEN.Foto = p_foto;
         usuarioEN.Contrasenya = Utils.Util.GetEncondeMD5 (p_contrasenya);
+        usuarioEN.EsVetado = p_esVetado;
         //Call to UsuarioCAD
 
         _IUsuarioCAD.EditarPerfil (usuarioEN);
@@ -87,6 +90,15 @@ public void Destroy (string email
                      )
 {
         _IUsuarioCAD.Destroy (email);
+}
+
+public UsuarioEN CargarPerfil (string email
+                               )
+{
+        UsuarioEN usuarioEN = null;
+
+        usuarioEN = _IUsuarioCAD.CargarPerfil (email);
+        return usuarioEN;
 }
 }
 }

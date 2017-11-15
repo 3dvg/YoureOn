@@ -6,9 +6,9 @@ namespace YoureOnGenNHibernate.EN.YoureOn
 public partial class FaltaEN
 {
 /**
- *	Atributo id
+ *	Atributo id_falta
  */
-private string id;
+private int id_falta;
 
 
 
@@ -43,8 +43,8 @@ private YoureOnGenNHibernate.EN.YoureOn.ModeradorEN moderador;
 
 
 
-public virtual string Id {
-        get { return id; } set { id = value;  }
+public virtual int Id_falta {
+        get { return id_falta; } set { id_falta = value;  }
 }
 
 
@@ -81,22 +81,22 @@ public FaltaEN()
 
 
 
-public FaltaEN(string id, YoureOnGenNHibernate.Enumerated.YoureOn.TipoFaltaEnum tipoFalta, YoureOnGenNHibernate.EN.YoureOn.UsuarioEN usuario, Nullable<DateTime> fecha, YoureOnGenNHibernate.EN.YoureOn.ModeradorEN moderador
+public FaltaEN(int id_falta, YoureOnGenNHibernate.Enumerated.YoureOn.TipoFaltaEnum tipoFalta, YoureOnGenNHibernate.EN.YoureOn.UsuarioEN usuario, Nullable<DateTime> fecha, YoureOnGenNHibernate.EN.YoureOn.ModeradorEN moderador
                )
 {
-        this.init (Id, tipoFalta, usuario, fecha, moderador);
+        this.init (Id_falta, tipoFalta, usuario, fecha, moderador);
 }
 
 
 public FaltaEN(FaltaEN falta)
 {
-        this.init (Id, falta.TipoFalta, falta.Usuario, falta.Fecha, falta.Moderador);
+        this.init (Id_falta, falta.TipoFalta, falta.Usuario, falta.Fecha, falta.Moderador);
 }
 
-private void init (string id
+private void init (int id_falta
                    , YoureOnGenNHibernate.Enumerated.YoureOn.TipoFaltaEnum tipoFalta, YoureOnGenNHibernate.EN.YoureOn.UsuarioEN usuario, Nullable<DateTime> fecha, YoureOnGenNHibernate.EN.YoureOn.ModeradorEN moderador)
 {
-        this.Id = id;
+        this.Id_falta = id_falta;
 
 
         this.TipoFalta = tipoFalta;
@@ -115,7 +115,7 @@ public override bool Equals (object obj)
         FaltaEN t = obj as FaltaEN;
         if (t == null)
                 return false;
-        if (Id.Equals (t.Id))
+        if (Id_falta.Equals (t.Id_falta))
                 return true;
         else
                 return false;
@@ -125,7 +125,7 @@ public override int GetHashCode ()
 {
         int hash = 13;
 
-        hash += this.Id.GetHashCode ();
+        hash += this.Id_falta.GetHashCode ();
         return hash;
 }
 }

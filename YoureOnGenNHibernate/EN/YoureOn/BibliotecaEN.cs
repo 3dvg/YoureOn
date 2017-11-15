@@ -6,9 +6,9 @@ namespace YoureOnGenNHibernate.EN.YoureOn
 public partial class BibliotecaEN
 {
 /**
- *	Atributo id
+ *	Atributo id_biblio
  */
-private int id;
+private int id_biblio;
 
 
 
@@ -29,8 +29,8 @@ private System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.Conteni
 
 
 
-public virtual int Id {
-        get { return id; } set { id = value;  }
+public virtual int Id_biblio {
+        get { return id_biblio; } set { id_biblio = value;  }
 }
 
 
@@ -56,22 +56,22 @@ public BibliotecaEN()
 
 
 
-public BibliotecaEN(int id, YoureOnGenNHibernate.EN.YoureOn.UsuarioEN usuario, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ContenidoEN> contenido
+public BibliotecaEN(int id_biblio, YoureOnGenNHibernate.EN.YoureOn.UsuarioEN usuario, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ContenidoEN> contenido
                     )
 {
-        this.init (Id, usuario, contenido);
+        this.init (Id_biblio, usuario, contenido);
 }
 
 
 public BibliotecaEN(BibliotecaEN biblioteca)
 {
-        this.init (Id, biblioteca.Usuario, biblioteca.Contenido);
+        this.init (Id_biblio, biblioteca.Usuario, biblioteca.Contenido);
 }
 
-private void init (int id
+private void init (int id_biblio
                    , YoureOnGenNHibernate.EN.YoureOn.UsuarioEN usuario, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ContenidoEN> contenido)
 {
-        this.Id = id;
+        this.Id_biblio = id_biblio;
 
 
         this.Usuario = usuario;
@@ -86,7 +86,7 @@ public override bool Equals (object obj)
         BibliotecaEN t = obj as BibliotecaEN;
         if (t == null)
                 return false;
-        if (Id.Equals (t.Id))
+        if (Id_biblio.Equals (t.Id_biblio))
                 return true;
         else
                 return false;
@@ -96,7 +96,7 @@ public override int GetHashCode ()
 {
         int hash = 13;
 
-        hash += this.Id.GetHashCode ();
+        hash += this.Id_biblio.GetHashCode ();
         return hash;
 }
 }

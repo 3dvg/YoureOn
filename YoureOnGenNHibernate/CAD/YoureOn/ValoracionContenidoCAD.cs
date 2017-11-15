@@ -29,7 +29,7 @@ public ValoracionContenidoCAD(ISession sessionAux) : base (sessionAux)
 
 
 
-public ValoracionContenidoEN ReadOIDDefault (string id
+public ValoracionContenidoEN ReadOIDDefault (int id_valoracion
                                              )
 {
         ValoracionContenidoEN valoracionContenidoEN = null;
@@ -37,7 +37,7 @@ public ValoracionContenidoEN ReadOIDDefault (string id
         try
         {
                 SessionInitializeTransaction ();
-                valoracionContenidoEN = (ValoracionContenidoEN)session.Get (typeof(ValoracionContenidoEN), id);
+                valoracionContenidoEN = (ValoracionContenidoEN)session.Get (typeof(ValoracionContenidoEN), id_valoracion);
                 SessionCommit ();
         }
 
@@ -89,7 +89,7 @@ public void ModifyDefault (ValoracionContenidoEN valoracionContenido)
         try
         {
                 SessionInitializeTransaction ();
-                ValoracionContenidoEN valoracionContenidoEN = (ValoracionContenidoEN)session.Load (typeof(ValoracionContenidoEN), valoracionContenido.Id);
+                ValoracionContenidoEN valoracionContenidoEN = (ValoracionContenidoEN)session.Load (typeof(ValoracionContenidoEN), valoracionContenido.Id_valoracion);
 
                 session.Update (valoracionContenidoEN);
                 SessionCommit ();
@@ -110,14 +110,14 @@ public void ModifyDefault (ValoracionContenidoEN valoracionContenido)
 }
 
 
-public string New_ (ValoracionContenidoEN valoracionContenido)
+public int New_ (ValoracionContenidoEN valoracionContenido)
 {
         try
         {
                 SessionInitializeTransaction ();
                 if (valoracionContenido.Contenido != null) {
                         // Argumento OID y no colección.
-                        valoracionContenido.Contenido = (YoureOnGenNHibernate.EN.YoureOn.ContenidoEN)session.Load (typeof(YoureOnGenNHibernate.EN.YoureOn.ContenidoEN), valoracionContenido.Contenido.Titulo);
+                        valoracionContenido.Contenido = (YoureOnGenNHibernate.EN.YoureOn.ContenidoEN)session.Load (typeof(YoureOnGenNHibernate.EN.YoureOn.ContenidoEN), valoracionContenido.Contenido.Id_contenido);
 
                         valoracionContenido.Contenido.Valoracion_contenido
                         .Add (valoracionContenido);
@@ -140,7 +140,7 @@ public string New_ (ValoracionContenidoEN valoracionContenido)
                 SessionClose ();
         }
 
-        return valoracionContenido.Id;
+        return valoracionContenido.Id_valoracion;
 }
 
 public void Modify (ValoracionContenidoEN valoracionContenido)
@@ -148,7 +148,7 @@ public void Modify (ValoracionContenidoEN valoracionContenido)
         try
         {
                 SessionInitializeTransaction ();
-                ValoracionContenidoEN valoracionContenidoEN = (ValoracionContenidoEN)session.Load (typeof(ValoracionContenidoEN), valoracionContenido.Id);
+                ValoracionContenidoEN valoracionContenidoEN = (ValoracionContenidoEN)session.Load (typeof(ValoracionContenidoEN), valoracionContenido.Id_valoracion);
 
                 valoracionContenidoEN.Fecha = valoracionContenido.Fecha;
 
@@ -172,13 +172,13 @@ public void Modify (ValoracionContenidoEN valoracionContenido)
                 SessionClose ();
         }
 }
-public void Destroy (string id
+public void Destroy (int id_valoracion
                      )
 {
         try
         {
                 SessionInitializeTransaction ();
-                ValoracionContenidoEN valoracionContenidoEN = (ValoracionContenidoEN)session.Load (typeof(ValoracionContenidoEN), id);
+                ValoracionContenidoEN valoracionContenidoEN = (ValoracionContenidoEN)session.Load (typeof(ValoracionContenidoEN), id_valoracion);
                 session.Delete (valoracionContenidoEN);
                 SessionCommit ();
         }

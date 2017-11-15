@@ -29,7 +29,7 @@ public NotificacionesCAD(ISession sessionAux) : base (sessionAux)
 
 
 
-public NotificacionesEN ReadOIDDefault (string id
+public NotificacionesEN ReadOIDDefault (int id_notificacion
                                         )
 {
         NotificacionesEN notificacionesEN = null;
@@ -37,7 +37,7 @@ public NotificacionesEN ReadOIDDefault (string id
         try
         {
                 SessionInitializeTransaction ();
-                notificacionesEN = (NotificacionesEN)session.Get (typeof(NotificacionesEN), id);
+                notificacionesEN = (NotificacionesEN)session.Get (typeof(NotificacionesEN), id_notificacion);
                 SessionCommit ();
         }
 
@@ -89,7 +89,7 @@ public void ModifyDefault (NotificacionesEN notificaciones)
         try
         {
                 SessionInitializeTransaction ();
-                NotificacionesEN notificacionesEN = (NotificacionesEN)session.Load (typeof(NotificacionesEN), notificaciones.Id);
+                NotificacionesEN notificacionesEN = (NotificacionesEN)session.Load (typeof(NotificacionesEN), notificaciones.Id_notificacion);
 
 
                 notificacionesEN.Mensaje = notificaciones.Mensaje;
@@ -114,7 +114,7 @@ public void ModifyDefault (NotificacionesEN notificaciones)
 }
 
 
-public string New_ (NotificacionesEN notificaciones)
+public int New_ (NotificacionesEN notificaciones)
 {
         try
         {
@@ -151,7 +151,7 @@ public string New_ (NotificacionesEN notificaciones)
                 SessionClose ();
         }
 
-        return notificaciones.Id;
+        return notificaciones.Id_notificacion;
 }
 
 public void Modify (NotificacionesEN notificaciones)
@@ -159,7 +159,7 @@ public void Modify (NotificacionesEN notificaciones)
         try
         {
                 SessionInitializeTransaction ();
-                NotificacionesEN notificacionesEN = (NotificacionesEN)session.Load (typeof(NotificacionesEN), notificaciones.Id);
+                NotificacionesEN notificacionesEN = (NotificacionesEN)session.Load (typeof(NotificacionesEN), notificaciones.Id_notificacion);
 
                 notificacionesEN.Mensaje = notificaciones.Mensaje;
 
@@ -180,13 +180,13 @@ public void Modify (NotificacionesEN notificaciones)
                 SessionClose ();
         }
 }
-public void Destroy (string id
+public void Destroy (int id_notificacion
                      )
 {
         try
         {
                 SessionInitializeTransaction ();
-                NotificacionesEN notificacionesEN = (NotificacionesEN)session.Load (typeof(NotificacionesEN), id);
+                NotificacionesEN notificacionesEN = (NotificacionesEN)session.Load (typeof(NotificacionesEN), id_notificacion);
                 session.Delete (notificacionesEN);
                 SessionCommit ();
         }

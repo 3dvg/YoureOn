@@ -96,6 +96,13 @@ private System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.Reporte
 
 
 
+/**
+ *	Atributo esVetado
+ */
+private bool esVetado;
+
+
+
 
 
 
@@ -177,6 +184,12 @@ public virtual System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.
 
 
 
+public virtual bool EsVetado {
+        get { return esVetado; } set { esVetado = value;  }
+}
+
+
+
 
 
 public UsuarioEN()
@@ -190,20 +203,20 @@ public UsuarioEN()
 
 
 
-public UsuarioEN(string email, string nombre, string apellidos, Nullable<DateTime> fechaNac, string nIF, string foto, String contrasenya, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ContenidoEN> contenido, YoureOnGenNHibernate.EN.YoureOn.BibliotecaEN biblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ComentarioEN> comentario, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.FaltaEN> falta, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.NotificacionesEN> notificaciones, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ReporteEN> reporte
+public UsuarioEN(string email, string nombre, string apellidos, Nullable<DateTime> fechaNac, string nIF, string foto, String contrasenya, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ContenidoEN> contenido, YoureOnGenNHibernate.EN.YoureOn.BibliotecaEN biblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ComentarioEN> comentario, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.FaltaEN> falta, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.NotificacionesEN> notificaciones, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ReporteEN> reporte, bool esVetado
                  )
 {
-        this.init (Email, nombre, apellidos, fechaNac, nIF, foto, contrasenya, contenido, biblioteca, comentario, falta, notificaciones, reporte);
+        this.init (Email, nombre, apellidos, fechaNac, nIF, foto, contrasenya, contenido, biblioteca, comentario, falta, notificaciones, reporte, esVetado);
 }
 
 
 public UsuarioEN(UsuarioEN usuario)
 {
-        this.init (Email, usuario.Nombre, usuario.Apellidos, usuario.FechaNac, usuario.NIF, usuario.Foto, usuario.Contrasenya, usuario.Contenido, usuario.Biblioteca, usuario.Comentario, usuario.Falta, usuario.Notificaciones, usuario.Reporte);
+        this.init (Email, usuario.Nombre, usuario.Apellidos, usuario.FechaNac, usuario.NIF, usuario.Foto, usuario.Contrasenya, usuario.Contenido, usuario.Biblioteca, usuario.Comentario, usuario.Falta, usuario.Notificaciones, usuario.Reporte, usuario.EsVetado);
 }
 
 private void init (string email
-                   , string nombre, string apellidos, Nullable<DateTime> fechaNac, string nIF, string foto, String contrasenya, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ContenidoEN> contenido, YoureOnGenNHibernate.EN.YoureOn.BibliotecaEN biblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ComentarioEN> comentario, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.FaltaEN> falta, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.NotificacionesEN> notificaciones, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ReporteEN> reporte)
+                   , string nombre, string apellidos, Nullable<DateTime> fechaNac, string nIF, string foto, String contrasenya, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ContenidoEN> contenido, YoureOnGenNHibernate.EN.YoureOn.BibliotecaEN biblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ComentarioEN> comentario, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.FaltaEN> falta, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.NotificacionesEN> notificaciones, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ReporteEN> reporte, bool esVetado)
 {
         this.Email = email;
 
@@ -231,6 +244,8 @@ private void init (string email
         this.Notificaciones = notificaciones;
 
         this.Reporte = reporte;
+
+        this.EsVetado = esVetado;
 }
 
 public override bool Equals (object obj)

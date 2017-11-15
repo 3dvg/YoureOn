@@ -6,19 +6,19 @@ namespace YoureOnGenNHibernate.CAD.YoureOn
 {
 public partial interface INotificacionesCAD
 {
-NotificacionesEN ReadOIDDefault (string id
+NotificacionesEN ReadOIDDefault (int id_notificacion
                                  );
 
 void ModifyDefault (NotificacionesEN notificaciones);
 
 
 
-string New_ (NotificacionesEN notificaciones);
+int New_ (NotificacionesEN notificaciones);
 
 void Modify (NotificacionesEN notificaciones);
 
 
-void Destroy (string id
+void Destroy (int id_notificacion
               );
 }
 }

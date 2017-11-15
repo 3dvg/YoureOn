@@ -7,7 +7,7 @@
 			
 				<class name="ReporteEN" table="Reporte"> 
 				  	
-						<id name="Id" column="idReporte" type="integer"> 
+						<id name="Id_reporte" column="id_reporteReporte" type="integer"> 
 							<generator class="hilo"/>
 						</id>
 			

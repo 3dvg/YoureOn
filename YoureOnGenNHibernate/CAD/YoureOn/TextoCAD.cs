@@ -29,7 +29,7 @@ public TextoCAD(ISession sessionAux) : base (sessionAux)
 
 
 
-public TextoEN ReadOIDDefault (string titulo
+public TextoEN ReadOIDDefault (int id_contenido
                                )
 {
         TextoEN textoEN = null;
@@ -37,7 +37,7 @@ public TextoEN ReadOIDDefault (string titulo
         try
         {
                 SessionInitializeTransaction ();
-                textoEN = (TextoEN)session.Get (typeof(TextoEN), titulo);
+                textoEN = (TextoEN)session.Get (typeof(TextoEN), id_contenido);
                 SessionCommit ();
         }
 
@@ -89,7 +89,7 @@ public void ModifyDefault (TextoEN texto)
         try
         {
                 SessionInitializeTransaction ();
-                TextoEN textoEN = (TextoEN)session.Load (typeof(TextoEN), texto.Titulo);
+                TextoEN textoEN = (TextoEN)session.Load (typeof(TextoEN), texto.Id_contenido);
 
                 textoEN.NumeroPaginas = texto.NumeroPaginas;
 
@@ -112,7 +112,7 @@ public void ModifyDefault (TextoEN texto)
 }
 
 
-public string New_ (TextoEN texto)
+public int New_ (TextoEN texto)
 {
         try
         {
@@ -142,7 +142,7 @@ public string New_ (TextoEN texto)
                 SessionClose ();
         }
 
-        return texto.Titulo;
+        return texto.Id_contenido;
 }
 
 public void Modify (TextoEN texto)
@@ -150,7 +150,10 @@ public void Modify (TextoEN texto)
         try
         {
                 SessionInitializeTransaction ();
-                TextoEN textoEN = (TextoEN)session.Load (typeof(TextoEN), texto.Titulo);
+                TextoEN textoEN = (TextoEN)session.Load (typeof(TextoEN), texto.Id_contenido);
+
+                textoEN.Titulo = texto.Titulo;
+
 
                 textoEN.TipoArchivo = texto.TipoArchivo;
 
@@ -186,13 +189,13 @@ public void Modify (TextoEN texto)
                 SessionClose ();
         }
 }
-public void Destroy (string titulo
+public void Destroy (int id_contenido
                      )
 {
         try
         {
                 SessionInitializeTransaction ();
-                TextoEN textoEN = (TextoEN)session.Load (typeof(TextoEN), titulo);
+                TextoEN textoEN = (TextoEN)session.Load (typeof(TextoEN), id_contenido);
                 session.Delete (textoEN);
                 SessionCommit ();
         }

@@ -9,7 +9,7 @@
 <joined-subclass name="ValoracionComentarioEN" extends="YoureOnGenNHibernate.EN.YoureOn.ValoracionEN" table="ValoracionComentario"> 
 	<key>
     	
-				<column name="idValoracion"/>
+				<column name="id_valoracionValoracion"/>
 		
     	
    	</key>
@@ -20,7 +20,7 @@
 			
 		  			
 						<many-to-one name="Comentario" class="YoureOnGenNHibernate.EN.YoureOn.ComentarioEN" >	
-								<column name="FK_idComentario_idComentario"/> 
+								<column name="FK_id_comentarioComentario_idComentario"/> 
 						</many-to-one>
 											 					
 					

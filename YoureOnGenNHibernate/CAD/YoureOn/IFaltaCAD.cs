@@ -6,19 +6,19 @@ namespace YoureOnGenNHibernate.CAD.YoureOn
 {
 public partial interface IFaltaCAD
 {
-FaltaEN ReadOIDDefault (string id
+FaltaEN ReadOIDDefault (int id_falta
                         );
 
 void ModifyDefault (FaltaEN falta);
 
 
 
-string New_ (FaltaEN falta);
+int New_ (FaltaEN falta);
 
 void Modify (FaltaEN falta);
 
 
-void Destroy (string id
+void Destroy (int id_falta
               );
 }
 }

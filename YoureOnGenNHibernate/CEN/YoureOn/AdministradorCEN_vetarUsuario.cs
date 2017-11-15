@@ -19,13 +19,17 @@ namespace YoureOnGenNHibernate.CEN.YoureOn
 {
 public partial class AdministradorCEN
 {
-public void VetarUsuario (string p_oid, YoureOnGenNHibernate.EN.YoureOn.UsuarioEN usuario)
+public bool VetarUsuario (YoureOnGenNHibernate.EN.YoureOn.UsuarioEN usuario)
 {
         /*PROTECTED REGION ID(YoureOnGenNHibernate.CEN.YoureOn_Administrador_vetarUsuario) ENABLED START*/
 
-        // Write here your custom code...
+        bool vetado = false;
 
-        throw new NotImplementedException ("Method VetarUsuario() not yet implemented.");
+        if (usuario != null) {
+                vetado = true;
+                usuario.EsVetado = true;
+        }
+        return vetado;
 
         /*PROTECTED REGION END*/
 }

@@ -29,7 +29,7 @@ public ReporteComentarioCAD(ISession sessionAux) : base (sessionAux)
 
 
 
-public ReporteComentarioEN ReadOIDDefault (int id
+public ReporteComentarioEN ReadOIDDefault (int id_reporte
                                            )
 {
         ReporteComentarioEN reporteComentarioEN = null;
@@ -37,7 +37,7 @@ public ReporteComentarioEN ReadOIDDefault (int id
         try
         {
                 SessionInitializeTransaction ();
-                reporteComentarioEN = (ReporteComentarioEN)session.Get (typeof(ReporteComentarioEN), id);
+                reporteComentarioEN = (ReporteComentarioEN)session.Get (typeof(ReporteComentarioEN), id_reporte);
                 SessionCommit ();
         }
 
@@ -89,7 +89,8 @@ public void ModifyDefault (ReporteComentarioEN reporteComentario)
         try
         {
                 SessionInitializeTransaction ();
-                ReporteComentarioEN reporteComentarioEN = (ReporteComentarioEN)session.Load (typeof(ReporteComentarioEN), reporteComentario.Id);
+                ReporteComentarioEN reporteComentarioEN = (ReporteComentarioEN)session.Load (typeof(ReporteComentarioEN), reporteComentario.Id_reporte);
+
                 session.Update (reporteComentarioEN);
                 SessionCommit ();
         }
@@ -121,6 +122,13 @@ public int New_ (ReporteComentarioEN reporteComentario)
                         reporteComentario.Usuario.Reporte
                         .Add (reporteComentario);
                 }
+                if (reporteComentario.Comentario != null) {
+                        // Argumento OID y no colección.
+                        reporteComentario.Comentario = (YoureOnGenNHibernate.EN.YoureOn.ComentarioEN)session.Load (typeof(YoureOnGenNHibernate.EN.YoureOn.ComentarioEN), reporteComentario.Comentario.Id_comentario);
+
+                        reporteComentario.Comentario.ReporteComentario
+                        .Add (reporteComentario);
+                }
 
                 session.Save (reporteComentario);
                 SessionCommit ();
@@ -139,7 +147,7 @@ public int New_ (ReporteComentarioEN reporteComentario)
                 SessionClose ();
         }
 
-        return reporteComentario.Id;
+        return reporteComentario.Id_reporte;
 }
 
 public void Modify (ReporteComentarioEN reporteComentario)
@@ -147,7 +155,7 @@ public void Modify (ReporteComentarioEN reporteComentario)
         try
         {
                 SessionInitializeTransaction ();
-                ReporteComentarioEN reporteComentarioEN = (ReporteComentarioEN)session.Load (typeof(ReporteComentarioEN), reporteComentario.Id);
+                ReporteComentarioEN reporteComentarioEN = (ReporteComentarioEN)session.Load (typeof(ReporteComentarioEN), reporteComentario.Id_reporte);
                 session.Update (reporteComentarioEN);
                 SessionCommit ();
         }
@@ -165,13 +173,13 @@ public void Modify (ReporteComentarioEN reporteComentario)
                 SessionClose ();
         }
 }
-public void Destroy (int id
+public void Destroy (int id_reporte
                      )
 {
         try
         {
                 SessionInitializeTransaction ();
-                ReporteComentarioEN reporteComentarioEN = (ReporteComentarioEN)session.Load (typeof(ReporteComentarioEN), id);
+                ReporteComentarioEN reporteComentarioEN = (ReporteComentarioEN)session.Load (typeof(ReporteComentarioEN), id_reporte);
                 session.Delete (reporteComentarioEN);
                 SessionCommit ();
         }

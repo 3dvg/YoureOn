@@ -38,15 +38,13 @@ public IComentarioCAD get_IComentarioCAD ()
         return this._IComentarioCAD;
 }
 
-public string New_ (string p_id, string p_texto, Nullable<DateTime> p_fecha, string p_usuario, string p_contenido)
+public int New_ (string p_texto, Nullable<DateTime> p_fecha, string p_usuario, int p_contenido)
 {
         ComentarioEN comentarioEN = null;
-        string oid;
+        int oid;
 
         //Initialized ComentarioEN
         comentarioEN = new ComentarioEN ();
-        comentarioEN.Id = p_id;
-
         comentarioEN.Texto = p_texto;
 
         comentarioEN.Fecha = p_fecha;
@@ -54,17 +52,17 @@ public string New_ (string p_id, string p_texto, Nullable<DateTime> p_fecha, str
 
         if (p_usuario != null) {
                 // El argumento p_usuario -> Property usuario es oid = false
-                // Lista de oids id
+                // Lista de oids id_comentario
                 comentarioEN.Usuario = new YoureOnGenNHibernate.EN.YoureOn.UsuarioEN ();
                 comentarioEN.Usuario.Email = p_usuario;
         }
 
 
-        if (p_contenido != null) {
+        if (p_contenido != -1) {
                 // El argumento p_contenido -> Property contenido es oid = false
-                // Lista de oids id
+                // Lista de oids id_comentario
                 comentarioEN.Contenido = new YoureOnGenNHibernate.EN.YoureOn.ContenidoEN ();
-                comentarioEN.Contenido.Titulo = p_contenido;
+                comentarioEN.Contenido.Id_contenido = p_contenido;
         }
 
         //Call to ComentarioCAD
@@ -73,13 +71,13 @@ public string New_ (string p_id, string p_texto, Nullable<DateTime> p_fecha, str
         return oid;
 }
 
-public void Editar (string p_Comentario_OID, string p_texto, Nullable<DateTime> p_fecha)
+public void Editar (int p_Comentario_OID, string p_texto, Nullable<DateTime> p_fecha)
 {
         ComentarioEN comentarioEN = null;
 
         //Initialized ComentarioEN
         comentarioEN = new ComentarioEN ();
-        comentarioEN.Id = p_Comentario_OID;
+        comentarioEN.Id_comentario = p_Comentario_OID;
         comentarioEN.Texto = p_texto;
         comentarioEN.Fecha = p_fecha;
         //Call to ComentarioCAD
@@ -87,10 +85,10 @@ public void Editar (string p_Comentario_OID, string p_texto, Nullable<DateTime> 
         _IComentarioCAD.Editar (comentarioEN);
 }
 
-public void Borrar (string id
+public void Borrar (int id_comentario
                     )
 {
-        _IComentarioCAD.Borrar (id);
+        _IComentarioCAD.Borrar (id_comentario);
 }
 }
 }

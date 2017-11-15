@@ -6,9 +6,9 @@ namespace YoureOnGenNHibernate.EN.YoureOn
 public partial class NotificacionesEN
 {
 /**
- *	Atributo id
+ *	Atributo id_notificacion
  */
-private string id;
+private int id_notificacion;
 
 
 
@@ -36,8 +36,8 @@ private YoureOnGenNHibernate.EN.YoureOn.ModeradorEN moderador;
 
 
 
-public virtual string Id {
-        get { return id; } set { id = value;  }
+public virtual int Id_notificacion {
+        get { return id_notificacion; } set { id_notificacion = value;  }
 }
 
 
@@ -68,22 +68,22 @@ public NotificacionesEN()
 
 
 
-public NotificacionesEN(string id, YoureOnGenNHibernate.EN.YoureOn.UsuarioEN usuario, string mensaje, YoureOnGenNHibernate.EN.YoureOn.ModeradorEN moderador
+public NotificacionesEN(int id_notificacion, YoureOnGenNHibernate.EN.YoureOn.UsuarioEN usuario, string mensaje, YoureOnGenNHibernate.EN.YoureOn.ModeradorEN moderador
                         )
 {
-        this.init (Id, usuario, mensaje, moderador);
+        this.init (Id_notificacion, usuario, mensaje, moderador);
 }
 
 
 public NotificacionesEN(NotificacionesEN notificaciones)
 {
-        this.init (Id, notificaciones.Usuario, notificaciones.Mensaje, notificaciones.Moderador);
+        this.init (Id_notificacion, notificaciones.Usuario, notificaciones.Mensaje, notificaciones.Moderador);
 }
 
-private void init (string id
+private void init (int id_notificacion
                    , YoureOnGenNHibernate.EN.YoureOn.UsuarioEN usuario, string mensaje, YoureOnGenNHibernate.EN.YoureOn.ModeradorEN moderador)
 {
-        this.Id = id;
+        this.Id_notificacion = id_notificacion;
 
 
         this.Usuario = usuario;
@@ -100,7 +100,7 @@ public override bool Equals (object obj)
         NotificacionesEN t = obj as NotificacionesEN;
         if (t == null)
                 return false;
-        if (Id.Equals (t.Id))
+        if (Id_notificacion.Equals (t.Id_notificacion))
                 return true;
         else
                 return false;
@@ -110,7 +110,7 @@ public override int GetHashCode ()
 {
         int hash = 13;
 
-        hash += this.Id.GetHashCode ();
+        hash += this.Id_notificacion.GetHashCode ();
         return hash;
 }
 }

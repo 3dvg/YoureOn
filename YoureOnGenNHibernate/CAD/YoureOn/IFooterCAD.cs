@@ -6,7 +6,7 @@ namespace YoureOnGenNHibernate.CAD.YoureOn
 {
 public partial interface IFooterCAD
 {
-FooterEN ReadOIDDefault (int id
+FooterEN ReadOIDDefault (int id_footer
                          );
 
 void ModifyDefault (FooterEN footer);
@@ -18,7 +18,7 @@ int New_ (FooterEN footer);
 void Modify (FooterEN footer);
 
 
-void Destroy (int id
+void Destroy (int id_footer
               );
 }
 }

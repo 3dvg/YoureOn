@@ -6,13 +6,16 @@
 		    
 			
 				<class name="ValoracionEN" table="Valoracion"> 
-						<id name="Id" column="idValoracion"/> 
+				  	
+						<id name="Id_valoracion" column="id_valoracionValoracion" type="integer"> 
+							<generator class="hilo"/>
+						</id>
 			
 					
 					<property name="Fecha" type="date"> 
 						<column name="fecha"  not-null="true"/>
 					</property>
-					<property name="Nota" type="float"> 
+					<property name="Nota" type="integer"> 
 						<column name="nota"  not-null="true"/>
 					</property>
 			

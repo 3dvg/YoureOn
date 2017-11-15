@@ -31,23 +31,23 @@ public ValoracionComentarioEN() : base ()
 
 
 
-public ValoracionComentarioEN(string id, YoureOnGenNHibernate.EN.YoureOn.ComentarioEN comentario
-                              , Nullable<DateTime> fecha, float nota
+public ValoracionComentarioEN(int id_valoracion, YoureOnGenNHibernate.EN.YoureOn.ComentarioEN comentario
+                              , Nullable<DateTime> fecha, int nota
                               )
 {
-        this.init (Id, comentario, fecha, nota);
+        this.init (Id_valoracion, comentario, fecha, nota);
 }
 
 
 public ValoracionComentarioEN(ValoracionComentarioEN valoracionComentario)
 {
-        this.init (Id, valoracionComentario.Comentario, valoracionComentario.Fecha, valoracionComentario.Nota);
+        this.init (Id_valoracion, valoracionComentario.Comentario, valoracionComentario.Fecha, valoracionComentario.Nota);
 }
 
-private void init (string id
-                   , YoureOnGenNHibernate.EN.YoureOn.ComentarioEN comentario, Nullable<DateTime> fecha, float nota)
+private void init (int id_valoracion
+                   , YoureOnGenNHibernate.EN.YoureOn.ComentarioEN comentario, Nullable<DateTime> fecha, int nota)
 {
-        this.Id = id;
+        this.Id_valoracion = id_valoracion;
 
 
         this.Comentario = comentario;
@@ -64,7 +64,7 @@ public override bool Equals (object obj)
         ValoracionComentarioEN t = obj as ValoracionComentarioEN;
         if (t == null)
                 return false;
-        if (Id.Equals (t.Id))
+        if (Id_valoracion.Equals (t.Id_valoracion))
                 return true;
         else
                 return false;
@@ -74,7 +74,7 @@ public override int GetHashCode ()
 {
         int hash = 13;
 
-        hash += this.Id.GetHashCode ();
+        hash += this.Id_valoracion.GetHashCode ();
         return hash;
 }
 }

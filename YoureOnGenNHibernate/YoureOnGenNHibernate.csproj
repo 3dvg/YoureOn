@@ -115,13 +115,10 @@
 			
 			<Compile Include="CP\YoureOn\UsuarioCP_GetPuntuacion.cs" />
 			
-			<Compile Include="CEN\YoureOn\UsuarioCEN_Comentar.cs" />
-			
-			<Compile Include="CEN\YoureOn\UsuarioCEN_Logout.cs" />
+			<Compile Include="CP\YoureOn\UsuarioCP_Comentar.cs" />
 			
 			<Compile Include="CEN\YoureOn\UsuarioCEN_RecuperarPassword.cs" />
 			
-			<Compile Include="CEN\YoureOn\UsuarioCEN_CargarParfil.cs" />
 			
 	<Compile Include="EN\YoureOn\ContenidoEN.cs" />
 	<Compile Include="CEN\YoureOn\ContenidoCEN.cs" />
@@ -133,8 +130,11 @@
 			
 			<Compile Include="CEN\YoureOn\ContenidoCEN_Votar.cs" />
 			
-			<Compile Include="CEN\YoureOn\ContenidoCEN_CargarContenido.cs" />
 			
+			
+			<Compile Include="CP\YoureOn\ContenidoCP_Reportar.cs" />
+			
+			<Compile Include="CEN\YoureOn\ContenidoCEN_GetPuntuacionContenido.cs" />
 			
 	<Compile Include="EN\YoureOn\ComentarioEN.cs" />
 	<Compile Include="CEN\YoureOn\ComentarioCEN.cs" />
@@ -143,6 +143,10 @@
 	<Compile Include="CP\YoureOn\ComentarioCP.cs" />
 			
 			
+			
+			<Compile Include="CP\YoureOn\ComentarioCP_Reportar.cs" />
+			
+			<Compile Include="CEN\YoureOn\ComentarioCEN_GetPuntuacionComentario.cs" />
 			
 	<Compile Include="EN\YoureOn\TextoEN.cs" />
 	<Compile Include="CEN\YoureOn\TextoCEN.cs" />
@@ -186,7 +190,6 @@
 			
 			<Compile Include="CEN\YoureOn\BibliotecaCEN_Anyadir_a_biblioteca.cs" />
 			
-			<Compile Include="CEN\YoureOn\BibliotecaCEN_CargarBiblioteca.cs" />
 			
 			<Compile Include="CEN\YoureOn\BibliotecaCEN_OrdenarBiblioteca.cs" />
 			
@@ -260,13 +263,15 @@
 			
 			
 			
-	<Compile Include="EN\YoureOn\ReporeteContenidoEN.cs" />
-	<Compile Include="CEN\YoureOn\ReporeteContenidoCEN.cs" />
-	<Compile Include="CAD\YoureOn\IReporeteContenidoCAD.cs" />
-	<Compile Include="CAD\YoureOn\ReporeteContenidoCAD.cs" />
-	<Compile Include="CP\YoureOn\ReporeteContenidoCP.cs" />
+	<Compile Include="EN\YoureOn\ReporteContenidoEN.cs" />
+	<Compile Include="CEN\YoureOn\ReporteContenidoCEN.cs" />
+	<Compile Include="CAD\YoureOn\IReporteContenidoCAD.cs" />
+	<Compile Include="CAD\YoureOn\ReporteContenidoCAD.cs" />
+	<Compile Include="CP\YoureOn\ReporteContenidoCP.cs" />
 			
 			
+			
+			<Compile Include="CEN\YoureOn\ReporteContenidoCEN_EnviarNotificacionReporte.cs" />
 			
 	<Compile Include="EN\YoureOn\ReporteComentarioEN.cs" />
 	<Compile Include="CEN\YoureOn\ReporteComentarioCEN.cs" />
@@ -276,6 +281,8 @@
 			
 			
 			
+			<Compile Include="CEN\YoureOn\ReporteComentarioCEN_EnviarNotificacionReporte.cs" />
+			
 	<Compile Include="EN\YoureOn\FooterEN.cs" />
 	<Compile Include="CEN\YoureOn\FooterCEN.cs" />
 	<Compile Include="CAD\YoureOn\IFooterCAD.cs" />
@@ -283,14 +290,6 @@
 	<Compile Include="CP\YoureOn\FooterCP.cs" />
 			
 			
-			
-			<Compile Include="CEN\YoureOn\FooterCEN_CargarFaQ.cs" />
-			
-			<Compile Include="CEN\YoureOn\FooterCEN_CargarCookies.cs" />
-			
-			<Compile Include="CEN\YoureOn\FooterCEN_CargarTerminos.cs" />
-			
-			<Compile Include="CEN\YoureOn\FooterCEN_CargarAyuda.cs" />
 			
 	<Compile Include="EN\YoureOn\IdiomaEN.cs" />
 	<Compile Include="CEN\YoureOn\IdiomaCEN.cs" />
@@ -336,7 +335,7 @@
 	<EmbeddedResource Include="Mappings\YoureOn\administrador.hbm.xml" />
 	<EmbeddedResource Include="Mappings\YoureOn\notificaciones.hbm.xml" />
 	<EmbeddedResource Include="Mappings\YoureOn\reporte.hbm.xml" />
-	<EmbeddedResource Include="Mappings\YoureOn\reporetecontenido.hbm.xml" />
+	<EmbeddedResource Include="Mappings\YoureOn\reportecontenido.hbm.xml" />
 	<EmbeddedResource Include="Mappings\YoureOn\reportecomentario.hbm.xml" />
 	<EmbeddedResource Include="Mappings\YoureOn\footer.hbm.xml" />
 	<EmbeddedResource Include="Mappings\YoureOn\idioma.hbm.xml" />

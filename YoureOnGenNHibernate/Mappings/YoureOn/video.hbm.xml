@@ -9,7 +9,7 @@
 <joined-subclass name="VideoEN" extends="YoureOnGenNHibernate.EN.YoureOn.ContenidoEN" table="Video"> 
 	<key>
     	
-				<column name="titulo"/>
+				<column name="id_contenido"/>
 		
     	
    	</key>

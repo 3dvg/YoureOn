@@ -38,21 +38,19 @@ public IFaltaCAD get_IFaltaCAD ()
         return this._IFaltaCAD;
 }
 
-public string New_ (string p_id, YoureOnGenNHibernate.Enumerated.YoureOn.TipoFaltaEnum p_tipoFalta, string p_usuario, Nullable<DateTime> p_fecha, string p_moderador)
+public int New_ (YoureOnGenNHibernate.Enumerated.YoureOn.TipoFaltaEnum p_tipoFalta, string p_usuario, Nullable<DateTime> p_fecha, string p_moderador)
 {
         FaltaEN faltaEN = null;
-        string oid;
+        int oid;
 
         //Initialized FaltaEN
         faltaEN = new FaltaEN ();
-        faltaEN.Id = p_id;
-
         faltaEN.TipoFalta = p_tipoFalta;
 
 
         if (p_usuario != null) {
                 // El argumento p_usuario -> Property usuario es oid = false
-                // Lista de oids id
+                // Lista de oids id_falta
                 faltaEN.Usuario = new YoureOnGenNHibernate.EN.YoureOn.UsuarioEN ();
                 faltaEN.Usuario.Email = p_usuario;
         }
@@ -62,7 +60,7 @@ public string New_ (string p_id, YoureOnGenNHibernate.Enumerated.YoureOn.TipoFal
 
         if (p_moderador != null) {
                 // El argumento p_moderador -> Property moderador es oid = false
-                // Lista de oids id
+                // Lista de oids id_falta
                 faltaEN.Moderador = new YoureOnGenNHibernate.EN.YoureOn.ModeradorEN ();
                 faltaEN.Moderador.Email = p_moderador;
         }
@@ -73,13 +71,13 @@ public string New_ (string p_id, YoureOnGenNHibernate.Enumerated.YoureOn.TipoFal
         return oid;
 }
 
-public void Modify (string p_Falta_OID, YoureOnGenNHibernate.Enumerated.YoureOn.TipoFaltaEnum p_tipoFalta, Nullable<DateTime> p_fecha)
+public void Modify (int p_Falta_OID, YoureOnGenNHibernate.Enumerated.YoureOn.TipoFaltaEnum p_tipoFalta, Nullable<DateTime> p_fecha)
 {
         FaltaEN faltaEN = null;
 
         //Initialized FaltaEN
         faltaEN = new FaltaEN ();
-        faltaEN.Id = p_Falta_OID;
+        faltaEN.Id_falta = p_Falta_OID;
         faltaEN.TipoFalta = p_tipoFalta;
         faltaEN.Fecha = p_fecha;
         //Call to FaltaCAD
@@ -87,10 +85,10 @@ public void Modify (string p_Falta_OID, YoureOnGenNHibernate.Enumerated.YoureOn.
         _IFaltaCAD.Modify (faltaEN);
 }
 
-public void Destroy (string id
+public void Destroy (int id_falta
                      )
 {
-        _IFaltaCAD.Destroy (id);
+        _IFaltaCAD.Destroy (id_falta);
 }
 }
 }

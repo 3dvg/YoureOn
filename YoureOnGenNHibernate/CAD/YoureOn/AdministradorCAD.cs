@@ -163,6 +163,9 @@ public void Modify (AdministradorEN administrador)
                 administradorEN.Contrasenya = administrador.Contrasenya;
 
 
+                administradorEN.EsVetado = administrador.EsVetado;
+
+
                 administradorEN.PermisoModerador = administrador.PermisoModerador;
 
 
