@@ -38,7 +38,7 @@ public IVideoCAD get_IVideoCAD ()
         return this._IVideoCAD;
 }
 
-public int New_ (string p_titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum p_tipoArchivo, string p_descripcion, string p_licencia, string p_usuario, string p_autor, bool p_enBiblioteca, Nullable<DateTime> p_duracion, int p_resolucion, YoureOnGenNHibernate.Enumerated.YoureOn.FormatoVideoEnum p_formatoVideo)
+public int New_ (string p_titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum p_tipoArchivo, string p_descripcion, string p_licencia, string p_usuario, string p_autor, bool p_enBiblioteca, int p_duracion, int p_resolucion, YoureOnGenNHibernate.Enumerated.YoureOn.FormatoVideoEnum p_formatoVideo)
 {
         VideoEN videoEN = null;
         int oid;
@@ -77,7 +77,7 @@ public int New_ (string p_titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoAr
         return oid;
 }
 
-public void Modify (int p_Video_OID, string p_titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum p_tipoArchivo, string p_descripcion, string p_licencia, string p_autor, bool p_enBiblioteca, Nullable<DateTime> p_duracion, int p_resolucion, YoureOnGenNHibernate.Enumerated.YoureOn.FormatoVideoEnum p_formatoVideo)
+public void Modify (int p_Video_OID, string p_titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum p_tipoArchivo, string p_descripcion, string p_licencia, string p_autor, bool p_enBiblioteca, int p_duracion, int p_resolucion, YoureOnGenNHibernate.Enumerated.YoureOn.FormatoVideoEnum p_formatoVideo)
 {
         VideoEN videoEN = null;
 

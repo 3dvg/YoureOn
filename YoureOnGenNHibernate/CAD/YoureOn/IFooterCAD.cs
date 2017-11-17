@@ -20,5 +20,8 @@ void Modify (FooterEN footer);
 
 void Destroy (int id_footer
               );
+
+
+System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.FooterEN> CargarEnlaces (int ? idEnlace);
 }
 }

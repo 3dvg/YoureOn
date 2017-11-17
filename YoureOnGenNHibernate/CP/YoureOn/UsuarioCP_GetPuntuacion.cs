@@ -11,6 +11,7 @@ using YoureOnGenNHibernate.CAD.YoureOn;
 using YoureOnGenNHibernate.CEN.YoureOn;
 
 
+
 /*PROTECTED REGION ID(usingYoureOnGenNHibernate.CP.YoureOn_Usuario_getPuntuacion) ENABLED START*/
 //  references to other libraries
 /*PROTECTED REGION END*/
@@ -35,12 +36,12 @@ public float GetPuntuacion (string usuario_oid)
         {
                 SessionInitializeTransaction ();
                 usuarioCAD = new UsuarioCAD (session);
-                comentarioCAD = new ComentarioCAD(session);
-                contenidoCAD = new ContenidoCAD(session);
+                comentarioCAD = new ComentarioCAD (session);
+                contenidoCAD = new ContenidoCAD (session);
 
                 usuario = usuarioCAD.ReadOIDDefault (usuario_oid);
-                comentarioCEN = new ComentarioCEN(comentarioCAD);
-                contenidoCEN = new ContenidoCEN(contenidoCAD);
+                comentarioCEN = new ComentarioCEN (comentarioCAD);
+                contenidoCEN = new ContenidoCEN (contenidoCAD);
 
                 result = sumaContenido = sumaComentario = 0;
 
@@ -49,14 +50,13 @@ public float GetPuntuacion (string usuario_oid)
                         System.Collections.Generic.IList<ComentarioEN> lista_comentarios = usuario.Comentario;
 
                         foreach (ContenidoEN contenido in lista_contenidos) {
-                            sumaContenido += contenidoCEN.GetPuntuacionContenido(contenido.Id_contenido);
+                                sumaContenido += contenidoCEN.GetPuntuacionContenido (contenido.Id_contenido);
                         }
 
-                        foreach (ComentarioEN comentario in lista_comentarios)
-                        {
-                            sumaComentario += comentarioCEN.GetPuntuacionComentario(comentario.Id_comentario);
+                        foreach (ComentarioEN comentario in lista_comentarios) {
+                                sumaComentario += comentarioCEN.GetPuntuacionComentario (comentario.Id_comentario);
                         }
-                        
+
                         result = (sumaContenido + sumaComentario) / 2;
                 }
                 SessionCommit ();

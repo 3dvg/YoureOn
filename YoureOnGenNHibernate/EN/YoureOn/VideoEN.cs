@@ -10,7 +10,7 @@ public partial class VideoEN                                                    
 /**
  *	Atributo duracion
  */
-private Nullable<DateTime> duracion;
+private int duracion;
 
 
 
@@ -31,7 +31,7 @@ private YoureOnGenNHibernate.Enumerated.YoureOn.FormatoVideoEnum formatoVideo;
 
 
 
-public virtual Nullable<DateTime> Duracion {
+public virtual int Duracion {
         get { return duracion; } set { duracion = value;  }
 }
 
@@ -57,7 +57,7 @@ public VideoEN() : base ()
 
 
 
-public VideoEN(int id_contenido, Nullable<DateTime> duracion, int resolucion, YoureOnGenNHibernate.Enumerated.YoureOn.FormatoVideoEnum formatoVideo
+public VideoEN(int id_contenido, int duracion, int resolucion, YoureOnGenNHibernate.Enumerated.YoureOn.FormatoVideoEnum formatoVideo
                , string titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum tipoArchivo, string descripcion, string licencia, YoureOnGenNHibernate.EN.YoureOn.UsuarioEN usuario, string autor, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ValoracionContenidoEN> valoracion_contenido, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.BibliotecaEN> biblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ComentarioEN> comentario, bool enBiblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ReporteContenidoEN> reporte
                )
 {
@@ -71,7 +71,7 @@ public VideoEN(VideoEN video)
 }
 
 private void init (int id_contenido
-                   , Nullable<DateTime> duracion, int resolucion, YoureOnGenNHibernate.Enumerated.YoureOn.FormatoVideoEnum formatoVideo, string titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum tipoArchivo, string descripcion, string licencia, YoureOnGenNHibernate.EN.YoureOn.UsuarioEN usuario, string autor, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ValoracionContenidoEN> valoracion_contenido, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.BibliotecaEN> biblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ComentarioEN> comentario, bool enBiblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ReporteContenidoEN> reporte)
+                   , int duracion, int resolucion, YoureOnGenNHibernate.Enumerated.YoureOn.FormatoVideoEnum formatoVideo, string titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum tipoArchivo, string descripcion, string licencia, YoureOnGenNHibernate.EN.YoureOn.UsuarioEN usuario, string autor, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ValoracionContenidoEN> valoracion_contenido, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.BibliotecaEN> biblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ComentarioEN> comentario, bool enBiblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ReporteContenidoEN> reporte)
 {
         this.Id_contenido = id_contenido;
 

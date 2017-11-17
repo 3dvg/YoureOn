@@ -16,7 +16,7 @@
 
 			
 					
-					<property name="Duracion" type="timestamp"> 
+					<property name="Duracion" type="integer"> 
 						<column name="duracion"  not-null="true"/>
 					</property>
 					<property name="FormatoAudio" > 

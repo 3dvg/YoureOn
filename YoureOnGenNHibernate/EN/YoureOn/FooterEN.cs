@@ -19,6 +19,13 @@ private string enlace;
 
 
 
+/**
+ *	Atributo descripcion
+ */
+private string descripcion;
+
+
+
 
 
 
@@ -34,6 +41,12 @@ public virtual string Enlace {
 
 
 
+public virtual string Descripcion {
+        get { return descripcion; } set { descripcion = value;  }
+}
+
+
+
 
 
 public FooterEN()
@@ -42,25 +55,27 @@ public FooterEN()
 
 
 
-public FooterEN(int id_footer, string enlace
+public FooterEN(int id_footer, string enlace, string descripcion
                 )
 {
-        this.init (Id_footer, enlace);
+        this.init (Id_footer, enlace, descripcion);
 }
 
 
 public FooterEN(FooterEN footer)
 {
-        this.init (Id_footer, footer.Enlace);
+        this.init (Id_footer, footer.Enlace, footer.Descripcion);
 }
 
 private void init (int id_footer
-                   , string enlace)
+                   , string enlace, string descripcion)
 {
         this.Id_footer = id_footer;
 
 
         this.Enlace = enlace;
+
+        this.Descripcion = descripcion;
 }
 
 public override bool Equals (object obj)

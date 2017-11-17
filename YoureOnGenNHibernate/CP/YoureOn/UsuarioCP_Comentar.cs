@@ -31,6 +31,9 @@ public int Comentar (string usuario_oid, int contenido_oid, string texto)
         UsuarioEN usuario = null;
         ContenidoEN contenido = null;
 
+        ComentarioCAD comentarioCAD = null;
+        ComentarioCEN comentarioCEN = null;
+
         int result = -1;
 
         try
@@ -38,22 +41,23 @@ public int Comentar (string usuario_oid, int contenido_oid, string texto)
                 SessionInitializeTransaction ();
                 usuarioCAD = new UsuarioCAD (session);
                 contenidoCAD = new ContenidoCAD (session);
+                comentarioCAD = new ComentarioCAD(session);
 
                 usuarioCEN = new UsuarioCEN (usuarioCAD);
                 contenidoCEN = new ContenidoCEN (contenidoCAD);
+                comentarioCEN = new ComentarioCEN(comentarioCAD);
 
                 usuario = usuarioCAD.ReadOIDDefault (usuario_oid);
                 contenido = contenidoCAD.ReadOIDDefault (contenido_oid);
 
-                // Le paso la valoración a null de momento y el id 0
-                ComentarioEN comentario = new ComentarioEN (0, texto, DateTime.Now, usuario, null, contenido, null);
+                ComentarioEN comentario = new ComentarioEN ();
+                comentario.Usuario = usuario;
+                comentario.Contenido = contenido;
 
                 usuario.Comentario.Add (comentario);
                 contenido.Comentario.Add (comentario);
 
-                // Esto haría falta hacerlo para guardar en la BD ???????????
-                /*usuarioCEN.EditarPerfil(usuario);
-                 * contenidoCEN.Modificar(contenido);*/
+                comentarioCEN.Editar(comentario.Id_comentario, texto, DateTime.Now);
 
                 SessionCommit ();
         }

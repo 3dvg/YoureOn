@@ -38,7 +38,7 @@ public IFooterCAD get_IFooterCAD ()
         return this._IFooterCAD;
 }
 
-public int New_ (string p_enlace)
+public int New_ (string p_enlace, string p_descripcion)
 {
         FooterEN footerEN = null;
         int oid;
@@ -47,13 +47,15 @@ public int New_ (string p_enlace)
         footerEN = new FooterEN ();
         footerEN.Enlace = p_enlace;
 
+        footerEN.Descripcion = p_descripcion;
+
         //Call to FooterCAD
 
         oid = _IFooterCAD.New_ (footerEN);
         return oid;
 }
 
-public void Modify (int p_Footer_OID, string p_enlace)
+public void Modify (int p_Footer_OID, string p_enlace, string p_descripcion)
 {
         FooterEN footerEN = null;
 
@@ -61,6 +63,7 @@ public void Modify (int p_Footer_OID, string p_enlace)
         footerEN = new FooterEN ();
         footerEN.Id_footer = p_Footer_OID;
         footerEN.Enlace = p_enlace;
+        footerEN.Descripcion = p_descripcion;
         //Call to FooterCAD
 
         _IFooterCAD.Modify (footerEN);
@@ -70,6 +73,11 @@ public void Destroy (int id_footer
                      )
 {
         _IFooterCAD.Destroy (id_footer);
+}
+
+public System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.FooterEN> CargarEnlaces (int ? idEnlace)
+{
+        return _IFooterCAD.CargarEnlaces (idEnlace);
 }
 }
 }
