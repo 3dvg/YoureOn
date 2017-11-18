@@ -22,54 +22,58 @@ public partial class UsuarioCP : BasicCP
 {
 public int Comentar (string usuario_oid, int contenido_oid, string texto)
 {
-        /*PROTECTED REGION ID(YoureOnGenNHibernate.CP.YoureOn_Usuario_comentar) ENABLED START*/
+            /*PROTECTED REGION ID(YoureOnGenNHibernate.CP.YoureOn_Usuario_comentar) ENABLED START*/
 
-        IUsuarioCAD usuarioCAD = null;
-        IContenidoCAD contenidoCAD = null;
-        UsuarioCEN usuarioCEN = null;
-        ContenidoCEN contenidoCEN = null;
-        UsuarioEN usuario = null;
-        ContenidoEN contenido = null;
+            IUsuarioCAD usuarioCAD = null;
+            IContenidoCAD contenidoCAD = null;
+            UsuarioCEN usuarioCEN = null;
+            ContenidoCEN contenidoCEN = null;
+            UsuarioEN usuario = null;
+            ContenidoEN contenido = null;
 
-        int result = -1;
+            ComentarioCAD comentarioCAD = null;
+            ComentarioCEN comentarioCEN = null;
 
-        try
-        {
-                SessionInitializeTransaction ();
-                usuarioCAD = new UsuarioCAD (session);
-                contenidoCAD = new ContenidoCAD (session);
+            int result = -1;
 
-                usuarioCEN = new UsuarioCEN (usuarioCAD);
-                contenidoCEN = new ContenidoCEN (contenidoCAD);
+            try
+            {
+                SessionInitializeTransaction();
+                usuarioCAD = new UsuarioCAD(session);
+                contenidoCAD = new ContenidoCAD(session);
+                comentarioCAD = new ComentarioCAD(session);
 
-                usuario = usuarioCAD.ReadOIDDefault (usuario_oid);
-                contenido = contenidoCAD.ReadOIDDefault (contenido_oid);
+                usuarioCEN = new UsuarioCEN(usuarioCAD);
+                contenidoCEN = new ContenidoCEN(contenidoCAD);
+                comentarioCEN = new ComentarioCEN(comentarioCAD);
 
-                // Le paso la valoración a null de momento y el id 0
-                ComentarioEN comentario = new ComentarioEN (0, texto, DateTime.Now, usuario, null, contenido, null);
+                usuario = usuarioCAD.ReadOIDDefault(usuario_oid);
+                contenido = contenidoCAD.ReadOIDDefault(contenido_oid);
 
-                usuario.Comentario.Add (comentario);
-                contenido.Comentario.Add (comentario);
+                ComentarioEN comentario = new ComentarioEN();
+                comentario.Usuario = usuario;
+                comentario.Contenido = contenido;
 
-                // Esto haría falta hacerlo para guardar en la BD ???????????
-                /*usuarioCEN.EditarPerfil(usuario);
-                 * contenidoCEN.Modificar(contenido);*/
+                usuario.Comentario.Add(comentario);
+                contenido.Comentario.Add(comentario);
 
-                SessionCommit ();
-        }
-        catch (Exception ex)
-        {
-                SessionRollBack ();
+                comentarioCEN.Editar(comentario.Id_comentario, texto, DateTime.Now);
+
+                SessionCommit();
+            }
+            catch (Exception ex)
+            {
+                SessionRollBack();
                 throw ex;
-        }
-        finally
-        {
-                SessionClose ();
-        }
-        return result;
+            }
+            finally
+            {
+                SessionClose();
+            }
+            return result;
 
 
-        /*PROTECTED REGION END*/
-}
-}
+            /*PROTECTED REGION END*/
+        }
+    }
 }

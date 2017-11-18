@@ -11,6 +11,7 @@ using YoureOnGenNHibernate.CAD.YoureOn;
 using YoureOnGenNHibernate.CEN.YoureOn;
 
 
+
 /*PROTECTED REGION ID(usingYoureOnGenNHibernate.CP.YoureOn_Usuario_getPuntuacion) ENABLED START*/
 //  references to other libraries
 /*PROTECTED REGION END*/

@@ -83,19 +83,20 @@ public static void InitializeData ()
 
                 // p.e. CustomerCEN customer = new CustomerCEN();
                 // customer.New_ (p_user:"user", p_password:"1234");
-
+                System.Console.WriteLine ("Creando Usuarios");
                 UsuarioCEN usuario1 = new UsuarioCEN ();
                 string email1 = usuario1.CrearUsuario ("deb8192@gmail.com", "Debora", "Galdeano Gonzalez", new DateTime (1992, 1, 8), "53244933w", "foto", "contrasenya", false);
 
                 UsuarioCEN usuario2 = new UsuarioCEN ();
-                string email2 = usuario2.CrearUsuario ("mmssll@gmail.com", "Manolo", "Stinson L�pez", new DateTime (2003, 5, 4), "26874219S", "foto2", "soillutuber", false);
+                string email2 = usuario2.CrearUsuario ("mmssll@gmail.com", "Manolo", "Stinson Lopez", new DateTime (2003, 5, 4), "26874219S", "foto2", "soillutuber", false);
 
                 UsuarioCEN usuario3 = new UsuarioCEN ();
-                string email3 = usuario3.CrearUsuario ("jorge1887@alu.ua.es", "Jorge", "Francisco G�mez", new DateTime (1985, 2, 28), "41567955L", "foto3", "1234", false);
+                string email3 = usuario3.CrearUsuario ("jorge1887@alu.ua.es", "Jorge", "Francisco Gomez", new DateTime (1985, 2, 28), "41567955L", "foto3", "1234", false);
 
                 UsuarioCEN usuario4 = new UsuarioCEN ();
                 string email4 = usuario4.CrearUsuario ("cunyado17@gmail.com", "Arturo", "Perez-Reverte", new DateTime (1951, 11, 25), "11111111A", "foto4", "VivaEspanya", false);
 
+                System.Console.WriteLine ("Creando Administrador");
                 AdministradorCEN administrador1 = new AdministradorCEN ();
                 string administradorID1 = administrador1.New_ ("administrapag@gmail.com", "Eva", "Valenciano", new DateTime (1996, 1, 1), "1111111s", "rutafoto", "contrasenya", false, "1", "1");
 
@@ -103,12 +104,12 @@ public static void InitializeData ()
                 string moderadorID1 = moderador1.New_ ("email@gmail.com", "Moderador1", "Apellido", new DateTime (1996, 1, 1), "1111211V", "rutafoto", "contasenya", false, "permiso1");
 
                 ModeradorCEN moderador2 = new ModeradorCEN ();
-                string moderadorID2 = moderador2.New_ ("jmld4@alu.ua.es", "Jos� Manuel", "Ladr�n de Guevara", new DateTime (1997, 7, 10), "48720478S", "foto", "contrasena1234", false, "permiso");
+                string moderadorID2 = moderador2.New_ ("jmld4@alu.ua.es", "Jose Manuel", "Ladron de Guevara", new DateTime (1997, 7, 10), "48720478S", "foto", "contrasena1234", false, "permiso");
 
                 ModeradorCEN moderador3 = new ModeradorCEN ();
-                string moderadorID3 = moderador3.New_ ("algv@yahoo.com", "Alberto", "Lopez-Garc�a Vigo", new DateTime (1991, 1, 31), "45487454K", "foto", "contrasena654321", false, "permiso");
+                string moderadorID3 = moderador3.New_ ("algv@yahoo.com", "Alberto", "Lopez-Garcia Vigo", new DateTime (1991, 1, 31), "45487454K", "foto", "contrasena654321", false, "permiso");
 
-
+                System.Console.WriteLine ("Creando contenidos");
                 ContenidoCEN contenido1 = new ContenidoCEN ();
                 int contenidoID1 = contenido1.SubirContenido ("contenidovideo", TipoArchivoEnum.video, "contenidovideo", "licencia", email1, "autor", false);
 
@@ -130,10 +131,12 @@ public static void InitializeData ()
                 ContenidoCEN contenido7 = new ContenidoCEN ();
                 int contenidoID7 = contenido7.SubirContenido ("Song 84", YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum.audio, "Es una cancion", "licencia", email3, "Blor", true);
 
+
+                System.Console.WriteLine ("Creando video");
                 VideoCEN videoCEN = new VideoCEN ();
-                int videoID1 = videoCEN.New_ ("Titulo", YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum.video, "Descripcion", "licencia", email4, "Conde Mor", false, new DateTime (20), 1080, YoureOnGenNHibernate.Enumerated.YoureOn.FormatoVideoEnum.avi);
+                int videoID1 = videoCEN.New_ ("Titulo", YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum.video, "Descripcion", "licencia", email4, "Conde Mor", false, 200, 1080, YoureOnGenNHibernate.Enumerated.YoureOn.FormatoVideoEnum.avi);
 
-
+                System.Console.WriteLine ("Creando comentarios");
                 ComentarioCEN comentario1 = new ComentarioCEN ();
                 int comentarioID1 = comentario1.New_ ("Ola q ase", new DateTime (2017, 1, 8), email1, contenidoID1);
 
@@ -146,29 +149,31 @@ public static void InitializeData ()
                 ComentarioCEN comentario4 = new ComentarioCEN ();
                 int comentarioID4 = comentario4.New_ ("sub x sub", new DateTime (2017, 7, 10), email3, contenidoID4);
 
-
+                System.Console.WriteLine ("Creando notificaiones");
                 NotificacionesCEN notificacion1 = new NotificacionesCEN ();
-                notificacion1.New_ ("usuario", "Alerta mensaje", "moderador1");
+                notificacion1.New_ (email1, "Alerta mensaje", moderadorID1);
 
+
+                System.Console.WriteLine ("Creando reportes");
                 ReporteCEN reporte1 = new ReporteCEN ();
-                reporte1.New_ ("usuario1");
+                reporte1.New_ (email1);
 
-                ValoracionCEN valoracion1 = new ValoracionCEN ();
-                valoracion1.New_ (null, 3);
+                //ValoracionCEN valoracion1 = new ValoracionCEN ();
+                //valoracion1.New_ (null, 3);
 
+
+                System.Console.WriteLine ("Creando bibliotecas");
                 BibliotecaCEN biblioteca1 = new BibliotecaCEN ();
-                biblioteca1.New_ ("usuario1");
+                biblioteca1.New_ (email1);
 
                 BibliotecaCEN biblioteca2 = new BibliotecaCEN ();
-                biblioteca1.New_ ("usuario3");
+                biblioteca2.New_ (email3);
 
-                FaltaCEN falta1 = new FaltaCEN ();
-                falta1.New_ (TipoFaltaEnum.leve, "usuario1", new DateTime (1996, 1, 8), "1");
 
                 FooterCEN footer1 = new FooterCEN ();
                 footer1.New_ ("enlace");
 
-
+                System.Console.WriteLine ("Creando idiomas");
                 IdiomaCEN castellano = new IdiomaCEN ();
                 castellano.New_ ("Castellano", "descripcioncastellano");
 
@@ -178,6 +183,9 @@ public static void InitializeData ()
                 IdiomaCEN ingles = new IdiomaCEN ();
                 ingles.New_ ("Ingles", "descripcioningles");
 
+                System.Console.WriteLine ("Creando falta");
+                FaltaCEN falta1 = new FaltaCEN ();
+                int faltaID1 = falta1.New_ (TipoFaltaEnum.leve, email1, new DateTime (1996, 1, 8), moderadorID3);
 
                 FaltaCEN falta2 = new FaltaCEN ();
                 int faltaID2 = falta2.New_ (YoureOnGenNHibernate.Enumerated.YoureOn.TipoFaltaEnum.leve, email1, new DateTime (2017, 5, 20), moderadorID1);

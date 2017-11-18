@@ -19,15 +19,28 @@ namespace YoureOnGenNHibernate.CEN.YoureOn
 {
 public partial class ContenidoCEN
 {
-public void GetPuntuacionContenido (int p_oid)
+public float GetPuntuacionContenido (int p_oid)
 {
-        /*PROTECTED REGION ID(YoureOnGenNHibernate.CEN.YoureOn_Contenido_getPuntuacionContenido) ENABLED START*/
+            /*PROTECTED REGION ID(YoureOnGenNHibernate.CEN.YoureOn_Contenido_getPuntuacionContenido) ENABLED START*/
 
-        // Write here your custom code...
+            ContenidoEN contenido = _IContenidoCAD.ReadOIDDefault(p_oid);
+            float mediaContenidos, sumaContenidos;
+            sumaContenidos = mediaContenidos = 0;
 
-        throw new NotImplementedException ("Method GetPuntuacionContenido() not yet implemented.");
+            if (contenido != null)
+            {
+                System.Collections.Generic.IList<ValoracionContenidoEN> lista_valoraciones = contenido.Valoracion_contenido;
 
-        /*PROTECTED REGION END*/
-}
+
+                foreach (ValoracionContenidoEN val_contenido in lista_valoraciones)
+                {
+                    sumaContenidos += val_contenido.Nota;
+                }
+
+                mediaContenidos = sumaContenidos / lista_valoraciones.Count;
+            }
+            return mediaContenidos;
+            /*PROTECTED REGION END*/
+        }
 }
 }

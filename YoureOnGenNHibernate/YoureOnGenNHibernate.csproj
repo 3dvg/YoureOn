@@ -271,7 +271,7 @@
 			
 			
 			
-			<Compile Include="CEN\YoureOn\ReporteContenidoCEN_EnviarNotificacionReporte.cs" />
+			<Compile Include="CP\YoureOn\ReporteContenidoCP_EnviarNotificacionReporte.cs" />
 			
 	<Compile Include="EN\YoureOn\ReporteComentarioEN.cs" />
 	<Compile Include="CEN\YoureOn\ReporteComentarioCEN.cs" />
@@ -281,7 +281,7 @@
 			
 			
 			
-			<Compile Include="CEN\YoureOn\ReporteComentarioCEN_EnviarNotificacionReporte.cs" />
+			<Compile Include="CP\YoureOn\ReporteComentarioCP_EnviarNotificacionReporte.cs" />
 			
 	<Compile Include="EN\YoureOn\FooterEN.cs" />
 	<Compile Include="CEN\YoureOn\FooterCEN.cs" />

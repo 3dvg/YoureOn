@@ -19,15 +19,30 @@ namespace YoureOnGenNHibernate.CEN.YoureOn
 {
 public partial class ComentarioCEN
 {
-public void GetPuntuacionComentario (int p_oid)
+public float GetPuntuacionComentario (int p_oid)
 {
-        /*PROTECTED REGION ID(YoureOnGenNHibernate.CEN.YoureOn_Comentario_getPuntuacionComentario) ENABLED START*/
+            /*PROTECTED REGION ID(YoureOnGenNHibernate.CEN.YoureOn_Comentario_getPuntuacionComentario) ENABLED START*/
 
-        // Write here your custom code...
+            // Write here your custom code...
 
-        throw new NotImplementedException ("Method GetPuntuacionComentario() not yet implemented.");
+            ComentarioEN comentario = _IComentarioCAD.ReadOIDDefault(p_oid);
+            float mediaComentarios, sumaComentarios;
+            sumaComentarios = mediaComentarios = 0;
 
-        /*PROTECTED REGION END*/
-}
+            if (comentario != null)
+            {
+                System.Collections.Generic.IList<ValoracionComentarioEN> lista_valoraciones = comentario.Valoracion_comentario;
+
+
+                foreach (ValoracionComentarioEN val_comentario in lista_valoraciones)
+                {
+                    sumaComentarios += val_comentario.Nota;
+                }
+
+                mediaComentarios = sumaComentarios / lista_valoraciones.Count;
+            }
+            return mediaComentarios;
+            /*PROTECTED REGION END*/
+        }
 }
 }
