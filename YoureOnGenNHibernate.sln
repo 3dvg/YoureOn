@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InitializeDB", "InitializeD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YoureOnGenNHibernate", "YoureOnGenNHibernate\YoureOnGenNHibernate.csproj", "{66C66636-FD6A-4A3F-A7C5-FE88BBA117AF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YoureOnBoostrap", "YoureOnBoostrap\YoureOnBoostrap.csproj", "{73453FD9-E723-4DAE-B156-F7227684AE00}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,6 +30,14 @@ Global
 		{66C66636-FD6A-4A3F-A7C5-FE88BBA117AF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{66C66636-FD6A-4A3F-A7C5-FE88BBA117AF}.Release|x86.ActiveCfg = Release|Any CPU
 		{66C66636-FD6A-4A3F-A7C5-FE88BBA117AF}.Release|x86.Build.0 = Release|Any CPU
+		{73453FD9-E723-4DAE-B156-F7227684AE00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73453FD9-E723-4DAE-B156-F7227684AE00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73453FD9-E723-4DAE-B156-F7227684AE00}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{73453FD9-E723-4DAE-B156-F7227684AE00}.Debug|x86.Build.0 = Debug|Any CPU
+		{73453FD9-E723-4DAE-B156-F7227684AE00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73453FD9-E723-4DAE-B156-F7227684AE00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73453FD9-E723-4DAE-B156-F7227684AE00}.Release|x86.ActiveCfg = Release|Any CPU
+		{73453FD9-E723-4DAE-B156-F7227684AE00}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
