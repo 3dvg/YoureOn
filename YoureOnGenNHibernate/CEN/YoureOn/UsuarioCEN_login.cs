@@ -25,8 +25,6 @@ public int Login (string usuario_oid, String contrasenya)
 
         int inicio = -1;     //Error autenticacion
 
-        int inicio = -1;     //Error autenticacion
-
         if (usuario_oid != null && contrasenya != null) {
                 UsuarioEN usuario = _IUsuarioCAD.ReadOIDDefault (usuario_oid);
                 if (usuario != null && usuario.Contrasenya.Equals (Utils.Util.GetEncondeMD5 (contrasenya))) {
