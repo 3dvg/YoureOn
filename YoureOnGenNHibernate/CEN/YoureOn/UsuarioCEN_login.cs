@@ -23,7 +23,7 @@ public int Login (string usuario_oid, String contrasenya)
 {
         /*PROTECTED REGION ID(YoureOnGenNHibernate.CEN.YoureOn_Usuario_login) ENABLED START*/
 
-        // Write here your custom code...
+        int inicio = -1;     //Error autenticacion
 
         int inicio = -1;     //Error autenticacion
 
