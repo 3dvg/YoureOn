@@ -8,9 +8,22 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Hello, my Lord!</h1>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3"><img src="@Url.Content("~/Archivos/foto1.jpg")" /></div>
+            <div class="col-sm-3"><img src="@Url.Content("~/Archivos/foto2.jpg")" /></div>
+            <div class="col-sm-3"><img src="@Url.Content("~/Archivos/foto3.jpg")" /></div>
+            <div class="col-sm-3"><img src="@Url.Content("~/Archivos/foto4.jpg")" /></div>
+
+        </div>
+    </div>
+
+    <h2 class="registrate">¿Aún no estás registrado?</h2>
+    <p class="unete">Únete a la comunidad de YoureOn</p>
+
+    <input type="button" class="boton_registro" value="Registrarse" />
+
+
 </body>
 </html>
