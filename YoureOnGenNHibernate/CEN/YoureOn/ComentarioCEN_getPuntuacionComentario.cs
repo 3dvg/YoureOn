@@ -21,28 +21,27 @@ public partial class ComentarioCEN
 {
 public float GetPuntuacionComentario (int p_oid)
 {
-            /*PROTECTED REGION ID(YoureOnGenNHibernate.CEN.YoureOn_Comentario_getPuntuacionComentario) ENABLED START*/
+        /*PROTECTED REGION ID(YoureOnGenNHibernate.CEN.YoureOn_Comentario_getPuntuacionComentario) ENABLED START*/
 
-            // Write here your custom code...
+        // Write here your custom code...
 
-            ComentarioEN comentario = _IComentarioCAD.ReadOIDDefault(p_oid);
-            float mediaComentarios, sumaComentarios;
-            sumaComentarios = mediaComentarios = 0;
+        ComentarioEN comentario = _IComentarioCAD.ReadOIDDefault (p_oid);
+        float mediaComentarios, sumaComentarios;
 
-            if (comentario != null)
-            {
+        sumaComentarios = mediaComentarios = 0;
+
+        if (comentario != null) {
                 System.Collections.Generic.IList<ValoracionComentarioEN> lista_valoraciones = comentario.Valoracion_comentario;
 
 
-                foreach (ValoracionComentarioEN val_comentario in lista_valoraciones)
-                {
-                    sumaComentarios += val_comentario.Nota;
+                foreach (ValoracionComentarioEN val_comentario in lista_valoraciones) {
+                        sumaComentarios += val_comentario.Nota;
                 }
 
                 mediaComentarios = sumaComentarios / lista_valoraciones.Count;
-            }
-            return mediaComentarios;
-            /*PROTECTED REGION END*/
         }
+        return mediaComentarios;
+        /*PROTECTED REGION END*/
+}
 }
 }

@@ -29,6 +29,5 @@
 		 </class>	
 		  
 		  <query name="FooterENReadAllHQL">from FooterEN</query>
-		  <query name="FooterENCargarEnlacesHQL"><![CDATA[FROM FooterEN as foot where foot.Id_footer = :idEnlace]]></query>
 		</hibernate-mapping>
 	

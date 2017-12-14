@@ -115,13 +115,6 @@ public int New_ (ReporteComentarioEN reporteComentario)
         try
         {
                 SessionInitializeTransaction ();
-                if (reporteComentario.Usuario != null) {
-                        // Argumento OID y no colección.
-                        reporteComentario.Usuario = (YoureOnGenNHibernate.EN.YoureOn.UsuarioEN)session.Load (typeof(YoureOnGenNHibernate.EN.YoureOn.UsuarioEN), reporteComentario.Usuario.Email);
-
-                        reporteComentario.Usuario.Reporte
-                        .Add (reporteComentario);
-                }
                 if (reporteComentario.Comentario != null) {
                         // Argumento OID y no colección.
                         reporteComentario.Comentario = (YoureOnGenNHibernate.EN.YoureOn.ComentarioEN)session.Load (typeof(YoureOnGenNHibernate.EN.YoureOn.ComentarioEN), reporteComentario.Comentario.Id_comentario);
@@ -156,6 +149,9 @@ public void Modify (ReporteComentarioEN reporteComentario)
         {
                 SessionInitializeTransaction ();
                 ReporteComentarioEN reporteComentarioEN = (ReporteComentarioEN)session.Load (typeof(ReporteComentarioEN), reporteComentario.Id_reporte);
+
+                reporteComentarioEN.Fecha = reporteComentario.Fecha;
+
                 session.Update (reporteComentarioEN);
                 SessionCommit ();
         }

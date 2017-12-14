@@ -45,20 +45,20 @@ public AudioEN() : base ()
 
 
 public AudioEN(int id_contenido, int duracion, YoureOnGenNHibernate.Enumerated.YoureOn.FormatoAudioEnum formatoAudio
-               , string titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum tipoArchivo, string descripcion, string licencia, YoureOnGenNHibernate.EN.YoureOn.UsuarioEN usuario, string autor, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ValoracionContenidoEN> valoracion_contenido, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.BibliotecaEN> biblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ComentarioEN> comentario, bool enBiblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ReporteContenidoEN> reporte
+               , string titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum tipoArchivo, string descripcion, string licencia, YoureOnGenNHibernate.EN.YoureOn.UsuarioEN usuario, string autor, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ValoracionContenidoEN> valoracion_contenido, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.BibliotecaEN> biblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ComentarioEN> comentario, bool enBiblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ReporteContenidoEN> reporte, string url
                )
 {
-        this.init (Id_contenido, duracion, formatoAudio, titulo, tipoArchivo, descripcion, licencia, usuario, autor, valoracion_contenido, biblioteca, comentario, enBiblioteca, reporte);
+        this.init (Id_contenido, duracion, formatoAudio, titulo, tipoArchivo, descripcion, licencia, usuario, autor, valoracion_contenido, biblioteca, comentario, enBiblioteca, reporte, url);
 }
 
 
 public AudioEN(AudioEN audio)
 {
-        this.init (Id_contenido, audio.Duracion, audio.FormatoAudio, audio.Titulo, audio.TipoArchivo, audio.Descripcion, audio.Licencia, audio.Usuario, audio.Autor, audio.Valoracion_contenido, audio.Biblioteca, audio.Comentario, audio.EnBiblioteca, audio.Reporte);
+        this.init (Id_contenido, audio.Duracion, audio.FormatoAudio, audio.Titulo, audio.TipoArchivo, audio.Descripcion, audio.Licencia, audio.Usuario, audio.Autor, audio.Valoracion_contenido, audio.Biblioteca, audio.Comentario, audio.EnBiblioteca, audio.Reporte, audio.Url);
 }
 
 private void init (int id_contenido
-                   , int duracion, YoureOnGenNHibernate.Enumerated.YoureOn.FormatoAudioEnum formatoAudio, string titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum tipoArchivo, string descripcion, string licencia, YoureOnGenNHibernate.EN.YoureOn.UsuarioEN usuario, string autor, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ValoracionContenidoEN> valoracion_contenido, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.BibliotecaEN> biblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ComentarioEN> comentario, bool enBiblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ReporteContenidoEN> reporte)
+                   , int duracion, YoureOnGenNHibernate.Enumerated.YoureOn.FormatoAudioEnum formatoAudio, string titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum tipoArchivo, string descripcion, string licencia, YoureOnGenNHibernate.EN.YoureOn.UsuarioEN usuario, string autor, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ValoracionContenidoEN> valoracion_contenido, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.BibliotecaEN> biblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ComentarioEN> comentario, bool enBiblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ReporteContenidoEN> reporte, string url)
 {
         this.Id_contenido = id_contenido;
 
@@ -88,6 +88,8 @@ private void init (int id_contenido
         this.EnBiblioteca = enBiblioteca;
 
         this.Reporte = reporte;
+
+        this.Url = url;
 }
 
 public override bool Equals (object obj)

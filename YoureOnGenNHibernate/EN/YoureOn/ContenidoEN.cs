@@ -89,6 +89,13 @@ private System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.Reporte
 
 
 
+/**
+ *	Atributo url
+ */
+private string url;
+
+
+
 
 
 
@@ -164,6 +171,12 @@ public virtual System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.
 
 
 
+public virtual string Url {
+        get { return url; } set { url = value;  }
+}
+
+
+
 
 
 public ContenidoEN()
@@ -176,20 +189,20 @@ public ContenidoEN()
 
 
 
-public ContenidoEN(int id_contenido, string titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum tipoArchivo, string descripcion, string licencia, YoureOnGenNHibernate.EN.YoureOn.UsuarioEN usuario, string autor, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ValoracionContenidoEN> valoracion_contenido, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.BibliotecaEN> biblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ComentarioEN> comentario, bool enBiblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ReporteContenidoEN> reporte
+public ContenidoEN(int id_contenido, string titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum tipoArchivo, string descripcion, string licencia, YoureOnGenNHibernate.EN.YoureOn.UsuarioEN usuario, string autor, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ValoracionContenidoEN> valoracion_contenido, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.BibliotecaEN> biblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ComentarioEN> comentario, bool enBiblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ReporteContenidoEN> reporte, string url
                    )
 {
-        this.init (Id_contenido, titulo, tipoArchivo, descripcion, licencia, usuario, autor, valoracion_contenido, biblioteca, comentario, enBiblioteca, reporte);
+        this.init (Id_contenido, titulo, tipoArchivo, descripcion, licencia, usuario, autor, valoracion_contenido, biblioteca, comentario, enBiblioteca, reporte, url);
 }
 
 
 public ContenidoEN(ContenidoEN contenido)
 {
-        this.init (Id_contenido, contenido.Titulo, contenido.TipoArchivo, contenido.Descripcion, contenido.Licencia, contenido.Usuario, contenido.Autor, contenido.Valoracion_contenido, contenido.Biblioteca, contenido.Comentario, contenido.EnBiblioteca, contenido.Reporte);
+        this.init (Id_contenido, contenido.Titulo, contenido.TipoArchivo, contenido.Descripcion, contenido.Licencia, contenido.Usuario, contenido.Autor, contenido.Valoracion_contenido, contenido.Biblioteca, contenido.Comentario, contenido.EnBiblioteca, contenido.Reporte, contenido.Url);
 }
 
 private void init (int id_contenido
-                   , string titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum tipoArchivo, string descripcion, string licencia, YoureOnGenNHibernate.EN.YoureOn.UsuarioEN usuario, string autor, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ValoracionContenidoEN> valoracion_contenido, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.BibliotecaEN> biblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ComentarioEN> comentario, bool enBiblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ReporteContenidoEN> reporte)
+                   , string titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum tipoArchivo, string descripcion, string licencia, YoureOnGenNHibernate.EN.YoureOn.UsuarioEN usuario, string autor, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ValoracionContenidoEN> valoracion_contenido, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.BibliotecaEN> biblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ComentarioEN> comentario, bool enBiblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ReporteContenidoEN> reporte, string url)
 {
         this.Id_contenido = id_contenido;
 
@@ -215,6 +228,8 @@ private void init (int id_contenido
         this.EnBiblioteca = enBiblioteca;
 
         this.Reporte = reporte;
+
+        this.Url = url;
 }
 
 public override bool Equals (object obj)

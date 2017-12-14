@@ -111,30 +111,29 @@ public static void InitializeData ()
 
                 System.Console.WriteLine ("Creando contenidos");
                 ContenidoCEN contenido1 = new ContenidoCEN ();
-                int contenidoID1 = contenido1.SubirContenido ("contenidovideo", TipoArchivoEnum.video, "contenidovideo", "licencia", email1, "autor", false);
+                int contenidoID1 = contenido1.SubirContenido ("Fotografia", TipoArchivoEnum.imagen, "contenidoimagen", "licencia", email1, "autor", false, "../Archivos/foto1.jpg;");
 
                 ContenidoCEN contenido2 = new ContenidoCEN ();
-                int contenidoID2 = contenido2.SubirContenido ("contenidoaudio", TipoArchivoEnum.audio, "contenidoaudio", "licencia", email2, "autor", false);
+                int contenidoID2 = contenido2.SubirContenido ("Mohana", TipoArchivoEnum.imagen, "contenidoimagen", "licencia", email2, "autor", false, "../Archivos/foto2.jpg;");
 
                 ContenidoCEN contenido3 = new ContenidoCEN ();
-                int contenidoID3 = contenido2.SubirContenido ("contenidoimagen", TipoArchivoEnum.imagen, "contenidoimagen", "licencia", email3, "autor", false);
+                int contenidoID3 = contenido2.SubirContenido ("Emoji�?", TipoArchivoEnum.imagen, "contenidoimagen", "licencia", email3, "autor", false, "../Archivos/foto3.jpg;");
 
                 ContenidoCEN contenido4 = new ContenidoCEN ();
-                int contenidoID4 = contenido2.SubirContenido ("contenidotexto", TipoArchivoEnum.texto, "contenidotexto", "licencia", email4, "autor", false);
+                int contenidoID4 = contenido2.SubirContenido ("Libro Gordo", TipoArchivoEnum.texto, "contenidotexto", "licencia", email4, "Peres-Reverte", false, "../Archivos/Perez-Reverte, Arturo - Alatriste 1 - El capit�n Alatriste.pdf");
 
                 ContenidoCEN contenido5 = new ContenidoCEN ();
-                int contenidoID5 = contenido5.SubirContenido ("fotito", YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum.imagen, "es una foto", "licencia", email1, "fotografo", false);
+                int contenidoID5 = contenido5.SubirContenido ("Pues una foto", YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum.imagen, "es una foto", "licencia", email1, "fotografo", false, "../Archivos/foto4.jpg;");
 
                 ContenidoCEN contenido6 = new ContenidoCEN ();
-                int contenidoID6 = contenido6.SubirContenido ("Libro Gordo", YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum.texto, "Es un libro, no un texto", "licencia", email1, "Peres-Reverte", false);
+                int contenidoID6 = contenido6.SubirContenido ("Libro Gordo", YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum.video, "contenidovideo", "licencia", email1, "Muse", false, "https://www.youtube.com/watch?v=3dm_5qWWDV8");
 
                 ContenidoCEN contenido7 = new ContenidoCEN ();
-                int contenidoID7 = contenido7.SubirContenido ("Song 84", YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum.audio, "Es una cancion", "licencia", email3, "Blor", true);
-
+                int contenidoID7 = contenido7.SubirContenido ("Song 84", YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum.audio, "contenidoaudio", "licencia", email3, "Blor", true, "https://www.youtube.com/watch?v=3dm_5qWWDV8");
 
                 System.Console.WriteLine ("Creando video");
                 VideoCEN videoCEN = new VideoCEN ();
-                int videoID1 = videoCEN.New_ ("Titulo", YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum.video, "Descripcion", "licencia", email4, "Conde Mor", false, 200, 1080, YoureOnGenNHibernate.Enumerated.YoureOn.FormatoVideoEnum.avi);
+                int videoID1 = videoCEN.New_ ("Titulo", YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum.video, "Descripcion", "licencia", email4, "Conde Mor", false, "https://www.youtube.com/watch?v=3dm_5qWWDV8", 200, 1080, YoureOnGenNHibernate.Enumerated.YoureOn.FormatoVideoEnum.avi);
 
                 System.Console.WriteLine ("Creando comentarios");
                 ComentarioCEN comentario1 = new ComentarioCEN ();
@@ -156,7 +155,7 @@ public static void InitializeData ()
 
                 System.Console.WriteLine ("Creando reportes");
                 ReporteCEN reporte1 = new ReporteCEN ();
-                reporte1.New_ (email1);
+                reporte1.New_ (DateTime.Today);
 
                 //ValoracionCEN valoracion1 = new ValoracionCEN ();
                 //valoracion1.New_ (null, 3);
@@ -171,7 +170,7 @@ public static void InitializeData ()
 
 
                 FooterCEN footer1 = new FooterCEN ();
-                footer1.New_ ("enlace");
+                footer1.New_ ("enlace", "Contacto");
 
                 System.Console.WriteLine ("Creando idiomas");
                 IdiomaCEN castellano = new IdiomaCEN ();
@@ -201,7 +200,7 @@ public static void InitializeData ()
 
 
                 FooterCEN footerCEN = new FooterCEN ();
-                footerCEN.New_ ("ENLACE A OPCIONES");
+                footerCEN.New_ ("Enlace", "Preguntas frecuentes");
 
 
                 IdiomaCEN idiomaCEN = new IdiomaCEN ();
@@ -222,16 +221,16 @@ public static void InitializeData ()
 
 
                 ReporteCEN reporteCEN1 = new ReporteCEN ();
-                reporteCEN1.New_ (email3);
+                reporteCEN1.New_ (DateTime.Today);
 
                 ReporteCEN reporteCEN2 = new ReporteCEN ();
-                reporteCEN2.New_ (email1);
+                reporteCEN2.New_ (DateTime.Today);
 
                 ReporteCEN reporteCEN3 = new ReporteCEN ();
-                reporteCEN3.New_ (email4);
+                reporteCEN3.New_ (DateTime.Today);
 
                 ReporteCEN reporteCEN4 = new ReporteCEN ();
-                reporteCEN4.New_ (email3);
+                reporteCEN4.New_ (DateTime.Today);
 
                 ValoracionComentarioCEN valoracioncomCEN1 = new ValoracionComentarioCEN ();
                 int valoracioncomID1 = valoracioncomCEN1.New_ (new DateTime (2017, 1, 21), 5, comentarioID4);

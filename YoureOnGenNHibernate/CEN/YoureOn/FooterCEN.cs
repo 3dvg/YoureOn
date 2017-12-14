@@ -74,10 +74,5 @@ public void Destroy (int id_footer
 {
         _IFooterCAD.Destroy (id_footer);
 }
-
-public System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.FooterEN> CargarEnlaces (int ? idEnlace)
-{
-        return _IFooterCAD.CargarEnlaces (idEnlace);
-}
 }
 }

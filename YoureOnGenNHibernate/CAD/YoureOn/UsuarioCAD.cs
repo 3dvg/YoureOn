@@ -114,7 +114,6 @@ public void ModifyDefault (UsuarioEN usuario)
 
 
 
-
                 usuarioEN.EsVetado = usuario.EsVetado;
 
                 session.Update (usuarioEN);

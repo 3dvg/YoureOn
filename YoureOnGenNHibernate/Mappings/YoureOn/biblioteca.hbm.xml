@@ -40,5 +40,6 @@
 		 </class>	
 		  
 		  <query name="BibliotecaENReadAllHQL">from BibliotecaEN</query>
+		  <query name="BibliotecaENordenarBibliotecaHQL"><![CDATA[select contenido FROM BibliotecaEN as cont order by cont.Titulo]]></query>
 		</hibernate-mapping>
 	

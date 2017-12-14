@@ -38,20 +38,14 @@ public IReporteCAD get_IReporteCAD ()
         return this._IReporteCAD;
 }
 
-public int New_ (string p_usuario)
+public int New_ (Nullable<DateTime> p_fecha)
 {
         ReporteEN reporteEN = null;
         int oid;
 
         //Initialized ReporteEN
         reporteEN = new ReporteEN ();
-
-        if (p_usuario != null) {
-                // El argumento p_usuario -> Property usuario es oid = false
-                // Lista de oids id_reporte
-                reporteEN.Usuario = new YoureOnGenNHibernate.EN.YoureOn.UsuarioEN ();
-                reporteEN.Usuario.Email = p_usuario;
-        }
+        reporteEN.Fecha = p_fecha;
 
         //Call to ReporteCAD
 
@@ -59,13 +53,14 @@ public int New_ (string p_usuario)
         return oid;
 }
 
-public void Modify (int p_Reporte_OID)
+public void Modify (int p_Reporte_OID, Nullable<DateTime> p_fecha)
 {
         ReporteEN reporteEN = null;
 
         //Initialized ReporteEN
         reporteEN = new ReporteEN ();
         reporteEN.Id_reporte = p_Reporte_OID;
+        reporteEN.Fecha = p_fecha;
         //Call to ReporteCAD
 
         _IReporteCAD.Modify (reporteEN);

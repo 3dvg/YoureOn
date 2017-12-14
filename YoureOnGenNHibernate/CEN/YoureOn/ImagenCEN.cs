@@ -38,7 +38,7 @@ public IImagenCAD get_IImagenCAD ()
         return this._IImagenCAD;
 }
 
-public int New_ (string p_titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum p_tipoArchivo, string p_descripcion, string p_licencia, string p_usuario, string p_autor, bool p_enBiblioteca, int p_resolucion, YoureOnGenNHibernate.Enumerated.YoureOn.FormatoImagenEnum p_formatoImagen)
+public int New_ (string p_titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum p_tipoArchivo, string p_descripcion, string p_licencia, string p_usuario, string p_autor, bool p_enBiblioteca, string p_url, int p_resolucion, YoureOnGenNHibernate.Enumerated.YoureOn.FormatoImagenEnum p_formatoImagen)
 {
         ImagenEN imagenEN = null;
         int oid;
@@ -65,6 +65,8 @@ public int New_ (string p_titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoAr
 
         imagenEN.EnBiblioteca = p_enBiblioteca;
 
+        imagenEN.Url = p_url;
+
         imagenEN.Resolucion = p_resolucion;
 
         imagenEN.FormatoImagen = p_formatoImagen;
@@ -75,7 +77,7 @@ public int New_ (string p_titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoAr
         return oid;
 }
 
-public void Modify (int p_Imagen_OID, string p_titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum p_tipoArchivo, string p_descripcion, string p_licencia, string p_autor, bool p_enBiblioteca, int p_resolucion, YoureOnGenNHibernate.Enumerated.YoureOn.FormatoImagenEnum p_formatoImagen)
+public void Modify (int p_Imagen_OID, string p_titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum p_tipoArchivo, string p_descripcion, string p_licencia, string p_autor, bool p_enBiblioteca, string p_url, int p_resolucion, YoureOnGenNHibernate.Enumerated.YoureOn.FormatoImagenEnum p_formatoImagen)
 {
         ImagenEN imagenEN = null;
 
@@ -88,6 +90,7 @@ public void Modify (int p_Imagen_OID, string p_titulo, YoureOnGenNHibernate.Enum
         imagenEN.Licencia = p_licencia;
         imagenEN.Autor = p_autor;
         imagenEN.EnBiblioteca = p_enBiblioteca;
+        imagenEN.Url = p_url;
         imagenEN.Resolucion = p_resolucion;
         imagenEN.FormatoImagen = p_formatoImagen;
         //Call to ImagenCAD

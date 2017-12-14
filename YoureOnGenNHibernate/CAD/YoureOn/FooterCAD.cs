@@ -194,36 +194,5 @@ public void Destroy (int id_footer
                 SessionClose ();
         }
 }
-
-public System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.FooterEN> CargarEnlaces (int ? idEnlace)
-{
-        System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.FooterEN> result;
-        try
-        {
-                SessionInitializeTransaction ();
-                //String sql = @"FROM FooterEN self where FROM FooterEN as foot where foot.Id_footer = :idEnlace";
-                //IQuery query = session.CreateQuery(sql);
-                IQuery query = (IQuery)session.GetNamedQuery ("FooterENCargarEnlacesHQL");
-                query.SetParameter ("idEnlace", idEnlace);
-
-                result = query.List<YoureOnGenNHibernate.EN.YoureOn.FooterEN>();
-                SessionCommit ();
-        }
-
-        catch (Exception ex) {
-                SessionRollBack ();
-                if (ex is YoureOnGenNHibernate.Exceptions.ModelException)
-                        throw ex;
-                throw new YoureOnGenNHibernate.Exceptions.DataLayerException ("Error in FooterCAD.", ex);
-        }
-
-
-        finally
-        {
-                SessionClose ();
-        }
-
-        return result;
-}
 }
 }

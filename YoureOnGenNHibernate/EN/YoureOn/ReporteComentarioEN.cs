@@ -32,27 +32,27 @@ public ReporteComentarioEN() : base ()
 
 
 public ReporteComentarioEN(int id_reporte, YoureOnGenNHibernate.EN.YoureOn.ComentarioEN comentario
-                           , YoureOnGenNHibernate.EN.YoureOn.UsuarioEN usuario
+                           , Nullable<DateTime> fecha
                            )
 {
-        this.init (Id_reporte, comentario, usuario);
+        this.init (Id_reporte, comentario, fecha);
 }
 
 
 public ReporteComentarioEN(ReporteComentarioEN reporteComentario)
 {
-        this.init (Id_reporte, reporteComentario.Comentario, reporteComentario.Usuario);
+        this.init (Id_reporte, reporteComentario.Comentario, reporteComentario.Fecha);
 }
 
 private void init (int id_reporte
-                   , YoureOnGenNHibernate.EN.YoureOn.ComentarioEN comentario, YoureOnGenNHibernate.EN.YoureOn.UsuarioEN usuario)
+                   , YoureOnGenNHibernate.EN.YoureOn.ComentarioEN comentario, Nullable<DateTime> fecha)
 {
         this.Id_reporte = id_reporte;
 
 
         this.Comentario = comentario;
 
-        this.Usuario = usuario;
+        this.Fecha = fecha;
 }
 
 public override bool Equals (object obj)

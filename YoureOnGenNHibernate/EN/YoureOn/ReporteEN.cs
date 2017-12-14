@@ -13,9 +13,9 @@ private int id_reporte;
 
 
 /**
- *	Atributo usuario
+ *	Atributo fecha
  */
-private YoureOnGenNHibernate.EN.YoureOn.UsuarioEN usuario;
+private Nullable<DateTime> fecha;
 
 
 
@@ -28,8 +28,8 @@ public virtual int Id_reporte {
 
 
 
-public virtual YoureOnGenNHibernate.EN.YoureOn.UsuarioEN Usuario {
-        get { return usuario; } set { usuario = value;  }
+public virtual Nullable<DateTime> Fecha {
+        get { return fecha; } set { fecha = value;  }
 }
 
 
@@ -42,25 +42,25 @@ public ReporteEN()
 
 
 
-public ReporteEN(int id_reporte, YoureOnGenNHibernate.EN.YoureOn.UsuarioEN usuario
+public ReporteEN(int id_reporte, Nullable<DateTime> fecha
                  )
 {
-        this.init (Id_reporte, usuario);
+        this.init (Id_reporte, fecha);
 }
 
 
 public ReporteEN(ReporteEN reporte)
 {
-        this.init (Id_reporte, reporte.Usuario);
+        this.init (Id_reporte, reporte.Fecha);
 }
 
 private void init (int id_reporte
-                   , YoureOnGenNHibernate.EN.YoureOn.UsuarioEN usuario)
+                   , Nullable<DateTime> fecha)
 {
         this.Id_reporte = id_reporte;
 
 
-        this.Usuario = usuario;
+        this.Fecha = fecha;
 }
 
 public override bool Equals (object obj)

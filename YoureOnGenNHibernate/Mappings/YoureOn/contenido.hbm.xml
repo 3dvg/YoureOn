@@ -30,6 +30,9 @@
 					<property name="EnBiblioteca" type="boolean"> 
 						<column name="enBiblioteca"  not-null="true"/>
 					</property>
+					<property name="Url" type="string"> 
+						<column name="url"  not-null="true"/>
+					</property>
 			
 			
 			
@@ -87,6 +90,8 @@
 					      	</key>
 							<one-to-many class="YoureOnGenNHibernate.EN.YoureOn.ReporteContenidoEN"/>
 					    </bag>
+					
+			
 					
 					
 					

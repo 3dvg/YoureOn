@@ -113,6 +113,9 @@ public void ModifyDefault (ContenidoEN contenido)
                 contenidoEN.EnBiblioteca = contenido.EnBiblioteca;
 
 
+
+                contenidoEN.Url = contenido.Url;
+
                 session.Update (contenidoEN);
                 SessionCommit ();
         }
@@ -188,6 +191,9 @@ public void Editar (ContenidoEN contenido)
 
 
                 contenidoEN.EnBiblioteca = contenido.EnBiblioteca;
+
+
+                contenidoEN.Url = contenido.Url;
 
                 session.Update (contenidoEN);
                 SessionCommit ();

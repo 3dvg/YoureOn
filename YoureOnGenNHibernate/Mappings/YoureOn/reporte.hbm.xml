@@ -12,14 +12,12 @@
 						</id>
 			
 					
+					<property name="Fecha" type="date"> 
+						<column name="fecha"  not-null="true"/>
+					</property>
 			
 			
 			
-		  			
-						<many-to-one name="Usuario" class="YoureOnGenNHibernate.EN.YoureOn.UsuarioEN" >	
-								<column name="FK_emailUsuario_idUsuario"/> 
-						</many-to-one>
-											 					
 					
 					
 		

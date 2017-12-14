@@ -173,6 +173,9 @@ public void Modify (AudioEN audio)
                 audioEN.EnBiblioteca = audio.EnBiblioteca;
 
 
+                audioEN.Url = audio.Url;
+
+
                 audioEN.Duracion = audio.Duracion;
 
 

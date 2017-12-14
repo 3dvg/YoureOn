@@ -170,6 +170,9 @@ public void Modify (TextoEN texto)
                 textoEN.EnBiblioteca = texto.EnBiblioteca;
 
 
+                textoEN.Url = texto.Url;
+
+
                 textoEN.NumeroPaginas = texto.NumeroPaginas;
 
                 session.Update (textoEN);

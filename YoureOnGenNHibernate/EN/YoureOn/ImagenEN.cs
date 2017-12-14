@@ -45,20 +45,20 @@ public ImagenEN() : base ()
 
 
 public ImagenEN(int id_contenido, int resolucion, YoureOnGenNHibernate.Enumerated.YoureOn.FormatoImagenEnum formatoImagen
-                , string titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum tipoArchivo, string descripcion, string licencia, YoureOnGenNHibernate.EN.YoureOn.UsuarioEN usuario, string autor, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ValoracionContenidoEN> valoracion_contenido, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.BibliotecaEN> biblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ComentarioEN> comentario, bool enBiblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ReporteContenidoEN> reporte
+                , string titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum tipoArchivo, string descripcion, string licencia, YoureOnGenNHibernate.EN.YoureOn.UsuarioEN usuario, string autor, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ValoracionContenidoEN> valoracion_contenido, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.BibliotecaEN> biblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ComentarioEN> comentario, bool enBiblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ReporteContenidoEN> reporte, string url
                 )
 {
-        this.init (Id_contenido, resolucion, formatoImagen, titulo, tipoArchivo, descripcion, licencia, usuario, autor, valoracion_contenido, biblioteca, comentario, enBiblioteca, reporte);
+        this.init (Id_contenido, resolucion, formatoImagen, titulo, tipoArchivo, descripcion, licencia, usuario, autor, valoracion_contenido, biblioteca, comentario, enBiblioteca, reporte, url);
 }
 
 
 public ImagenEN(ImagenEN imagen)
 {
-        this.init (Id_contenido, imagen.Resolucion, imagen.FormatoImagen, imagen.Titulo, imagen.TipoArchivo, imagen.Descripcion, imagen.Licencia, imagen.Usuario, imagen.Autor, imagen.Valoracion_contenido, imagen.Biblioteca, imagen.Comentario, imagen.EnBiblioteca, imagen.Reporte);
+        this.init (Id_contenido, imagen.Resolucion, imagen.FormatoImagen, imagen.Titulo, imagen.TipoArchivo, imagen.Descripcion, imagen.Licencia, imagen.Usuario, imagen.Autor, imagen.Valoracion_contenido, imagen.Biblioteca, imagen.Comentario, imagen.EnBiblioteca, imagen.Reporte, imagen.Url);
 }
 
 private void init (int id_contenido
-                   , int resolucion, YoureOnGenNHibernate.Enumerated.YoureOn.FormatoImagenEnum formatoImagen, string titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum tipoArchivo, string descripcion, string licencia, YoureOnGenNHibernate.EN.YoureOn.UsuarioEN usuario, string autor, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ValoracionContenidoEN> valoracion_contenido, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.BibliotecaEN> biblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ComentarioEN> comentario, bool enBiblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ReporteContenidoEN> reporte)
+                   , int resolucion, YoureOnGenNHibernate.Enumerated.YoureOn.FormatoImagenEnum formatoImagen, string titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum tipoArchivo, string descripcion, string licencia, YoureOnGenNHibernate.EN.YoureOn.UsuarioEN usuario, string autor, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ValoracionContenidoEN> valoracion_contenido, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.BibliotecaEN> biblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ComentarioEN> comentario, bool enBiblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ReporteContenidoEN> reporte, string url)
 {
         this.Id_contenido = id_contenido;
 
@@ -88,6 +88,8 @@ private void init (int id_contenido
         this.EnBiblioteca = enBiblioteca;
 
         this.Reporte = reporte;
+
+        this.Url = url;
 }
 
 public override bool Equals (object obj)

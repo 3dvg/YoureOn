@@ -120,6 +120,8 @@
 			<Compile Include="CEN\YoureOn\UsuarioCEN_RecuperarPassword.cs" />
 			
 			
+			<Compile Include="CP\YoureOn\UsuarioCP_GetReportes.cs" />
+			
 	<Compile Include="EN\YoureOn\ContenidoEN.cs" />
 	<Compile Include="CEN\YoureOn\ContenidoCEN.cs" />
 	<Compile Include="CAD\YoureOn\IContenidoCAD.cs" />
@@ -191,7 +193,6 @@
 			<Compile Include="CEN\YoureOn\BibliotecaCEN_Anyadir_a_biblioteca.cs" />
 			
 			
-			<Compile Include="CEN\YoureOn\BibliotecaCEN_OrdenarBiblioteca.cs" />
 			
 	<Compile Include="EN\YoureOn\ValoracionEN.cs" />
 	<Compile Include="CEN\YoureOn\ValoracionCEN.cs" />
@@ -271,7 +272,7 @@
 			
 			
 			
-			<Compile Include="CP\YoureOn\ReporteContenidoCP_EnviarNotificacionReporte.cs" />
+			<Compile Include="CEN\YoureOn\ReporteContenidoCEN_EnviarNotificacionReporteContenido.cs" />
 			
 	<Compile Include="EN\YoureOn\ReporteComentarioEN.cs" />
 	<Compile Include="CEN\YoureOn\ReporteComentarioCEN.cs" />
@@ -281,7 +282,7 @@
 			
 			
 			
-			<Compile Include="CP\YoureOn\ReporteComentarioCP_EnviarNotificacionReporte.cs" />
+			<Compile Include="CEN\YoureOn\ReporteComentarioCEN_EnviarNotificacionReporteComentario.cs" />
 			
 	<Compile Include="EN\YoureOn\FooterEN.cs" />
 	<Compile Include="CEN\YoureOn\FooterCEN.cs" />
@@ -360,13 +361,16 @@
     <None Include="Resources\xsd\nhibernate-mapping.xsd">
       <SubType>Designer</SubType>
     </None>
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+		  </ItemGroup>
+	 	
+		
+	
+		  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+		  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
 		       Other similar extension points exist, see Microsoft.Common.targets.
 		  <Target Name="BeforeBuild">
 		  </Target>
 		  <Target Name="AfterBuild">
 		  </Target>
 		  -->
-</Project>
+		</Project>

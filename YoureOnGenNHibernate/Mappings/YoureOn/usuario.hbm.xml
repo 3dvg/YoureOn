@@ -89,18 +89,6 @@
 					    </bag>
 					
 			
-		  			
-						<bag name="Reporte" >
-							<key>
-							
-								
-								<column name="FK_emailUsuario_idUsuario"/>
-					      	</key>
-							<one-to-many class="YoureOnGenNHibernate.EN.YoureOn.ReporteEN"/>
-					    </bag>
-					
-			
-					
 					
 					
 					

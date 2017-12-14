@@ -221,5 +221,35 @@ public BibliotecaEN CargarBiblioteca (int id_biblio
 
         return bibliotecaEN;
 }
+
+public System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.BibliotecaEN> OrdenarBiblioteca ()
+{
+        System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.BibliotecaEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM BibliotecaEN self where select contenido FROM BibliotecaEN as cont order by cont.Titulo";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("BibliotecaENordenarBibliotecaHQL");
+
+                result = query.List<YoureOnGenNHibernate.EN.YoureOn.BibliotecaEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is YoureOnGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new YoureOnGenNHibernate.Exceptions.DataLayerException ("Error in BibliotecaCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

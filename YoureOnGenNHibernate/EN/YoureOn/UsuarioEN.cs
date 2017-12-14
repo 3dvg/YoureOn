@@ -90,13 +90,6 @@ private System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.Notific
 
 
 /**
- *	Atributo reporte
- */
-private System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ReporteEN> reporte;
-
-
-
-/**
  *	Atributo esVetado
  */
 private bool esVetado;
@@ -178,12 +171,6 @@ public virtual System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.
 
 
 
-public virtual System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ReporteEN> Reporte {
-        get { return reporte; } set { reporte = value;  }
-}
-
-
-
 public virtual bool EsVetado {
         get { return esVetado; } set { esVetado = value;  }
 }
@@ -198,25 +185,24 @@ public UsuarioEN()
         comentario = new System.Collections.Generic.List<YoureOnGenNHibernate.EN.YoureOn.ComentarioEN>();
         falta = new System.Collections.Generic.List<YoureOnGenNHibernate.EN.YoureOn.FaltaEN>();
         notificaciones = new System.Collections.Generic.List<YoureOnGenNHibernate.EN.YoureOn.NotificacionesEN>();
-        reporte = new System.Collections.Generic.List<YoureOnGenNHibernate.EN.YoureOn.ReporteEN>();
 }
 
 
 
-public UsuarioEN(string email, string nombre, string apellidos, Nullable<DateTime> fechaNac, string nIF, string foto, String contrasenya, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ContenidoEN> contenido, YoureOnGenNHibernate.EN.YoureOn.BibliotecaEN biblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ComentarioEN> comentario, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.FaltaEN> falta, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.NotificacionesEN> notificaciones, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ReporteEN> reporte, bool esVetado
+public UsuarioEN(string email, string nombre, string apellidos, Nullable<DateTime> fechaNac, string nIF, string foto, String contrasenya, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ContenidoEN> contenido, YoureOnGenNHibernate.EN.YoureOn.BibliotecaEN biblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ComentarioEN> comentario, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.FaltaEN> falta, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.NotificacionesEN> notificaciones, bool esVetado
                  )
 {
-        this.init (Email, nombre, apellidos, fechaNac, nIF, foto, contrasenya, contenido, biblioteca, comentario, falta, notificaciones, reporte, esVetado);
+        this.init (Email, nombre, apellidos, fechaNac, nIF, foto, contrasenya, contenido, biblioteca, comentario, falta, notificaciones, esVetado);
 }
 
 
 public UsuarioEN(UsuarioEN usuario)
 {
-        this.init (Email, usuario.Nombre, usuario.Apellidos, usuario.FechaNac, usuario.NIF, usuario.Foto, usuario.Contrasenya, usuario.Contenido, usuario.Biblioteca, usuario.Comentario, usuario.Falta, usuario.Notificaciones, usuario.Reporte, usuario.EsVetado);
+        this.init (Email, usuario.Nombre, usuario.Apellidos, usuario.FechaNac, usuario.NIF, usuario.Foto, usuario.Contrasenya, usuario.Contenido, usuario.Biblioteca, usuario.Comentario, usuario.Falta, usuario.Notificaciones, usuario.EsVetado);
 }
 
 private void init (string email
-                   , string nombre, string apellidos, Nullable<DateTime> fechaNac, string nIF, string foto, String contrasenya, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ContenidoEN> contenido, YoureOnGenNHibernate.EN.YoureOn.BibliotecaEN biblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ComentarioEN> comentario, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.FaltaEN> falta, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.NotificacionesEN> notificaciones, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ReporteEN> reporte, bool esVetado)
+                   , string nombre, string apellidos, Nullable<DateTime> fechaNac, string nIF, string foto, String contrasenya, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ContenidoEN> contenido, YoureOnGenNHibernate.EN.YoureOn.BibliotecaEN biblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ComentarioEN> comentario, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.FaltaEN> falta, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.NotificacionesEN> notificaciones, bool esVetado)
 {
         this.Email = email;
 
@@ -242,8 +228,6 @@ private void init (string email
         this.Falta = falta;
 
         this.Notificaciones = notificaciones;
-
-        this.Reporte = reporte;
 
         this.EsVetado = esVetado;
 }

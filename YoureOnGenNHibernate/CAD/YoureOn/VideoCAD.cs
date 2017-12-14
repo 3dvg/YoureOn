@@ -176,6 +176,9 @@ public void Modify (VideoEN video)
                 videoEN.EnBiblioteca = video.EnBiblioteca;
 
 
+                videoEN.Url = video.Url;
+
+
                 videoEN.Duracion = video.Duracion;
 
 

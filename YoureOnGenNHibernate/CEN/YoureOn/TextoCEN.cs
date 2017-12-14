@@ -38,7 +38,7 @@ public ITextoCAD get_ITextoCAD ()
         return this._ITextoCAD;
 }
 
-public int New_ (string p_titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum p_tipoArchivo, string p_descripcion, string p_licencia, string p_usuario, string p_autor, bool p_enBiblioteca, int p_numeroPaginas)
+public int New_ (string p_titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum p_tipoArchivo, string p_descripcion, string p_licencia, string p_usuario, string p_autor, bool p_enBiblioteca, string p_url, int p_numeroPaginas)
 {
         TextoEN textoEN = null;
         int oid;
@@ -65,6 +65,8 @@ public int New_ (string p_titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoAr
 
         textoEN.EnBiblioteca = p_enBiblioteca;
 
+        textoEN.Url = p_url;
+
         textoEN.NumeroPaginas = p_numeroPaginas;
 
         //Call to TextoCAD
@@ -73,7 +75,7 @@ public int New_ (string p_titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoAr
         return oid;
 }
 
-public void Modify (int p_Texto_OID, string p_titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum p_tipoArchivo, string p_descripcion, string p_licencia, string p_autor, bool p_enBiblioteca, int p_numeroPaginas)
+public void Modify (int p_Texto_OID, string p_titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum p_tipoArchivo, string p_descripcion, string p_licencia, string p_autor, bool p_enBiblioteca, string p_url, int p_numeroPaginas)
 {
         TextoEN textoEN = null;
 
@@ -86,6 +88,7 @@ public void Modify (int p_Texto_OID, string p_titulo, YoureOnGenNHibernate.Enume
         textoEN.Licencia = p_licencia;
         textoEN.Autor = p_autor;
         textoEN.EnBiblioteca = p_enBiblioteca;
+        textoEN.Url = p_url;
         textoEN.NumeroPaginas = p_numeroPaginas;
         //Call to TextoCAD
 

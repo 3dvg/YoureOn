@@ -21,26 +21,25 @@ public partial class ContenidoCEN
 {
 public float GetPuntuacionContenido (int p_oid)
 {
-            /*PROTECTED REGION ID(YoureOnGenNHibernate.CEN.YoureOn_Contenido_getPuntuacionContenido) ENABLED START*/
+        /*PROTECTED REGION ID(YoureOnGenNHibernate.CEN.YoureOn_Contenido_getPuntuacionContenido) ENABLED START*/
 
-            ContenidoEN contenido = _IContenidoCAD.ReadOIDDefault(p_oid);
-            float mediaContenidos, sumaContenidos;
-            sumaContenidos = mediaContenidos = 0;
+        ContenidoEN contenido = _IContenidoCAD.ReadOIDDefault (p_oid);
+        float mediaContenidos, sumaContenidos;
 
-            if (contenido != null)
-            {
+        sumaContenidos = mediaContenidos = 0;
+
+        if (contenido != null) {
                 System.Collections.Generic.IList<ValoracionContenidoEN> lista_valoraciones = contenido.Valoracion_contenido;
 
 
-                foreach (ValoracionContenidoEN val_contenido in lista_valoraciones)
-                {
-                    sumaContenidos += val_contenido.Nota;
+                foreach (ValoracionContenidoEN val_contenido in lista_valoraciones) {
+                        sumaContenidos += val_contenido.Nota;
                 }
 
                 mediaContenidos = sumaContenidos / lista_valoraciones.Count;
-            }
-            return mediaContenidos;
-            /*PROTECTED REGION END*/
         }
+        return mediaContenidos;
+        /*PROTECTED REGION END*/
+}
 }
 }

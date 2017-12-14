@@ -85,5 +85,10 @@ public BibliotecaEN CargarBiblioteca (int id_biblio
         bibliotecaEN = _IBibliotecaCAD.CargarBiblioteca (id_biblio);
         return bibliotecaEN;
 }
+
+public System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.BibliotecaEN> OrdenarBiblioteca ()
+{
+        return _IBibliotecaCAD.OrdenarBiblioteca ();
+}
 }
 }

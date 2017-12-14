@@ -22,58 +22,58 @@ public partial class UsuarioCP : BasicCP
 {
 public int Comentar (string usuario_oid, int contenido_oid, string texto)
 {
-            /*PROTECTED REGION ID(YoureOnGenNHibernate.CP.YoureOn_Usuario_comentar) ENABLED START*/
+        /*PROTECTED REGION ID(YoureOnGenNHibernate.CP.YoureOn_Usuario_comentar) ENABLED START*/
 
-            IUsuarioCAD usuarioCAD = null;
-            IContenidoCAD contenidoCAD = null;
-            UsuarioCEN usuarioCEN = null;
-            ContenidoCEN contenidoCEN = null;
-            UsuarioEN usuario = null;
-            ContenidoEN contenido = null;
+        IUsuarioCAD usuarioCAD = null;
+        IContenidoCAD contenidoCAD = null;
+        UsuarioCEN usuarioCEN = null;
+        ContenidoCEN contenidoCEN = null;
+        UsuarioEN usuario = null;
+        ContenidoEN contenido = null;
 
-            ComentarioCAD comentarioCAD = null;
-            ComentarioCEN comentarioCEN = null;
+        ComentarioCAD comentarioCAD = null;
+        ComentarioCEN comentarioCEN = null;
 
-            int result = -1;
+        int result = -1;
 
-            try
-            {
-                SessionInitializeTransaction();
-                usuarioCAD = new UsuarioCAD(session);
-                contenidoCAD = new ContenidoCAD(session);
-                comentarioCAD = new ComentarioCAD(session);
+        try
+        {
+                SessionInitializeTransaction ();
+                usuarioCAD = new UsuarioCAD (session);
+                contenidoCAD = new ContenidoCAD (session);
+                comentarioCAD = new ComentarioCAD (session);
 
-                usuarioCEN = new UsuarioCEN(usuarioCAD);
-                contenidoCEN = new ContenidoCEN(contenidoCAD);
-                comentarioCEN = new ComentarioCEN(comentarioCAD);
+                usuarioCEN = new UsuarioCEN (usuarioCAD);
+                contenidoCEN = new ContenidoCEN (contenidoCAD);
+                comentarioCEN = new ComentarioCEN (comentarioCAD);
 
-                usuario = usuarioCAD.ReadOIDDefault(usuario_oid);
-                contenido = contenidoCAD.ReadOIDDefault(contenido_oid);
+                usuario = usuarioCAD.ReadOIDDefault (usuario_oid);
+                contenido = contenidoCAD.ReadOIDDefault (contenido_oid);
 
-                ComentarioEN comentario = new ComentarioEN();
+                ComentarioEN comentario = new ComentarioEN ();
                 comentario.Usuario = usuario;
                 comentario.Contenido = contenido;
 
-                usuario.Comentario.Add(comentario);
-                contenido.Comentario.Add(comentario);
+                usuario.Comentario.Add (comentario);
+                contenido.Comentario.Add (comentario);
 
-                comentarioCEN.Editar(comentario.Id_comentario, texto, DateTime.Now);
+                comentarioCEN.Editar (comentario.Id_comentario, texto, DateTime.Now);
 
-                SessionCommit();
-            }
-            catch (Exception ex)
-            {
-                SessionRollBack();
-                throw ex;
-            }
-            finally
-            {
-                SessionClose();
-            }
-            return result;
-
-
-            /*PROTECTED REGION END*/
+                SessionCommit ();
         }
-    }
+        catch (Exception ex)
+        {
+                SessionRollBack ();
+                throw ex;
+        }
+        finally
+        {
+                SessionClose ();
+        }
+        return result;
+
+
+        /*PROTECTED REGION END*/
+}
+}
 }

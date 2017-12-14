@@ -25,5 +25,8 @@ void Destroy (int id_biblio
 
 BibliotecaEN CargarBiblioteca (int id_biblio
                                );
+
+
+System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.BibliotecaEN> OrdenarBiblioteca ();
 }
 }

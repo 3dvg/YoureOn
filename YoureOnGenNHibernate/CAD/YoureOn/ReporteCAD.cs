@@ -91,6 +91,8 @@ public void ModifyDefault (ReporteEN reporte)
                 SessionInitializeTransaction ();
                 ReporteEN reporteEN = (ReporteEN)session.Load (typeof(ReporteEN), reporte.Id_reporte);
 
+                reporteEN.Fecha = reporte.Fecha;
+
                 session.Update (reporteEN);
                 SessionCommit ();
         }
@@ -115,13 +117,6 @@ public int New_ (ReporteEN reporte)
         try
         {
                 SessionInitializeTransaction ();
-                if (reporte.Usuario != null) {
-                        // Argumento OID y no colección.
-                        reporte.Usuario = (YoureOnGenNHibernate.EN.YoureOn.UsuarioEN)session.Load (typeof(YoureOnGenNHibernate.EN.YoureOn.UsuarioEN), reporte.Usuario.Email);
-
-                        reporte.Usuario.Reporte
-                        .Add (reporte);
-                }
 
                 session.Save (reporte);
                 SessionCommit ();
@@ -149,6 +144,9 @@ public void Modify (ReporteEN reporte)
         {
                 SessionInitializeTransaction ();
                 ReporteEN reporteEN = (ReporteEN)session.Load (typeof(ReporteEN), reporte.Id_reporte);
+
+                reporteEN.Fecha = reporte.Fecha;
+
                 session.Update (reporteEN);
                 SessionCommit ();
         }

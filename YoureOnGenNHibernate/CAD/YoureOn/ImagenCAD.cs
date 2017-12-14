@@ -173,6 +173,9 @@ public void Modify (ImagenEN imagen)
                 imagenEN.EnBiblioteca = imagen.EnBiblioteca;
 
 
+                imagenEN.Url = imagen.Url;
+
+
                 imagenEN.Resolucion = imagen.Resolucion;
 
 

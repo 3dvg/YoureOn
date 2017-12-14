@@ -38,20 +38,14 @@ public IReporteComentarioCAD get_IReporteComentarioCAD ()
         return this._IReporteComentarioCAD;
 }
 
-public int New_ (string p_usuario, int p_comentario)
+public int New_ (Nullable<DateTime> p_fecha, int p_comentario)
 {
         ReporteComentarioEN reporteComentarioEN = null;
         int oid;
 
         //Initialized ReporteComentarioEN
         reporteComentarioEN = new ReporteComentarioEN ();
-
-        if (p_usuario != null) {
-                // El argumento p_usuario -> Property usuario es oid = false
-                // Lista de oids id_reporte
-                reporteComentarioEN.Usuario = new YoureOnGenNHibernate.EN.YoureOn.UsuarioEN ();
-                reporteComentarioEN.Usuario.Email = p_usuario;
-        }
+        reporteComentarioEN.Fecha = p_fecha;
 
 
         if (p_comentario != -1) {
@@ -67,13 +61,14 @@ public int New_ (string p_usuario, int p_comentario)
         return oid;
 }
 
-public void Modify (int p_ReporteComentario_OID)
+public void Modify (int p_ReporteComentario_OID, Nullable<DateTime> p_fecha)
 {
         ReporteComentarioEN reporteComentarioEN = null;
 
         //Initialized ReporteComentarioEN
         reporteComentarioEN = new ReporteComentarioEN ();
         reporteComentarioEN.Id_reporte = p_ReporteComentario_OID;
+        reporteComentarioEN.Fecha = p_fecha;
         //Call to ReporteComentarioCAD
 
         _IReporteComentarioCAD.Modify (reporteComentarioEN);
