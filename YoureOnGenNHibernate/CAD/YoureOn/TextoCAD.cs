@@ -173,6 +173,9 @@ public void Modify (TextoEN texto)
                 textoEN.Url = texto.Url;
 
 
+                textoEN.FechaCreacion = texto.FechaCreacion;
+
+
                 textoEN.NumeroPaginas = texto.NumeroPaginas;
 
                 session.Update (textoEN);

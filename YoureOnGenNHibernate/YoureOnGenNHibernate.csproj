@@ -305,6 +305,7 @@
 	<Compile Include="Enumerated\YoureOn\FormatoAudioEnum.cs" />
 	<Compile Include="Enumerated\YoureOn\FormatoVideoEnum.cs" />
 	<Compile Include="Enumerated\YoureOn\FormatoImagenEnum.cs" />
+	<Compile Include="Enumerated\YoureOn\TipoLicenciaEnum.cs" />
 	
 	
 

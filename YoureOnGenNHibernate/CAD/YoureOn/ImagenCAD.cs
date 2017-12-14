@@ -176,6 +176,9 @@ public void Modify (ImagenEN imagen)
                 imagenEN.Url = imagen.Url;
 
 
+                imagenEN.FechaCreacion = imagen.FechaCreacion;
+
+
                 imagenEN.Resolucion = imagen.Resolucion;
 
 

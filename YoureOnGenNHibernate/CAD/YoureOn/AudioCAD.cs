@@ -176,6 +176,9 @@ public void Modify (AudioEN audio)
                 audioEN.Url = audio.Url;
 
 
+                audioEN.FechaCreacion = audio.FechaCreacion;
+
+
                 audioEN.Duracion = audio.Duracion;
 
 

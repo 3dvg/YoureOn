@@ -38,7 +38,7 @@ public IVideoCAD get_IVideoCAD ()
         return this._IVideoCAD;
 }
 
-public int New_ (string p_titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum p_tipoArchivo, string p_descripcion, string p_licencia, string p_usuario, string p_autor, bool p_enBiblioteca, string p_url, int p_duracion, int p_resolucion, YoureOnGenNHibernate.Enumerated.YoureOn.FormatoVideoEnum p_formatoVideo)
+public int New_ (string p_titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum p_tipoArchivo, string p_descripcion, string p_licencia, string p_usuario, string p_autor, bool p_enBiblioteca, string p_url, Nullable<DateTime> p_fechaCreacion, int p_duracion, int p_resolucion, YoureOnGenNHibernate.Enumerated.YoureOn.FormatoVideoEnum p_formatoVideo)
 {
         VideoEN videoEN = null;
         int oid;
@@ -67,6 +67,8 @@ public int New_ (string p_titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoAr
 
         videoEN.Url = p_url;
 
+        videoEN.FechaCreacion = p_fechaCreacion;
+
         videoEN.Duracion = p_duracion;
 
         videoEN.Resolucion = p_resolucion;
@@ -79,7 +81,7 @@ public int New_ (string p_titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoAr
         return oid;
 }
 
-public void Modify (int p_Video_OID, string p_titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum p_tipoArchivo, string p_descripcion, string p_licencia, string p_autor, bool p_enBiblioteca, string p_url, int p_duracion, int p_resolucion, YoureOnGenNHibernate.Enumerated.YoureOn.FormatoVideoEnum p_formatoVideo)
+public void Modify (int p_Video_OID, string p_titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum p_tipoArchivo, string p_descripcion, string p_licencia, string p_autor, bool p_enBiblioteca, string p_url, Nullable<DateTime> p_fechaCreacion, int p_duracion, int p_resolucion, YoureOnGenNHibernate.Enumerated.YoureOn.FormatoVideoEnum p_formatoVideo)
 {
         VideoEN videoEN = null;
 
@@ -93,6 +95,7 @@ public void Modify (int p_Video_OID, string p_titulo, YoureOnGenNHibernate.Enume
         videoEN.Autor = p_autor;
         videoEN.EnBiblioteca = p_enBiblioteca;
         videoEN.Url = p_url;
+        videoEN.FechaCreacion = p_fechaCreacion;
         videoEN.Duracion = p_duracion;
         videoEN.Resolucion = p_resolucion;
         videoEN.FormatoVideo = p_formatoVideo;

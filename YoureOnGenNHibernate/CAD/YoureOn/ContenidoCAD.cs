@@ -116,6 +116,9 @@ public void ModifyDefault (ContenidoEN contenido)
 
                 contenidoEN.Url = contenido.Url;
 
+
+                contenidoEN.FechaCreacion = contenido.FechaCreacion;
+
                 session.Update (contenidoEN);
                 SessionCommit ();
         }
@@ -194,6 +197,9 @@ public void Editar (ContenidoEN contenido)
 
 
                 contenidoEN.Url = contenido.Url;
+
+
+                contenidoEN.FechaCreacion = contenido.FechaCreacion;
 
                 session.Update (contenidoEN);
                 SessionCommit ();

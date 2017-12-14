@@ -33,6 +33,9 @@
 					<property name="Url" type="string"> 
 						<column name="url"  not-null="true"/>
 					</property>
+					<property name="FechaCreacion" type="date"> 
+						<column name="fechaCreacion"  not-null="true"/>
+					</property>
 			
 			
 			
@@ -92,6 +95,8 @@
 					    </bag>
 					
 			
+			
+					
 					
 					
 					

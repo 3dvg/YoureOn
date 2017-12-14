@@ -179,6 +179,9 @@ public void Modify (VideoEN video)
                 videoEN.Url = video.Url;
 
 
+                videoEN.FechaCreacion = video.FechaCreacion;
+
+
                 videoEN.Duracion = video.Duracion;
 
 

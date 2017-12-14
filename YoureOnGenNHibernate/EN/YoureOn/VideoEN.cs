@@ -58,20 +58,20 @@ public VideoEN() : base ()
 
 
 public VideoEN(int id_contenido, int duracion, int resolucion, YoureOnGenNHibernate.Enumerated.YoureOn.FormatoVideoEnum formatoVideo
-               , string titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum tipoArchivo, string descripcion, string licencia, YoureOnGenNHibernate.EN.YoureOn.UsuarioEN usuario, string autor, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ValoracionContenidoEN> valoracion_contenido, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.BibliotecaEN> biblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ComentarioEN> comentario, bool enBiblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ReporteContenidoEN> reporte, string url
+               , string titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum tipoArchivo, string descripcion, string licencia, YoureOnGenNHibernate.EN.YoureOn.UsuarioEN usuario, string autor, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ValoracionContenidoEN> valoracion_contenido, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.BibliotecaEN> biblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ComentarioEN> comentario, bool enBiblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ReporteContenidoEN> reporte, string url, Nullable<DateTime> fechaCreacion
                )
 {
-        this.init (Id_contenido, duracion, resolucion, formatoVideo, titulo, tipoArchivo, descripcion, licencia, usuario, autor, valoracion_contenido, biblioteca, comentario, enBiblioteca, reporte, url);
+        this.init (Id_contenido, duracion, resolucion, formatoVideo, titulo, tipoArchivo, descripcion, licencia, usuario, autor, valoracion_contenido, biblioteca, comentario, enBiblioteca, reporte, url, fechaCreacion);
 }
 
 
 public VideoEN(VideoEN video)
 {
-        this.init (Id_contenido, video.Duracion, video.Resolucion, video.FormatoVideo, video.Titulo, video.TipoArchivo, video.Descripcion, video.Licencia, video.Usuario, video.Autor, video.Valoracion_contenido, video.Biblioteca, video.Comentario, video.EnBiblioteca, video.Reporte, video.Url);
+        this.init (Id_contenido, video.Duracion, video.Resolucion, video.FormatoVideo, video.Titulo, video.TipoArchivo, video.Descripcion, video.Licencia, video.Usuario, video.Autor, video.Valoracion_contenido, video.Biblioteca, video.Comentario, video.EnBiblioteca, video.Reporte, video.Url, video.FechaCreacion);
 }
 
 private void init (int id_contenido
-                   , int duracion, int resolucion, YoureOnGenNHibernate.Enumerated.YoureOn.FormatoVideoEnum formatoVideo, string titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum tipoArchivo, string descripcion, string licencia, YoureOnGenNHibernate.EN.YoureOn.UsuarioEN usuario, string autor, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ValoracionContenidoEN> valoracion_contenido, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.BibliotecaEN> biblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ComentarioEN> comentario, bool enBiblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ReporteContenidoEN> reporte, string url)
+                   , int duracion, int resolucion, YoureOnGenNHibernate.Enumerated.YoureOn.FormatoVideoEnum formatoVideo, string titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum tipoArchivo, string descripcion, string licencia, YoureOnGenNHibernate.EN.YoureOn.UsuarioEN usuario, string autor, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ValoracionContenidoEN> valoracion_contenido, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.BibliotecaEN> biblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ComentarioEN> comentario, bool enBiblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ReporteContenidoEN> reporte, string url, Nullable<DateTime> fechaCreacion)
 {
         this.Id_contenido = id_contenido;
 
@@ -105,6 +105,8 @@ private void init (int id_contenido
         this.Reporte = reporte;
 
         this.Url = url;
+
+        this.FechaCreacion = fechaCreacion;
 }
 
 public override bool Equals (object obj)

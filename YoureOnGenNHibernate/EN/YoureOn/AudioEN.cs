@@ -45,20 +45,20 @@ public AudioEN() : base ()
 
 
 public AudioEN(int id_contenido, int duracion, YoureOnGenNHibernate.Enumerated.YoureOn.FormatoAudioEnum formatoAudio
-               , string titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum tipoArchivo, string descripcion, string licencia, YoureOnGenNHibernate.EN.YoureOn.UsuarioEN usuario, string autor, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ValoracionContenidoEN> valoracion_contenido, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.BibliotecaEN> biblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ComentarioEN> comentario, bool enBiblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ReporteContenidoEN> reporte, string url
+               , string titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum tipoArchivo, string descripcion, string licencia, YoureOnGenNHibernate.EN.YoureOn.UsuarioEN usuario, string autor, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ValoracionContenidoEN> valoracion_contenido, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.BibliotecaEN> biblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ComentarioEN> comentario, bool enBiblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ReporteContenidoEN> reporte, string url, Nullable<DateTime> fechaCreacion
                )
 {
-        this.init (Id_contenido, duracion, formatoAudio, titulo, tipoArchivo, descripcion, licencia, usuario, autor, valoracion_contenido, biblioteca, comentario, enBiblioteca, reporte, url);
+        this.init (Id_contenido, duracion, formatoAudio, titulo, tipoArchivo, descripcion, licencia, usuario, autor, valoracion_contenido, biblioteca, comentario, enBiblioteca, reporte, url, fechaCreacion);
 }
 
 
 public AudioEN(AudioEN audio)
 {
-        this.init (Id_contenido, audio.Duracion, audio.FormatoAudio, audio.Titulo, audio.TipoArchivo, audio.Descripcion, audio.Licencia, audio.Usuario, audio.Autor, audio.Valoracion_contenido, audio.Biblioteca, audio.Comentario, audio.EnBiblioteca, audio.Reporte, audio.Url);
+        this.init (Id_contenido, audio.Duracion, audio.FormatoAudio, audio.Titulo, audio.TipoArchivo, audio.Descripcion, audio.Licencia, audio.Usuario, audio.Autor, audio.Valoracion_contenido, audio.Biblioteca, audio.Comentario, audio.EnBiblioteca, audio.Reporte, audio.Url, audio.FechaCreacion);
 }
 
 private void init (int id_contenido
-                   , int duracion, YoureOnGenNHibernate.Enumerated.YoureOn.FormatoAudioEnum formatoAudio, string titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum tipoArchivo, string descripcion, string licencia, YoureOnGenNHibernate.EN.YoureOn.UsuarioEN usuario, string autor, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ValoracionContenidoEN> valoracion_contenido, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.BibliotecaEN> biblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ComentarioEN> comentario, bool enBiblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ReporteContenidoEN> reporte, string url)
+                   , int duracion, YoureOnGenNHibernate.Enumerated.YoureOn.FormatoAudioEnum formatoAudio, string titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum tipoArchivo, string descripcion, string licencia, YoureOnGenNHibernate.EN.YoureOn.UsuarioEN usuario, string autor, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ValoracionContenidoEN> valoracion_contenido, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.BibliotecaEN> biblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ComentarioEN> comentario, bool enBiblioteca, System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ReporteContenidoEN> reporte, string url, Nullable<DateTime> fechaCreacion)
 {
         this.Id_contenido = id_contenido;
 
@@ -90,6 +90,8 @@ private void init (int id_contenido
         this.Reporte = reporte;
 
         this.Url = url;
+
+        this.FechaCreacion = fechaCreacion;
 }
 
 public override bool Equals (object obj)

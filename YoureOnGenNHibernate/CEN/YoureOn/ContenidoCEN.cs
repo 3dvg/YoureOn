@@ -38,7 +38,7 @@ public IContenidoCAD get_IContenidoCAD ()
         return this._IContenidoCAD;
 }
 
-public int SubirContenido (string p_titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum p_tipoArchivo, string p_descripcion, string p_licencia, string p_usuario, string p_autor, bool p_enBiblioteca, string p_url)
+public int SubirContenido (string p_titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum p_tipoArchivo, string p_descripcion, string p_licencia, string p_usuario, string p_autor, bool p_enBiblioteca, string p_url, Nullable<DateTime> p_fechaCreacion)
 {
         ContenidoEN contenidoEN = null;
         int oid;
@@ -67,13 +67,15 @@ public int SubirContenido (string p_titulo, YoureOnGenNHibernate.Enumerated.Your
 
         contenidoEN.Url = p_url;
 
+        contenidoEN.FechaCreacion = p_fechaCreacion;
+
         //Call to ContenidoCAD
 
         oid = _IContenidoCAD.SubirContenido (contenidoEN);
         return oid;
 }
 
-public void Editar (int p_Contenido_OID, string p_titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum p_tipoArchivo, string p_descripcion, string p_licencia, string p_autor, bool p_enBiblioteca, string p_url)
+public void Editar (int p_Contenido_OID, string p_titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum p_tipoArchivo, string p_descripcion, string p_licencia, string p_autor, bool p_enBiblioteca, string p_url, Nullable<DateTime> p_fechaCreacion)
 {
         ContenidoEN contenidoEN = null;
 
@@ -87,6 +89,7 @@ public void Editar (int p_Contenido_OID, string p_titulo, YoureOnGenNHibernate.E
         contenidoEN.Autor = p_autor;
         contenidoEN.EnBiblioteca = p_enBiblioteca;
         contenidoEN.Url = p_url;
+        contenidoEN.FechaCreacion = p_fechaCreacion;
         //Call to ContenidoCAD
 
         _IContenidoCAD.Editar (contenidoEN);
