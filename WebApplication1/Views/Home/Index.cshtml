@@ -1,7 +1,14 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿@model IEnumerable<WebApplication1.Controllers.ContenidoController>
+
+@{
+    ViewBag.Title = "Index";
 }
 
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-3"><img src="@Url.Content("~/Archivos/foto1.jpg")" /></div>

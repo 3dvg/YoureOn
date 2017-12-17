@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using YoureOnGenNHibernate.CAD.YoureOn;
+using YoureOnGenNHibernate.CEN.YoureOn;
+using YoureOnGenNHibernate.EN.YoureOn;
 
-namespace YoureOnBootstrap.Controllers
+
+namespace WebApplication1.Controllers
 {
-    public class ContenidoController : Controller
+    public class ContenidoController : BasicController
     {
         // GET: Contenido
         public ActionResult Index()
@@ -42,11 +46,15 @@ namespace YoureOnBootstrap.Controllers
             }
         }
 
-        /*public ActionResult MostrarFotos()
+        public ActionResult MostrarFotos()
         {
-            Session
-            return View();
-        }*/
+            SessionInitialize();
+            ContenidoCAD contenidosCad = new ContenidoCAD(session);
+            ContenidoCEN contenidosCen = new ContenidoCEN(contenidosCad);
+            IList<ContenidoEN> contenidos = contenidosCen.DameContenidoPorFecha(DateTime.Today);
+            SessionClose();
+            return View(contenidos);
+        }
 
         // GET: Contenido/Edit/5
         public ActionResult Edit(int id)

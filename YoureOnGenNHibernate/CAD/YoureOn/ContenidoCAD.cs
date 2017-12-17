@@ -303,5 +303,35 @@ public System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.Contenid
 
         return result;
 }
+public System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ContenidoEN> DameContenidoPorFecha (Nullable<DateTime> c_fecha)
+{
+        System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ContenidoEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM ContenidoEN self where FROM ContenidoEN as cont where cont.FechaCreacion = :c_fecha";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("ContenidoENdameContenidoPorFechaHQL");
+                query.SetParameter ("c_fecha", c_fecha);
+
+                result = query.List<YoureOnGenNHibernate.EN.YoureOn.ContenidoEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is YoureOnGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new YoureOnGenNHibernate.Exceptions.DataLayerException ("Error in ContenidoCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

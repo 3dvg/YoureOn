@@ -3,5 +3,5 @@ using System;
 
 namespace YoureOnGenNHibernate.Enumerated.YoureOn
 {
-public enum TipoLicenciaEnum { CC BY=1, CC BY - SA=2, CC BY - ND=3, CC BY - NC=4, CC BY - NC - SA=5, CC BY - NC - ND=6, Sin licencia=7 };
+public enum TipoLicenciaEnum { CC_BY=1, CC_BY_SA=2, CC_BY_ND=3, CC_BY_NC=4, CC_BY_NC_SA=5, CC_BY_NC_ND=6, Sin_licencia=7 };
 }

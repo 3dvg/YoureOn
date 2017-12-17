@@ -38,7 +38,7 @@ public IAudioCAD get_IAudioCAD ()
         return this._IAudioCAD;
 }
 
-public int New_ (string p_titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum p_tipoArchivo, string p_descripcion, string p_licencia, string p_usuario, string p_autor, bool p_enBiblioteca, string p_url, Nullable<DateTime> p_fechaCreacion, int p_duracion, YoureOnGenNHibernate.Enumerated.YoureOn.FormatoAudioEnum p_formatoAudio)
+public int New_ (string p_titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum p_tipoArchivo, string p_descripcion, YoureOnGenNHibernate.Enumerated.YoureOn.TipoLicenciaEnum p_licencia, string p_usuario, string p_autor, bool p_enBiblioteca, string p_url, Nullable<DateTime> p_fechaCreacion, int p_duracion, YoureOnGenNHibernate.Enumerated.YoureOn.FormatoAudioEnum p_formatoAudio)
 {
         AudioEN audioEN = null;
         int oid;
@@ -79,7 +79,7 @@ public int New_ (string p_titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoAr
         return oid;
 }
 
-public void Modify (int p_Audio_OID, string p_titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum p_tipoArchivo, string p_descripcion, string p_licencia, string p_autor, bool p_enBiblioteca, string p_url, Nullable<DateTime> p_fechaCreacion, int p_duracion, YoureOnGenNHibernate.Enumerated.YoureOn.FormatoAudioEnum p_formatoAudio)
+public void Modify (int p_Audio_OID, string p_titulo, YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum p_tipoArchivo, string p_descripcion, YoureOnGenNHibernate.Enumerated.YoureOn.TipoLicenciaEnum p_licencia, string p_autor, bool p_enBiblioteca, string p_url, Nullable<DateTime> p_fechaCreacion, int p_duracion, YoureOnGenNHibernate.Enumerated.YoureOn.FormatoAudioEnum p_formatoAudio)
 {
         AudioEN audioEN = null;
 

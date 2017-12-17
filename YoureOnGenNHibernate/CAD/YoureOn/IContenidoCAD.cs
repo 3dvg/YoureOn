@@ -28,5 +28,10 @@ ContenidoEN CargarContenido (int id_contenido
 
 
 System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ContenidoEN> DameContenidoPorTitulo (string c_titulo);
+
+
+
+
+System.Collections.Generic.IList<YoureOnGenNHibernate.EN.YoureOn.ContenidoEN> DameContenidoPorFecha (Nullable<DateTime> c_fecha);
 }
 }

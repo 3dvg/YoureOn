@@ -21,7 +21,7 @@
 					<property name="Descripcion" type="string"> 
 						<column name="descripcion"  not-null="true"/>
 					</property>
-					<property name="Licencia" type="string"> 
+					<property name="Licencia" > 
 						<column name="licencia"  not-null="true"/>
 					</property>
 					<property name="Autor" type="string"> 
@@ -115,5 +115,6 @@
 		  
 		  <query name="ContenidoENReadAllHQL">from ContenidoEN</query>
 		  <query name="ContenidoENdameContenidoPorTituloHQL"><![CDATA[FROM ContenidoEN as cont where cont.Titulo = :c_titulo]]></query>
+		  <query name="ContenidoENdameContenidoPorFechaHQL"><![CDATA[FROM ContenidoEN as cont where cont.FechaCreacion = :c_fecha]]></query>
 		</hibernate-mapping>
 	
