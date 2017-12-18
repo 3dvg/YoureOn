@@ -198,9 +198,12 @@ public static void InitializeData ()
                 FaltaCEN falta5 = new FaltaCEN ();
                 int faltaID5 = falta5.New_ (YoureOnGenNHibernate.Enumerated.YoureOn.TipoFaltaEnum.grave, email3, new DateTime (2017, 11, 12), moderadorID2);
 
-
+                System.Console.WriteLine("Creando enlaces del footer");
                 FooterCEN footerCEN = new FooterCEN ();
                 footerCEN.New_ ("Enlace", "Preguntas frecuentes");
+                footerCEN.New_("ENLACE A OPCIONES", "Bla bla bla descripcion de opciones.");
+                footerCEN.New_("ENLACE A FAQs", "Bla bla bla descripcion de FAQs.");
+                footerCEN.New_("ENLACE A AYUDA", "Bla bla bla descripcion de ayuda.");
 
 
                 IdiomaCEN idiomaCEN = new IdiomaCEN ();
