@@ -7,7 +7,8 @@ using YoureOnGenNHibernate.CAD.YoureOn;
 using YoureOnGenNHibernate.CEN.YoureOn;
 using YoureOnGenNHibernate.EN.YoureOn;
 using WebApplication1.Models;
-
+using MvcApplication1.Models;
+using System.IO;
 
 namespace WebApplication1.Controllers
 {
@@ -52,10 +53,11 @@ namespace WebApplication1.Controllers
             SessionInitialize();
             ContenidoCAD contenidosCad = new ContenidoCAD(session);
             ContenidoCEN contenidosCen = new ContenidoCEN(contenidosCad);
-            IList<ContenidoEN> contenidos = contenidosCen.DameContenidoPorFecha(DateTime.Today);
-            //IEnumerable<Contenido> listaContenidos = new AssemblerContenido().ConvertListEnToModel;
+            IList<ContenidoEN> contenidos = contenidosCen.DameContenidoPorFecha(DateTime.MinValue);
+
+            IEnumerable<Contenido> listaContenidos = new AssemblerContenido().ConvertListENToModel(contenidos).ToList();
             SessionClose();
-            return View(contenidos);
+            return View(listaContenidos);
         }
 
         // GET: Contenido/Edit/5

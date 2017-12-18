@@ -126,14 +126,14 @@ public static void InitializeData ()
                 int contenidoID5 = contenido5.SubirContenido ("Pues una foto", YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum.imagen, "es una foto", TipoLicenciaEnum.CC_BY_NC_SA, email1, "fotografo", false, "../Archivos/foto4.jpg;", DateTime.Now);
 
                 ContenidoCEN contenido6 = new ContenidoCEN ();
-                int contenidoID6 = contenido6.SubirContenido ("Libro Gordo", YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum.video, "contenidovideo", "licencia", TipoLicenciaEnum.CC_BY_ND, email1, "Muse", false, "https://www.youtube.com/watch?v=3dm_5qWWDV8", DateTime.Now);
+                int contenidoID6 = contenido6.SubirContenido ("Libro Gordo", YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum.video, "contenidovideo", TipoLicenciaEnum.CC_BY_ND, email1, "Muse", false, "https://www.youtube.com/watch?v=3dm_5qWWDV8", DateTime.Now);
 
                 ContenidoCEN contenido7 = new ContenidoCEN ();
                 int contenidoID7 = contenido7.SubirContenido ("Song 84", YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum.audio, "contenidoaudio", TipoLicenciaEnum.Sin_licencia, email3, "Blor", true, "https://www.youtube.com/watch?v=3dm_5qWWDV8", DateTime.Now);
 
                 System.Console.WriteLine ("Creando video");
                 VideoCEN videoCEN = new VideoCEN ();
-                int videoID1 = videoCEN.New_ ("Titulo", YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum.video, "Descripcion", TipoLicenciaEnum.Sin_licencia, email4, "Conde Mor", false, "https://www.youtube.com/watch?v=3dm_5qWWDV8", 200, 1080, YoureOnGenNHibernate.Enumerated.YoureOn.FormatoVideoEnum.avi);
+                int videoID1 = videoCEN.New_ ("Titulo", YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum.video, "Descripcion", TipoLicenciaEnum.Sin_licencia, email4, "Conde Mor", false, "https://www.youtube.com/watch?v=3dm_5qWWDV8", DateTime.Now, 200, 1080, YoureOnGenNHibernate.Enumerated.YoureOn.FormatoVideoEnum.avi);
 
                 System.Console.WriteLine ("Creando comentarios");
                 ComentarioCEN comentario1 = new ComentarioCEN ();

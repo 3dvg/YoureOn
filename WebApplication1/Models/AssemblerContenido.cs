@@ -1,39 +1,27 @@
-﻿using System;
-using System.Collections;
+﻿using MvcApplication1.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.Mvc;
-using System.ComponentModel.DataAnnotations;
 using YoureOnGenNHibernate.EN.YoureOn;
 using YoureOnGenNHibernate.Enumerated.YoureOn;
 
-namespace YoureOnBT.Models
+namespace WebApplication1.Models
 {
-    public class Contenido
-    {
-        int id;
-        string titulo;
-        TipoArchivoEnum tipo;
-        string descripcion;
-        TipoLicenciaEnum licencia;
-        string autor;
-        bool enBibioteca;
-        string ruta;
-        DateTime fCreacion;
-        
+    public class AssemblerContenido
+    {       
         public Contenido ConvertENToModelUI(ContenidoEN contenidoEN)
         {
             Contenido contenido = new Contenido();
-            contenido.id = contenidoEN.Id_contenido;
-            contenido.titulo = contenidoEN.Titulo;
-            contenido.tipo = contenidoEN.TipoArchivo;
-            contenido.descripcion = contenidoEN.Descripcion;
-            contenido.licencia = contenidoEN.Licencia;
-            contenido.autor = contenidoEN.Autor;
-            contenido.enBibioteca = contenidoEN.EnBiblioteca;
-            contenido.ruta = contenidoEN.Url;
-            contenido.fCreacion = contenidoEN.FechaCreacion.Value;
+            contenido.Id = contenidoEN.Id_contenido;
+            contenido.Titulo = contenidoEN.Titulo;
+            contenido.Tipo = contenidoEN.TipoArchivo;
+            contenido.Descripcion = contenidoEN.Descripcion;
+            contenido.Licencia = contenidoEN.Licencia;
+            contenido.Autor = contenidoEN.Autor;
+            contenido.EnBibioteca = contenidoEN.EnBiblioteca;
+            contenido.Ruta = contenidoEN.Url;
+            contenido.FCreacion = contenidoEN.FechaCreacion.Value;
 
             return contenido;
         }

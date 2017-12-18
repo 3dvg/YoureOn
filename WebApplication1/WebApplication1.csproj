@@ -199,14 +199,13 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AssemblerContenido.cs" />
-    <Compile Include="Models\ContenidoModels.cs" />
+    <Compile Include="Models\Contenido.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Antlr3.Runtime.dll" />
     <Content Include="Archivos\foto1.jpg" />
     <Content Include="Archivos\foto2.jpg" />
     <Content Include="Archivos\foto3.jpg" />
