@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using YoureOnGenNHibernate.CAD.YoureOn;
 using YoureOnGenNHibernate.CEN.YoureOn;
 using YoureOnGenNHibernate.EN.YoureOn;
+using WebApplication1.Models;
 
 
 namespace WebApplication1.Controllers
@@ -52,6 +53,7 @@ namespace WebApplication1.Controllers
             ContenidoCAD contenidosCad = new ContenidoCAD(session);
             ContenidoCEN contenidosCen = new ContenidoCEN(contenidosCad);
             IList<ContenidoEN> contenidos = contenidosCen.DameContenidoPorFecha(DateTime.Today);
+            //IEnumerable<Contenido> listaContenidos = new AssemblerContenido().ConvertListEnToModel;
             SessionClose();
             return View(contenidos);
         }
@@ -99,5 +101,5 @@ namespace WebApplication1.Controllers
                 return View();
             }
         }
-    }
+    }    
 }
