@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="YoureOnGenNHibernate"
+		                   namespace="YoureOnGenNHibernate.EN.YoureOn">
+		    
+		    
+			
+				
+<joined-subclass name="AudioEN" extends="YoureOnGenNHibernate.EN.YoureOn.ContenidoEN" table="Audio"> 
+	<key>
+    	
+				<column name="id_contenido"/>
+		
+    	
+   	</key>
+
+			
+					
+					<property name="Duracion" type="integer"> 
+						<column name="duracion"  not-null="true"/>
+					</property>
+					<property name="FormatoAudio" > 
+						<column name="formatoAudio"  not-null="true"/>
+					</property>
+			
+			
+			
+					
+					
+		
+ 	  
+		 </joined-subclass>
+		  
+		  <query name="AudioENReadAllHQL">from AudioEN</query>
+		</hibernate-mapping>
+	

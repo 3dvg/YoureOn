@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="YoureOnGenNHibernate"
+		                   namespace="YoureOnGenNHibernate.EN.YoureOn">
+		    
+		    
+			
+				<class name="UsuarioEN" table="Usuario"> 
+						<id name="Email" column="emailUsuario"/> 
+			
+					
+					<property name="Nombre" type="string"> 
+						<column name="nombre"  not-null="true"/>
+					</property>
+					<property name="Apellidos" type="string"> 
+						<column name="apellidos"  not-null="true"/>
+					</property>
+					<property name="FechaNac" type="date"> 
+						<column name="fechaNac"  not-null="true"/>
+					</property>
+					<property name="NIF" type="string"> 
+						<column name="NIF"  unique="true" not-null="true"/>
+					</property>
+					<property name="Foto" type="string"> 
+						<column name="foto"  not-null="true"/>
+					</property>
+					<property name="Contrasenya" type="string"> 
+						<column name="contrasenya"  not-null="true"/>
+					</property>
+					<property name="EsVetado" type="boolean"> 
+						<column name="esVetado"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		  			
+						<bag name="Contenido" >
+							<key>
+							
+								
+								<column name="FK_emailUsuario_idUsuario"/>
+					      	</key>
+							<one-to-many class="YoureOnGenNHibernate.EN.YoureOn.ContenidoEN"/>
+					    </bag>
+					
+			
+		  			
+					
+							   <one-to-one name="Biblioteca" class="YoureOnGenNHibernate.EN.YoureOn.BibliotecaEN" property-ref="Usuario" />							
+					 
+						
+			
+		  			
+						<bag name="Comentario" >
+							<key>
+							
+								
+								<column name="FK_emailUsuario_idUsuario"/>
+					      	</key>
+							<one-to-many class="YoureOnGenNHibernate.EN.YoureOn.ComentarioEN"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="Falta" >
+							<key>
+							
+								
+								<column name="FK_emailUsuario_idUsuario"/>
+					      	</key>
+							<one-to-many class="YoureOnGenNHibernate.EN.YoureOn.FaltaEN"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="Notificaciones" >
+							<key>
+							
+								
+								<column name="FK_emailUsuario_idUsuario"/>
+					      	</key>
+							<one-to-many class="YoureOnGenNHibernate.EN.YoureOn.NotificacionesEN"/>
+					    </bag>
+					
+			
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="UsuarioENReadAllHQL">from UsuarioEN</query>
+		</hibernate-mapping>
+	

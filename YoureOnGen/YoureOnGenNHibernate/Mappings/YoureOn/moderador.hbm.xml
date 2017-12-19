@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="YoureOnGenNHibernate"
+		                   namespace="YoureOnGenNHibernate.EN.YoureOn">
+		    
+		    
+			
+				
+<joined-subclass name="ModeradorEN" extends="YoureOnGenNHibernate.EN.YoureOn.UsuarioEN" table="Moderador"> 
+	<key>
+    	
+				<column name="emailUsuario"/>
+		
+    	
+   	</key>
+
+			
+					
+					<property name="PermisoModerador" type="string"> 
+						<column name="permisoModerador"  not-null="true"/>
+					</property>
+			
+			
+			
+		  			
+						<bag name="Pone_falta" >
+							<key>
+							
+								
+								<column name="FK_emailUsuario_idModerador"/>
+					      	</key>
+							<one-to-many class="YoureOnGenNHibernate.EN.YoureOn.FaltaEN"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="Notificacion_enviada" >
+							<key>
+							
+								
+								<column name="FK_emailUsuario_idEnvia_notificacion"/>
+					      	</key>
+							<one-to-many class="YoureOnGenNHibernate.EN.YoureOn.NotificacionesEN"/>
+					    </bag>
+					
+					
+					
+					
+		
+ 	  
+		 </joined-subclass>
+		  
+		  <query name="ModeradorENReadAllHQL">from ModeradorEN</query>
+		</hibernate-mapping>
+	
