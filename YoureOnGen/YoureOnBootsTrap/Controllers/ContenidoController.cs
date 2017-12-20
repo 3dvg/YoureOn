@@ -53,9 +53,15 @@ namespace WebApplication1.Controllers
             SessionInitialize();
             ContenidoCAD contenidosCad = new ContenidoCAD(session);
             ContenidoCEN contenidosCen = new ContenidoCEN(contenidosCad);
-            IList<ContenidoEN> contenidos = contenidosCen.DameContenidoPorFecha(DateTime.MinValue);
+            IList<ContenidoEN> contenidos = contenidosCen.DameContenidoPorFecha(DateTime.Today);
 
             IEnumerable<Contenido> listaContenidos = new AssemblerContenido().ConvertListENToModel(contenidos).ToList();
+            for (int i = 0; i < listaContenidos.Count<Contenido>(); i++)
+                if (listaContenidos.ElementAt<Contenido>(i) == null)
+                    ViewData["Contenido"] = "Esto no funciona";
+                else
+                    ViewData["Contenido"] = listaContenidos.ElementAt<Contenido>(i).Ruta;
+
             SessionClose();
             return View(listaContenidos);
         }

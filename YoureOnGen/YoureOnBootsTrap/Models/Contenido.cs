@@ -10,22 +10,22 @@ namespace MvcApplication1.Models
     public class Contenido
     {
         [ScaffoldColumn(false)]
-        public int Id { get; internal set; }
+        public int Id { get; set; }
         [ScaffoldColumn(false)]
-        public string Titulo { get; internal set; }
+        public string Titulo { get; set; }
         [ScaffoldColumn(false)]
-        public string Descripcion { get; internal set; }
+        public string Descripcion { get; set; }
         [ScaffoldColumn(false)]
-        public TipoArchivoEnum Tipo { get; internal set; }
+        public TipoArchivoEnum Tipo { get; set; }
         [ScaffoldColumn(false)]
-        public TipoLicenciaEnum Licencia { get; internal set; }
+        public TipoLicenciaEnum Licencia { get; set; }
         [ScaffoldColumn(false)]
-        public string Autor { get; internal set; }
+        public string Autor { get; set; }
         [ScaffoldColumn(false)]
-        public bool EnBibioteca { get; internal set; }
+        public bool EnBibioteca { get; set; }
         [ScaffoldColumn(false)]
-        public string Ruta { get; internal set; }
+        public string Ruta { get; set; }
         [ScaffoldColumn(false)]
-        public DateTime FCreacion { get; internal set; }
+        public DateTime FCreacion { get; set; }
     }
 }

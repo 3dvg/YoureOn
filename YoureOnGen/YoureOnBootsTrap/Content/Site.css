@@ -40,7 +40,7 @@ textarea {
 }
 .col-sm-3 img {
     width: 100%;
-    height: auto;
+    height: 200px;
     float: left;
 }
 
@@ -48,6 +48,7 @@ textarea {
 
 .registrate, .unete {
     text-align:center;
+    position: absolute;
 }
 .boton_registro{
     margin: 0 auto;

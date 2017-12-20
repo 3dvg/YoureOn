@@ -3,14 +3,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using YoureOnGenNHibernate.CAD.YoureOn;
+using YoureOnGenNHibernate.CEN.YoureOn;
+using YoureOnGenNHibernate.EN.YoureOn;
+using WebApplication1.Models;
+using MvcApplication1.Models;
+using System.IO;
 
 namespace YoureOnBootsTrap.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BasicController
     {
         public ActionResult Index()
         {
-            return View();
+            SessionInitialize();
+            ContenidoCAD contenidosCad = new ContenidoCAD(session);
+            ContenidoCEN contenidosCen = new ContenidoCEN(contenidosCad);
+            IList<ContenidoEN> contenidos = contenidosCen.DameContenidoPorFecha(DateTime.Today);
+
+            IEnumerable<Contenido> listaContenidos = new AssemblerContenido().ConvertListENToModel(contenidos).ToList();
+            
+            SessionClose();
+            return View(listaContenidos);
         }
 
         public ActionResult About()
@@ -25,6 +39,23 @@ namespace YoureOnBootsTrap.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+        public ActionResult MostrarFotos()
+        {
+            SessionInitialize();
+            ContenidoCAD contenidosCad = new ContenidoCAD(session);
+            ContenidoCEN contenidosCen = new ContenidoCEN(contenidosCad);
+            IList<ContenidoEN> contenidos = contenidosCen.DameContenidoPorFecha(DateTime.Today);
+
+            IEnumerable<Contenido> listaContenidos = new AssemblerContenido().ConvertListENToModel(contenidos).ToList();
+            for (int i = 0; i < listaContenidos.Count<Contenido>(); i++)
+                if (listaContenidos.ElementAt<Contenido>(i) == null)
+                    ViewData["Contenido"] = "Esto no funciona";
+                else
+                    ViewData["Contenido"] = listaContenidos.ElementAt(i).Ruta;
+
+            SessionClose();
+            return View(listaContenidos);
         }
     }
 }

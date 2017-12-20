@@ -28,9 +28,13 @@ namespace WebApplication1.Models
         public IList<Contenido> ConvertListENToModel(IList<ContenidoEN> contenidosEN)
         {
             IList<Contenido> contenidos = new List<Contenido>();
-            foreach (ContenidoEN contenEn in contenidosEN)
+            ContenidoEN contenEn = new ContenidoEN();
+            int contador = 0;
+            while (contador<4)
             {
+                contenEn = contenidosEN.ElementAt(contador);
                 contenidos.Add(ConvertENToModelUI(contenEn));
+                contador++;
             }
             return contenidos;
         }
