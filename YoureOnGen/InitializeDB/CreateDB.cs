@@ -120,10 +120,10 @@ public static void InitializeData ()
                 int contenidoID3 = contenido2.SubirContenido ("Emoji", TipoArchivoEnum.imagen, "contenidoimagen", TipoLicenciaEnum.CC_BY_NC, email3, "autor", false, @"/Archivos/foto3.jpg", DateTime.Now);
 
                 ContenidoCEN contenido4 = new ContenidoCEN ();
-                int contenidoID4 = contenido2.SubirContenido("Pues una foto", YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum.imagen, "es una foto", TipoLicenciaEnum.CC_BY_NC_SA, email1, "fotografo", false, @"/Archivos/foto4.jpg", DateTime.Now); 
+                int contenidoID4 = contenido2.SubirContenido ("Pues una foto", YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum.imagen, "es una foto", TipoLicenciaEnum.CC_BY_NC_SA, email1, "fotografo", false, @"/Archivos/foto4.jpg", DateTime.Now);
 
                 ContenidoCEN contenido5 = new ContenidoCEN ();
-                int contenidoID5 = contenido5.SubirContenido("Libro Gordo", TipoArchivoEnum.texto, "contenidotexto", TipoLicenciaEnum.CC_BY_NC_ND, email4, "Peres-Reverte", false, @"/Archivos/Perez-Reverte, Arturo - Alatriste 1 - El capitan Alatriste.pdf", DateTime.Now);
+                int contenidoID5 = contenido5.SubirContenido ("Libro Gordo", TipoArchivoEnum.texto, "contenidotexto", TipoLicenciaEnum.CC_BY_NC_ND, email4, "Peres-Reverte", false, @"/Archivos/Perez-Reverte, Arturo - Alatriste 1 - El capitan Alatriste.pdf", DateTime.Now);
 
                 ContenidoCEN contenido6 = new ContenidoCEN ();
                 int contenidoID6 = contenido6.SubirContenido ("Libro Gordo", YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum.video, "contenidovideo", TipoLicenciaEnum.CC_BY_ND, email1, "Muse", false, @"https://www.youtube.com/watch?v=3dm_5qWWDV8", DateTime.Now);

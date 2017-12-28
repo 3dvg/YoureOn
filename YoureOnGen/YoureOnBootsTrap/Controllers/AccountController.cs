@@ -9,11 +9,16 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using YoureOnBootsTrap.Models;
+using YoureOnGenNHibernate.CAD.YoureOn;
+using YoureOnGenNHibernate.CEN.YoureOn;
+using YoureOnGenNHibernate.EN.YoureOn;
+
+
 
 namespace YoureOnBootsTrap.Controllers
 {
     [Authorize]
-    public class AccountController : Controller
+    public class AccountController : BasicController
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
@@ -153,6 +158,12 @@ namespace YoureOnBootsTrap.Controllers
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
+
+                SessionInitialize();
+                UsuarioCAD usuarioCAD = new UsuarioCAD();
+                UsuarioCEN usuarioCEN = new UsuarioCEN(usuarioCAD);
+                usuarioCEN.CrearUsuario(model.Email, "Nombre", "Apellidos", DateTime.Today, "00000000a", "foto", model.Password, false);
+                SessionClose();
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
@@ -163,7 +174,7 @@ namespace YoureOnBootsTrap.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirmar cuenta", "Para confirmar la cuenta, haga clic <a href=\"" + callbackUrl + "\">aquí</a>");
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("CompletarPerfil", "Account");
                 }
                 AddErrors(result);
             }
@@ -276,8 +287,8 @@ namespace YoureOnBootsTrap.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public ActionResult ExternalLogin(string provider, string returnUrl)
-        {
+        
+        public ActionResult ExternalLogin(string provider, string returnUrl) {
             // Solicitar redireccionamiento al proveedor de inicio de sesión externo
             return new ChallengeResult(provider, Url.Action("ExternalLoginCallback", "Account", new { ReturnUrl = returnUrl }));
         }
@@ -402,6 +413,19 @@ namespace YoureOnBootsTrap.Controllers
         {
             return View();
         }
+
+        public ActionResult CompletarPerfil()
+        {
+            return View();
+        }
+
+        /*public async Task<ActionResult> CompletarPerfil(CompletarRegistro model)
+        {
+            var result = await UserManager.CreateAsync(User.Identity);
+            if (await model.NIF != null)
+                return RedirectToAction("Index", "Home");
+            return View();
+        }*/
 
         protected override void Dispose(bool disposing)
         {

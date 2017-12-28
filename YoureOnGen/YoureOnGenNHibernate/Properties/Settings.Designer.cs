@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace NHibernate.Properties {
+namespace YoureOnGenNHibernate.Properties {
 [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute ()]
 [global::System.CodeDom.Compiler.GeneratedCodeAttribute ("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "9.0.0.0")]
 internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {

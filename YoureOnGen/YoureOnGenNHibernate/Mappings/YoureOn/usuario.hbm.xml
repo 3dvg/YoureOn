@@ -19,7 +19,7 @@
 						<column name="fechaNac"  not-null="true"/>
 					</property>
 					<property name="NIF" type="string"> 
-						<column name="NIF"  unique="true" not-null="true"/>
+						<column name="NIF"  not-null="true"/>
 					</property>
 					<property name="Foto" type="string"> 
 						<column name="foto"  not-null="true"/>

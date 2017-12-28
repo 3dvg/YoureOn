@@ -40,7 +40,7 @@ namespace YoureOnBootsTrap.Controllers
 
             return View();
         }
-        public ActionResult MostrarFotos()
+        /*public ActionResult MostrarFotos()
         {
             SessionInitialize();
             ContenidoCAD contenidosCad = new ContenidoCAD(session);
@@ -56,6 +56,6 @@ namespace YoureOnBootsTrap.Controllers
 
             SessionClose();
             return View(listaContenidos);
-        }
+        }*/
     }
 }

@@ -13,3 +13,4 @@ C:\ooh4ria\workspaceMars\YoureOnGen\YoureOnGenNHibernate\bin\Debug\log4net.dll
 C:\ooh4ria\workspaceMars\YoureOnGen\YoureOnGenNHibernate\obj\Debug\YoureOnGenNHibernate.csproj.CoreCompileInputs.cache
 C:\ooh4ria\workspaceMars\YoureOnGen\YoureOnGenNHibernate\obj\Debug\YoureOnGenNHibernate.dll
 C:\ooh4ria\workspaceMars\YoureOnGen\YoureOnGenNHibernate\obj\Debug\YoureOnGenNHibernate.pdb
+C:\ooh4ria\workspaceMars\YoureOnGen\YoureOnGenNHibernate\obj\Debug\YoureOnGenNHibernate.csprojResolveAssemblyReference.cache

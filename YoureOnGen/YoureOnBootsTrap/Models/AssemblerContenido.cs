@@ -25,6 +25,7 @@ namespace WebApplication1.Models
 
             return contenido;
         }
+        //Está la lista generada faltaria ordenarla por fecha
         public IList<Contenido> ConvertListENToModel(IList<ContenidoEN> contenidosEN)
         {
             IList<Contenido> contenidos = new List<Contenido>();

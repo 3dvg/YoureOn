@@ -81,6 +81,48 @@ namespace YoureOnBootsTrap.Models
         public string ConfirmPassword { get; set; }
     }
 
+    public class CompletarRegistro
+    {
+        [Required]
+        [EmailAddress]
+        [Display(Name = "Correo electrónico")]
+        public string Email { get; set; }
+
+        [Required]
+        [Display(Name = "Nombre")]
+        public string Nombre { get; set; }
+
+        [Required]
+        [Display(Name = "Apellidos")]
+        public string Apellidos { get; set; }
+
+        [Required]
+        [DataType(DataType.Date)]
+        [Display(Name = "Fecha de nacimiento")]
+        public string FechaNacimiento { get; set; }
+
+        [Required]
+        [StringLength(100, ErrorMessage = "El número de caracteres de {0} debe ser al menos {2}.", MinimumLength = 8)]
+        [Display(Name = "NIF")]
+        public string NIF { get; set; }
+
+
+        [DataType(DataType.ImageUrl)]
+        [Display(Name = "Foto de perfil")]
+        public string FotoPerfil { get; set; }
+
+        [Required]
+        [StringLength(100, ErrorMessage = "El número de caracteres de {0} debe ser al menos {2}.", MinimumLength = 6)]
+        [DataType(DataType.Password)]
+        [Display(Name = "Contraseña")]
+        public string Password { get; set; }
+
+        [DataType(DataType.Password)]
+        [Display(Name = "Confirmar contraseña")]
+        [Compare("Password", ErrorMessage = "La contraseña y la contraseña de confirmación no coinciden.")]
+        public string ConfirmPassword { get; set; }
+    }
+
     public class ResetPasswordViewModel
     {
         [Required]
