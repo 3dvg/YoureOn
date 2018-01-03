@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Security.Claims;
@@ -162,7 +163,7 @@ namespace YoureOnBootsTrap.Controllers
                 SessionInitialize();
                 UsuarioCAD usuarioCAD = new UsuarioCAD();
                 UsuarioCEN usuarioCEN = new UsuarioCEN(usuarioCAD);
-                usuarioCEN.CrearUsuario(model.Email, "Nombre", "Apellidos", DateTime.Today, "00000000a", "foto", model.Password, false);
+                usuarioCEN.CrearUsuario(model.Email, " ", " ", DateTime.Today, " ", " ", model.Password, false);
                 SessionClose();
                 if (result.Succeeded)
                 {
@@ -416,6 +417,26 @@ namespace YoureOnBootsTrap.Controllers
 
         public ActionResult CompletarPerfil()
         {
+            //TO DO
+
+            SessionInitialize();
+            UsuarioCAD usuarioCad = new UsuarioCAD(session);
+            UsuarioCEN usuarioCen = new UsuarioCEN(usuarioCad);
+
+            IList<UsuarioEN> usuarios = usuarioCad.ReadAllDefault(0, int.MaxValue);
+
+            IEnumerable<CompletarRegistro> listaUsuarios = new AssemblerAccount().ConvertListENToModel(usuarios).ToList();
+
+            int i = 0;
+            Boolean coincidencia = false;
+
+            /*while (i < listaUsuarios.Count() && listaUsuarios.ElementAt(i) != null && !coincidencia)
+            {
+                if(listaUsuarios.ElementAt(i).Email.Equals()
+                i++;
+            }
+            */
+            SessionClose();
             return View();
         }
 

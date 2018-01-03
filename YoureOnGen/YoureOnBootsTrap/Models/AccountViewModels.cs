@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace YoureOnBootsTrap.Models
@@ -99,7 +100,7 @@ namespace YoureOnBootsTrap.Models
         [Required]
         [DataType(DataType.Date)]
         [Display(Name = "Fecha de nacimiento")]
-        public string FechaNacimiento { get; set; }
+        public DateTime? FechaNacimiento { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "El número de caracteres de {0} debe ser al menos {2}.", MinimumLength = 8)]
