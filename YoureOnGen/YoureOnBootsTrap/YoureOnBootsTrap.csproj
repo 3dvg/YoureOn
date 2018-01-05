@@ -196,6 +196,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BasicController.cs" />
     <Compile Include="Controllers\ContenidoController.cs" />
+    <Compile Include="Controllers\FooterController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -257,7 +258,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Footer\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
@@ -280,6 +281,11 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Account\CompletarPerfil.cshtml" />
+    <Content Include="Views\Shared\_Footer.cshtml" />
+    <Content Include="Views\Footer\Faqs.cshtml" />
+    <Content Include="Views\Footer\Terminos.cshtml" />
+    <Content Include="Views\Footer\Ayuda.cshtml" />
+    <Content Include="Views\Footer\Cookies.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

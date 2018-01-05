@@ -162,6 +162,7 @@ namespace YoureOnBootsTrap.Controllers
 
                 SessionInitialize();
                 UsuarioCAD usuarioCAD = new UsuarioCAD();
+                UsuarioEN userEn = usuarioCAD.ReadOIDDefault(model.Email);
                 UsuarioCEN usuarioCEN = new UsuarioCEN(usuarioCAD);
                 usuarioCEN.CrearUsuario(model.Email, " ", " ", DateTime.Today, " ", " ", model.Password, false);
                 SessionClose();
@@ -175,7 +176,7 @@ namespace YoureOnBootsTrap.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirmar cuenta", "Para confirmar la cuenta, haga clic <a href=\"" + callbackUrl + "\">aquí</a>");
 
-                    return RedirectToAction("CompletarPerfil", "Account");
+                    return RedirectToAction("CompletarPerfil", "Account", new { Correo = model.Email, Contrasenya = model.Password });
                 }
                 AddErrors(result);
             }
@@ -415,13 +416,14 @@ namespace YoureOnBootsTrap.Controllers
             return View();
         }
 
-        public ActionResult CompletarPerfil()
+        public ActionResult CompletarPerfil(CompletarRegistro model, string correo, String contrasenya)
         {
             //TO DO
 
             SessionInitialize();
             UsuarioCAD usuarioCad = new UsuarioCAD(session);
             UsuarioCEN usuarioCen = new UsuarioCEN(usuarioCad);
+            UsuarioEN usuarioEn = usuarioCad.ReadOIDDefault(correo);
 
             IList<UsuarioEN> usuarios = usuarioCad.ReadAllDefault(0, int.MaxValue);
 
@@ -430,14 +432,25 @@ namespace YoureOnBootsTrap.Controllers
             int i = 0;
             Boolean coincidencia = false;
 
-            /*while (i < listaUsuarios.Count() && listaUsuarios.ElementAt(i) != null && !coincidencia)
+            while (i < listaUsuarios.Count() && listaUsuarios.ElementAt(i) != null && !coincidencia)
             {
-                if(listaUsuarios.ElementAt(i).Email.Equals()
+                if (listaUsuarios.ElementAt(i).Email.Equals(usuarioEn.Email))
+                {
+                    coincidencia = true;
+                }
+                if (listaUsuarios.ElementAt(i).NIF.Equals(usuarioEn.NIF))
+                {
+                    coincidencia = true;
+                }
                 i++;
             }
-            */
-            SessionClose();
-            return View();
+                        SessionClose();
+            if (!coincidencia)
+            {
+                usuarioCen.EditarPerfil(model.Email, model.Nombre, model.Apellidos, model.FechaNacimiento, model.NIF, model.FotoPerfil, model.Password, false);
+                return View();
+            }
+            return View(model);
         }
 
         /*public async Task<ActionResult> CompletarPerfil(CompletarRegistro model)
