@@ -1,11 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\YoureOnGenNHibernate\\CEN",
-    "\\YoureOnGenNHibernate\\CEN\\YoureOn",
-    "\\YoureOnGenNHibernate\\EN",
-    "\\YoureOnGenNHibernate\\EN\\YoureOn"
+    "\\YoureOnGen"
   ],
-  "SelectedNode": "\\YoureOnGenNHibernate",
+  "SelectedNode": "\\YoureOnGen\\YoureOnGenNHibernate.sln",
   "PreviewInSolutionExplorer": false
 }
