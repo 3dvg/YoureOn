@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using MvcApplication1.Models;
 using YoureOnBootsTrap.Models;
 using YoureOnGenNHibernate.CAD.YoureOn;
 using YoureOnGenNHibernate.CEN.YoureOn;
@@ -79,22 +80,42 @@ namespace YoureOnBootsTrap.Controllers
                 return View(model);
             }
 
-            // No cuenta los errores de inicio de sesión para el bloqueo de la cuenta
-            // Para permitir que los errores de contraseña desencadenen el bloqueo de la cuenta, cambie a shouldLockout: true
             var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
-            switch (result)
+            SessionInitialize();
+            UsuarioCAD usuarioCad = new UsuarioCAD(session);
+            UsuarioEN usuario = usuarioCad.ReadOIDDefault(model.Email);
+            SessionClose();
+
+            if (usuario != null)
             {
-                case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
-                case SignInStatus.LockedOut:
-                    return View("Lockout");
-                case SignInStatus.RequiresVerification:
-                    return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
-                case SignInStatus.Failure:
-                default:
-                    ModelState.AddModelError("", "Intento de inicio de sesión no válido.");
-                    return View(model);
+                if (!usuario.EsVetado)
+                {
+                    if (result == SignInStatus.Success && YoureOnGenNHibernate.Utils.Util.GetEncondeMD5(model.Password).Equals(usuario.Contrasenya))
+                        return RedirectToLocal(returnUrl);
+                    else
+                    {
+                        // No cuenta los errores de inicio de sesión para el bloqueo de la cuenta
+                        // Para permitir que los errores de contraseña desencadenen el bloqueo de la cuenta, cambie a shouldLockout: true
+
+                        switch (result)
+                        {
+                            case SignInStatus.LockedOut:
+                                return View("Lockout");
+                            case SignInStatus.RequiresVerification:
+                                return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
+                            case SignInStatus.Success:
+                            case SignInStatus.Failure:
+                            default:
+                                ModelState.AddModelError("", "La contraseña no es correcta.");
+                                return View(model);
+                        }
+                    }
+                }
+                ModelState.AddModelError("", "El usuario está vetado.");
+                return View(model);
             }
+            ModelState.AddModelError("", "El usuario introducido no existe.");
+            return View(model);
         }
 
         //
@@ -159,26 +180,47 @@ namespace YoureOnBootsTrap.Controllers
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
+                Boolean coincidencia = false;
+                int i = 0;
 
                 SessionInitialize();
                 UsuarioCAD usuarioCAD = new UsuarioCAD();
-                UsuarioEN userEn = usuarioCAD.ReadOIDDefault(model.Email);
+                UsuarioCAD userRegisCAD = new UsuarioCAD(session);
+                IList<UsuarioEN> usuarios = userRegisCAD.ReadAllDefault(0, int.MaxValue);
                 UsuarioCEN usuarioCEN = new UsuarioCEN(usuarioCAD);
-                usuarioCEN.CrearUsuario(model.Email, " ", " ", DateTime.Today, " ", " ", model.Password, false);
-                SessionClose();
-                if (result.Succeeded)
+
+                while (i < usuarios.Count() && usuarios.ElementAt(i) != null && !coincidencia)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+                    if (usuarios.ElementAt(i).Email.Equals(model.Email))
+                    {
+                        coincidencia = true;
+                    }
+                    if (usuarios.ElementAt(i).NIF.Equals(model.NIF))
+                    {
+                        coincidencia = true;
+                    }
+                    i++;
+                }
+                SessionClose();
+                if (!coincidencia && result.Succeeded)
+                {
+                    if (model.FotoPerfil == null)
+                        usuarioCEN.CrearUsuario(model.Email, model.Nombre, model.Apellidos, model.FechaNacimiento, model.NIF, @"/Archivos/foto_perfil.png", model.Password, false);
+                    else
+                        usuarioCEN.CrearUsuario(model.Email, model.Nombre, model.Apellidos, model.FechaNacimiento, model.NIF, model.FotoPerfil, model.Password, false);
+
+                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Enviar correo electrónico con este vínculo
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirmar cuenta", "Para confirmar la cuenta, haga clic <a href=\"" + callbackUrl + "\">aquí</a>");
 
-                    return RedirectToAction("CompletarPerfil", "Account", new { Correo = model.Email, Contrasenya = model.Password });
+                    return RedirectToAction("Index", "Home");
                 }
-                AddErrors(result);
+                else
+                    AddErrors(result);
             }
 
             // Si llegamos a este punto, es que se ha producido un error y volvemos a mostrar el formulario
@@ -415,28 +457,35 @@ namespace YoureOnBootsTrap.Controllers
         {
             return View();
         }
+        [HttpGet]
+        [AllowAnonymous]
+        /*public ActionResult CompletarPerfil(CompletarRegistro model, string email)
+        {
+            return View(model);
+        }
 
-        public ActionResult CompletarPerfil(CompletarRegistro model, string correo, String contrasenya)
+        [HttpPost]
+        public ActionResult CompletarPerfil(CompletarRegistro model, RegisterViewModel usuario)
         {
             //TO DO
 
             SessionInitialize();
             UsuarioCAD usuarioCad = new UsuarioCAD(session);
             UsuarioCEN usuarioCen = new UsuarioCEN(usuarioCad);
-            UsuarioEN usuarioEn = usuarioCad.ReadOIDDefault(correo);
+            UsuarioEN usuarioEn = usuarioCad.ReadOIDDefault(usuario.Email);
 
             IList<UsuarioEN> usuarios = usuarioCad.ReadAllDefault(0, int.MaxValue);
 
             IEnumerable<CompletarRegistro> listaUsuarios = new AssemblerAccount().ConvertListENToModel(usuarios).ToList();
 
             int i = 0;
-            Boolean coincidencia = false;
+            Boolean coincidencia = false, registrable = false;
 
-            while (i < listaUsuarios.Count() && listaUsuarios.ElementAt(i) != null && !coincidencia)
+            while (i < listaUsuarios.Count() && listaUsuarios.ElementAt(i) != null && usuarioEn != null && !coincidencia)
             {
                 if (listaUsuarios.ElementAt(i).Email.Equals(usuarioEn.Email))
                 {
-                    coincidencia = true;
+                    registrable = true;
                 }
                 if (listaUsuarios.ElementAt(i).NIF.Equals(usuarioEn.NIF))
                 {
@@ -444,16 +493,18 @@ namespace YoureOnBootsTrap.Controllers
                 }
                 i++;
             }
-                        SessionClose();
-            if (!coincidencia)
+            SessionClose();
+            if (!coincidencia && registrable)
             {
+                ViewBag.Message = "Creando Usuario Nuevo";
                 usuarioCen.EditarPerfil(model.Email, model.Nombre, model.Apellidos, model.FechaNacimiento, model.NIF, model.FotoPerfil, model.Password, false);
-                return View();
+                return RedirectToAction("Index", "Home");
             }
-            return View(model);
+           ViewBag.Message = "No ha funcionado";
+            return View();
         }
 
-        /*public async Task<ActionResult> CompletarPerfil(CompletarRegistro model)
+        public async Task<ActionResult> CompletarPerfil(CompletarRegistro model)
         {
             var result = await UserManager.CreateAsync(User.Identity);
             if (await model.NIF != null)

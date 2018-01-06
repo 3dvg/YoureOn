@@ -65,17 +65,45 @@ namespace YoureOnBootsTrap.Models
 
     public class RegisterViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "Éste dato es requerido")]
         [EmailAddress]
+        [DataType(DataType.EmailAddress)]
         [Display(Name = "Correo electrónico")]
         public string Email { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Éste dato es requerido")]
+        [DataType(DataType.Text)]
+        [Display(Name = "Nombre")]
+        public string Nombre { get; set; }
+
+        [Required(ErrorMessage = "Éste dato es requerido")]
+        [DataType(DataType.Text)]
+        [Display(Name = "Apellidos")]
+        public string Apellidos { get; set; }
+
+        [Required(ErrorMessage = "Éste dato es requerido")]
+        [DataType(DataType.Date)]
+        [Display(Name = "Fecha de nacimiento")]
+        public DateTime? FechaNacimiento { get; set; }
+
+        [Required(ErrorMessage = "Éste dato es requerido")]
+        [StringLength(100, ErrorMessage = "El número de caracteres de {0} debe ser al menos {2}.", MinimumLength = 8)]
+        [DataType(DataType.Text)]
+        [Display(Name = "NIF")]
+        public string NIF { get; set; }
+
+
+        [DataType(DataType.ImageUrl)]
+        [Display(Name = "Foto de perfil")]
+        public string FotoPerfil { get; set; }
+
+        [Required(ErrorMessage = "Éste dato es requerido")]
         [StringLength(100, ErrorMessage = "El número de caracteres de {0} debe ser al menos {2}.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Contraseña")]
         public string Password { get; set; }
 
+        [Required(ErrorMessage = "Éste dato es requerido")]
         [DataType(DataType.Password)]
         [Display(Name = "Confirmar contraseña")]
         [Compare("Password", ErrorMessage = "La contraseña y la contraseña de confirmación no coinciden.")]
