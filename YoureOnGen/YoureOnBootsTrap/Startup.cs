@@ -31,7 +31,7 @@ namespace YoureOnBootsTrap
                 roleManager.Create(new IdentityRole(admin));
 
                 var user = new ApplicationUser();
-                user.UserName = "admin";
+                user.UserName = "admin@gmail.com";
                 user.Email = "admin@gmail.com";
 
                 string userPWD = "Admin94*";
