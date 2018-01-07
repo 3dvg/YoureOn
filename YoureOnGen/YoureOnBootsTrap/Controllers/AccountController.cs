@@ -90,25 +90,37 @@ namespace YoureOnBootsTrap.Controllers
                 if (!usuario.EsVetado)
                 {
                     if (result == SignInStatus.Success && YoureOnGenNHibernate.Utils.Util.GetEncondeMD5(model.Password).Equals(usuario.Contrasenya))
-                        return RedirectToLocal(returnUrl);
-                    else
                     {
-                        // No cuenta los errores de inicio de sesión para el bloqueo de la cuenta
-                        // Para permitir que los errores de contraseña desencadenen el bloqueo de la cuenta, cambie a shouldLockout: true
-
-                        switch (result)
+                        // Redireccionamiento
+                        if ((usuario.GetType() == typeof(AdministradorEN)) ||
+                            (usuario.GetType() == typeof(ModeradorEN)))
                         {
-                            case SignInStatus.LockedOut:
-                                return View("Lockout");
-                            case SignInStatus.RequiresVerification:
-                                return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
-                            case SignInStatus.Success:
-                            case SignInStatus.Failure:
-                            default:
-                                ModelState.AddModelError("", "La contraseña no es correcta.");
-                                return View(model);
+                            return RedirectToAction("Index", "Admin");
                         }
+                        else
+                        {
+                            return RedirectToAction("Index", "Home");
+                        }
+                    //return RedirectToLocal(returnUrl);
+                }
+                else
+                {
+                    // No cuenta los errores de inicio de sesión para el bloqueo de la cuenta
+                    // Para permitir que los errores de contraseña desencadenen el bloqueo de la cuenta, cambie a shouldLockout: true
+
+                    switch (result)
+                    {
+                        case SignInStatus.LockedOut:
+                            return View("Lockout");
+                        case SignInStatus.RequiresVerification:
+                            return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
+                        case SignInStatus.Success:
+                        case SignInStatus.Failure:
+                        default:
+                            ModelState.AddModelError("", "La contraseña no es correcta.");
+                            return View(model);
                     }
+                }
                 }
                 ModelState.AddModelError("", "El usuario está vetado.");
                 return View(model);
