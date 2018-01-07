@@ -83,9 +83,9 @@ public static void InitializeData ()
                 UsuarioCEN usuario = new UsuarioCEN();
                 string email1 = usuario.CrearUsuario("deb8192@gmail.com", "Debora", "Galdeano Gonzalez", new DateTime(1992, 1, 8), "53244933W", "foto", "contrasenya", false);
                 string email2 = usuario.CrearUsuario("mmssll@gmail.com", "Manolo", "Stinson Lopez", new DateTime(2003, 5, 4), "26874219S", "foto2", "soillutuber", false);
-                string email3 = usuario.CrearUsuario("jorge1887@alu.ua.es", "Jorge", "Francisco Gomez", new DateTime(1985, 2, 28), "41567955L", "foto3", "1234", false);
+                string email3 = usuario.CrearUsuario("jorge1887@alu.ua.es", "Jorge", "Francisco Gomez", new DateTime(1985, 2, 28), "41567955L", "foto3", "123456", false);
                 string email4 = usuario.CrearUsuario("cunyado17@gmail.com", "Arturo", "Perez-Reverte", new DateTime(1951, 11, 25), "11111111A", "foto4", "VivaEspanya", false);
-                string email5 = usuario.CrearUsuario("marines@gmail.com", "Marines", "Antón", new DateTime(1994, 11, 25), "12378945A", "foto5", "1234", false);
+                string email5 = usuario.CrearUsuario("marines@gmail.com", "Marines", "Antón", new DateTime(1994, 11, 25), "12378945A", "foto5", "123456", false);
                 string email6 = usuario.CrearUsuario("eva@gmail.com", "Eva", "Valenciano", new DateTime(1996, 11, 25), "11111111S", "rutafoto", "contrasenya", false);
 
                 System.Console.WriteLine("Creando Administrador");
@@ -94,9 +94,9 @@ public static void InitializeData ()
 
                 System.Console.WriteLine("Creando Moderadores");
                 ModeradorCEN moderador = new ModeradorCEN();
-                string moderadorID1 = moderador.New_("email@gmail.com", "Moderador1", "Apellido", new DateTime(1996, 1, 1), "1111211V", "rutafoto", "contasenya", false, "permiso1");
+                string moderadorID1 = moderador.New_("email@gmail.com", "Moderador1", "Apellido", new DateTime(1996, 1, 1), "1111211V", "rutafoto", "contrasenya", false, "permiso1");
                 string moderadorID2 = moderador.New_("jmld4@alu.ua.es", "Jose Manuel", "Ladron de Guevara", new DateTime(1997, 7, 10), "48720478S", "foto", "contrasena1234", false, "permiso");
-                string moderadorID3 = moderador.New_("algv@yahoo.com", "Alberto", "Lopez-Garcia Vigo", new DateTime(1991, 1, 31), "45487454K", "foto", "1234", false, "permiso");
+                string moderadorID3 = moderador.New_("algv@yahoo.com", "Alberto", "Lopez-Garcia Vigo", new DateTime(1991, 1, 31), "45487454K", "foto", "123456", false, "permiso");
 
                 System.Console.WriteLine("Creando contenidos");
                 ContenidoCEN contenido = new ContenidoCEN();
