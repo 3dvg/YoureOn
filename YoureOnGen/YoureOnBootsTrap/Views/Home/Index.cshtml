@@ -18,7 +18,7 @@
         </div>
         <div class="col-sm-3">
             <a href="@Url.Action("Details", "Contenido",  new { id = Model.ElementAt(1).Id })"><img src="@Html.DisplayFor(model => model.ElementAt(1).Ruta)" /></a>
-            <p class="detalles-index"><b>Título: </b>@Model.ElementAt(1).Titulo</pclass="detalles-index">
+            <p class="detalles-index"><b>Título: </b>@Model.ElementAt(1).Titulo</p>
             <p class="detalles-index"><b>Autor: </b>@Model.ElementAt(1).Autor</p>
 
         </div>
@@ -37,7 +37,7 @@
 
     </div>
 </div>
-
+<hr />
 @{
     if (!User.Identity.IsAuthenticated)
     {

@@ -10,7 +10,6 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using YoureOnBootsTrap.Models;
-using YoureOnBootsTrap.Models;
 using YoureOnGenNHibernate.CAD.YoureOn;
 using YoureOnGenNHibernate.CEN.YoureOn;
 using YoureOnGenNHibernate.EN.YoureOn;

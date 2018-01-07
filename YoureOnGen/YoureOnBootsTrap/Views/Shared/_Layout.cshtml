@@ -15,7 +15,7 @@
                 @*@Html.ActionLink("YoureOn", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
                 <div id="logo" class="navbar-header col-sm-2">
                     <a href='@Url.Action("Index", "Home", new { area = "" })'>
-                        <img src="../Archivos/YoureOnLogo.png"  />
+                        <img src="/Archivos/YoureOnLogo.png"  />
                     </a>
                 </div>
             <div class="navbar-collapse collapse">
@@ -35,7 +35,6 @@
     </nav>
     <div class="container body-content">
         @RenderBody()
-        <hr />
         <footer>
             @Html.Partial("_Footer")
         </footer>

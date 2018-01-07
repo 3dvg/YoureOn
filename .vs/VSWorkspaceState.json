@@ -1,8 +1,12 @@
 {
   "ExpandedNodes": [
     "",
-    "\\YoureOnGen"
+    "\\YoureOnGen",
+    "\\YoureOnGen\\InitializeDB",
+    "\\YoureOnGen\\YoureOnBootsTrap",
+    "\\YoureOnGen\\YoureOnBootsTrap\\Views",
+    "\\YoureOnGen\\YoureOnBootsTrap\\Views\\Contenido"
   ],
-  "SelectedNode": "\\YoureOnGen\\YoureOnGenNHibernate.sln",
+  "SelectedNode": "\\YoureOnGen\\InitializeDB\\InitializeDB.csproj",
   "PreviewInSolutionExplorer": false
 }
