@@ -35,19 +35,30 @@ textarea {
 .row
 {
     width: 100%;
-    height: 200px;
+    height: 100%;
     margin-top: 20px;
 }
 .col-sm-3 img {
     width: 100%;
-    height: 200px;
+    height: auto;
+    float: left;
+}
+.col-md-7 img {
+    width: 100%;
+    height: 100%;
+    float: left;
+}
+.col-sm-5 p {
+    width: 100%;
+    height: 100%;
     float: left;
 }
 
 /*Contenido*/
 
-.registrate, .unete {
-    text-align:center;
+.detalles-index .registrate, .unete {
+    text-align: center;
+    margin: 20px;
 }
 .boton_registro{
     margin: 0 auto;

@@ -1,11 +1,18 @@
 ﻿@model YoureOnBootsTrap.Models.Contenido
 
+@{
+    /**/
+
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
 <div>
     <h4>Contenido</h4>
     <hr />
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-7">
+            <div class="col-md-7">
                 <img src="@Html.DisplayFor(model => model.Ruta)" />
             </div>
             <div class="col-sm-5">
