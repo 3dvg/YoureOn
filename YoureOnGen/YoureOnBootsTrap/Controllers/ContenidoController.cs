@@ -21,7 +21,6 @@ namespace WebApplication1.Controllers
         }
 
         // GET: Contenido/Details/5
-        [Authorize]
         public ActionResult Details(int id)
         {
             SessionInitialize();
