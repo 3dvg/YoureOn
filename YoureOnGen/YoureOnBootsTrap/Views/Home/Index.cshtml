@@ -45,7 +45,12 @@
 
     </div>
 </div>
-<h2 class="registrate">¿Aún no estás registrado?</h2>
-<p class="unete">Únete a la comunidad de YoureOn</p>
 
-<a href= "/Account/Register"><input type="button" class="boton_registro" value="Registrarse" /></a>
+@{
+    if (!User.Identity.IsAuthenticated)
+    {
+        <h2 class="registrate">¿Aún no estás registrado?</h2>
+        <p class="unete">Únete a la comunidad de YoureOn</p>
+        <a href="/Account/Register"><input type="button" class="boton_registro" value="Registrarse" /></a>
+    }
+}
