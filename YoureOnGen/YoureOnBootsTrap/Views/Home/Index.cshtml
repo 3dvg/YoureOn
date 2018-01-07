@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MvcApplication1.Models.Contenido>
+﻿@model IEnumerable<YoureOnBootsTrap.Models.Contenido>
 
 @{
     ViewBag.Title = "Index";
@@ -10,12 +10,38 @@
 <div class="container-fluid">
     <div class="row">
 
-        @foreach (var item in Model)
-        {
-
-            <div class="col-sm-3"><img height="200" width="200 " src="@Html.DisplayFor(modelItem => item.Ruta)" /></div>
-
-        }
+        <div class="col-sm-3">
+            <a href="@Url.Action("Details", "Contenido", new { id = Model.ElementAt(0).Id })"><img height="200" width="200 " src="@Html.DisplayFor(model => model.ElementAt(0).Ruta)" /></a>
+            <p><b>Título: </b>@Model.ElementAt(0).Titulo</p>
+            <p><b>Autor: </b>@Model.ElementAt(0).Autor</p>
+            <p><b>Descripción: </b>@Model.ElementAt(0).Descripcion</p>
+            <p><b>Licencia: </b>@Model.ElementAt(0).Licencia</p>
+            <p><b>Tipo: </b>@Model.ElementAt(0).Tipo</p>
+        </div>
+        <div class="col-sm-3">
+            <a href="@Url.Action("Details", "Contenido",  new { id = Model.ElementAt(1).Id })"><img height="200" width="200 " src="@Html.DisplayFor(model => model.ElementAt(1).Ruta)" /></a>
+            <p><b>Título: </b>@Model.ElementAt(1).Titulo</p>
+            <p><b>Autor: </b>@Model.ElementAt(1).Autor</p>
+            <p><b>Descripción: </b>@Model.ElementAt(1).Descripcion</p>
+            <p><b>Licencia: </b>@Model.ElementAt(1).Licencia</p>
+            <p><b>Tipo: </b>@Model.ElementAt(1).Tipo</p>
+        </div>
+        <div class="col-sm-3">
+            <a href="@Url.Action("Details", "Contenido",  new { id = Model.ElementAt(2).Id })"><img height="200" width="200 " src="@Html.DisplayFor(model => model.ElementAt(2).Ruta)" /></a>
+            <p><b>Título: </b>@Model.ElementAt(2).Titulo</p>
+            <p><b>Autor: </b>@Model.ElementAt(2).Autor</p>
+            <p><b>Descripción: </b>@Model.ElementAt(2).Descripcion</p>
+            <p><b>Licencia: </b>@Model.ElementAt(2).Licencia</p>
+            <p><b>Tipo: </b>@Model.ElementAt(2).Tipo</p>
+        </div>
+        <div class="col-sm-3">
+            <a href="@Url.Action("Details", "Contenido",  new { id = Model.ElementAt(3).Id })"><img height="200" width="200 " src="@Html.DisplayFor(model => model.ElementAt(3).Ruta)" /></a>
+            <p><b>Título: </b>@Model.ElementAt(3).Titulo</p>
+            <p><b>Autor: </b>@Model.ElementAt(3).Autor</p>
+            <p><b>Descripción: </b>@Model.ElementAt(3).Descripcion</p>
+            <p><b>Licencia: </b>@Model.ElementAt(3).Licencia</p>
+            <p><b>Tipo: </b>@Model.ElementAt(3).Tipo</p>
+        </div>
 
     </div>
 </div>

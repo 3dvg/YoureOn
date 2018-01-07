@@ -7,7 +7,7 @@ using YoureOnGenNHibernate.CAD.YoureOn;
 using YoureOnGenNHibernate.CEN.YoureOn;
 using YoureOnGenNHibernate.EN.YoureOn;
 using WebApplication1.Models;
-using MvcApplication1.Models;
+using YoureOnBootsTrap.Models;
 using System.IO;
 
 namespace WebApplication1.Controllers
@@ -21,9 +21,18 @@ namespace WebApplication1.Controllers
         }
 
         // GET: Contenido/Details/5
+        [Authorize]
         public ActionResult Details(int id)
         {
-            return View();
+            SessionInitialize();
+            ContenidoCAD contenidoCad = new ContenidoCAD(session);
+            ContenidoEN contenidoEn = contenidoCad.ReadOIDDefault(id);
+            SessionClose();
+
+            Contenido contenido = new AssemblerContenido().ConvertENToModelUI(contenidoEn);
+
+            //el contenido tiene que pasar a través del modelo
+            return View(contenido);
         }
 
         // GET: Contenido/Create

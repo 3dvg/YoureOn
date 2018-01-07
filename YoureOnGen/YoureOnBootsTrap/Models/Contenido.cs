@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using YoureOnGenNHibernate.Enumerated.YoureOn;
 
-namespace MvcApplication1.Models
+namespace YoureOnBootsTrap.Models
 {
     public class Contenido
     {

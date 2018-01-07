@@ -1,0 +1,21 @@
+﻿@model YoureOnBootsTrap.Models.Contenido
+
+<div>
+    <h4>Contenido</h4>
+    <hr />
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-7">
+                <img src="@Html.DisplayFor(model => model.Ruta)" />
+            </div>
+            <div class="col-sm-5">
+                <p><b>Título: </b>@Model.Titulo</p>
+                <p><b>Autor: </b>@Model.Autor</p>
+                <p><b>Descripción: </b>@Model.Descripcion</p>
+                <p><b>Licencia: </b>@Model.Licencia</p>
+                <p><b>Tipo: </b>@Model.Tipo</p>
+            </div>
+        </div>
+    </div>
+</div>
+

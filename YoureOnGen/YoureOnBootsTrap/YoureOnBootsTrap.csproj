@@ -288,10 +288,12 @@
     <Content Include="Views\Footer\Terminos.cshtml" />
     <Content Include="Views\Footer\Ayuda.cshtml" />
     <Content Include="Views\Footer\Cookies.cshtml" />
+    <Content Include="Views\Contenido\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\AssemblerAccount\" />
+    <Folder Include="Views\Default\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

@@ -30,6 +30,6 @@ namespace YoureOnBootsTrap.Models
             return new ApplicationDbContext();
         }
 
-        public System.Data.Entity.DbSet<MvcApplication1.Models.Contenido> Contenidoes { get; set; }
+        public System.Data.Entity.DbSet<YoureOnBootsTrap.Models.Contenido> Contenidoes { get; set; }
     }
 }

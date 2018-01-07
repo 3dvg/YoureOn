@@ -1,4 +1,4 @@
-﻿using MvcApplication1.Models;
+﻿using YoureOnBootsTrap.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
