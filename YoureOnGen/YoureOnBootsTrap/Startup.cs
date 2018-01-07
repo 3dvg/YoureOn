@@ -1,8 +1,7 @@
-﻿using System;
+﻿using Microsoft.Owin;
+using Owin;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
-using Microsoft.Owin;
-using Owin;
 using YoureOnBootsTrap.Models;
 
 [assembly: OwinStartupAttribute(typeof(YoureOnBootsTrap.Startup))]
@@ -49,7 +48,7 @@ namespace YoureOnBootsTrap
             {
                 roleManager.Create(new IdentityRole(moderador));
             }
-                
+
         }
     }
 }
