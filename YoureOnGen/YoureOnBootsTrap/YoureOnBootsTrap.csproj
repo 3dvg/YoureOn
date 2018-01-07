@@ -194,7 +194,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BasicController.cs" />
     <Compile Include="Controllers\ContenidoController.cs" />
     <Compile Include="Controllers\FooterController.cs" />
@@ -220,8 +219,6 @@
     <Content Include="Archivos\foto5.jpg" />
     <Content Include="Archivos\foto6.jpg" />
     <Content Include="Archivos\foto7.jpg" />
-    <Content Include="Archivos\YoureOn.png" />
-    <Content Include="Archivos\YoureOnLogo.png" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -238,6 +235,7 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="YoureOnLogo.png" />
     <None Include="Scripts\jquery-1.10.2-vsdoc.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -289,13 +287,10 @@
     <Content Include="Views\Footer\Terminos.cshtml" />
     <Content Include="Views\Footer\Ayuda.cshtml" />
     <Content Include="Views\Footer\Cookies.cshtml" />
-    <Content Include="Views\Contenido\Details.cshtml" />
-    <Content Include="Views\Admin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\AssemblerAccount\" />
-    <Folder Include="Views\Default\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
