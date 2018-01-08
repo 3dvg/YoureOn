@@ -1,0 +1,48 @@
+﻿@model IEnumerable<YoureOnBootsTrap.Models.Contenido>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="col-sm-3">
+            <a href="@Url.Action("Details", "Contenido", new { id = Model.ElementAt(0).Id })"><img src="@Html.DisplayFor(model => model.ElementAt(0).Ruta)" /></a>
+            <p class="detalles-index"><b>Título: </b>@Model.ElementAt(0).Titulo</p>
+            <p class="detalles-index"><b>Autor: </b>@Model.ElementAt(0).Autor</p>
+
+        </div>
+        <div class="col-sm-3">
+            <a href="@Url.Action("Details", "Contenido",  new { id = Model.ElementAt(1).Id })"><img src="@Html.DisplayFor(model => model.ElementAt(1).Ruta)" /></a>
+            <p class="detalles-index"><b>Título: </b>@Model.ElementAt(1).Titulo</p>
+            <p class="detalles-index"><b>Autor: </b>@Model.ElementAt(1).Autor</p>
+
+        </div>
+        <div class="col-sm-3">
+            <a href="@Url.Action("Details", "Contenido",  new { id = Model.ElementAt(2).Id })"><img src="@Html.DisplayFor(model => model.ElementAt(2).Ruta)" /></a>
+            <p class="detalles-index"><b>Título: </b>@Model.ElementAt(2).Titulo</p>
+            <p class="detalles-index"><b>Autor: </b>@Model.ElementAt(2).Autor</p>
+
+        </div>
+        <div class="col-sm-3">
+            <a href="@Url.Action("Details", "Contenido",  new { id = Model.ElementAt(3).Id })"><img src="@Html.DisplayFor(model => model.ElementAt(3).Ruta)" /></a>
+            <p class="detalles-index"><b>Título: </b>@Model.ElementAt(3).Titulo</p>
+            <p class="detalles-index"><b>Autor: </b>@Model.ElementAt(3).Autor</p>
+
+        </div>
+
+    </div>
+</div>
+<hr />
+@{
+    if (!User.Identity.IsAuthenticated)
+    {
+        <h2 class="registrate">¿Aún no estás registrado?</h2>
+        <p class="unete">Únete a la comunidad de YoureOn</p>
+        <a href="/Account/Register"><input type="button" class="boton_registro" value="Registrarse" /></a>
+    }
+}

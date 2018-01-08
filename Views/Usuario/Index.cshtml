@@ -1,0 +1,64 @@
+﻿
+@model IEnumerable<YoureOnGenNHibernate.EN.YoureOn.UsuarioEN>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{ int a = 0;
+    bool t = true;}
+
+<h2>Usuarios en la web</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Apellidos)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        if (t == true)
+        {
+            a++;
+        }
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Apellidos)
+            </td>
+
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Detalles", "Details", new { id = a }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = a }) |
+
+            </td>
+        </tr>
+    }
+
+</table>
+
