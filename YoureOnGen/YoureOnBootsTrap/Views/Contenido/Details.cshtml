@@ -1,4 +1,4 @@
-﻿@model YoureOnBootsTrap.Models.Contenido
+﻿@model YoureOnBootsTrap.Models.ContenidoYComentarios
 
 @{
     /**/
@@ -16,12 +16,21 @@
                 <img src="@Html.DisplayFor(model => model.Ruta)" />
             </div>
             <div class="col-sm-5">
-                <p><b>Título: </b>@Model.Titulo</p>
-                <p><b>Autor: </b>@Model.Autor</p>
-                <p><b>Descripción: </b>@Model.Descripcion</p>
-                <p><b>Licencia: </b>@Model.Licencia</p>
-                <p><b>Tipo: </b>@Model.Tipo</p>
+                <div class="row">
+                    <p><b>Título: </b>@Model.Titulo</p>
+                    <p><b>Autor: </b>@Model.Autor</p>
+                    <p><b>Descripción: </b>@Model.Descripcion</p>
+                    <p><b>Licencia: </b>@Model.Licencia</p>
+                    <p><b>Tipo: </b>@Model.Tipo</p>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        @Html.EditorFor(model => model.Comentarios, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Comentarios, "", new { @class = "text-danger" })
+                    </div>
+                </div>
             </div>
+            
         </div>
     </div>
 </div>

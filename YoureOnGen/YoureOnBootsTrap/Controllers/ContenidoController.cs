@@ -28,7 +28,7 @@ namespace WebApplication1.Controllers
             ContenidoEN contenidoEn = contenidoCad.ReadOIDDefault(id);
             SessionClose();
 
-            Contenido contenido = new AssemblerContenido().ConvertENToModelUI(contenidoEn);
+            ContenidoYComentarios contenido = new AssemblerContenido().ConvertENToModel(contenidoEn);
 
             //el contenido tiene que pasar a través del modelo
             return View(contenido);

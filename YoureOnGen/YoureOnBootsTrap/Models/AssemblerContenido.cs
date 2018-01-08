@@ -25,6 +25,21 @@ namespace WebApplication1.Models
 
             return contenido;
         }
+        public ContenidoYComentarios ConvertENToModel(ContenidoEN contenidoEN)
+        {
+            ContenidoYComentarios contenido = new ContenidoYComentarios();
+            contenido.Id = contenidoEN.Id_contenido;
+            contenido.Titulo = contenidoEN.Titulo;
+            contenido.Tipo = contenidoEN.TipoArchivo;
+            contenido.Descripcion = contenidoEN.Descripcion;
+            contenido.Licencia = contenidoEN.Licencia;
+            contenido.Autor = contenidoEN.Autor;
+            contenido.EnBibioteca = contenidoEN.EnBiblioteca;
+            contenido.Ruta = contenidoEN.Url;
+            contenido.FCreacion = contenidoEN.FechaCreacion.Value;
+
+            return contenido;
+        }
         //Está la lista generada faltaria ordenarla por fecha
         public IList<Contenido> ConvertListENToModel(IList<ContenidoEN> contenidosEN)
         {
