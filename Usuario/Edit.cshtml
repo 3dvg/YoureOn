@@ -1,0 +1,89 @@
+﻿
+@model YoureOnGenNHibernate.EN.YoureOn.UsuarioEN
+
+@{
+    /**/
+
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>UsuarioEN</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Email)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Nombre)
+            @Html.ValidationMessageFor(model => model.Nombre)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Apellidos)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Apellidos)
+            @Html.ValidationMessageFor(model => model.Apellidos)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FechaNac)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.FechaNac)
+            @Html.ValidationMessageFor(model => model.FechaNac)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NIF)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NIF)
+            @Html.ValidationMessageFor(model => model.NIF)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Foto)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Foto)
+            @Html.ValidationMessageFor(model => model.Foto)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Contrasenya)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Contrasenya)
+            @Html.ValidationMessageFor(model => model.Contrasenya)
+        </div>
+        <br />
+        <div class="editor-field">
+            <img height="100" width="100" src="@Model.Foto" />
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Volver", "Index", "Home")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+
