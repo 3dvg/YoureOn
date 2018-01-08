@@ -8,16 +8,14 @@ using YoureOnGenNHibernate.Enumerated.YoureOn;
 
 namespace WebApplication1.Models
 {
+    
     public class Usuario
     {
-
-        /* email, nombre, apellidos, fechaNac, niF, foto, contraseña*/
-        [Required(ErrorMessage = "Éste dato es requerido")]
-        [EmailAddress]
-        [DataType(DataType.EmailAddress)]
-        [Display(Name = "Correo electrónico")]
+        [ScaffoldColumn(false)]
         public string Email { get; set; }
-
+        
+        /* email, nombre, apellidos, fechaNac, niF, foto, contraseña*/
+        
         [Required(ErrorMessage = "Éste dato es requerido")]
         [DataType(DataType.Text)]
         [Display(Name = "Nombre")]
