@@ -28,5 +28,9 @@ void Destroy (string email
 
 UsuarioEN CargarPerfil (string email
                         );
+
+
+
+System.Collections.Generic.IList<UsuarioEN> DameTodosLosUsuarios (int first, int size);
 }
 }

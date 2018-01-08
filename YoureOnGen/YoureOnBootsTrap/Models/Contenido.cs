@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using YoureOnGenNHibernate.Enumerated.YoureOn;
+using YoureOnGenNHibernate.EN.YoureOn;
 
 namespace YoureOnBootsTrap.Models
 {
@@ -52,5 +53,8 @@ namespace YoureOnBootsTrap.Models
         [DataType(DataType.Text)]
         [Display(Description = "Comentarios")]
         public string Comentarios { get; set; }
+
+        [ScaffoldColumn(false)]
+        public IList<ComentarioEN> ListaComentarios { get; set; }
     }
 }

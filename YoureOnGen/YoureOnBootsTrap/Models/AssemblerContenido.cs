@@ -37,6 +37,7 @@ namespace WebApplication1.Models
             contenido.EnBibioteca = contenidoEN.EnBiblioteca;
             contenido.Ruta = contenidoEN.Url;
             contenido.FCreacion = contenidoEN.FechaCreacion.Value;
+            contenido.ListaComentarios = contenidoEN.Comentario;
 
             return contenido;
         }

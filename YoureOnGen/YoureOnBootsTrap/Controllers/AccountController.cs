@@ -198,9 +198,8 @@ namespace YoureOnBootsTrap.Controllers
 
                 SessionInitialize();
                 UsuarioCAD usuarioCAD = new UsuarioCAD();
-                UsuarioCAD userRegisCAD = new UsuarioCAD(session);
-                IList<UsuarioEN> usuarios = userRegisCAD.ReadAllDefault(0, int.MaxValue);
                 UsuarioCEN usuarioCEN = new UsuarioCEN(usuarioCAD);
+                IList<UsuarioEN> usuarios = usuarioCEN.DameTodosLosUsuarios(0, int.MaxValue);
 
                 while (i < usuarios.Count() && usuarios.ElementAt(i) != null && !coincidencia)
                 {

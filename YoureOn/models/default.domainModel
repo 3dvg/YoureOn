@@ -47,6 +47,7 @@
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_LB4akOAtEee9i9I9j3MGOQ" name="getReportes" operationType="CustomTransaction" type="Void">
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_LB_IQOAtEee9i9I9j3MGOQ" name="p_oid" type="OID" typeObject="_pE974LQIEeeNLtzfOS-B-A"/>
       </operations>
+      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_RF3m8PRdEeeDHM4MTCRiHg" name="dameTodosLosUsuarios" operationType="ReadAll" type="Object" collectionType="List" typeObject="_pE974LQIEeeNLtzfOS-B-A"/>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_p2opYLQIEeeNLtzfOS-B-A" alias="emailUsuario" name="email" isOID="true" unique="true"/>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_t7-uILQIEeeNLtzfOS-B-A" alias="nombre" name="nombre"/>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_vLAtELQIEeeNLtzfOS-B-A" alias="apellidos" name="apellidos"/>
@@ -733,6 +734,13 @@
           <styles xmi:type="notation:FontStyle" xmi:id="_LCCLkuAtEee9i9I9j3MGOQ" fontName="Segoe UI"/>
           <styles xmi:type="notation:FillStyle" xmi:id="_LCCLk-AtEee9i9I9j3MGOQ"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_LCCLlOAtEee9i9I9j3MGOQ"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_RH7ccPRdEeeDHM4MTCRiHg" type="3004" element="_RF3m8PRdEeeDHM4MTCRiHg">
+          <children xmi:type="notation:DecorationNode" xmi:id="_RH7cdfRdEeeDHM4MTCRiHg" type="5004"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_RH7ccfRdEeeDHM4MTCRiHg"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_RH7ccvRdEeeDHM4MTCRiHg" fontName="Segoe UI"/>
+          <styles xmi:type="notation:FillStyle" xmi:id="_RH7cc_RdEeeDHM4MTCRiHg"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RH7cdPRdEeeDHM4MTCRiHg"/>
         </children>
         <styles xmi:type="notation:SortingStyle" xmi:id="_pG4ndbQIEeeNLtzfOS-B-A"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_pG4ndrQIEeeNLtzfOS-B-A"/>

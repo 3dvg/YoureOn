@@ -100,5 +100,13 @@ public UsuarioEN CargarPerfil (string email
         usuarioEN = _IUsuarioCAD.CargarPerfil (email);
         return usuarioEN;
 }
+
+public System.Collections.Generic.IList<UsuarioEN> DameTodosLosUsuarios (int first, int size)
+{
+        System.Collections.Generic.IList<UsuarioEN> list = null;
+
+        list = _IUsuarioCAD.DameTodosLosUsuarios (first, size);
+        return list;
+}
 }
 }
