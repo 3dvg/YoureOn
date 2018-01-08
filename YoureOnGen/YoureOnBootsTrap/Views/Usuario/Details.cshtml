@@ -1,0 +1,66 @@
+﻿
+
+
+@model WebApplication1.Models.Usuario
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Usuario</h4>
+    <hr />
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-sm-6">
+                <div class="card hovercard">
+                    <div class="cardheader">
+                    </div>
+                    <div class="avatar">
+                        <img alt="" src="https://i.pinimg.com/originals/03/ce/54/03ce542024daa719836f0cfaad90d2cc.jpg">
+                    </div>
+                    <div class="info">
+
+                        <div class="desc">@Html.DisplayFor(model => model.Email)</div>
+                        <div class="desc">@Html.DisplayFor(model => model.Nombre)</div>
+                        <div class="desc">@Html.DisplayFor(model => model.Apellidos)</div>
+                        <div class="desc">@Html.DisplayFor(model => model.FechaNac)</div>
+                        <div class="desc">@Html.DisplayFor(model => model.NIF)</div>
+
+                    </div>
+                    <div class="bottom">
+                        <a class="btn btn-primary btn-twitter btn-sm" href="https://twitter.com/webmaniac">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                        <a class="btn btn-danger btn-sm" rel="publisher"
+                           href="https://plus.google.com/+ahmshahnuralam">
+                            <i class="fa fa-google-plus"></i>
+                        </a>
+                        <a class="btn btn-primary btn-sm" rel="publisher"
+                           href="https://plus.google.com/shahnuralam">
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                        <a class="btn btn-warning btn-sm" rel="publisher" href="https://plus.google.com/shahnuralam">
+                            <i class="fa fa-behance"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <dl class="dl-horizontal"></dl>
+</div>
+
+<br>
+<br>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index") |
+    @Html.ActionLink("Contenido del usuario", "Contenido") |
+    @Html.ActionLink("Biblioteca del usuario", "Biblioteca")
+    @Html.ActionLink("Borrar", "Delete", new { id = Model.Email })
+
+</p>
