@@ -7,9 +7,9 @@ using System.Diagnostics;
 using YoureOnGenNHibernate.EN.YoureOn;
 using YoureOnGenNHibernate.CEN.YoureOn;
 using YoureOnGenNHibernate.CAD.YoureOn;
-using WebApplication1.Models;
 using YoureOnBootsTrap.Models;
-
+using YoureOnBootsTrap.Models;
+using WebApplication1.Models;
 
 namespace YoureOnBootsTrap.Controllers
 {
