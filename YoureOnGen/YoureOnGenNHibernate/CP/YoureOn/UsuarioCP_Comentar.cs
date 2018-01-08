@@ -9,6 +9,7 @@ using NHibernate.Exceptions;
 using YoureOnGenNHibernate.EN.YoureOn;
 using YoureOnGenNHibernate.CAD.YoureOn;
 using YoureOnGenNHibernate.CEN.YoureOn;
+using System.Diagnostics;
 
 
 
@@ -39,6 +40,7 @@ public int Comentar (string usuario_oid, int contenido_oid, string texto)
         try
         {
                 SessionInitializeTransaction ();
+                session.BeginTransaction();
                 usuarioCAD = new UsuarioCAD (session);
                 contenidoCAD = new ContenidoCAD (session);
                 comentarioCAD = new ComentarioCAD (session);
@@ -51,14 +53,19 @@ public int Comentar (string usuario_oid, int contenido_oid, string texto)
                 contenido = contenidoCAD.ReadOIDDefault (contenido_oid);
 
                 ComentarioEN comentario = new ComentarioEN ();
-                comentario.Usuario = usuario;
-                comentario.Contenido = contenido;
+                comentario = new ComentarioEN(comentario.Id_comentario, texto, DateTime.Now, usuario, null, contenido, null);
 
                 usuario.Comentario.Add (comentario);
                 contenido.Comentario.Add (comentario);
 
-                comentarioCEN.Editar (comentario.Id_comentario, texto, DateTime.Now);
+                Debug.WriteLine(contenido.Comentario.IndexOf(comentario));
+                Debug.WriteLine(usuario.Email);
+                Debug.WriteLine(contenido.Titulo);
 
+                session.Save(comentario);
+                session.Save(contenido);
+                session.Save(usuario);
+                session.Transaction.Commit();
                 SessionCommit ();
         }
         catch (Exception ex)

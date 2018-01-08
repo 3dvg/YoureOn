@@ -119,6 +119,8 @@ public static void InitializeData ()
                 int comentarioID3 = comentario.New_ ("Pues a mi me parece un buen contenido porque...", new DateTime (2016, 2, 20), email2, contenidoID1);
                 int comentarioID4 = comentario.New_ ("sub x sub", new DateTime (2017, 7, 10), email3, contenidoID4);
 
+
+
                 System.Console.WriteLine ("Creando notificaciones");
                 NotificacionesCEN notificacion1 = new NotificacionesCEN ();
                 notificacion1.New_ (email1, "Alerta mensaje", moderadorID1);

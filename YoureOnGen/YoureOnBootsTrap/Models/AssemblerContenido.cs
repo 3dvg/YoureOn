@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using YoureOnGenNHibernate.EN.YoureOn;
 using YoureOnGenNHibernate.Enumerated.YoureOn;
+using System.Diagnostics;
 
 namespace WebApplication1.Models
 {
@@ -37,7 +38,9 @@ namespace WebApplication1.Models
             contenido.EnBibioteca = contenidoEN.EnBiblioteca;
             contenido.Ruta = contenidoEN.Url;
             contenido.FCreacion = contenidoEN.FechaCreacion.Value;
-            contenido.ListaComentarios = contenidoEN.Comentario;
+            Debug.WriteLine(contenidoEN.Comentario.Count);
+            if (contenidoEN.Comentario.Count>0)
+                contenido.ListaComentarios = contenidoEN.Comentario;
 
             return contenido;
         }

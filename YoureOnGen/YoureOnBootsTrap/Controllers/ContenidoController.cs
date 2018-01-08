@@ -6,9 +6,11 @@ using System.Web.Mvc;
 using YoureOnGenNHibernate.CAD.YoureOn;
 using YoureOnGenNHibernate.CEN.YoureOn;
 using YoureOnGenNHibernate.EN.YoureOn;
+using YoureOnGenNHibernate.CP.YoureOn;
 using WebApplication1.Models;
 using YoureOnBootsTrap.Models;
 using System.IO;
+using Microsoft.AspNet.Identity;
 
 namespace WebApplication1.Controllers
 {
@@ -26,12 +28,33 @@ namespace WebApplication1.Controllers
             SessionInitialize();
             ContenidoCAD contenidoCad = new ContenidoCAD(session);
             ContenidoEN contenidoEn = contenidoCad.ReadOIDDefault(id);
-            SessionClose();
 
             ContenidoYComentarios contenido = new AssemblerContenido().ConvertENToModel(contenidoEn);
 
+            SessionClose();
+
             //el contenido tiene que pasar a través del modelo
             return View(contenido);
+        }
+
+        [Authorize]
+        // POST: Contenido/Comentar/5
+        public ActionResult Comentar(int id, ContenidoYComentarios model)
+        {
+            SessionInitialize();
+            ContenidoCAD contenidoCad = new ContenidoCAD(session);
+            ContenidoEN contenidoEn = contenidoCad.ReadOIDDefault(id);
+            UsuarioCAD usuarioCad = new UsuarioCAD(session);
+            UsuarioCP usuario = new UsuarioCP(session);
+            
+           
+            UsuarioEN user = usuarioCad.ReadOIDDefault(User.Identity.GetUserName());
+            usuario.Comentar(user.Email, id, model.Comentar);
+            ContenidoYComentarios contenido = new AssemblerContenido().ConvertENToModel(contenidoEn);
+
+            SessionClose();
+
+            return RedirectToAction("Details", "Contenido", new { id });
         }
 
         // GET: Contenido/Create
