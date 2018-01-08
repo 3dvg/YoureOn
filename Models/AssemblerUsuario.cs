@@ -6,11 +6,12 @@ using System.Web;
 using YoureOnGenNHibernate.EN.YoureOn;
 using YoureOnGenNHibernate.Enumerated.YoureOn;
 using System.Web.Mvc;
+using WebApplication1.Models;
 //using YoureOnGenNHibernate.EN.YoureOn.UsuarioEN;
 //using WebApplication1.Models;
 
 
-namespace WebApplication1.Models
+namespace YoureOnBootsTrap.Models
 {
     public class AssemblerUsuario : Controller
     {

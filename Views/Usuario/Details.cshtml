@@ -1,6 +1,4 @@
-﻿
-
-@model WebApplication1.Models.Usuario
+﻿@model WebApplication1.Models.Usuario
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -56,10 +54,10 @@
 <br>
 <br>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    @Html.ActionLink("Back to List", "Index") |
-    @Html.ActionLink("Contenido del usuario", "Contenido") |
-    @Html.ActionLink("Biblioteca del usuario", "Biblioteca")
-    @Html.ActionLink("Borrar", "Delete", new { id = Model.Email })
+    @Html.ActionLink("Editar usuario", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Vuelve a Home", "Index") |
+    @Html.ActionLink("Contenido de usuario", "Contenido") |
+    @Html.ActionLink("Biblioteca de usuario", "Biblioteca") |
+    @Html.ActionLink("Borrar tu usuario", "Delete", new {/* id = Model.PrimaryKey */  })
 
 </p>

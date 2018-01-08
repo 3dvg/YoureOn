@@ -1,0 +1,21 @@
+﻿
+@model WebApplication1.Models.Usuario
+    @{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="principal">
+    <div class="perfilusu">
+        
+    <h1>@Html.DisplayFor(model => model.Nombre) @Html.DisplayFor(model => model.Apellidos)</h1>
+    <p><strong>Correo: </strong>@Html.DisplayFor(model => model.Email)</p>
+    <p><strong>Fecha de nacimiento: </strong>@Html.DisplayFor(model => model.FechaNac)</p>
+    <p><strong>DNI: </strong>@Html.DisplayFor(model => model.NIF)</p>
+    <p><strong>Foto de perfil: </strong>@Html.DisplayFor(model => model.Foto)</p>
+    <p><strong>Contraseña: </strong>@Html.DisplayFor(model => model.Contrasenya)</
+       
+    </div>
+</div>
