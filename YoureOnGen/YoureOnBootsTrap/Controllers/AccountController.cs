@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Security.Claims;
@@ -7,6 +8,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using YoureOnBootsTrap.Models;
@@ -220,6 +222,11 @@ namespace YoureOnBootsTrap.Controllers
                     else
                         usuarioCEN.CrearUsuario(model.Email, model.Nombre, model.Apellidos, model.FechaNacimiento, model.NIF, model.FotoPerfil, model.Password, false);
 
+                    // Asignamos el rol de Usuario
+                    ApplicationDbContext db = new ApplicationDbContext();
+                    var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+                    userManager.AddToRole(user.Id, "Usuario");
+
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
@@ -227,6 +234,7 @@ namespace YoureOnBootsTrap.Controllers
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirmar cuenta", "Para confirmar la cuenta, haga clic <a href=\"" + callbackUrl + "\">aquí</a>");
+                    Debug.WriteLine("Llega por aquí");
 
                     return RedirectToAction("Index", "Home");
                 }
