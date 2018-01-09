@@ -49,5 +49,19 @@ namespace WebApplication1.Models
         {
             throw new NotImplementedException();
         }
+
+        /*public IList<Falta> ConvertListENToModel(IList<FaltaEN> contenidosEN)
+        {
+            IList<Falta> contenidos = new List<Falta>();
+            FaltaEN contenEn = new FaltaEN();
+            int contador = 0;
+            while (contador < 4)
+            {
+                contenEn = contenidosEN.ElementAt(contador);
+                contenidos.Add(ConvertENToModelUI(contenEn));
+                contador++;
+            }
+            return contenidos;
+        }*/
     }
 }

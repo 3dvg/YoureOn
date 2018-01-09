@@ -2,17 +2,9 @@
 @using YoureOnGenNHibernate.EN.YoureOn;
 
 <div>
-    <h4>Usuario</h4>
+    <h4>Usuario @Html.DisplayFor(model => model.Email)</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.Nombre)
         </dt>
@@ -46,12 +38,11 @@
         </dd>
     </dl>
 
-
     @{
-        /*foreach (FaltaEN f in Model.Falta)
+        foreach (FaltaEN f in ViewBag.ListaF)
         {
             <p>Fecha: @f.Fecha - Tipo: @f.TipoFalta</p>
-        }*/
+        }
     }
 
 </div>

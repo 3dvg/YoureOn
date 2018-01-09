@@ -29,10 +29,7 @@ namespace YoureOnBootsTrap.Controllers
 
         public ActionResult VerFaltas(string email)
         {
-            Debug.WriteLine(email);
-
             var faltas = new List<TipoFalta>();
-
             faltas.Add(new TipoFalta()
             {
                 Descripcion = "Leve",
@@ -48,14 +45,22 @@ namespace YoureOnBootsTrap.Controllers
             var list = new SelectList(faltas, "Descripcion", "Valor");
             ViewData["faltas"] = list;
 
+
+            IList<FaltaEN> lista = new List<FaltaEN>();
+
             SessionInitialize();
             UsuarioEN usuarioen = new UsuarioCAD(session).ReadOIDDefault(email);
             Usuario usu = new AssemblerUsuario().ConvertENToModelUI(usuarioen);
 
-            // No quitar
-            Debug.WriteLine("");
-
+            // Copiamos los datos para la vista
+            foreach (FaltaEN f in usu.Falta)
+            {
+                lista.Add(f);
+            }
             SessionClose();
+
+            ViewBag.ListaF = lista;
+
             return View(usu);
         }
 
