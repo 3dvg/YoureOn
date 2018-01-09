@@ -10,7 +10,7 @@ using System.Diagnostics;
 namespace WebApplication1.Models
 {
     public class AssemblerContenido
-    {       
+    {
         public Contenido ConvertENToModelUI(ContenidoEN contenidoEN)
         {
             Contenido contenido = new Contenido();
@@ -39,7 +39,7 @@ namespace WebApplication1.Models
             contenido.Ruta = contenidoEN.Url;
             contenido.FCreacion = contenidoEN.FechaCreacion.Value;
             Debug.WriteLine(contenidoEN.Comentario.Count);
-            if (contenidoEN.Comentario.Count>0)
+            if (contenidoEN.Comentario.Count > 0)
                 contenido.ListaComentarios = contenidoEN.Comentario;
 
             return contenido;
@@ -50,7 +50,7 @@ namespace WebApplication1.Models
             IList<Contenido> contenidos = new List<Contenido>();
             ContenidoEN contenEn = new ContenidoEN();
             int contador = 0;
-            while (contador<4)
+            while (contador < 4)
             {
                 contenEn = contenidosEN.ElementAt(contador);
                 contenidos.Add(ConvertENToModelUI(contenEn));

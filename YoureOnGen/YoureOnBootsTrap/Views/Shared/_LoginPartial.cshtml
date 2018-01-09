@@ -3,14 +3,31 @@
 {
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
     {
-    @Html.AntiForgeryToken()
+        @Html.AntiForgeryToken()
 
-    <ul class="nav navbar-nav navbar-right">
-        <li>
-            @Html.ActionLink("Hola " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
-        </li>
-        <li><a href="javascript:document.getElementById('logoutForm').submit()">Cerrar sesión</a></li>
-    </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <select id="sel1" class="col-sm-2 form-control selectpicker" onchange="location = this.options[this.selectedIndex].value;"
+                        title="Hola" style="background-color:#880000;color:white;background-color:inherit;margin-top:5%;">
+                    <option style="background-color:#880000;color:white" selected disabled>@Html.ActionLink("Hola " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })</option>
+                    <option style="color:black;" value="/Usuario/Index">Perfil</option>
+                    <option style="color:black;" value="/Usuario/Edit">Editar Perfil</option>
+                    <option style="color:black;" value="PONER LA DIRECCION DE SUBIR CONTENIDO">Subir contenido</option>
+                    <option style="color:black;" value="">Mi Biblioteca</option>
+                    <option style="color:black;" value="">Mis Contenidos</option>
+
+                    @{
+                        if (HttpContext.Current.User.IsInRole("Administrador"))
+                        {
+                            <option style="color:black;" value="/Admin/Index">Panel Administración</option>
+                        }
+                    }
+
+                </select>
+                @*@Html.ActionLink("Hola " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })*@
+            </li>
+            <li><a href="javascript:document.getElementById('logoutForm').submit()">Cerrar sesión</a></li>
+        </ul>
     }
 }
 else

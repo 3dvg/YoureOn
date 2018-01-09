@@ -34,9 +34,25 @@ namespace YoureOnBootsTrap.Controllers
             return View(usu);
         }
 
+        //GET: Usuario/Contenidos
+        public ActionResult Contenidos()
+        {
+            SessionInitialize();
+            UsuarioEN usuarioen = new UsuarioCAD(session).CargarPerfil(User.Identity.Name);
+            IList<Contenido> contenidos = new AssemblerUsuario().ConvertContenidosENToModel(usuarioen);
+            SessionClose();
+            return View(contenidos);
+        }
 
-
-
+        public ActionResult Biblioteca()
+        {
+            SessionInitialize();
+            UsuarioEN usuarioen = new UsuarioCAD(session).CargarPerfil(User.Identity.Name);
+            IList<Contenido> contenidos = new AssemblerUsuario().ConvertBibliotecaENToModel(usuarioen);
+            SessionClose();
+            return View(contenidos);
+        }
+        
         // GET: Usuario/Create
         public ActionResult Create()
         {
@@ -67,11 +83,7 @@ namespace YoureOnBootsTrap.Controllers
             }
 
         }
-
-
-
-
-
+        
         // GET: Usuario/Edit/email
         public ActionResult Edit(String email)
         {
@@ -101,10 +113,7 @@ namespace YoureOnBootsTrap.Controllers
                 return View();
             }
         }
-
-
-
-
+        
         // GET: Usuario/Delete/email
         public ActionResult Delete(string email)
         {
@@ -150,8 +159,5 @@ namespace YoureOnBootsTrap.Controllers
                 return View();
             }
         }
-
-
-
     }
 }

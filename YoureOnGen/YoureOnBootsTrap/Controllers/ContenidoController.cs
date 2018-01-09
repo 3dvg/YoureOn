@@ -46,8 +46,8 @@ namespace WebApplication1.Controllers
             ContenidoEN contenidoEn = contenidoCad.ReadOIDDefault(id);
             UsuarioCAD usuarioCad = new UsuarioCAD(session);
             UsuarioCP usuario = new UsuarioCP(session);
-            
-           
+
+
             UsuarioEN user = usuarioCad.ReadOIDDefault(User.Identity.GetUserName());
             usuario.Comentar(user.Email, id, model.Comentar);
             ContenidoYComentarios contenido = new AssemblerContenido().ConvertENToModel(contenidoEn);
@@ -140,5 +140,5 @@ namespace WebApplication1.Controllers
                 return View();
             }
         }
-    }    
+    }
 }
