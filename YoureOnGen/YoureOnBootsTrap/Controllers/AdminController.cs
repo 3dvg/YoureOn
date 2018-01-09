@@ -45,21 +45,29 @@ namespace YoureOnBootsTrap.Controllers
             var list = new SelectList(faltas, "Descripcion", "Valor");
             ViewData["faltas"] = list;
 
-
             IList<FaltaEN> lista = new List<FaltaEN>();
 
             SessionInitialize();
             UsuarioEN usuarioen = new UsuarioCAD(session).ReadOIDDefault(email);
             Usuario usu = new AssemblerUsuario().ConvertENToModelUI(usuarioen);
 
+            int contador = 0;
             // Copiamos los datos para la vista
             foreach (FaltaEN f in usu.Falta)
             {
                 lista.Add(f);
+                if (f.TipoFalta == TipoFaltaEnum.grave)
+                    ViewBag.Grave = true;
+                else
+                {
+                    ViewBag.Grave = false;
+                    contador++;
+                }
             }
             SessionClose();
-
+            ViewBag.Email = email;
             ViewBag.ListaF = lista;
+            ViewBag.Leve = contador;
 
             return View(usu);
         }
@@ -71,8 +79,10 @@ namespace YoureOnBootsTrap.Controllers
         }
 
         // GET: Admin/Create
-        public ActionResult Create()
+        public ActionResult Create(string id)
         {
+            ViewBag.cosa = id;
+
             return View();
         }
 
@@ -117,6 +127,9 @@ namespace YoureOnBootsTrap.Controllers
         // GET: Admin/Delete/5
         public ActionResult Delete(int id)
         {
+            FaltaCAD dirCAD = new FaltaCAD();
+            dirCAD.Destroy(id);
+            ViewBag.Id = id;
             return View();
         }
 
@@ -134,6 +147,14 @@ namespace YoureOnBootsTrap.Controllers
             {
                 return View();
             }
+        }
+
+        // GET: Admin/BorrarPerfil/email
+        public ActionResult BorrarPerfil(string email)
+        {
+            UsuarioCAD dirCAD = new UsuarioCAD();
+            dirCAD.Destroy(email);
+            return View();
         }
     }
 }

@@ -2,46 +2,44 @@
 @using YoureOnGenNHibernate.EN.YoureOn;
 
 <div>
-    <h4>Usuario @Html.DisplayFor(model => model.Email)</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Nombre)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Nombre)
-        </dd>
+    <h2>@Html.DisplayFor(model => model.Nombre) @Html.DisplayFor(model => model.Apellidos) - @Html.DisplayFor(model => model.NIF)</h2>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Apellidos)
-        </dt>
+    @{ // 3 leves o 1 grave
+        if ((ViewBag.Leve == 3) || (ViewBag.Grave))
+        {
+            @Html.ActionLink("Eliminar perfil", "BorrarPerfil", new { email = ViewBag.Email })
+        }
+    }
+    <br />
+    <p>Total leves: @ViewBag.Leve</p>
+    <p>Tiene grave: @ViewBag.Grave</p>
 
-        <dd>
-            @Html.DisplayFor(model => model.Apellidos)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.FechaNac)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FechaNac)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NIF)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NIF)
-        </dd>
-    </dl>
+    <p>Añadir falta @Html.DropDownList("faltas", ViewData["faltas"] as SelectList) @Html.ActionLink("Añadir", "Create", new { id = ViewData["faltas"] })</p>
 
     @{
-        foreach (FaltaEN f in ViewBag.ListaF)
+        if (!ViewBag.Grave)
         {
-            <p>Fecha: @f.Fecha - Tipo: @f.TipoFalta</p>
+            <table class="table">
+                <tr>
+                    <th>Fecha</th>
+                    <th>Tipo</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                @{
+                    foreach (FaltaEN f in ViewBag.ListaF)
+                    {
+                        <tr>
+                            <td>@f.Fecha</td>
+                            <td>@f.TipoFalta</td>
+                            <td>
+                                @Html.ActionLink("Eliminar falta", "Delete", new { id = @f.Id_falta })
+                            </td>
+                        </tr>
+                    }
+                }
+            </table>
         }
     }
 
