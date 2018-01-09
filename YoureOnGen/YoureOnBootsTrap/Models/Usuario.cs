@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-
+using YoureOnGenNHibernate.EN.YoureOn;
 using YoureOnGenNHibernate.Enumerated.YoureOn;
 
 
@@ -49,7 +49,9 @@ namespace WebApplication1.Models
         [DataType(DataType.Password)]
         [Display(Name = "Contraseña")]
         public string Contrasenya { get; set; }
-
+        public IList<FaltaEN> Falta { get; set; }
+        public IList<ContenidoEN> Contenidos { get; set; }
+        public IList<ContenidoEN> Biblioteca { get; set; }
     }
 }
 

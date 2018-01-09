@@ -6,8 +6,6 @@ using System.Web;
 using YoureOnGenNHibernate.EN.YoureOn;
 using YoureOnGenNHibernate.Enumerated.YoureOn;
 using System.Web.Mvc;
-//using YoureOnGenNHibernate.EN.YoureOn.UsuarioEN;
-//using WebApplication1.Models;
 
 
 namespace WebApplication1.Models
@@ -24,10 +22,10 @@ namespace WebApplication1.Models
             usi.NIF = en.NIF;
             usi.Foto = en.Foto;
             usi.Contrasenya = en.Contrasenya;
-
+            usi.Falta = en.Falta;
+            usi.Contenidos = en.Contenido;
+            usi.Biblioteca = en.Biblioteca.Contenido;
             return usi;
-
-
         }
         public IList<Usuario> ConvertListENToModel(IList<UsuarioEN> ens)
         {
