@@ -23,8 +23,8 @@ namespace WebApplication1.Models
             usi.Foto = en.Foto;
             usi.Contrasenya = en.Contrasenya;
             usi.Falta = en.Falta;
-            usi.Contenidos = en.Contenido;
-            usi.Biblioteca = en.Biblioteca.Contenido;
+            /*usi.Contenidos = en.Contenido;
+            usi.Biblioteca = en.Biblioteca.Contenido;*/
             return usi;
         }
         public IList<Usuario> ConvertListENToModel(IList<UsuarioEN> ens)

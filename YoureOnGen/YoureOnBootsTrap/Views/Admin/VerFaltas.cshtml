@@ -1,0 +1,56 @@
+﻿@model WebApplication1.Models.Usuario
+@using YoureOnGenNHibernate.EN.YoureOn;
+
+<div>
+    <h4>Usuario</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Apellidos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Apellidos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaNac)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaNac)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NIF)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NIF)
+        </dd>
+    </dl>
+
+
+    @{foreach (FaltaEN f in Model.Falta)
+        {
+            <p>Fecha: @f.Fecha - Tipo: @f.TipoFalta</p>
+        }
+    }
+
+</div>

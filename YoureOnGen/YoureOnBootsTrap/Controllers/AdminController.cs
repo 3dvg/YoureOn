@@ -1,18 +1,62 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebApplication1.Models;
+using YoureOnBootsTrap.Models;
+using YoureOnGenNHibernate.CAD.YoureOn;
+using YoureOnGenNHibernate.CEN.YoureOn;
+using YoureOnGenNHibernate.EN.YoureOn;
+using YoureOnGenNHibernate.Enumerated.YoureOn;
 
 namespace YoureOnBootsTrap.Controllers
 {
-    public class AdminController : Controller
+
+    [Authorize(Roles = "Administrador, Moderador")]
+    public class AdminController : BasicController
     {
         // GET: Admin
-        [Authorize(Roles = "Administrador, Moderador")]
         public ActionResult Index()
         {
-            return View();
+            UsuarioCEN cen = new UsuarioCEN();
+            IList<UsuarioEN> listaUsus = cen.DameTodosLosUsuarios(0, 5);
+            IEnumerable<Usuario> listArt = new AssemblerUsuario().ConvertListENToModel(listaUsus).ToList();
+
+            return View(listArt);
+        }
+
+        public ActionResult VerFaltas(string email)
+        {
+            Debug.WriteLine(email);
+
+            var faltas = new List<TipoFalta>();
+
+            faltas.Add(new TipoFalta()
+            {
+                Descripcion = "Leve",
+                Valor = TipoFaltaEnum.leve
+            });
+
+            faltas.Add(new TipoFalta()
+            {
+                Descripcion = "Grave",
+                Valor = TipoFaltaEnum.grave
+            });
+
+            var list = new SelectList(faltas, "Descripcion", "Valor");
+            ViewData["faltas"] = list;
+
+            SessionInitialize();
+            UsuarioEN usuarioen = new UsuarioCAD(session).ReadOIDDefault(email);
+            Usuario usu = new AssemblerUsuario().ConvertENToModelUI(usuarioen);
+
+            // No quitar
+            Debug.WriteLine("");
+
+            SessionClose();
+            return View(usu);
         }
 
         // GET: Admin/Details/5
