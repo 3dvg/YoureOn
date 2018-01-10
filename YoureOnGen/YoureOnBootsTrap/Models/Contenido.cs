@@ -29,6 +29,12 @@ namespace YoureOnBootsTrap.Models
         [ScaffoldColumn(false)]
         public DateTime FCreacion { get; set; }
     }
+
+    public class Votos
+    {
+        public string Descripcion { get; set; }
+        public PuntosVotoEnum Valor { get; set; }
+    }
     public class ContenidoYComentarios
     {
         [ScaffoldColumn(false)]
@@ -56,6 +62,11 @@ namespace YoureOnBootsTrap.Models
 
         [ScaffoldColumn(false)]
         public IList<ComentarioEN> ListaComentarios { get; set; }
+
+        [Required(ErrorMessage = "Éste dato es requerido")]
+        [DataType(DataType.Text)]
+        [Display(Name = "Votar")]
+        public string Votar { get; set; }
 
         [Required(ErrorMessage = "Éste dato es requerido")]
         [DataType(DataType.Text)]

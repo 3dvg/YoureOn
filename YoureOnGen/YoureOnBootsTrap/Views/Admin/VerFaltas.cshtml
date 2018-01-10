@@ -12,11 +12,18 @@
     @{ // 3 leves o 1 grave
         if ((ViewBag.Leve == 3) || (ViewBag.Grave))
         {
-            <span class="btn btn-default">@Html.ActionLink("Eliminar perfil", "BorrarPerfil", new { email = ViewBag.Email })</span>
+            if (ViewBag.Vetado)
+            {
+                <span class="btn btn-default">@Html.ActionLink("Desvetar usuario", "VetarUsuario", new { email = ViewBag.Email })</span>
+            }
+            else
+            {
+                <span class="btn btn-default">@Html.ActionLink("Vetar usuario", "VetarUsuario", new { email = ViewBag.Email })</span>
+            }
         }
     }
 
-        @{
+    @{
         if ((ViewBag.Leve < 3) && (!ViewBag.Grave))
         {
             using (Html.BeginForm("Create", "Admin"))
@@ -27,13 +34,13 @@
 
                 @Html.HiddenFor(model => model.Email)
                 <input type="submit" value="Añadir" class="btn btn-default" />
+            }
         }
     }
-        }
 
-        @{
-        if (!ViewBag.Grave)
-        {
+    @{
+        if ((!ViewBag.Grave) && (!ViewBag.Vetado))
+            {
             <table class="table">
                 <tr>
                     <th>Fecha</th>
@@ -42,19 +49,19 @@
                     <th></th>
                 </tr>
                 @{
-                foreach (FaltaEN f in ViewBag.ListaF)
-                {
-                    <tr>
-                        <td>@f.Fecha</td>
-                        <td>@f.TipoFalta</td>
-                        <td>
-                            @Html.ActionLink("Eliminar falta", "Delete", new { id = @f.Id_falta })
-                        </td>
-                    </tr>
-            }
+                    foreach (FaltaEN f in ViewBag.ListaF)
+                    {
+                        <tr>
+                            <td>@f.Fecha</td>
+                            <td>@f.TipoFalta</td>
+                            <td>
+                                @Html.ActionLink("Eliminar falta", "Delete", new { id = @f.Id_falta })
+                            </td>
+                        </tr>
+                    }
                 }
             </table>
-    }
         }
+    }
 
 </div>

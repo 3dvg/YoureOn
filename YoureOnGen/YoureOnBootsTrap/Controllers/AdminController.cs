@@ -77,7 +77,7 @@ namespace YoureOnBootsTrap.Controllers
 
             SessionClose();
             ViewBag.Email = email;
-            
+            ViewBag.Vetado = usu.EsVetado;
 
             // Lista de Tipos de faltas
             ViewBag.ListaEnum = ToListSelectListItem<TipoFaltaEnum>();
@@ -175,12 +175,24 @@ namespace YoureOnBootsTrap.Controllers
             }
         }
 
-        // GET: Admin/BorrarPerfil/email
-        public ActionResult BorrarPerfil(string email)
+        // GET: Admin/VetarUsuario/email
+        public ActionResult VetarUsuario(string email)
         {
-            UsuarioCAD dirCAD = new UsuarioCAD();
-            dirCAD.Destroy(email);
-            return View();
+            UsuarioCAD usuarioCad = new UsuarioCAD();
+            UsuarioEN usuario = usuarioCad.ReadOIDDefault(email);
+            
+            if (usuario.EsVetado)
+            {
+                usuario.EsVetado = false;
+            }
+            else
+            {
+                usuario.EsVetado = true;
+            }
+
+            usuarioCad.EditarPerfil(usuario);
+
+            return RedirectToAction("Index");
         }
 
 

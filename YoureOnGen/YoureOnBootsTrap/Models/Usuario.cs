@@ -57,6 +57,7 @@ namespace WebApplication1.Models
         [Display(Name = "Tipo de perfil")]
         public string Perfil { get; set; }
 
+        [Display(Name = "Vetado")]
         public bool EsVetado { get; set; }
     }
 }

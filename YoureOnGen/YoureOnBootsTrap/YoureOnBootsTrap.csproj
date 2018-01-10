@@ -303,7 +303,7 @@
     <Content Include="Views\Usuario\Edit.cshtml" />
     <Content Include="Views\Usuario\Details.cshtml" />
     <Content Include="Views\Admin\VerFaltas.cshtml" />
-    <Content Include="Views\Admin\BorrarPerfil.cshtml" />
+    <Content Include="Views\Admin\VetarUsuario.cshtml" />
     <Content Include="Views\Admin\Delete.cshtml" />
     <Content Include="Views\Admin\Create.cshtml" />
     <Content Include="Views\Usuario\Delete.cshtml" />

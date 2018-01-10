@@ -80,8 +80,7 @@ namespace YoureOnBootsTrap.Controllers
             {
                 return View(model);
             }
-
-            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+            
             SessionInitialize();
             UsuarioCAD usuarioCad = new UsuarioCAD(session);
             UsuarioEN usuario = usuarioCad.ReadOIDDefault(model.Email);
@@ -91,6 +90,7 @@ namespace YoureOnBootsTrap.Controllers
             {
                 if (!usuario.EsVetado)
                 {
+                    var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
                     if (result == SignInStatus.Success && YoureOnGenNHibernate.Utils.Util.GetEncondeMD5(model.Password).Equals(usuario.Contrasenya))
                     {
                         // Redireccionamiento

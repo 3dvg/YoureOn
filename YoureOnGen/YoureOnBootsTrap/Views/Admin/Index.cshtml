@@ -16,6 +16,9 @@
         <th>
             @Html.DisplayNameFor(model => model.NIF)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EsVetado)
+        </th>
         <th></th>
     </tr>
 
@@ -33,6 +36,18 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.NIF)
+        </td>
+        <td>
+            @{
+                if (item.EsVetado)
+                {
+                    <p>Sí</p>
+                }
+                else
+                {
+                    <p>No</p>
+                }
+            }
         </td>
         <td>
             @Html.ActionLink("Gestionar", "VerFaltas", new { email = item.Email })

@@ -22,7 +22,7 @@ public static void Create (string databaseArg, string userArg, string passArg)
         String pass = passArg;
 
         // Conex DB
-        SqlConnection cnn = new SqlConnection (@"Server=(local)\sqlexpress; database=master; integrated security=yes");
+        SqlConnection cnn = new SqlConnection (@"Server=(local); database=master; integrated security=yes");
 
         // Order T-SQL create user
         String createUser = @"IF NOT EXISTS(SELECT name FROM master.dbo.syslogins WHERE name = '" + user + @"')
@@ -85,7 +85,7 @@ public static void InitializeData ()
                 string email2 = usuario.CrearUsuario ("mmssll@gmail.com", "Manolo", "Stinson Lopez", new DateTime (2003, 5, 4), "26874219S", "foto2.jpg", "soillutuber", false);
                 string email3 = usuario.CrearUsuario ("jorge1887@alu.ua.es", "Jorge", "Francisco Gomez", new DateTime (1985, 2, 28), "41567955L", "foto3.jpg", "123456", false);
                 string email4 = usuario.CrearUsuario ("cunyado17@gmail.com", "Arturo", "Perez-Reverte", new DateTime (1951, 11, 25), "11111111A", "foto4.jpg", "VivaEspanya", false);
-                string email5 = usuario.CrearUsuario ("marines@gmail.com", "Marines", "Ant�n", new DateTime (1994, 11, 25), "12378945A", "foto5.jpg", "123456", false);
+                string email5 = usuario.CrearUsuario ("marines@gmail.com", "Marines", "Anton", new DateTime (1994, 11, 25), "12378945A", "foto5.jpg", "123456", false);
                 string email6 = usuario.CrearUsuario ("eva@gmail.com", "Eva", "Valenciano", new DateTime (1996, 11, 25), "11111111S", "foto6.jpg", "contrasenya", false);
 
                 System.Console.WriteLine ("Creando Administrador");

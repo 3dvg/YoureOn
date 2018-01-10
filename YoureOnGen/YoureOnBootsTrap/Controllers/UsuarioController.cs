@@ -59,16 +59,15 @@ namespace YoureOnBootsTrap.Controllers
         {
             try
             {
-                // Sacar password provisional
-                /*SessionInitialize();
-                UsuarioCAD usuarioCad = new UsuarioCAD(session);
+                UsuarioCAD usuarioCad = new UsuarioCAD();
                 UsuarioEN usuario = usuarioCad.ReadOIDDefault(u.Email);
-                SessionClose();*/
-                //**************************************************************
-
-                //UsuarioCEN cen = new UsuarioCEN();
-                //cen.EditarPerfil(u.Email, u.Nombre, u.Apellidos, u.FechaNac, u.NIF, u.Foto, YoureOnGenNHibernate.Utils.Util.GetEncondeMD5(usuario.Contrasenya), u.EsVetado);
+                usuario.Nombre = u.Nombre;
+                usuario.Apellidos = u.Apellidos;
+                usuario.NIF = u.NIF;
+                //usuario.FechaNac = u.FechaNac;
+                usuarioCad.EditarPerfil(usuario);
                 
+
                 // Comprobamos si ha cambiado el rol
                 if (!ObtenerRol().Equals(u.Perfil))
                 {
