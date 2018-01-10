@@ -305,6 +305,7 @@
     <Content Include="Views\Usuario\Details.cshtml" />
     <Content Include="Views\Admin\VerFaltas.cshtml" />
     <Content Include="Views\Usuario\Delete.cshtml" />
+    <Content Include="Views\Contenido\Subir.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
