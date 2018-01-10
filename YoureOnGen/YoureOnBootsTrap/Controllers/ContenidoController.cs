@@ -14,7 +14,7 @@ using System.IO;
 using Microsoft.AspNet.Identity;
 using System.Reflection;
 
-namespace WebApplication1.Controllers
+namespace YoureOnBootsTrap.Controllers
 {
     public class ContenidoController : BasicController
     {
@@ -25,13 +25,13 @@ namespace WebApplication1.Controllers
         }
         //Débora: Detalle Foto
         // GET: Contenido/Details/5
-        /*public ActionResult Details(int id)
+        public ActionResult Details(int id)
         {
             SessionInitialize();
             ContenidoCAD contenidoCad = new ContenidoCAD(session);
             ContenidoEN contenidoEn = contenidoCad.ReadOIDDefault(id);
 
-            ContenidoYComentarios contenido = new AssemblerContenido().ConvertENToModel(contenidoEn);
+            ContenidoYComentarios contenido = new AssemblerContenidoYComentarios().ConvertENToModel(contenidoEn);
 
             SessionClose();
 
@@ -52,12 +52,12 @@ namespace WebApplication1.Controllers
 
             UsuarioEN user = usuarioCad.ReadOIDDefault(User.Identity.GetUserName());
             usuario.Comentar(user.Email, id, model.Comentar);
-            ContenidoYComentarios contenido = new AssemblerContenido().ConvertENToModel(contenidoEn);
+            ContenidoYComentarios contenido = new AssemblerContenidoYComentarios().ConvertENToModel(contenidoEn);
 
             SessionClose();
 
             return RedirectToAction("Details", "Contenido", new { id });
-        }*/
+        }
         
         public ActionResult Votar(int id)
         {
@@ -71,7 +71,7 @@ namespace WebApplication1.Controllers
         public ActionResult Create()
         {
             // Lista de Tipos de licencias
-            //ViewBag.ListaEnum = ToListSelectListItem<TipoLicenciaEnum>();
+            ViewBag.ListaEnum = ToListSelectListItem<TipoLicenciaEnum>();
             Contenido c = new Contenido();
             return View(c);
         }
@@ -131,18 +131,13 @@ namespace WebApplication1.Controllers
 
         public ActionResult Edit()
         {
-            /*string email = User.Identity.Name;
-            SessionInitialize();
-            UsuarioEN usuarioen = new UsuarioCAD(session).ReadOIDDefault(email);
-            Usuario usu = new AssemblerUsuario().ConvertENToModelUI(usuarioen);
-            SessionClose();
-            return View(usu);*/
-            int id = 32768;
+            /*int id = 32768;
             SessionInitialize();
             ContenidoEN usuarioen = new ContenidoCAD(session).ReadOIDDefault(id);
             Contenido usu = new AssemblerContenido().ConvertENToModelUI(usuarioen);
             SessionClose();
-            return View(usu);
+            return View(usu);*/
+            return View();
         }
 
         // POST: Usuario/Editar
@@ -151,14 +146,7 @@ namespace WebApplication1.Controllers
         {
             try
             {
-                /*UsuarioCAD usuarioCad = new UsuarioCAD();
-                UsuarioEN usuario = usuarioCad.ReadOIDDefault(u.Email);
-                usuario.Nombre = u.Nombre;
-                usuario.Apellidos = u.Apellidos;
-                usuario.NIF = u.NIF;
-                //usuario.FechaNac = u.FechaNac;
-                usuarioCad.EditarPerfil(usuario);*/
-
+                // TODO: Add delete logic here
 
                 return RedirectToAction("Index");
             }
@@ -225,17 +213,8 @@ namespace WebApplication1.Controllers
 
 
 
-
-
-
-
-
-
-
-
-
-
-        /*Eva a tocado los CEN manualmente cuando se debe hacer con el OOH4RIA
+        
+        /*Eva
 	public ActionResult Buscar(string contenido)
         {
 

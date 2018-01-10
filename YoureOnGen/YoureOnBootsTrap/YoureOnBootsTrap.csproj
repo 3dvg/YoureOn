@@ -207,9 +207,11 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AssemblerAccount.cs" />
     <Compile Include="Models\AssemblerContenido.cs" />
+    <Compile Include="Models\AssemblerContenidoYComentarios.cs" />
     <Compile Include="Models\AssemblerFalta.cs" />
     <Compile Include="Models\AssemblerUsuario.cs" />
     <Compile Include="Models\Contenido.cs" />
+    <Compile Include="Models\ContenidoYComentarios.cs" />
     <Compile Include="Models\Falta.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -306,6 +308,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\ContenidoYComentarios\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
