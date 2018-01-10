@@ -68,7 +68,7 @@ namespace YoureOnBootsTrap.Controllers
 
         // GET: Contenido/Create
         [Authorize]
-        public ActionResult Create()
+        public ActionResult Subir()
         {
             // Lista de Tipos de licencias
             ViewBag.ListaEnum = ToListSelectListItem<TipoLicenciaEnum>();
@@ -79,7 +79,7 @@ namespace YoureOnBootsTrap.Controllers
         /// POST: Contenido/Create
         [HttpPost]
         [Authorize]
-        public ActionResult Create(Contenido cont, HttpPostedFileBase file)
+        public ActionResult Subir(Contenido cont, HttpPostedFileBase file)
         {
             string fileName = "", path = "";
             // Verify that the user selected a file
