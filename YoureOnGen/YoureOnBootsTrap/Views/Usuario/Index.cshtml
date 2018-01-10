@@ -1,65 +1,35 @@
-﻿
-@model IEnumerable<YoureOnGenNHibernate.EN.YoureOn.UsuarioEN>
+﻿@model WebApplication1.Models.Usuario
 
-@{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
-@{ int a = 0;
-    bool t = true;}
+<div>
+    <h4>Usuario</h4>
+    <hr />
 
-<h2>Usuarios en la web</h2>
+    <img src="~/Archivos/@Html.DisplayFor(model => model.Foto)" alt="@Html.DisplayNameFor(model => model.Foto)" width="100" height="100" />
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
+    <p>@Html.DisplayNameFor(model => model.Nombre): @Html.DisplayFor(model => model.Nombre)</p>
+    <p>@Html.DisplayNameFor(model => model.Apellidos): @Html.DisplayFor(model => model.Apellidos)</p>
+    <p>@Html.DisplayNameFor(model => model.FechaNac): @Html.DisplayFor(model => model.FechaNac)</p>
+    <p>@Html.DisplayNameFor(model => model.NIF): @Html.DisplayFor(model => model.NIF)</p>
+    <p>@Html.DisplayNameFor(model => model.Email): @Html.DisplayFor(model => model.Email)</p>
 
-        <th>
-            @Html.DisplayNameFor(model => model.Nombre)
-        </th>
-
-        <th>
-            @Html.DisplayNameFor(model => model.Apellidos)
-        </th>
-
-        <th>
-            @Html.DisplayNameFor(model => model.Email)
-        </th>
-
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        if (t == true)
+    @{
+        // Sólo para usuarios normales
+        if ((!HttpContext.Current.User.IsInRole("Administrador")) &&
+            (!HttpContext.Current.User.IsInRole("Moderador")))
         {
-            a++;
+            <p>@Html.DisplayNameFor(model => model.Perfil): @Html.DisplayFor(model => model.Perfil)</p>
         }
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nombre)
-            </td>
-
-            <td>
-                @Html.DisplayFor(modelItem => item.Apellidos)
-            </td>
-
-
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-
-            <td>
-                @Html.ActionLink("Editar", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Detalles", "Details", new { id = a }) |
-                @Html.ActionLink("Eliminar", "Delete", new { id = a }) |
-
-            </td>
-        </tr>
     }
 
-</table>
-
+</div>
+<p class="btn btn-default">@Html.ActionLink("Volver", "Index", "Home")</p>
+@{
+    // Sólo para usuarios normales
+    if ((!HttpContext.Current.User.IsInRole("Administrador")) &&
+        (!HttpContext.Current.User.IsInRole("Moderador")))
+    {
+        <p class="btn btn-default">@Html.ActionLink("Editar datos", "Edit")</p>
+        <p class="btn btn-default">@Html.ActionLink("Borrar cuenta", "Delete")</p>
+    }
+}
 

@@ -9,30 +9,137 @@ using YoureOnGenNHibernate.CEN.YoureOn;
 using YoureOnGenNHibernate.CAD.YoureOn;
 using WebApplication1.Models;
 using YoureOnBootsTrap.Models;
-
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using System.Web.Security;
 
 namespace YoureOnBootsTrap.Controllers
 {
     public class UsuarioController : BasicController
     {
+        string rolPerfilPublico = "UsuarioPublico";
+        string rolPerfilPrivado = "UsuarioPrivado";
+
+        private string ObtenerRol()
+        {
+            if (User.IsInRole(rolPerfilPublico))
+            {
+                return "Público";
+            }
+            return "Privado";
+        }
         // GET: Usuario
         public ActionResult Index()
         {
-            UsuarioCAD usu = new UsuarioCAD(session);
-            //var result = evCEN.get_IEventoCAD();
-            IEnumerable<UsuarioEN> list = usu.ReadAllDefault(0, int.MaxValue);
-            return View(list);
+            string email = User.Identity.Name;
+            SessionInitialize();
+            UsuarioEN usuarioen = new UsuarioCAD(session).ReadOIDDefault(email);
+            Usuario usu = new AssemblerUsuario().ConvertENToModelUI(usuarioen);
+            usu.Perfil = ObtenerRol();
+            SessionClose();
+            return View(usu);
         }
 
-        // GET: Usuario/Details/email
-        public ActionResult Details(String email)
+        // GET: Usuario/Edit
+        public ActionResult Edit()
         {
+            string email = User.Identity.Name;
+            SessionInitialize();
+            UsuarioEN usuarioen = new UsuarioCAD(session).ReadOIDDefault(email);
+            Usuario usu = new AssemblerUsuario().ConvertENToModelUI(usuarioen);
+            usu.Perfil = ObtenerRol();
+            ViewBag.Rol = usu.Perfil;
+            SessionClose();
+            return View(usu);
+        }
+
+        // POST: Usuario/Editar
+        [HttpPost]
+        public ActionResult Edit(Usuario u)
+        {
+            try
+            {
+                // Sacar password provisional
+                /*SessionInitialize();
+                UsuarioCAD usuarioCad = new UsuarioCAD(session);
+                UsuarioEN usuario = usuarioCad.ReadOIDDefault(u.Email);
+                SessionClose();*/
+                //**************************************************************
+
+                //UsuarioCEN cen = new UsuarioCEN();
+                //cen.EditarPerfil(u.Email, u.Nombre, u.Apellidos, u.FechaNac, u.NIF, u.Foto, YoureOnGenNHibernate.Utils.Util.GetEncondeMD5(usuario.Contrasenya), u.EsVetado);
+                
+                // Comprobamos si ha cambiado el rol
+                if (!ObtenerRol().Equals(u.Perfil))
+                {
+                    ApplicationDbContext db = new ApplicationDbContext();
+                    var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+                    string id = User.Identity.GetUserId();
+                    // Cambiamos a privado
+                    if (User.IsInRole(rolPerfilPublico))
+                    {
+                        userManager.RemoveFromRole(id, rolPerfilPublico);
+                        userManager.AddToRole(id, rolPerfilPrivado);
+                    }
+                    else // Cambiamos a público
+                    {
+                        userManager.RemoveFromRole(User.Identity.GetUserId(), rolPerfilPrivado);
+                        userManager.AddToRole(id, rolPerfilPublico);
+                    }
+                }
+                
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        // GET: /Usuario/Delete
+        public ActionResult Delete()
+        {
+            string email = User.Identity.Name;
             SessionInitialize();
             UsuarioEN usuarioen = new UsuarioCAD(session).ReadOIDDefault(email);
             Usuario usu = new AssemblerUsuario().ConvertENToModelUI(usuarioen);
             SessionClose();
+
             return View(usu);
         }
+
+        // POST: /Usuario/Delete
+        [HttpPost]
+        public ActionResult Delete(Usuario usu)
+        {
+            try
+            {
+                // Borra la foto
+                // System.IO.File.Delete(Server.MapPath("~" + usu.Foto));
+                /*UsuarioCAD cen = new UsuarioCAD();
+                cen.Destroy(usu.Email);
+
+                Membership.DeleteUser(usu.Nombre);
+                               
+                FormsAuthentication.SignOut();
+                Session.Abandon();*/
+
+                return RedirectToAction("Index", "Home");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+
+
+
+
+
+
+
+
 
         //GET: Usuario/Contenidos
         public ActionResult Contenidos()
@@ -51,113 +158,6 @@ namespace YoureOnBootsTrap.Controllers
             IList<Contenido> contenidos = new AssemblerUsuario().ConvertBibliotecaENToModel(usuarioen);
             SessionClose();
             return View(contenidos);
-        }
-        
-        // GET: Usuario/Create
-        public ActionResult Create()
-        {
-            //redirigir a accountController
-            UsuarioEN en = new UsuarioEN();
-            return View(en);
-        }
-
-        // POST: Usuario/Create
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add insert logic here
-
-                UsuarioCEN nuevousuario = new UsuarioCEN();
-
-                //PD : VEIS , AQUI SE ASIGNA LA VARIABLE DE SESION, PORQUE CrearUser devuelve un id
-                System.Web.HttpContext.Current.Session["Identificador"] = nuevousuario.CrearUsuario(p_email: collection["Email"], p_nombre: collection["Nombre"], p_apellidos: collection["Apellidos"], p_fechaNac: new DateTime(2011, 6, 10), p_NIF: collection["NIF"],
-                    p_foto: "Foto", p_contrasenya: "1234Eva.", p_esVetado: false);
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-
-        }
-        
-        // GET: Usuario/Edit/email
-        public ActionResult Edit(String email)
-        {
-
-            SessionInitialize();
-            UsuarioEN conEN = new UsuarioCAD(session).ReadOIDDefault(email);
-            //com = new AssemblerUser().ConvertENToModelUI(conEN);
-            SessionClose();
-            return View(conEN);
-        }
-
-        // POST: Usuario/Edit/email
-        [HttpPost]
-        public ActionResult Edit(UsuarioEN u)
-        {
-            try
-            {
-                // TODO: Add update logic here
-                UsuarioCEN cen = new UsuarioCEN();
-                cen.EditarPerfil(u.Email, u.Nombre, u.Apellidos, u.FechaNac, u.NIF, u.Foto, u.Contrasenya, u.EsVetado);
-                return RedirectToAction("Index", "Home");
-                //return RedirectToAction("Index", "Home");
-            }
-            catch
-            {
-
-                return View();
-            }
-        }
-        
-        // GET: Usuario/Delete/email
-        public ActionResult Delete(string email)
-        {
-
-            try
-            {
-                // TODO: Add delete logic here
-                //int idCategoria = -1;
-                SessionInitialize();
-                UsuarioCAD artCAD = new UsuarioCAD(session);
-                UsuarioCEN cen = new UsuarioCEN(artCAD);
-                UsuarioEN artEN = cen.CargarPerfil(email);
-                Usuario art = new AssemblerUsuario().ConvertENToModelUI(artEN);
-                //idCategoria = art.IdCategoria;
-                SessionClose();
-
-                new UsuarioCEN().Destroy(email);
-
-                //Request.Abort();
-                //Session.Clear();
-                //Session.Abandon();
-
-                return RedirectToAction("Index", "Home");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // POST: Usuario/Delete/email
-        [HttpPost]
-        public ActionResult Delete(string email, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index", "Home");
-            }
-            catch
-            {
-                return View();
-            }
         }
     }
 }

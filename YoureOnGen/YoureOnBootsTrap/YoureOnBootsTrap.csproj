@@ -226,7 +226,7 @@
     <Content Include="Archivos\foto5.jpg" />
     <Content Include="Archivos\foto6.jpg" />
     <Content Include="Archivos\foto7.jpg" />
-    <Content Include="Archivos\foto_perfil.png" />
+    <Content Include="Archivos\foto_perfil.jpg" />
     <Content Include="Archivos\YoureOn.png" />
     <Content Include="Archivos\YoureOnLogo.png" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -306,6 +306,7 @@
     <Content Include="Views\Admin\BorrarPerfil.cshtml" />
     <Content Include="Views\Admin\Delete.cshtml" />
     <Content Include="Views\Admin\Create.cshtml" />
+    <Content Include="Views\Usuario\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

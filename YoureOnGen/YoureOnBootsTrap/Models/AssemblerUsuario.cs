@@ -10,7 +10,7 @@ using System.Web.Mvc;
 
 namespace WebApplication1.Models
 {
-    public class AssemblerUsuario : Controller
+    public class AssemblerUsuario
     {
         public Usuario ConvertENToModelUI(UsuarioEN en)
         {
@@ -24,10 +24,11 @@ namespace WebApplication1.Models
             usi.Contrasenya = en.Contrasenya;
             usi.Falta = en.Falta;
             usi.Contenidos = en.Contenido;
+            usi.EsVetado = en.EsVetado;
 
             //Comentado ara que no pete al iniciar sesion con admin q no tiene, creo
             //usi.Biblioteca = en.Biblioteca.Contenido;
-
+            
             return usi;
         }
         public IList<Usuario> ConvertListENToModel(IList<UsuarioEN> ens)

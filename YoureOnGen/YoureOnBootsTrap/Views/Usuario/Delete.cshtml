@@ -1,0 +1,18 @@
+﻿@model WebApplication1.Models.Usuario
+
+<h2>Borrar usuario</h2>
+
+<div>
+    <p>¿Está seguro de que desea eliminar su cuenta de usuario?</p>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.Email)
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Aceptar" class="btn btn-default" /> |
+            <p class="btn btn-default">@Html.ActionLink("Cancelar", "Index")</p>
+        </div>
+    }
+</div>

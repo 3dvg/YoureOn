@@ -30,6 +30,7 @@ namespace WebApplication1.Models
 
         [Required(ErrorMessage = "Éste dato es requerido")]
         [DataType(DataType.Date)]
+        //[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "0:yyyy/MM/dd}")]
         [Display(Name = "Fecha de nacimiento")]
         public DateTime? FechaNac { get; set; }
 
@@ -52,6 +53,11 @@ namespace WebApplication1.Models
         public IList<FaltaEN> Falta { get; set; }
         public IList<ContenidoEN> Contenidos { get; set; }
         public IList<ContenidoEN> Biblioteca { get; set; }
+
+        [Display(Name = "Tipo de perfil")]
+        public string Perfil { get; set; }
+
+        public bool EsVetado { get; set; }
     }
 }
 

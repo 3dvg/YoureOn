@@ -1,89 +1,101 @@
-﻿
-@model YoureOnGenNHibernate.EN.YoureOn.UsuarioEN
-
-@{
-    /**/
-
-    ViewBag.Title = "Edit";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
-
-
-<h2>Edit</h2>
+﻿@model WebApplication1.Models.Usuario
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
 
-    <fieldset>
-        <legend>UsuarioEN</legend>
+<div class="form-horizontal">
+    <h4>Editar perfil</h4>
+    <hr />
+    <img src="~/Archivos/@Html.DisplayFor(model => model.Foto)" alt="@Html.DisplayNameFor(model => model.Foto)" width="100" height="100" />
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Email)
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <!--<div class="form-group">
+        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
         </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Nombre)
-            @Html.ValidationMessageFor(model => model.Nombre)
-        </div>
+    </div>-->
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Apellidos)
+    <div class="form-group">
+        @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
         </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Apellidos)
-            @Html.ValidationMessageFor(model => model.Apellidos)
-        </div>
+    </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.FechaNac)
+    <div class="form-group">
+        @Html.LabelFor(model => model.Apellidos, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Apellidos, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Apellidos, "", new { @class = "text-danger" })
         </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.FechaNac)
-            @Html.ValidationMessageFor(model => model.FechaNac)
-        </div>
+    </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.NIF)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.NIF)
-            @Html.ValidationMessageFor(model => model.NIF)
-        </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.FechaNac, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Foto)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Foto)
-            @Html.ValidationMessageFor(model => model.Foto)
-        </div>
+            @Html.EditorFor(model => model.FechaNac, "{0:yyyy/MM/dd}",new { htmlAttributes = new { @class = "form-control" } })
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Contrasenya)
+            @Html.ValidationMessageFor(model => model.FechaNac, "", new { @class = "text-danger" })
         </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Contrasenya)
-            @Html.ValidationMessageFor(model => model.Contrasenya)
-        </div>
-        <br />
-        <div class="editor-field">
-            <img height="100" width="100" src="@Model.Foto" />
-        </div>
+    </div>
 
-        <p>
-            <input type="submit" value="Save" />
-        </p>
-    </fieldset>
-}
+    <div class="form-group">
+        @Html.LabelFor(model => model.NIF, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.NIF, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.NIF, "", new { @class = "text-danger" })
+        </div>
+    </div>
 
-<div>
-    @Html.ActionLink("Volver", "Index", "Home")
+    @{ bool sel = false;
+        bool sel2 = false;
+
+        if (ViewBag.Rol == "Público")
+        {
+            sel = true;
+        }
+        else
+        {
+            sel2 = true;
+        }
+
+        // Sólo para usuarios normales
+        if ((!HttpContext.Current.User.IsInRole("Administrador")) &&
+            (!HttpContext.Current.User.IsInRole("Moderador")))
+        {
+            <div class="form-group">
+                @Html.LabelFor(model => model.Perfil, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.RadioButtonFor(model => model.Perfil, "Público", sel)  Público
+                @Html.RadioButtonFor(model => model.Perfil, "Privado", sel2) Privado
+            </div>
+            <p>El tipo de perfil nuevo se aplicará al reiniciar la sesión.</p>
+        }
+    }
+
+    @Html.HiddenFor(model => model.Email)
+    @Html.HiddenFor(model => model.Contrasenya)
+    @Html.HiddenFor(model => model.Foto)
+
+
+    <!--<div class="form-group">
+        @Html.LabelFor(model => model.Contrasenya, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Contrasenya, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Contrasenya, "", new { @class = "text-danger" })
+        </div>
+    </div>-->
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Guardar cambios" class="btn btn-default" />
+            <span class="btn btn-default">@Html.ActionLink("Cancelar", "Index")</span>
+        </div>
+    </div>
 </div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
 }
-
-
 

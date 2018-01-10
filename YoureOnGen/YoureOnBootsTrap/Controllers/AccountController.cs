@@ -224,7 +224,7 @@ namespace YoureOnBootsTrap.Controllers
                     // Asignamos el rol de Usuario
                     ApplicationDbContext db = new ApplicationDbContext();
                     var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
-                    userManager.AddToRole(user.Id, "Usuario");
+                    userManager.AddToRole(user.Id, "UsuarioPublico");
 
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 

@@ -21,7 +21,8 @@ namespace YoureOnBootsTrap
         {
             string admin = "Administrador";
             string moderador = "Moderador";
-            string usuarios = "Usuario";
+            string usuPublico = "UsuarioPublico";
+            string usuPrivado = "UsuarioPrivado";
 
             string adminMail = "admin@gmail.com";
             string adminPass = "Admin94*";
@@ -75,13 +76,25 @@ namespace YoureOnBootsTrap
                 }
             }
 
-            // Creamos el rol de usuario
-            if (!roleManager.RoleExists(usuarios))
+            // La mitad de los usuarios tienen perfiles publicos y la otra privados
+
+            // Creamos el rol de usuarioPublico
+            if (!roleManager.RoleExists(usuPublico))
             {
-                roleManager.Create(new IdentityRole(usuarios));
-                for (int j=0; j < listaMailsUsu.Count; j++)
+                roleManager.Create(new IdentityRole(usuPublico));
+                for (int j=0; j < listaMailsUsu.Count/2; j++)
                 {
-                    CrearUsuarioConRol(userManager, listaMailsUsu[j], listaPassUsu[j], usuarios);
+                    CrearUsuarioConRol(userManager, listaMailsUsu[j], listaPassUsu[j], usuPublico);
+                }
+            }
+
+            // Creamos el rol de usuarioPrivado
+            if (!roleManager.RoleExists(usuPrivado))
+            {
+                roleManager.Create(new IdentityRole(usuPrivado));
+                for (int k = listaMailsUsu.Count/2; k < listaMailsUsu.Count; k++)
+                {
+                    CrearUsuarioConRol(userManager, listaMailsUsu[k], listaPassUsu[k], usuPrivado);
                 }
             }
         }
