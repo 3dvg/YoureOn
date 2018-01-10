@@ -13,6 +13,7 @@ using YoureOnBootsTrap.Models;
 using System.IO;
 using Microsoft.AspNet.Identity;
 using System.Reflection;
+using System.Diagnostics;
 
 namespace YoureOnBootsTrap.Controllers
 {
@@ -81,21 +82,53 @@ namespace YoureOnBootsTrap.Controllers
         [Authorize]
         public ActionResult Subir(Contenido cont, HttpPostedFileBase file)
         {
-            string fileName = "", path = "";
-            // Verify that the user selected a file
-            if (file != null && file.ContentLength > 0)
-            {
-                // extract only the fielname
-                fileName = Path.GetFileName(file.FileName);
-                // store the file inside ~/App_Data/uploads folder
-                path = Path.Combine(Server.MapPath("~/Archivos"), fileName);
-                //string pathDef = path.Replace(@"\\", @"\");
-                file.SaveAs(path);
-            }
+
+            //contenido.SubirContenido ("Fotografia", TipoArchivoEnum.imagen, 
+            //"contenidoimagen", TipoLicenciaEnum.Sin_licencia, email1, "autor", 
+            //false, @"/Archivos/foto1.jpg", DateTime.Now);
+
+            Debug.WriteLine("Titulo: " + cont.Titulo);
+            Debug.WriteLine("Descripcion: " + cont.Descripcion);
+            Debug.WriteLine("Licencia: " + cont.Licencia);
+
+            cont.Autor = User.Identity.GetUserName();
+            Debug.WriteLine("Autor: " + cont.Autor);
+
+            cont.EnBibioteca = false;
+            Debug.WriteLine("EnBibioteca: " + cont.EnBibioteca);
+
+            cont.Tipo = TipoArchivoEnum.imagen;
+            Debug.WriteLine("Tipo: " + cont.Tipo);
+
+            cont.Ruta = @"/Archivos/foto1.jpg";
+            Debug.WriteLine("Ruta: " + cont.Ruta);
+
+            cont.FCreacion = DateTime.Now;
+            Debug.WriteLine("FCreacion: " + cont.FCreacion);
+
+            Debug.WriteLine("-------------------------------------------------------");
 
             try
             {
+                string fileName = "", path = "";
+                // Verify that the user selected a file
+                if (file != null && file.ContentLength > 0)
+                {
+                    // extract only the fielname
+                    fileName = Path.GetFileName(file.FileName);
+                    // store the file inside ~/App_Data/uploads folder
+                    path = Path.Combine(Server.MapPath("~/Archivos"), fileName);
+                    //string pathDef = path.Replace(@"\\", @"\");
+                    file.SaveAs(path);
+                }
+                
+
                 fileName = "/Archivos/" + fileName;
+
+                Debug.WriteLine("R: " + fileName);
+
+
+
                 ContenidoCEN cen = new ContenidoCEN();
 
                 /*cen.SubirContenido(cont.Titulo, cont.Tipo, cont.Descripcion,
