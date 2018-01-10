@@ -99,9 +99,9 @@ namespace YoureOnBootsTrap.Controllers
             {
                 int dato = Convert.ToInt32(Request.Form["faltas"]);
 
-                Debug.WriteLine(dato);
+                /*Debug.WriteLine(dato);
                 Debug.WriteLine(usu.Email);
-                Debug.WriteLine(User.Identity.Name);
+                Debug.WriteLine(User.Identity.Name);*/
 
                 SessionInitialize();
 
@@ -120,7 +120,7 @@ namespace YoureOnBootsTrap.Controllers
 
                 SessionClose();
 
-                return RedirectToAction("Index");
+                return RedirectToAction("VerFaltas", new { email = usu.Email });
             }
             catch
             {
@@ -151,12 +151,11 @@ namespace YoureOnBootsTrap.Controllers
         }
 
         // GET: Admin/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int id, string em)
         {
             FaltaCAD dirCAD = new FaltaCAD();
             dirCAD.Destroy(id);
-            ViewBag.Id = id;
-            return View();
+            return RedirectToAction("VerFaltas", new { email = em });
         }
 
         // POST: Admin/Delete/5
@@ -178,35 +177,51 @@ namespace YoureOnBootsTrap.Controllers
         // GET: Admin/VetarUsuario/email
         public ActionResult VetarUsuario(string email)
         {
+
+            FaltaEN faltaGrave = null;
+
+            SessionInitialize();
+            UsuarioEN usuarioen = new UsuarioCAD(session).ReadOIDDefault(email);
+            Usuario usu = new AssemblerUsuario().ConvertENToModelUI(usuarioen);
+
+            // Copiamos la falta grave
+            if (usu.Falta != null)
+            {
+                foreach (FaltaEN f in usu.Falta)
+                {
+                    if (f.TipoFalta == TipoFaltaEnum.grave)
+                    {
+                        faltaGrave = f;
+                    }
+                }
+            }
+            SessionClose();
+
+
             UsuarioCAD usuarioCad = new UsuarioCAD();
             UsuarioEN usuario = usuarioCad.ReadOIDDefault(email);
-            
+
             if (usuario.EsVetado)
             {
                 usuario.EsVetado = false;
+                usu.EsVetado = false;
+                if (faltaGrave != null)
+                {
+                    FaltaCAD dirCAD = new FaltaCAD();
+                    dirCAD.Destroy(faltaGrave.Id_falta);
+                }
             }
             else
             {
                 usuario.EsVetado = true;
+                usu.EsVetado = true;
             }
 
             usuarioCad.EditarPerfil(usuario);
 
-            return RedirectToAction("Index");
+            return RedirectToAction("VerFaltas", new { email = usu.Email });
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
+        
         // Para sacar los datos de un enum y meterlos en una lista
         private List<SelectListItem> ToListSelectListItem<T>()
         {

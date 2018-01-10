@@ -1,7 +1,5 @@
 ﻿@model IEnumerable<WebApplication1.Models.Usuario>
-
 <h2>Gestionar faltas</h2>
-
 <table class="table">
     <tr>
         <th>
@@ -21,38 +19,36 @@
         </th>
         <th></th>
     </tr>
-
     @foreach (var item in Model)
     {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Apellidos)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NIF)
-        </td>
-        <td>
-            @{
-                if (item.EsVetado)
-                {
-                    <p>Sí</p>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Apellidos)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NIF)
+            </td>
+            <td>
+                @{
+                    if (item.EsVetado)
+                    {
+                        <p>Sí</p>
+                    }
+                    else
+                    {
+                        <p>No</p>
+                    }
                 }
-                else
-                {
-                    <p>No</p>
-                }
-            }
-        </td>
-        <td>
-            @Html.ActionLink("Gestionar", "VerFaltas", new { email = item.Email })
-        </td>
-    </tr>
+            </td>
+            <td>
+                @Html.ActionLink("Gestionar", "VerFaltas", new { email = item.Email })
+            </td>
+        </tr>
     }
-
 </table>

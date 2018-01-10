@@ -12,6 +12,7 @@ using WebApplication1.Models;
 using YoureOnBootsTrap.Models;
 using System.IO;
 using Microsoft.AspNet.Identity;
+using System.Reflection;
 
 namespace WebApplication1.Controllers
 {
@@ -24,7 +25,7 @@ namespace WebApplication1.Controllers
         }
         //Débora: Detalle Foto
         // GET: Contenido/Details/5
-        public ActionResult Details(int id)
+        /*public ActionResult Details(int id)
         {
             SessionInitialize();
             ContenidoCAD contenidoCad = new ContenidoCAD(session);
@@ -56,84 +57,52 @@ namespace WebApplication1.Controllers
             SessionClose();
 
             return RedirectToAction("Details", "Contenido", new { id });
-        }
+        }*/
         
         public ActionResult Votar(int id)
         {
-            var votos = new List<Votos>();
-
-            votos.Add(new Votos()
-            {
-                Descripcion = "1",
-                Valor = PuntosVotoEnum.uno
-            });
-            votos.Add(new Votos()
-            {
-                Descripcion = "2",
-                Valor = PuntosVotoEnum.dos
-            });
-            votos.Add(new Votos()
-            {
-                Descripcion = "3",
-                Valor = PuntosVotoEnum.tres
-            });
-            votos.Add(new Votos()
-            {
-                Descripcion = "4",
-                Valor = PuntosVotoEnum.cuatro
-            });
-            votos.Add(new Votos()
-            {
-                Descripcion = "5",
-                Valor = PuntosVotoEnum.cinco
-            });
-            votos.Add(new Votos()
-            {
-                Descripcion = "6",
-                Valor = PuntosVotoEnum.seis
-            });
-            votos.Add(new Votos()
-            {
-                Descripcion = "7",
-                Valor = PuntosVotoEnum.siete
-            });
-            votos.Add(new Votos()
-            {
-                Descripcion = "8",
-                Valor = PuntosVotoEnum.ocho
-            });
-            votos.Add(new Votos()
-            {
-                Descripcion = "9",
-                Valor = PuntosVotoEnum.nueve
-            });
-            votos.Add(new Votos()
-            {
-                Descripcion = "10",
-                Valor = PuntosVotoEnum.diez
-            });
-
-            var list = new SelectList(votos, "Descripcion", "Valor");
-            ViewData["votos"] = list;
-
+            // Lista de Tipos de faltas
+            ViewBag.ListaEnum = ToListSelectListItem<PuntosVotoEnum>();
             return View();
         }
 
         // GET: Contenido/Create
+        [Authorize]
         public ActionResult Create()
         {
-            return View();
+            // Lista de Tipos de licencias
+            //ViewBag.ListaEnum = ToListSelectListItem<TipoLicenciaEnum>();
+            Contenido c = new Contenido();
+            return View(c);
         }
 
-        // POST: Contenido/Create
+        /// POST: Contenido/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        [Authorize]
+        public ActionResult Create(Contenido cont, HttpPostedFileBase file)
         {
+            string fileName = "", path = "";
+            // Verify that the user selected a file
+            if (file != null && file.ContentLength > 0)
+            {
+                // extract only the fielname
+                fileName = Path.GetFileName(file.FileName);
+                // store the file inside ~/App_Data/uploads folder
+                path = Path.Combine(Server.MapPath("~/Archivos"), fileName);
+                //string pathDef = path.Replace(@"\\", @"\");
+                file.SaveAs(path);
+            }
+
             try
             {
-                // TODO: Add insert logic here
+                fileName = "/Archivos/" + fileName;
+                ContenidoCEN cen = new ContenidoCEN();
 
-                return RedirectToAction("Index");
+                /*cen.SubirContenido(cont.Titulo, cont.Tipo, cont.Descripcion,
+                    cont.Licencia, User.Identity.GetUserName(), User.Identity.GetUserName(),
+                    false, fileName, DateTime.Now);*/
+
+                return RedirectToAction("Index", "Home");
             }
             catch
             {
@@ -160,19 +129,36 @@ namespace WebApplication1.Controllers
             return View(listaContenidos);
         }*/
 
-        // GET: Contenido/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit()
         {
-            return View();
+            /*string email = User.Identity.Name;
+            SessionInitialize();
+            UsuarioEN usuarioen = new UsuarioCAD(session).ReadOIDDefault(email);
+            Usuario usu = new AssemblerUsuario().ConvertENToModelUI(usuarioen);
+            SessionClose();
+            return View(usu);*/
+            int id = 32768;
+            SessionInitialize();
+            ContenidoEN usuarioen = new ContenidoCAD(session).ReadOIDDefault(id);
+            Contenido usu = new AssemblerContenido().ConvertENToModelUI(usuarioen);
+            SessionClose();
+            return View(usu);
         }
 
-        // POST: Contenido/Edit/5
+        // POST: Usuario/Editar
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(Contenido u)
         {
             try
             {
-                // TODO: Add update logic here
+                /*UsuarioCAD usuarioCad = new UsuarioCAD();
+                UsuarioEN usuario = usuarioCad.ReadOIDDefault(u.Email);
+                usuario.Nombre = u.Nombre;
+                usuario.Apellidos = u.Apellidos;
+                usuario.NIF = u.NIF;
+                //usuario.FechaNac = u.FechaNac;
+                usuarioCad.EditarPerfil(usuario);*/
+
 
                 return RedirectToAction("Index");
             }
@@ -203,6 +189,52 @@ namespace WebApplication1.Controllers
                 return View();
             }
         }
+
+        // Para sacar los datos de un enum y meterlos en una lista
+        private List<SelectListItem> ToListSelectListItem<T>()
+        {
+            var t = typeof(T);
+            if (!t.IsEnum) { throw new ApplicationException("Tipo debe ser enum"); }
+            var members = t.GetFields(BindingFlags.Public | BindingFlags.Static);
+
+            var result = new List<SelectListItem>();
+            foreach (var member in members)
+            {
+                var attributeDescription = member.GetCustomAttributes(typeof(System.ComponentModel.DescriptionAttribute),
+                    false);
+                var descripcion = member.Name;
+
+                if (attributeDescription.Any())
+                {
+                    descripcion = ((System.ComponentModel.DescriptionAttribute)attributeDescription[0]).Description;
+                }
+
+                var valor = ((int)Enum.Parse(t, member.Name));
+                result.Add(new SelectListItem()
+                {
+                    Text = descripcion,
+                    Value = valor.ToString()
+                });
+            }
+            return result;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         /*Eva a tocado los CEN manualmente cuando se debe hacer con el OOH4RIA
 	public ActionResult Buscar(string contenido)
         {
@@ -259,5 +291,6 @@ namespace WebApplication1.Controllers
             }
             return list;
         }*/
+        
     }
 }

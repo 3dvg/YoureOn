@@ -1,14 +1,22 @@
 ﻿@model WebApplication1.Models.Usuario
 @using YoureOnGenNHibernate.EN.YoureOn;
-
 <div>
-
     <h2>@Html.DisplayFor(model => model.Nombre) @Html.DisplayFor(model => model.Apellidos) - @Html.DisplayFor(model => model.NIF)</h2>
-
     <br />
     <p>Total leves: @ViewBag.Leve</p>
-    <p>Tiene grave: @ViewBag.Grave</p>
-
+    <p>
+        Tiene grave:
+        @{
+            if (@ViewBag.Grave)
+            {
+                <span>Sí</span>
+            }
+            else
+            {
+                <span>No</span>
+            }
+        }
+    </p>
     @{ // 3 leves o 1 grave
         if ((ViewBag.Leve == 3) || (ViewBag.Grave))
         {
@@ -20,9 +28,9 @@
             {
                 <span class="btn btn-default">@Html.ActionLink("Vetar usuario", "VetarUsuario", new { email = ViewBag.Email })</span>
             }
+            <span class="btn btn-default">@Html.ActionLink("Volver", "Index", "Admin")</span>
         }
     }
-
     @{
         if ((ViewBag.Leve < 3) && (!ViewBag.Grave))
         {
@@ -37,10 +45,9 @@
             }
         }
     }
-
     @{
         if ((!ViewBag.Grave) && (!ViewBag.Vetado))
-            {
+        {
             <table class="table">
                 <tr>
                     <th>Fecha</th>
@@ -55,13 +62,13 @@
                             <td>@f.Fecha</td>
                             <td>@f.TipoFalta</td>
                             <td>
-                                @Html.ActionLink("Eliminar falta", "Delete", new { id = @f.Id_falta })
+                                @Html.ActionLink("Eliminar falta", "Delete", new { id = @f.Id_falta, em = ViewBag.Email })
                             </td>
                         </tr>
                     }
                 }
             </table>
+            <span class="btn btn-default">@Html.ActionLink("Volver", "Index", "Admin")</span>
         }
     }
-
 </div>

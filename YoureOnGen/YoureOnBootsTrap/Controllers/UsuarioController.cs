@@ -141,7 +141,7 @@ namespace YoureOnBootsTrap.Controllers
 
 
         //GET: Usuario/Contenidos
-        public ActionResult Contenidos()
+        /*public ActionResult Contenidos()
         {
             SessionInitialize();
             UsuarioEN usuarioen = new UsuarioCAD(session).CargarPerfil(User.Identity.Name);
@@ -157,6 +157,6 @@ namespace YoureOnBootsTrap.Controllers
             IList<Contenido> contenidos = new AssemblerUsuario().ConvertBibliotecaENToModel(usuarioen);
             SessionClose();
             return View(contenidos);
-        }
+        }*/
     }
 }
