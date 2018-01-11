@@ -19,11 +19,29 @@ namespace YoureOnBootsTrap.Controllers
 {
     public class ContenidoController : BasicController
     {
-        // GET: Contenido
+        [Authorize]
         public ActionResult Index()
         {
-            return View();
+            IList<Contenido> lista = new List<Contenido>();
+
+            SessionInitialize();
+            UsuarioEN usuarioen = new UsuarioCAD(session).ReadOIDDefault(User.Identity.GetUserName());
+            Usuario usu = new AssemblerUsuario().ConvertENToModelUI(usuarioen);
+
+            if (usu.Contenidos != null)
+            {
+
+                // Copiamos los datos para la vista
+                foreach (ContenidoEN f in usu.Contenidos)
+                {
+                    Contenido c = new AssemblerContenido().ConvertENToModelUI(f);
+                    lista.Add(c);
+                }
+            }
+            SessionClose();
+            return View(lista);
         }
+
         //Débora: Detalle Foto
         // GET: Contenido/Details/5
         public ActionResult Details(int id)
@@ -80,62 +98,97 @@ namespace YoureOnBootsTrap.Controllers
         /// POST: Contenido/Create
         [HttpPost]
         [Authorize]
-        public ActionResult Subir(Contenido cont, HttpPostedFileBase file)
+        public ActionResult Subir(Contenido cont)
         {
-
-            //contenido.SubirContenido ("Fotografia", TipoArchivoEnum.imagen, 
-            //"contenidoimagen", TipoLicenciaEnum.Sin_licencia, email1, "autor", 
-            //false, @"/Archivos/foto1.jpg", DateTime.Now);
-
-            Debug.WriteLine("Titulo: " + cont.Titulo);
-            Debug.WriteLine("Descripcion: " + cont.Descripcion);
-            Debug.WriteLine("Licencia: " + cont.Licencia);
-
-            cont.Autor = User.Identity.GetUserName();
-            Debug.WriteLine("Autor: " + cont.Autor);
-
-            cont.EnBibioteca = false;
-            Debug.WriteLine("EnBibioteca: " + cont.EnBibioteca);
-
-            cont.Tipo = TipoArchivoEnum.imagen;
-            Debug.WriteLine("Tipo: " + cont.Tipo);
-
-            cont.Ruta = @"/Archivos/foto1.jpg";
-            Debug.WriteLine("Ruta: " + cont.Ruta);
-
-            cont.FCreacion = DateTime.Now;
-            Debug.WriteLine("FCreacion: " + cont.FCreacion);
-
-            Debug.WriteLine("-------------------------------------------------------");
-
             try
             {
-                string fileName = "", path = "";
-                // Verify that the user selected a file
-                if (file != null && file.ContentLength > 0)
+                if (Request.Files.Count > 0)
                 {
-                    // extract only the fielname
-                    fileName = Path.GetFileName(file.FileName);
-                    // store the file inside ~/App_Data/uploads folder
-                    path = Path.Combine(Server.MapPath("~/Archivos"), fileName);
-                    //string pathDef = path.Replace(@"\\", @"\");
-                    file.SaveAs(path);
+                    var file = Request.Files[0];
+
+                    if (file != null && file.ContentLength > 0)
+                    {
+                        string exte = Path.GetExtension(file.FileName).ToLower();
+
+                        switch (exte)
+                        {
+                            case ".jpg":
+                            case ".jpeg":
+                            case ".pjpeg":
+                            case ".gif":
+                            case ".png":
+                            case ".bmp":
+                            case ".tif":
+                            case ".mix":
+                                cont.Tipo = TipoArchivoEnum.imagen;
+                                break;
+
+                            case ".avi":
+                            case ".mp4":
+                            case ".mpg":
+                            case ".mpeg":
+                            case ".mov":
+                            case ".wmv":
+                            case ".flv":
+                            case ".rm":
+                                cont.Tipo = TipoArchivoEnum.video;
+                                break;
+
+                            case ".wav":
+                            case ".mp3":
+                            case ".ogg":
+                            case ".midi":
+                                cont.Tipo = TipoArchivoEnum.audio;
+                                break;
+
+                            case ".txt":
+                            case ".doc":
+                            case ".docx":
+                            case ".pdf":
+                            case ".rtf":
+                                cont.Tipo = TipoArchivoEnum.texto;
+                                break;
+                            default:
+                                return View();
+                        }
+                        
+                        var fileName = Path.GetFileName(file.FileName);
+                        var path = Path.Combine(Server.MapPath("~/Archivos/"), fileName);
+                        file.SaveAs(path);
+                        
+                        cont.Autor = User.Identity.GetUserName();
+                        cont.EnBibioteca = false;
+                        cont.FCreacion = DateTime.Now;
+
+                        /*ContenidoCEN cen = new ContenidoCEN();
+                        cen.SubirContenido(cont.Titulo, cont.Tipo, cont.Descripcion,
+                            cont.Licencia, cont.Autor, cont.Autor,
+                            cont.EnBibioteca, cont.Ruta, cont.FCreacion);*/
+
+                        //DataLayerException
+                        //PropertyValueException
+
+                        Debug.WriteLine("Titulo: " + cont.Titulo);
+                        Debug.WriteLine("Descripcion: " + cont.Descripcion);
+                        Debug.WriteLine("Licencia: " + cont.Licencia);
+                        Debug.WriteLine("Autor: " + cont.Autor);
+                        Debug.WriteLine("EnBibioteca: " + cont.EnBibioteca);
+                        Debug.WriteLine("FCreacion: " + cont.FCreacion);
+                        Debug.WriteLine("-------------------------------------------------------");
+                        Debug.WriteLine("Tipo: " + cont.Tipo);
+                        Debug.WriteLine("File: " + fileName);
+                        Debug.WriteLine("ext: " + exte);
+
+                        return RedirectToAction("Index", "Home");
+                    }
+                    else
+                    {
+                        return View();
+                    }
+                } else
+                {
+                    return View();
                 }
-                
-
-                fileName = "/Archivos/" + fileName;
-
-                Debug.WriteLine("R: " + fileName);
-
-
-
-                ContenidoCEN cen = new ContenidoCEN();
-
-                /*cen.SubirContenido(cont.Titulo, cont.Tipo, cont.Descripcion,
-                    cont.Licencia, User.Identity.GetUserName(), User.Identity.GetUserName(),
-                    false, fileName, DateTime.Now);*/
-
-                return RedirectToAction("Index", "Home");
             }
             catch
             {
@@ -162,19 +215,19 @@ namespace YoureOnBootsTrap.Controllers
             return View(listaContenidos);
         }*/
 
-        public ActionResult Edit()
-        {
+       /* public ActionResult Edit()
+        {*/
             /*int id = 32768;
             SessionInitialize();
             ContenidoEN usuarioen = new ContenidoCAD(session).ReadOIDDefault(id);
             Contenido usu = new AssemblerContenido().ConvertENToModelUI(usuarioen);
             SessionClose();
             return View(usu);*/
-            return View();
-        }
+            /*return View();
+        }*/
 
         // POST: Usuario/Editar
-        [HttpPost]
+        /*[HttpPost]
         public ActionResult Edit(Contenido u)
         {
             try
@@ -187,16 +240,16 @@ namespace YoureOnBootsTrap.Controllers
             {
                 return View();
             }
-        }
+        }*/
 
         // GET: Contenido/Delete/5
-        public ActionResult Delete(int id)
+        /*public ActionResult Delete(int id)
         {
             return View();
-        }
+        }*/
 
         // POST: Contenido/Delete/5
-        [HttpPost]
+        /*[HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
             try
@@ -209,6 +262,31 @@ namespace YoureOnBootsTrap.Controllers
             {
                 return View();
             }
+        }*/
+
+        
+        [Authorize]
+        public ActionResult Biblioteca()
+        {
+            /*IList<Biblioteca> lista = new List<Biblioteca>();
+
+            SessionInitialize();
+            UsuarioEN usuarioen = new UsuarioCAD(session).ReadOIDDefault(User.Identity.GetUserName());
+            Usuario usu = new AssemblerUsuario().ConvertENToModelUI(usuarioen);
+
+            if (usu.Biblioteca != null)
+            {
+
+                // Copiamos los datos para la vista
+                foreach (BibliotecaEN f in usu.Biblioteca)
+                {
+                    Biblioteca b = new AssemblerBiblioteca().ConvertENToModelUI(f);
+                    lista.Add(b);
+                }
+            }
+            SessionClose();
+            return View(lista);*/
+            return View();
         }
 
         // Para sacar los datos de un enum y meterlos en una lista

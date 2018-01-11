@@ -26,7 +26,8 @@ namespace YoureOnBootsTrap.Models
 
         [ScaffoldColumn(false)]
         public int Id { get; set; }
-        [ScaffoldColumn(false)]
+       
+        [Display(Name = "Tipo")]
         public TipoArchivoEnum Tipo { get; set; }
         [ScaffoldColumn(false)]
         public string Autor { get; set; }

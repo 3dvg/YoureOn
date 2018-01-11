@@ -241,7 +241,6 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config" />
-    <Content Include="Archivos\Perez-Reverte, Arturo - Alatriste 1 - El capitán Alatriste.pdf" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
@@ -306,6 +305,8 @@
     <Content Include="Views\Admin\VerFaltas.cshtml" />
     <Content Include="Views\Usuario\Delete.cshtml" />
     <Content Include="Views\Contenido\Subir.cshtml" />
+    <Content Include="Views\Contenido\Index.cshtml" />
+    <Content Include="Views\Contenido\Biblioteca.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
