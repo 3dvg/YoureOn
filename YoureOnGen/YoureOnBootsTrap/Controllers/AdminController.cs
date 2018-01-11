@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
+
 using WebApplication1.Models;
 using YoureOnBootsTrap.Models;
 using YoureOnGenNHibernate.CAD.YoureOn;
@@ -98,13 +99,6 @@ namespace YoureOnBootsTrap.Controllers
             try
             {
                 int dato = Convert.ToInt32(Request.Form["faltas"]);
-
-                /*Debug.WriteLine(dato);
-                Debug.WriteLine(usu.Email);
-                Debug.WriteLine(User.Identity.Name);*/
-
-                SessionInitialize();
-
                 FaltaCAD faltaCAD = new FaltaCAD();
                 FaltaCEN fCEN = new FaltaCEN(faltaCAD);
 
@@ -117,8 +111,6 @@ namespace YoureOnBootsTrap.Controllers
                         fCEN.New_(TipoFaltaEnum.grave, usu.Email, DateTime.Now, User.Identity.Name);
                         break;
                 }
-
-                SessionClose();
 
                 return RedirectToAction("VerFaltas", new { email = usu.Email });
             }

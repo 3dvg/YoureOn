@@ -3,17 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using YoureOnGenNHibernate.CAD.YoureOn;
-using YoureOnGenNHibernate.CEN.YoureOn;
-using YoureOnGenNHibernate.EN.YoureOn;
-using YoureOnGenNHibernate.CP.YoureOn;
-using YoureOnGenNHibernate.Enumerated.YoureOn;
-using WebApplication1.Models;
-using YoureOnBootsTrap.Models;
+
 using System.IO;
 using Microsoft.AspNet.Identity;
 using System.Reflection;
 using System.Diagnostics;
+
+using WebApplication1.Models;
+using YoureOnBootsTrap.Models;
+using YoureOnGenNHibernate.CAD.YoureOn;
+using YoureOnGenNHibernate.CEN.YoureOn;
+using YoureOnGenNHibernate.EN.YoureOn;
+using YoureOnGenNHibernate.Enumerated.YoureOn;
+using YoureOnGenNHibernate.CP.YoureOn;
 
 namespace YoureOnBootsTrap.Controllers
 {
@@ -114,12 +116,12 @@ namespace YoureOnBootsTrap.Controllers
                         {
                             case ".jpg":
                             case ".jpeg":
-                            case ".pjpeg":
-                            case ".gif":
+                            //case ".pjpeg":
+                            //case ".gif":
                             case ".png":
                             case ".bmp":
-                            case ".tif":
-                            case ".mix":
+                                /*case ".tif":
+                                case ".mix":*/
                                 cont.Tipo = TipoArchivoEnum.imagen;
                                 break;
 
@@ -128,16 +130,16 @@ namespace YoureOnBootsTrap.Controllers
                             case ".mpg":
                             case ".mpeg":
                             case ".mov":
-                            case ".wmv":
-                            case ".flv":
-                            case ".rm":
+                                /*case ".wmv":
+                                 case ".flv":
+                                 case ".rm":*/
                                 cont.Tipo = TipoArchivoEnum.video;
                                 break;
 
                             case ".wav":
                             case ".mp3":
                             case ".ogg":
-                            case ".midi":
+                                //case ".midi":
                                 cont.Tipo = TipoArchivoEnum.audio;
                                 break;
 
@@ -160,13 +162,14 @@ namespace YoureOnBootsTrap.Controllers
                         cont.EnBibioteca = false;
                         cont.FCreacion = DateTime.Now;
 
-                        /*ContenidoCEN cen = new ContenidoCEN();
-                        cen.SubirContenido(cont.Titulo, cont.Tipo, cont.Descripcion,
+                        ContenidoCAD cCAD = new ContenidoCAD();
+                        ContenidoCEN cCEN = new ContenidoCEN(cCAD);
+                        /*cCEN.SubirContenido("tit", TipoArchivoEnum.imagen, "Des",
+                            TipoLicenciaEnum.CC_BY, "email", "autor",
+                            false, "ruta", DateTime.Now);*/
+                        /*cen.SubirContenido(cont.Titulo, cont.Tipo, cont.Descripcion,
                             cont.Licencia, cont.Autor, cont.Autor,
                             cont.EnBibioteca, cont.Ruta, cont.FCreacion);*/
-
-                        //DataLayerException
-                        //PropertyValueException
 
                         Debug.WriteLine("Titulo: " + cont.Titulo);
                         Debug.WriteLine("Descripcion: " + cont.Descripcion);
