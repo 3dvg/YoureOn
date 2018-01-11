@@ -7,7 +7,7 @@ using YoureOnGenNHibernate.EN.YoureOn;
 using YoureOnGenNHibernate.Enumerated.YoureOn;
 using System.Diagnostics;
 
-namespace WebApplication1.Models
+namespace YoureOnBootsTrap.Models
 {
     public class AssemblerContenido
     {

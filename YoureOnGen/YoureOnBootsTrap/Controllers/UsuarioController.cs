@@ -3,15 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using System.Diagnostics;
 using YoureOnGenNHibernate.EN.YoureOn;
-using YoureOnGenNHibernate.CEN.YoureOn;
 using YoureOnGenNHibernate.CAD.YoureOn;
-using WebApplication1.Models;
 using YoureOnBootsTrap.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
-using System.Web.Security;
 
 namespace YoureOnBootsTrap.Controllers
 {

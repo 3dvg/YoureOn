@@ -8,7 +8,7 @@ using YoureOnGenNHibernate.Enumerated.YoureOn;
 using System.Web.Mvc;
 
 
-namespace WebApplication1.Models
+namespace YoureOnBootsTrap.Models
 {
     public class AssemblerUsuario
     {

@@ -9,7 +9,6 @@ using Microsoft.AspNet.Identity;
 using System.Reflection;
 using System.Diagnostics;
 
-using WebApplication1.Models;
 using YoureOnBootsTrap.Models;
 using YoureOnGenNHibernate.CAD.YoureOn;
 using YoureOnGenNHibernate.CEN.YoureOn;

@@ -6,7 +6,6 @@ using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
 
-using WebApplication1.Models;
 using YoureOnBootsTrap.Models;
 using YoureOnGenNHibernate.CAD.YoureOn;
 using YoureOnGenNHibernate.CEN.YoureOn;
