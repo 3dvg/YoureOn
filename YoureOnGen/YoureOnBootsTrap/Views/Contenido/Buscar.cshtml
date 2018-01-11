@@ -1,105 +1,30 @@
-﻿@model IEnumerable<YoureOnGenNHibernate.EN.YoureOn.ContenidoEN>
-@{
-    ViewBag.Title = "Buscar";
+﻿@model IEnumerable<YoureOnBootsTrap.Models.Contenido>
+
+<h2>Resultado de buscar "@ViewBag.Titulo"</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Titulo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Titulo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descripcion)
+        </td>
+        <td>
+            @Html.ActionLink("Ver contenido", "Details", new { id=item.Id })
+        </td>
+    </tr>
 }
 
-
-<div class="principal">
-    @{ YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum archi; }
-    @if (Model != null)
-    {
-
-        foreach (var item in Model)
-        {
-            var j = item.Id_contenido;
-
-            archi = item.TipoArchivo;
-            if (j == 1)
-            {
-                <div class="contenidos1">
-
-                    <!--SEGUN SEA EL CONTENIDO: CONTENIDOS TEXTO, IMAGEN, AUDIO Y VIDEO-->
-                    <div class="text-contenido">
-                        <h1>@Html.DisplayFor(modelItem => item.Id_contenido)</h1>
-                        <p><strong>Titulo: </strong>@Html.DisplayFor(modelItem => item.Titulo)</p>
-                        <p><strong>Descripción: </strong>@Html.DisplayFor(modelItem => item.Descripcion)</p>
-                        <p><strong>Tipo: </strong>@Html.DisplayFor(modelItem => item.TipoArchivo)</p>
-                        <p><strong>Licencia: </strong>@Html.DisplayFor(modelItem => item.Licencia)</p>
-                        <p><strong>Autor: </strong>@Html.DisplayFor(modelItem => item.Usuario.Email)</p>
-                        <p><strong>EnBibioteca: </strong>@Html.DisplayFor(modelItem => item.EnBiblioteca)</p>
-                        <p><strong>Ruta: </strong>@Html.DisplayFor(modelItem => item.Url)</p>
-                        <p><strong>FCreacion: </strong>@Html.DisplayFor(modelItem => item.FechaCreacion)</p>
-
-                    </div>
-                </div>
-            }
-
-            else
-            {
-                if (j == 2)
-                {
-                    <div class="contenidos2">
-                        <!--SEGUN SEA EL CONTENIDO: CONTENIDOS TEXTO, IMAGEN, AUDIO Y VIDEO-->
-                        <div class="text-contenido">
-                            <h1>@Html.DisplayFor(modelItem => item.Id_contenido)</h1>
-                            <p><strong>Titulo: </strong>@Html.DisplayFor(modelItem => item.Titulo)</p>
-                            <p><strong>Descripción: </strong>@Html.DisplayFor(modelItem => item.Descripcion)</p>
-                            <p><strong>Tipo: </strong>@Html.DisplayFor(modelItem => item.TipoArchivo)</p>
-                            <p><strong>Licencia: </strong>@Html.DisplayFor(modelItem => item.Licencia)</p>
-                            <p><strong>Autor: </strong>@Html.DisplayFor(modelItem => item.Usuario.Email)</p>
-                            <p><strong>EnBibioteca: </strong>@Html.DisplayFor(modelItem => item.EnBiblioteca)</p>
-                            <p><strong>Ruta: </strong>@Html.DisplayFor(modelItem => item.Url)</p>
-                            <p><strong>FCreacion: </strong>@Html.DisplayFor(modelItem => item.FechaCreacion)</p>
-                        </div>
-                    </div>
-                }
-                else
-                {
-                    if (j == 3)
-                    {
-                        <div class="contenidos3">
-
-                            <!--SEGUN SEA EL CONTENIDO: CONTENIDOS TEXTO, IMAGEN, AUDIO Y VIDEO-->
-                            <div class="text-contenido">
-                                <h1>@Html.DisplayFor(modelItem => item.Id_contenido)</h1>
-                                <p><strong>Titulo: </strong>@Html.DisplayFor(modelItem => item.Titulo)</p>
-                                <p><strong>Descripción: </strong>@Html.DisplayFor(modelItem => item.Descripcion)</p>
-                                <p><strong>Tipo: </strong>@Html.DisplayFor(modelItem => item.TipoArchivo)</p>
-                                <p><strong>Licencia: </strong>@Html.DisplayFor(modelItem => item.Licencia)</p>
-                                <p><strong>Autor: </strong>@Html.DisplayFor(modelItem => item.Usuario.Email)</p>
-                                <p><strong>EnBibioteca: </strong>@Html.DisplayFor(modelItem => item.EnBiblioteca)</p>
-                                <p><strong>Ruta: </strong>@Html.DisplayFor(modelItem => item.Url)</p>
-                                <p><strong>FCreacion: </strong>@Html.DisplayFor(modelItem => item.FechaCreacion)</p>
-
-                            </div>
-                        </div>
-                    }
-                    else
-                    {
-                        <div class="contenidos4">
-
-                            <!--SEGUN SEA EL CONTENIDO: CONTENIDOS TEXTO, IMAGEN, AUDIO Y VIDEO-->
-                            <div class="text-contenido">
-                                <h1>@Html.DisplayFor(modelItem => item.Id_contenido)</h1>
-                                <p><strong>Titulo: </strong>@Html.DisplayFor(modelItem => item.Titulo)</p>
-                                <p><strong>Descripción: </strong>@Html.DisplayFor(modelItem => item.Descripcion)</p>
-                                <p><strong>Tipo: </strong>@Html.DisplayFor(modelItem => item.TipoArchivo)</p>
-                                <p><strong>Licencia: </strong>@Html.DisplayFor(modelItem => item.Licencia)</p>
-                                <p><strong>Autor: </strong>@Html.DisplayFor(modelItem => item.Usuario.Email)</p>
-                                <p><strong>EnBibioteca: </strong>@Html.DisplayFor(modelItem => item.EnBiblioteca)</p>
-                                <p><strong>Ruta: </strong>@Html.DisplayFor(modelItem => item.Url)</p>
-                                <p><strong>FCreacion: </strong>@Html.DisplayFor(modelItem => item.FechaCreacion)</p>
-
-                            </div>
-                        </div>
-                    }
-                }
-
-            }
-
-
-        }
-    }
-
-
-</div>
+</table>

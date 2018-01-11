@@ -307,6 +307,7 @@
     <Content Include="Views\Contenido\Subir.cshtml" />
     <Content Include="Views\Contenido\Index.cshtml" />
     <Content Include="Views\Contenido\Biblioteca.cshtml" />
+    <Content Include="Views\Contenido\Buscar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

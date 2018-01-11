@@ -32,7 +32,6 @@ namespace YoureOnBootsTrap.Controllers
 
             if (usu.Contenidos != null)
             {
-
                 // Copiamos los datos para la vista
                 foreach (ContenidoEN f in usu.Contenidos)
                 {
@@ -164,6 +163,9 @@ namespace YoureOnBootsTrap.Controllers
 
                         ContenidoCAD cCAD = new ContenidoCAD();
                         ContenidoCEN cCEN = new ContenidoCEN(cCAD);
+
+                        // Sale ObjectNotFoundException:
+
                         /*cCEN.SubirContenido("tit", TipoArchivoEnum.imagen, "Des",
                             TipoLicenciaEnum.CC_BY, "email", "autor",
                             false, "ruta", DateTime.Now);*/
@@ -199,6 +201,29 @@ namespace YoureOnBootsTrap.Controllers
             }
         }
 
+        public ActionResult Buscar()
+        {
+            string titulo = Request.Form["titulo"];
+            ViewBag.Titulo = titulo;
+            IList<Contenido> lista = new List<Contenido>();
+
+            if ((titulo != null) && (titulo != ""))
+            {
+                ContenidoCEN cen = new ContenidoCEN();
+                foreach (ContenidoEN f in cen.DameContenidoPorTitulo(titulo))
+                {
+                    Contenido c = new AssemblerContenido().ConvertENToModelUI(f);
+                    lista.Add(c);
+                }
+            }
+            else
+            {
+                // devolver vista en la que se estaba
+            }
+
+            return View(lista);
+        }
+
         /* Esto está en el index de index.cshtml
 	public ActionResult MostrarFotos()
         {
@@ -218,8 +243,8 @@ namespace YoureOnBootsTrap.Controllers
             return View(listaContenidos);
         }*/
 
-       /* public ActionResult Edit()
-        {*/
+            /* public ActionResult Edit()
+             {*/
             /*int id = 32768;
             SessionInitialize();
             ContenidoEN usuarioen = new ContenidoCAD(session).ReadOIDDefault(id);
@@ -229,45 +254,45 @@ namespace YoureOnBootsTrap.Controllers
             /*return View();
         }*/
 
-        // POST: Usuario/Editar
-        /*[HttpPost]
-        public ActionResult Edit(Contenido u)
-        {
-            try
+            // POST: Usuario/Editar
+            /*[HttpPost]
+            public ActionResult Edit(Contenido u)
             {
-                // TODO: Add delete logic here
+                try
+                {
+                    // TODO: Add delete logic here
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }*/
+                    return RedirectToAction("Index");
+                }
+                catch
+                {
+                    return View();
+                }
+            }*/
 
-        // GET: Contenido/Delete/5
-        /*public ActionResult Delete(int id)
-        {
-            return View();
-        }*/
-
-        // POST: Contenido/Delete/5
-        /*[HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
+            // GET: Contenido/Delete/5
+            /*public ActionResult Delete(int id)
             {
                 return View();
-            }
-        }*/
+            }*/
 
-        
+            // POST: Contenido/Delete/5
+            /*[HttpPost]
+            public ActionResult Delete(int id, FormCollection collection)
+            {
+                try
+                {
+                    // TODO: Add delete logic here
+
+                    return RedirectToAction("Index");
+                }
+                catch
+                {
+                    return View();
+                }
+            }*/
+
+
         [Authorize]
         public ActionResult Biblioteca()
         {
@@ -320,70 +345,5 @@ namespace YoureOnBootsTrap.Controllers
             }
             return result;
         }
-
-
-
-
-
-
-
-        
-        /*Eva
-	public ActionResult Buscar(string contenido)
-        {
-
-            IEnumerable<ContenidoEN> list = null;
-            IList<ContenidoEN> lista = new List<ContenidoEN>();
-            ContenidoCEN conCEN = new ContenidoCEN();
-            bool haentrao = false;
-            SessionInitialize();
-            if (contenido != null)
-            {
-                list = buscar_tipo(contenido);
-
-
-            }
-            SessionClose();
-
-            if (haentrao == true && lista.Count < 1)
-            {
-                return RedirectToAction("Buscar", "usuario", routeValues: new { contenido });
-            }
-            else
-            {
-                return View(list);
-            }
-        }
-        public IEnumerable<ContenidoEN> buscar_tipo(string contenido)
-        {
-            IEnumerable<ContenidoEN> list = null;
-            ContenidoCEN evCEN = new ContenidoCEN();
-            YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum preferencia;
-            contenido = contenido.ToLower();
-            if (contenido.Equals("texto"))
-            {
-                preferencia = YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum.texto;
-                list = evCEN.ReadTipo(preferencia).ToList();
-            }
-            if (contenido == "imagen")
-            {
-                preferencia = YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum.imagen;
-                list = evCEN.ReadTipo(preferencia).ToList();
-            }
-
-            if (contenido == "audio")
-            {
-                preferencia = YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum.audio;
-                list = evCEN.ReadTipo(preferencia).ToList();
-            }
-
-            if (contenido == "video")
-            {
-                preferencia = YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum.video;
-                list = evCEN.ReadTipo(preferencia).ToList();
-            }
-            return list;
-        }*/
-        
     }
 }
