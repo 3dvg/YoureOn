@@ -2,37 +2,99 @@
 
 <h2>Mis contenidos</h2>
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Titulo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Descripcion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Licencia)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Tipo)
-        </th>
-    </tr>
+@*<div class="table-responsive-sm">
+    <table class="table table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col" class="col-sm-2">
+                    Foto
+                </th>
+                <th scope="col" class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Titulo)
+                </th>
+                <th scope="col" class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Descripcion)
+                </th>
+                <th scope="col" class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Licencia)
+                </th>
+                <th scope="col" class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Tipo)
+                </th>
+            </tr>
+        </thead>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Titulo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Descripcion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Licencia)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Tipo)
-        </td>
-    </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tbody>
+                <tr>
+                    <td scope="row">
+                        <a href="@Url.Action("Details", "Contenido",  new { id = item.Id })"><img src="@Html.DisplayFor(model => item.Ruta)" /></a>
+                    </td>
+                    <td scope="row">
+                        @Html.DisplayFor(modelItem => item.Titulo)
+                    </td>
+                    <td scope="row">
+                        @Html.DisplayFor(modelItem => item.Descripcion)
+                    </td>
+                    <td scope="row">
+                        @Html.DisplayFor(modelItem => item.Licencia)
+                    </td>
+                    <td scope="row">
+                        @Html.DisplayFor(modelItem => item.Tipo)
+                    </td>
+                </tr>
+            </tbody>
+        }
 
-</table>
+    </table>
+</div>*@
+
+<div>
+    @foreach (var item in Model)
+    {
+         <div class="hoverDiv row">
+            <div class="col-sm-4">
+                @{
+                    switch (item.Tipo)
+                    {
+                        case YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum.audio:
+                            <a href="@Url.Action("Details", "Contenido", new { id = item.Id })"><div class="foto boton_rojo archivo"><i class="glyphicon glyphicon-volume-up" ></i></div></a>
+                            break;
+                        case YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum.imagen:
+                            <a href="@Url.Action("Details", "Contenido", new { id = item.Id })"><img class="foto" src="@Html.DisplayFor(model => item.Ruta)" /></a>
+                            break;
+                        case YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum.texto:
+                            <a href="@Url.Action("Details", "Contenido", new { id = item.Id })"><div class="foto boton_rojo archivo"><i class="glyphicon glyphicon-book" ></i></div></a>
+                            break;
+                        case YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum.video:
+                            <a href="@Url.Action("Details", "Contenido", new { id = item.Id })"><div class="foto boton_rojo archivo"><i class="glyphicon glyphicon-facetime-video" ></i></div></a>
+                            break;
+                    }
+                }
+            </div>
+            <div class="col-sm-4 col-xs-6">
+                <h4>Título:</h4>
+                @Html.DisplayFor(modelItem => item.Titulo)
+                <br /><br />
+                <h4>Descripción:</h4>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </div>
+            <div class="col-sm-4 col-xs-6">
+                @*@Html.DisplayFor(modelItem => item.Licencia)
+                @Html.DisplayFor(modelItem => item.Tipo)*@
+
+                <a href="@Url.Action("Details", "Contenido", new { id = item.Id })">
+                    <div class="col-xs-5 btn boton_rojo btn-default Bcontenidos"><i class="glyphicon glyphicon-comment"></i></div>
+                </a>
+                <a href="@Url.Action("Details", "Contenido", new { id = item.Id })">
+                    <div class="col-xs-5 btn boton_rojo btn-default Bcontenidos"><i class="glyphicon glyphicon-trash"></i></div>
+                </a>
+            </div>
+        </div>
+            
+        if(Model.ElementAt(Model.Count()-1) != item) {<hr id="barra"/>}
+            
+    }
+</div>
+

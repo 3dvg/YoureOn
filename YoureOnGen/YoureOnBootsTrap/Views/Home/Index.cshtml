@@ -11,7 +11,7 @@
     <div class="row">
 
         <div class="col-sm-3">
-            <a href="@Url.Action("Details", "Contenido", new { id = Model.ElementAt(0).Id })"><img src="@Html.DisplayFor(model => model.ElementAt(0).Ruta)" /></a>
+            <a href="@Url.Action("Details", "Contenido", new { id = Model.ElementAt(0).Id })"><img class="foto" src="@Html.DisplayFor(model => model.ElementAt(0).Ruta)" /></a>
             <p class="detalles-index"><b>Título: </b>@Model.ElementAt(0).Titulo</p>
             <p class="detalles-index"><b>Autor: </b>@Model.ElementAt(0).Autor</p>
 

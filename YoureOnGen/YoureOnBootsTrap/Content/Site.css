@@ -6,10 +6,17 @@ body {
     background-color: #fcf2f9;
 }
 
+.boton_rojo {
+    background: #b50707;
+    text-shadow: 2px;
+    color: white; 
+    text-align:center;
+}
+
 .navbar-inverse {
     background-color: #880000;
     border-color: #880000;
-
+    padding: 0 5% 0 5%;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -89,4 +96,35 @@ footer {
     left: 0;
     color: #fcf2f9;
     position:fixed
+}
+
+.foto{
+    height:auto;
+    width:100%;
+}
+
+.hoverDiv{
+    padding:1%;
+}
+
+.hoverDiv:hover {
+    background: rgb(251, 185, 185);
+}
+
+#barra {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 4px;
+    border-radius: 100%;
+}
+
+.Bcontenidos {
+    margin: 2%;
+    font-size: 2em;
+    margin-top: 60%;
+}
+.archivo{
+    font-size:8em;
 }
