@@ -78,7 +78,7 @@ namespace YoureOnBootsTrap.Controllers
             return RedirectToAction("Details", "Contenido", new { id });
         }
         
-        public ActionResult Votar(int id)
+        public ActionResult Votar()
         {
             // Lista de Tipos de faltas
             ViewBag.ListaEnum = ToListSelectListItem<PuntosVotoEnum>();
