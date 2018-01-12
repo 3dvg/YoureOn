@@ -48,8 +48,10 @@ namespace YoureOnBootsTrap.Controllers
         {
             SessionInitialize();
             ContenidoCAD contenidoCad = new ContenidoCAD(session);
+            ContenidoCEN contenidoCen = new ContenidoCEN(contenidoCad);
             ContenidoEN contenidoEn = contenidoCad.ReadOIDDefault(id);
-            ContenidoYComentarios contenido = new AssemblerContenidoYComentarios().ConvertENToModel(contenidoEn);
+            float nota = contenidoCen.GetPuntuacionContenido(id);
+            ContenidoYComentarios contenido = new AssemblerContenidoYComentarios().ConvertENToModel(contenidoEn, nota);
             SessionClose();
 
             // Lista de Tipos de votos
@@ -69,17 +71,18 @@ namespace YoureOnBootsTrap.Controllers
             ContenidoEN contenidoEn = contenidoCad.ReadOIDDefault(id);
             UsuarioCAD usuarioCad = new UsuarioCAD(session);
             UsuarioCP usuario = new UsuarioCP(session);
-
+            ContenidoCEN contenidoCen = new ContenidoCEN(contenidoCad);
+            float nota = contenidoCen.GetPuntuacionContenido(id);
 
             UsuarioEN user = usuarioCad.ReadOIDDefault(User.Identity.GetUserName());
             usuario.Comentar(user.Email, id, model.Comentar);
-            ContenidoYComentarios contenido = new AssemblerContenidoYComentarios().ConvertENToModel(contenidoEn);
+            ContenidoYComentarios contenido = new AssemblerContenidoYComentarios().ConvertENToModel(contenidoEn, nota);
 
             SessionClose();
 
             return RedirectToAction("Details", "Contenido", new { id });
         }
-        
+        [Authorize]
         public ActionResult Votar(int id)
         {
             int voto = Convert.ToInt32(Request.Form["votos"]);
@@ -87,9 +90,19 @@ namespace YoureOnBootsTrap.Controllers
             Debug.WriteLine(id);// id del contenido ej: 32768
             Debug.WriteLine(voto);// voto ej: 5
 
-            //TODO..........................................................................
+            SessionInitialize();
+            ContenidoCAD contenidoCad = new ContenidoCAD(session);
+            ContenidoEN contenidoEn = contenidoCad.ReadOIDDefault(id);
+            ContenidoCEN contenidoCen = new ContenidoCEN(contenidoCad);
+            float nota = contenidoCen.GetPuntuacionContenido(id);
 
-            return View();
+            contenidoCen.Votar(id, voto);
+            ContenidoYComentarios contenido = new AssemblerContenidoYComentarios().ConvertENToModel(contenidoEn, nota);
+
+            SessionClose();
+
+            return RedirectToAction("Details", "Contenido", new { id });
+
         }
 
         // GET: Contenido/Create

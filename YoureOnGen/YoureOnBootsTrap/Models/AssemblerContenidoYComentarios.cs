@@ -8,7 +8,7 @@ namespace YoureOnBootsTrap.Models
 {
     public class AssemblerContenidoYComentarios
     {
-        public ContenidoYComentarios ConvertENToModel(ContenidoEN contenidoEN)
+        public ContenidoYComentarios ConvertENToModel(ContenidoEN contenidoEN, float nota)
         {
             ContenidoYComentarios contenido = new ContenidoYComentarios();
             contenido.Id = contenidoEN.Id_contenido;
@@ -20,6 +20,7 @@ namespace YoureOnBootsTrap.Models
             contenido.EnBibioteca = contenidoEN.EnBiblioteca;
             contenido.Ruta = contenidoEN.Url;
             contenido.FCreacion = contenidoEN.FechaCreacion.Value;
+            contenido.Valoracion = nota;
             //Debug.WriteLine(contenidoEN.Comentario.Count);
             if (contenidoEN.Comentario.Count > 0)
                 contenido.ListaComentarios = contenidoEN.Comentario;

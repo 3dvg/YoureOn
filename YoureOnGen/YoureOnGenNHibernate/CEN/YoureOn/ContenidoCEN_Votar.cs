@@ -19,14 +19,13 @@ namespace YoureOnGenNHibernate.CEN.YoureOn
 {
 public partial class ContenidoCEN
 {
-public void Votar (int p_Contenido_OID, System.Collections.Generic.IList<int> p_valoracion_contenido_OIDs, int nota)
+public void Votar (int p_Contenido_OID, int nota)
 {
         /*PROTECTED REGION ID(YoureOnGenNHibernate.CEN.YoureOn_Contenido_votar) ENABLED START*/
 
-        ValoracionContenidoEN valoracionContenidoEN = new ValoracionContenidoEN ();
-        ContenidoEN contenidoEN = _IContenidoCAD.ReadOIDDefault (p_Contenido_OID);
+        ValoracionContenidoCEN valoracionContenido = new ValoracionContenidoCEN ();
 
-        valoracionContenidoEN = new ValoracionContenidoEN (valoracionContenidoEN.Id_valoracion, contenidoEN, DateTime.Today, nota);
+        valoracionContenido.New_ (DateTime.Today, nota, p_Contenido_OID);
 
         /*PROTECTED REGION END*/
 }

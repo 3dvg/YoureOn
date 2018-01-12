@@ -21,7 +21,7 @@
                     <p><b>Licencia: </b>@Model.Licencia</p>
                     <p><b>Tipo: </b>@Model.Tipo</p>
                 </div>
-
+                <h3>Nota: @Model.Valoracion</h3>
                 <div class="info">
                     @using (Html.BeginForm("Votar", "Contenido", new { id = Model.Id }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
                     {

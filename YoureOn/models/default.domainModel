@@ -90,7 +90,6 @@
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_bv5bYLQMEeeNLtzfOS-B-A" name="votar" type="Void" relatedRol="_X37YYrQZEeeNLtzfOS-B-A">
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TVxloMl_Eeecz-UfwdiNmQ" name="p_Contenido_OID" type="OID" typeObject="_ZBHWYLQLEeeNLtzfOS-B-A"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TVxlocl_Eeecz-UfwdiNmQ" name="p_valoracion_contenido_OIDs" type="OID" collectionType="List" typeObject="_uW-LgLTNEeeTrf7yi8SF_Q"/>
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_q5CwwMmBEeecz-UfwdiNmQ" name="nota" type="Integer"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_qMgBsLlYEee3l8DGwwP8cQ" name="cargarContenido" operationType="ReadOID" type="Object" typeObject="_ZBHWYLQLEeeNLtzfOS-B-A">

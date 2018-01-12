@@ -28,6 +28,7 @@ namespace YoureOnBootsTrap.Models
         public string Ruta { get; set; }
         [ScaffoldColumn(false)]
         public DateTime FCreacion { get; set; }
+        public float Valoracion { get; set; }
 
         [DataType(DataType.Text)]
         [Display(Description = "Comentarios")]

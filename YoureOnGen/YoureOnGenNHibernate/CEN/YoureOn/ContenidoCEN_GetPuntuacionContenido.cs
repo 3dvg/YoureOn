@@ -28,16 +28,20 @@ public float GetPuntuacionContenido (int p_oid)
 
         sumaContenidos = mediaContenidos = 0;
 
-        if (contenido != null) {
-                System.Collections.Generic.IList<ValoracionContenidoEN> lista_valoraciones = contenido.Valoracion_contenido;
-
-
-                foreach (ValoracionContenidoEN val_contenido in lista_valoraciones) {
-                        sumaContenidos += val_contenido.Nota;
+        if (contenido != null)
+                if (contenido.Valoracion_contenido.Count == 0) {
+                        return mediaContenidos;
                 }
+                else{
+                        System.Collections.Generic.IList<ValoracionContenidoEN> lista_valoraciones = contenido.Valoracion_contenido;
 
-                mediaContenidos = sumaContenidos / lista_valoraciones.Count;
-        }
+
+                        foreach (ValoracionContenidoEN val_contenido in lista_valoraciones) {
+                                sumaContenidos += val_contenido.Nota;
+                        }
+
+                        mediaContenidos = sumaContenidos / lista_valoraciones.Count;
+                }
         return mediaContenidos;
 
         /*PROTECTED REGION END*/
