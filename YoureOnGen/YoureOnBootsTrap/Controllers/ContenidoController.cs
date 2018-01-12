@@ -77,13 +77,117 @@ namespace YoureOnBootsTrap.Controllers
 
             return RedirectToAction("Details", "Contenido", new { id });
         }
-        
-        public ActionResult Votar(int id)
+
+        /*public ActionResult Votar(int id)
         {
-            // Lista de Tipos de faltas
+            var votos = new List<VotosContenidos>();
+
+            votos.Add(new VotosContenidos()
+            {
+                Descripcion = "1",
+                Valor = PuntosVotoEnum.uno
+            });
+            votos.Add(new VotosContenidos()
+            {
+                Descripcion = "2",
+                Valor = PuntosVotoEnum.dos
+            });
+            votos.Add(new VotosContenidos()
+            {
+                Descripcion = "3",
+                Valor = PuntosVotoEnum.tres
+            });
+            votos.Add(new VotosContenidos()
+            {
+                Descripcion = "4",
+                Valor = PuntosVotoEnum.cuatro
+            });
+            votos.Add(new VotosContenidos()
+            {
+                Descripcion = "5",
+                Valor = PuntosVotoEnum.cinco
+            });
+            votos.Add(new VotosContenidos()
+            {
+                Descripcion = "6",
+                Valor = PuntosVotoEnum.seis
+            });
+            votos.Add(new VotosContenidos()
+            {
+                Descripcion = "7",
+                Valor = PuntosVotoEnum.siete
+            });
+            votos.Add(new VotosContenidos()
+            {
+                Descripcion = "8",
+                Valor = PuntosVotoEnum.ocho
+            });
+            votos.Add(new VotosContenidos()
+            {
+                Descripcion = "9",
+                Valor = PuntosVotoEnum.nueve
+            });
+            votos.Add(new VotosContenidos()
+            {
+                Descripcion = "10",
+                Valor = PuntosVotoEnum.diez
+            });
+
             ViewBag.ListaEnum = ToListSelectListItem<PuntosVotoEnum>();
+
             return View();
         }
+
+        public ActionResult CreateVotos(Contenido con, FormCollection collection)
+        {
+            try
+            {
+                int dato = Convert.ToInt32(Request.Form["votos"]);
+                ValoracionContenidoCAD votoCad = new ValoracionContenidoCAD();
+                ValoracionContenidoCEN vCEN = new ValoracionContenidoCEN(votoCad);
+
+                switch (dato)
+                {
+                    case (int)PuntosVotoEnum.uno:
+                        vCEN.New_(DateTime.Now, 1, con.Id);
+                        break;
+                    case (int)PuntosVotoEnum.dos:
+                        vCEN.New_(DateTime.Now, 2, con.Id);
+                        break;
+                    case (int)PuntosVotoEnum.tres:
+                        vCEN.New_(DateTime.Now, 3, con.Id);
+                        break;
+                    case (int)PuntosVotoEnum.cuatro:
+                        vCEN.New_(DateTime.Now, 4, con.Id);
+                        break;
+                    case (int)PuntosVotoEnum.cinco:
+                        vCEN.New_(DateTime.Now, 5, con.Id);
+                        break;
+                    case (int)PuntosVotoEnum.seis:
+                        vCEN.New_(DateTime.Now, 6, con.Id);
+                        break;
+                    case (int)PuntosVotoEnum.siete:
+                        vCEN.New_(DateTime.Now, 7, con.Id);
+                        break;
+                    case (int)PuntosVotoEnum.ocho:
+                        vCEN.New_(DateTime.Now, 8, con.Id);
+                        break;
+                    case (int)PuntosVotoEnum.nueve:
+                        vCEN.New_(DateTime.Now, 9, con.Id);
+                        break;
+                    case (int)PuntosVotoEnum.diez:
+                        vCEN.New_(DateTime.Now, 10, con.Id);
+                        break;
+                }
+
+                return RedirectToAction("Details", new { Id = con.Id });
+            }
+            catch
+            {
+                return View();
+            }
+        }*/
+
 
         // GET: Contenido/Create
         [Authorize]
