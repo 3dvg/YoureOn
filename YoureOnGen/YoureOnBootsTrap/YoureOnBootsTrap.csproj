@@ -210,7 +210,6 @@
     <Compile Include="Models\AssemblerContenidoYComentarios.cs" />
     <Compile Include="Models\AssemblerFalta.cs" />
     <Compile Include="Models\AssemblerUsuario.cs" />
-    <Compile Include="Models\AssemblerVotos.cs" />
     <Compile Include="Models\Contenido.cs" />
     <Compile Include="Models\ContenidoYComentarios.cs" />
     <Compile Include="Models\Falta.cs" />
@@ -312,7 +311,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\AssemblerVotos\" />
     <Folder Include="Views\ContenidoYComentarios\" />
   </ItemGroup>
   <ItemGroup>

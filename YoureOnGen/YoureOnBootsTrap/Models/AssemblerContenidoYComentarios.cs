@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using YoureOnGenNHibernate.EN.YoureOn;
-using YoureOnGenNHibernate.Enumerated.YoureOn;
 
 namespace YoureOnBootsTrap.Models
 {

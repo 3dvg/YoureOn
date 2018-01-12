@@ -46,12 +46,4 @@ namespace YoureOnBootsTrap.Models
         [Display(Name = "Comentarios")]
         public string Comentar { get; set; }
     }
-    public class VotosContenidos
-    {
-        public int id { get; set; }
-        public string Descripcion { get; set; }
-        public PuntosVotoEnum Valor { get; set; }
-        public DateTime? Fecha { get; set; }
-        public float Nota { get; set; }
-    }
 }
