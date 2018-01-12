@@ -308,7 +308,6 @@
     <Content Include="Views\Contenido\Index.cshtml" />
     <Content Include="Views\Contenido\Biblioteca.cshtml" />
     <Content Include="Views\Contenido\Buscar.cshtml" />
-    <Content Include="Views\Contenido\Votar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
