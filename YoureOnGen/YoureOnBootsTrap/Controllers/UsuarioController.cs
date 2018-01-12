@@ -13,6 +13,7 @@ using System.Diagnostics;
 
 namespace YoureOnBootsTrap.Controllers
 {
+    [Authorize]
     public class UsuarioController : BasicController
     {
         string rolPerfilPublico = "UsuarioPublico";
@@ -139,33 +140,5 @@ namespace YoureOnBootsTrap.Controllers
                 return View();
             }
         }
-
-
-
-
-
-
-
-
-
-
-        //GET: Usuario/Contenidos
-        /*public ActionResult Contenidos()
-        {
-            SessionInitialize();
-            UsuarioEN usuarioen = new UsuarioCAD(session).CargarPerfil(User.Identity.Name);
-            IList<Contenido> contenidos = new AssemblerUsuario().ConvertContenidosENToModel(usuarioen);
-            SessionClose();
-            return View(contenidos);
-        }
-
-        public ActionResult Biblioteca()
-        {
-            SessionInitialize();
-            UsuarioEN usuarioen = new UsuarioCAD(session).CargarPerfil(User.Identity.Name);
-            IList<Contenido> contenidos = new AssemblerUsuario().ConvertBibliotecaENToModel(usuarioen);
-            SessionClose();
-            return View(contenidos);
-        }*/
     }
 }
