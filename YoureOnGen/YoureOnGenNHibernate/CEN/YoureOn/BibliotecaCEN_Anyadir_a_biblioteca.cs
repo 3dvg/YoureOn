@@ -21,11 +21,18 @@ public partial class BibliotecaCEN
 {
 public void Anyadir_a_biblioteca (int biblioteca_oid, YoureOnGenNHibernate.EN.YoureOn.ContenidoEN contenido)
 {
-        /*PROTECTED REGION ID(YoureOnGenNHibernate.CEN.YoureOn_Biblioteca_anyadir_a_biblioteca) ENABLED START*/
+            /*PROTECTED REGION ID(YoureOnGenNHibernate.CEN.YoureOn_Biblioteca_anyadir_a_biblioteca) ENABLED START*/
 
-        // Write here your custom code...
+            // Write here your custom code...
 
-        throw new NotImplementedException ("Method Anyadir_a_biblioteca() not yet implemented.");
+            BibliotecaEN bibliotecaEN = _IBibliotecaCAD.CargarBiblioteca(biblioteca_oid);
+
+            bibliotecaEN.Contenido.Add(contenido);
+
+
+            _IBibliotecaCAD.Modify(bibliotecaEN);
+
+            //throw new NotImplementedException ("Method Anyadir_a_biblioteca() not yet implemented.");
 
         /*PROTECTED REGION END*/
 }

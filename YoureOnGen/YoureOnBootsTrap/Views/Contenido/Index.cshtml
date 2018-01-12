@@ -2,37 +2,57 @@
 
 <h2>Mis contenidos</h2>
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Titulo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Descripcion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Licencia)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Tipo)
-        </th>
-    </tr>
+<div>
+    @if (Model.Count() != 0)
+    {
+        foreach (var item in Model)
+        {
+             <div class="hoverDiv row">
+                <div class="col-sm-4">
+                    @{
+                        switch (item.Tipo)
+                        {
+                            case YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum.audio:
+                                <a href="@Url.Action("Details", "Contenido", new { id = item.Id })"><div class="foto boton_rojo archivo"><i class="glyphicon glyphicon-volume-up" ></i></div></a>
+                                break;
+                            case YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum.imagen:
+                                <a href="@Url.Action("Details", "Contenido", new { id = item.Id })"><img class="foto" src="@Html.DisplayFor(model => item.Ruta)" /></a>
+                                break;
+                            case YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum.texto:
+                                <a href="@Url.Action("Details", "Contenido", new { id = item.Id })"><div class="foto boton_rojo archivo"><i class="glyphicon glyphicon-book" ></i></div></a>
+                                break;
+                            case YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum.video:
+                                <a href="@Url.Action("Details", "Contenido", new { id = item.Id })"><div class="foto boton_rojo archivo"><i class="glyphicon glyphicon-facetime-video" ></i></div></a>
+                                break;
+                        }
+                    }
+                </div>
+                <div class="col-sm-4 col-xs-6">
+                    <h4>Título:</h4>
+                    @Html.DisplayFor(modelItem => item.Titulo)
+                    <br /><br />
+                    <h4>Descripción:</h4>
+                    @Html.DisplayFor(modelItem => item.Descripcion)
+                </div>
+                <div class="col-sm-4 col-xs-6">
+                    @*@Html.DisplayFor(modelItem => item.Licencia)
+                    @Html.DisplayFor(modelItem => item.Tipo)*@
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Titulo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Descripcion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Licencia)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Tipo)
-        </td>
-    </tr>
-}
+                    <a href="@Url.Action("Details", "Contenido", new { id = item.Id })">
+                        <div class="col-xs-5 btn boton_rojo btn-default Bcontenidos"><i class="glyphicon glyphicon-comment"></i></div>
+                    </a>
+                    <a href="@Url.Action("Delete", "Contenido", new { id = item.Id })">
+                        <div class="col-xs-5 btn boton_rojo btn-default Bcontenidos"><i class="glyphicon glyphicon-trash"></i></div>
+                    </a>
+                </div>
+            </div>
 
-</table>
+            if (Model.ElementAt(Model.Count() - 1) != item)
+            {<hr id="barra"/>}
+
+        }
+    }else {
+        <p>Aún no tienes ningún contenido. ¿Qué esperas para subir algo?</p>           
+    }
+</div>
+

@@ -29,22 +29,6 @@ C:\Users\José Manuel\source\repos\YoureOn\YoureOnGen\YoureOnGenNHibernate\bin\D
 C:\Users\José Manuel\source\repos\YoureOn\YoureOnGen\YoureOnGenNHibernate\obj\Debug\YoureOnGenNHibernate.csproj.CoreCompileInputs.cache
 C:\Users\José Manuel\source\repos\YoureOn\YoureOnGen\YoureOnGenNHibernate\obj\Debug\YoureOnGenNHibernate.dll
 C:\Users\José Manuel\source\repos\YoureOn\YoureOnGen\YoureOnGenNHibernate\obj\Debug\YoureOnGenNHibernate.pdb
-C:\Users\Marieta\Desktop\YoureOn\YoureOnGen\YoureOnGenNHibernate\bin\Debug\hibernate.cfg.xml
-C:\Users\Marieta\Desktop\YoureOn\YoureOnGen\YoureOnGenNHibernate\bin\Debug\YoureOnGenNHibernate.dll.config
-C:\Users\Marieta\Desktop\YoureOn\YoureOnGen\YoureOnGenNHibernate\bin\Debug\YoureOnGenNHibernate.dll
-C:\Users\Marieta\Desktop\YoureOn\YoureOnGen\YoureOnGenNHibernate\bin\Debug\YoureOnGenNHibernate.pdb
-C:\Users\Marieta\Desktop\YoureOn\YoureOnGen\YoureOnGenNHibernate\bin\Debug\Castle.DynamicProxy2.dll
-C:\Users\Marieta\Desktop\YoureOn\YoureOnGen\YoureOnGenNHibernate\bin\Debug\LinFu.DynamicProxy.dll
-C:\Users\Marieta\Desktop\YoureOn\YoureOnGen\YoureOnGenNHibernate\bin\Debug\NHibernate.ByteCode.Castle.dll
-C:\Users\Marieta\Desktop\YoureOn\YoureOnGen\YoureOnGenNHibernate\bin\Debug\NHibernate.ByteCode.LinFu.dll
-C:\Users\Marieta\Desktop\YoureOn\YoureOnGen\YoureOnGenNHibernate\bin\Debug\NHibernate.dll
-C:\Users\Marieta\Desktop\YoureOn\YoureOnGen\YoureOnGenNHibernate\bin\Debug\Iesi.Collections.dll
-C:\Users\Marieta\Desktop\YoureOn\YoureOnGen\YoureOnGenNHibernate\bin\Debug\Antlr3.Runtime.dll
-C:\Users\Marieta\Desktop\YoureOn\YoureOnGen\YoureOnGenNHibernate\bin\Debug\log4net.dll
-C:\Users\Marieta\Desktop\YoureOn\YoureOnGen\YoureOnGenNHibernate\obj\Debug\YoureOnGenNHibernate.csprojResolveAssemblyReference.cache
-C:\Users\Marieta\Desktop\YoureOn\YoureOnGen\YoureOnGenNHibernate\obj\Debug\YoureOnGenNHibernate.csproj.CoreCompileInputs.cache
-C:\Users\Marieta\Desktop\YoureOn\YoureOnGen\YoureOnGenNHibernate\obj\Debug\YoureOnGenNHibernate.dll
-C:\Users\Marieta\Desktop\YoureOn\YoureOnGen\YoureOnGenNHibernate\obj\Debug\YoureOnGenNHibernate.pdb
 C:\ooh4ria\workspaceMars\YoureOnGen\YoureOnGenNHibernate\bin\Debug\hibernate.cfg.xml
 C:\ooh4ria\workspaceMars\YoureOnGen\YoureOnGenNHibernate\bin\Debug\YoureOnGenNHibernate.dll.config
 C:\ooh4ria\workspaceMars\YoureOnGen\YoureOnGenNHibernate\bin\Debug\YoureOnGenNHibernate.dll
@@ -77,3 +61,34 @@ C:\Users\Marieta\Documents\YoureOn\YoureOnGen\YoureOnGenNHibernate\obj\Debug\You
 C:\Users\Marieta\Documents\YoureOn\YoureOnGen\YoureOnGenNHibernate\obj\Debug\YoureOnGenNHibernate.csproj.CoreCompileInputs.cache
 C:\Users\Marieta\Documents\YoureOn\YoureOnGen\YoureOnGenNHibernate\obj\Debug\YoureOnGenNHibernate.dll
 C:\Users\Marieta\Documents\YoureOn\YoureOnGen\YoureOnGenNHibernate\obj\Debug\YoureOnGenNHibernate.pdb
+C:\Users\José Manuel\Documents\workspace\YoureOn\YoureOnGen\YoureOnGenNHibernate\bin\Debug\hibernate.cfg.xml
+C:\Users\José Manuel\Documents\workspace\YoureOn\YoureOnGen\YoureOnGenNHibernate\bin\Debug\YoureOnGenNHibernate.dll.config
+C:\Users\José Manuel\Documents\workspace\YoureOn\YoureOnGen\YoureOnGenNHibernate\bin\Debug\YoureOnGenNHibernate.dll
+C:\Users\José Manuel\Documents\workspace\YoureOn\YoureOnGen\YoureOnGenNHibernate\bin\Debug\YoureOnGenNHibernate.pdb
+C:\Users\José Manuel\Documents\workspace\YoureOn\YoureOnGen\YoureOnGenNHibernate\bin\Debug\Castle.DynamicProxy2.dll
+C:\Users\José Manuel\Documents\workspace\YoureOn\YoureOnGen\YoureOnGenNHibernate\bin\Debug\LinFu.DynamicProxy.dll
+C:\Users\José Manuel\Documents\workspace\YoureOn\YoureOnGen\YoureOnGenNHibernate\bin\Debug\NHibernate.ByteCode.Castle.dll
+C:\Users\José Manuel\Documents\workspace\YoureOn\YoureOnGen\YoureOnGenNHibernate\bin\Debug\NHibernate.ByteCode.LinFu.dll
+C:\Users\José Manuel\Documents\workspace\YoureOn\YoureOnGen\YoureOnGenNHibernate\bin\Debug\NHibernate.dll
+C:\Users\José Manuel\Documents\workspace\YoureOn\YoureOnGen\YoureOnGenNHibernate\bin\Debug\Iesi.Collections.dll
+C:\Users\José Manuel\Documents\workspace\YoureOn\YoureOnGen\YoureOnGenNHibernate\bin\Debug\Antlr3.Runtime.dll
+C:\Users\José Manuel\Documents\workspace\YoureOn\YoureOnGen\YoureOnGenNHibernate\bin\Debug\log4net.dll
+C:\Users\José Manuel\Documents\workspace\YoureOn\YoureOnGen\YoureOnGenNHibernate\obj\Debug\YoureOnGenNHibernate.csproj.CoreCompileInputs.cache
+C:\Users\José Manuel\Documents\workspace\YoureOn\YoureOnGen\YoureOnGenNHibernate\obj\Debug\YoureOnGenNHibernate.dll
+C:\Users\José Manuel\Documents\workspace\YoureOn\YoureOnGen\YoureOnGenNHibernate\obj\Debug\YoureOnGenNHibernate.pdb
+C:\Users\Marieta\Desktop\YoureOn\YoureOnGen\YoureOnGenNHibernate\bin\Debug\hibernate.cfg.xml
+C:\Users\Marieta\Desktop\YoureOn\YoureOnGen\YoureOnGenNHibernate\bin\Debug\YoureOnGenNHibernate.dll.config
+C:\Users\Marieta\Desktop\YoureOn\YoureOnGen\YoureOnGenNHibernate\bin\Debug\YoureOnGenNHibernate.dll
+C:\Users\Marieta\Desktop\YoureOn\YoureOnGen\YoureOnGenNHibernate\bin\Debug\YoureOnGenNHibernate.pdb
+C:\Users\Marieta\Desktop\YoureOn\YoureOnGen\YoureOnGenNHibernate\bin\Debug\Castle.DynamicProxy2.dll
+C:\Users\Marieta\Desktop\YoureOn\YoureOnGen\YoureOnGenNHibernate\bin\Debug\LinFu.DynamicProxy.dll
+C:\Users\Marieta\Desktop\YoureOn\YoureOnGen\YoureOnGenNHibernate\bin\Debug\NHibernate.ByteCode.Castle.dll
+C:\Users\Marieta\Desktop\YoureOn\YoureOnGen\YoureOnGenNHibernate\bin\Debug\NHibernate.ByteCode.LinFu.dll
+C:\Users\Marieta\Desktop\YoureOn\YoureOnGen\YoureOnGenNHibernate\bin\Debug\NHibernate.dll
+C:\Users\Marieta\Desktop\YoureOn\YoureOnGen\YoureOnGenNHibernate\bin\Debug\Iesi.Collections.dll
+C:\Users\Marieta\Desktop\YoureOn\YoureOnGen\YoureOnGenNHibernate\bin\Debug\Antlr3.Runtime.dll
+C:\Users\Marieta\Desktop\YoureOn\YoureOnGen\YoureOnGenNHibernate\bin\Debug\log4net.dll
+C:\Users\Marieta\Desktop\YoureOn\YoureOnGen\YoureOnGenNHibernate\obj\Debug\YoureOnGenNHibernate.csprojResolveAssemblyReference.cache
+C:\Users\Marieta\Desktop\YoureOn\YoureOnGen\YoureOnGenNHibernate\obj\Debug\YoureOnGenNHibernate.csproj.CoreCompileInputs.cache
+C:\Users\Marieta\Desktop\YoureOn\YoureOnGen\YoureOnGenNHibernate\obj\Debug\YoureOnGenNHibernate.dll
+C:\Users\Marieta\Desktop\YoureOn\YoureOnGen\YoureOnGenNHibernate\obj\Debug\YoureOnGenNHibernate.pdb

@@ -49,14 +49,16 @@ namespace YoureOnBootsTrap.Controllers
             SessionInitialize();
             ContenidoCAD contenidoCad = new ContenidoCAD(session);
             ContenidoEN contenidoEn = contenidoCad.ReadOIDDefault(id);
-
             ContenidoYComentarios contenido = new AssemblerContenidoYComentarios().ConvertENToModel(contenidoEn);
-
             SessionClose();
+
+            // Lista de Tipos de votos
+            ViewBag.ListaEnum = ToListSelectListItem<PuntosVotoEnum>();
 
             //el contenido tiene que pasar a través del modelo
             return View(contenido);
         }
+
         //Débora: Comentar en detalle foto
         [Authorize]
         // POST: Contenido/Comentar/5
@@ -80,8 +82,13 @@ namespace YoureOnBootsTrap.Controllers
         
         public ActionResult Votar(int id)
         {
-            // Lista de Tipos de faltas
-            ViewBag.ListaEnum = ToListSelectListItem<PuntosVotoEnum>();
+            int voto = Convert.ToInt32(Request.Form["votos"]);
+
+            Debug.WriteLine(id);// id del contenido ej: 32768
+            Debug.WriteLine(voto);// voto ej: 5
+
+            //TODO..........................................................................
+
             return View();
         }
 
@@ -223,79 +230,74 @@ namespace YoureOnBootsTrap.Controllers
             return View(lista);
         }
 
-        /* Esto está en el index de index.cshtml
-	public ActionResult MostrarFotos()
+        // GET: Contenido/Delete/5
+        [Authorize]
+        public ActionResult Delete(int id)
         {
-            SessionInitialize();
-            ContenidoCAD contenidosCad = new ContenidoCAD(session);
-            ContenidoCEN contenidosCen = new ContenidoCEN(contenidosCad);
-            IList<ContenidoEN> contenidos = contenidosCen.DameContenidoPorFecha(DateTime.Today);
-
-            IEnumerable<Contenido> listaContenidos = new AssemblerContenido().ConvertListENToModel(contenidos).ToList();
-            for (int i = 0; i < listaContenidos.Count<Contenido>(); i++)
-                if (listaContenidos.ElementAt<Contenido>(i) == null)
-                    ViewData["Contenido"] = "Esto no funciona";
-                else
-                    ViewData["Contenido"] = listaContenidos.ElementAt<Contenido>(i).Ruta;
-
-            SessionClose();
-            return View(listaContenidos);
-        }*/
-
-            /* public ActionResult Edit()
-             {*/
-            /*int id = 32768;
-            SessionInitialize();
-            ContenidoEN usuarioen = new ContenidoCAD(session).ReadOIDDefault(id);
-            Contenido usu = new AssemblerContenido().ConvertENToModelUI(usuarioen);
-            SessionClose();
-            return View(usu);*/
-            /*return View();
-        }*/
-
-            // POST: Usuario/Editar
-            /*[HttpPost]
-            public ActionResult Edit(Contenido u)
+            try
             {
-                try
-                {
-                    // TODO: Add delete logic here
-
-                    return RedirectToAction("Index");
-                }
-                catch
-                {
-                    return View();
-                }
-            }*/
-
-            // GET: Contenido/Delete/5
-            /*public ActionResult Delete(int id)
+                ContenidoCAD dirCAD = new ContenidoCAD();
+                dirCAD.Borrar(id);
+                return RedirectToAction("Index");
+            }
+            catch
             {
                 return View();
-            }*/
+            }
+        }
 
-            // POST: Contenido/Delete/5
-            /*[HttpPost]
-            public ActionResult Delete(int id, FormCollection collection)
+    /* Esto está en el index de index.cshtml
+public ActionResult MostrarFotos()
+    {
+        SessionInitialize();
+        ContenidoCAD contenidosCad = new ContenidoCAD(session);
+        ContenidoCEN contenidosCen = new ContenidoCEN(contenidosCad);
+        IList<ContenidoEN> contenidos = contenidosCen.DameContenidoPorFecha(DateTime.Today);
+
+        IEnumerable<Contenido> listaContenidos = new AssemblerContenido().ConvertListENToModel(contenidos).ToList();
+        for (int i = 0; i < listaContenidos.Count<Contenido>(); i++)
+            if (listaContenidos.ElementAt<Contenido>(i) == null)
+                ViewData["Contenido"] = "Esto no funciona";
+            else
+                ViewData["Contenido"] = listaContenidos.ElementAt<Contenido>(i).Ruta;
+
+        SessionClose();
+        return View(listaContenidos);
+    }*/
+
+        /* public ActionResult Edit()
+         {*/
+        /*int id = 32768;
+        SessionInitialize();
+        ContenidoEN usuarioen = new ContenidoCAD(session).ReadOIDDefault(id);
+        Contenido usu = new AssemblerContenido().ConvertENToModelUI(usuarioen);
+        SessionClose();
+        return View(usu);*/
+        /*return View();
+    }*/
+
+        // POST: Usuario/Editar
+        /*[HttpPost]
+        public ActionResult Edit(Contenido u)
+        {
+            try
             {
-                try
-                {
-                    // TODO: Add delete logic here
+                // TODO: Add delete logic here
 
-                    return RedirectToAction("Index");
-                }
-                catch
-                {
-                    return View();
-                }
-            }*/
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }*/
+
 
 
         [Authorize]
         public ActionResult Biblioteca()
         {
-            /*IList<Biblioteca> lista = new List<Biblioteca>();
+            IList<Contenido> lista = new List<Contenido>();
 
             SessionInitialize();
             UsuarioEN usuarioen = new UsuarioCAD(session).ReadOIDDefault(User.Identity.GetUserName());
@@ -303,17 +305,15 @@ namespace YoureOnBootsTrap.Controllers
 
             if (usu.Biblioteca != null)
             {
-
                 // Copiamos los datos para la vista
-                foreach (BibliotecaEN f in usu.Biblioteca)
+                foreach (ContenidoEN f in usu.Biblioteca)
                 {
-                    Biblioteca b = new AssemblerBiblioteca().ConvertENToModelUI(f);
-                    lista.Add(b);
+                    Contenido c = new AssemblerContenido().ConvertENToModelUI(f);
+                    lista.Add(c);
                 }
             }
             SessionClose();
-            return View(lista);*/
-            return View();
+            return View(lista);
         }
 
         // Para sacar los datos de un enum y meterlos en una lista
