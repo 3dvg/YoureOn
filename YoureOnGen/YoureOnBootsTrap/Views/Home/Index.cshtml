@@ -11,25 +11,89 @@
     <div class="row">
 
         <div class="col-sm-3">
-            <a href="@Url.Action("Details", "Contenido", new { id = Model.ElementAt(0).Id })"><img class="foto" src="@Html.DisplayFor(model => model.ElementAt(0).Ruta)" /></a>
+            @{
+                switch (Model.ElementAt(0).Tipo)
+                {
+                    case YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum.audio:
+                        <a href="@Url.Action("Details", "Contenido", new { id = Model.ElementAt(0).Id })"><div class="foto boton_rojo archivo"><i class="glyphicon glyphicon-volume-up"></i></div></a>
+                        break;
+                    case YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum.imagen:
+                        <a href="@Url.Action("Details", "Contenido", new { id = Model.ElementAt(0).Id })"><img class="foto" src="@Html.DisplayFor(model => model.ElementAt(0).Ruta)" /></a>
+                        break;
+                    case YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum.texto:
+                        <a href="@Url.Action("Details", "Contenido", new { id = Model.ElementAt(0).Id })"><div class="foto boton_rojo archivo"><i class="glyphicon glyphicon-book"></i></div></a>
+                        break;
+                    case YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum.video:
+                        <a href="@Url.Action("Details", "Contenido", new { id = Model.ElementAt(0).Id })"><div class="foto boton_rojo archivo"><i class="glyphicon glyphicon-facetime-video"></i></div></a>
+                        break;
+                }
+            }
             <p class="detalles-index"><b>Título: </b>@Model.ElementAt(0).Titulo</p>
             <p class="detalles-index"><b>Autor: </b>@Model.ElementAt(0).Autor</p>
 
         </div>
         <div class="col-sm-3">
-            <a href="@Url.Action("Details", "Contenido",  new { id = Model.ElementAt(1).Id })"><img src="@Html.DisplayFor(model => model.ElementAt(1).Ruta)" /></a>
+            @{
+                switch (Model.ElementAt(1).Tipo)
+                {
+                    case YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum.audio:
+                        <a href="@Url.Action("Details", "Contenido", new { id = Model.ElementAt(1).Id })"><div class="foto boton_rojo archivo"><i class="glyphicon glyphicon-volume-up"></i></div></a>
+                        break;
+                    case YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum.imagen:
+                        <a href="@Url.Action("Details", "Contenido", new { id = Model.ElementAt(1).Id })"><img class="foto" src="@Html.DisplayFor(model => model.ElementAt(1).Ruta)" /></a>
+                        break;
+                    case YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum.texto:
+                        <a href="@Url.Action("Details", "Contenido", new { id = Model.ElementAt(1).Id })"><div class="foto boton_rojo archivo"><i class="glyphicon glyphicon-book"></i></div></a>
+                        break;
+                    case YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum.video:
+                        <a href="@Url.Action("Details", "Contenido", new { id = Model.ElementAt(1).Id })"><div class="foto boton_rojo archivo"><i class="glyphicon glyphicon-facetime-video"></i></div></a>
+                        break;
+                }
+            }
             <p class="detalles-index"><b>Título: </b>@Model.ElementAt(1).Titulo</p>
             <p class="detalles-index"><b>Autor: </b>@Model.ElementAt(1).Autor</p>
 
         </div>
         <div class="col-sm-3">
-            <a href="@Url.Action("Details", "Contenido",  new { id = Model.ElementAt(2).Id })"><img src="@Html.DisplayFor(model => model.ElementAt(2).Ruta)" /></a>
+            @{
+                switch (Model.ElementAt(2).Tipo)
+                {
+                    case YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum.audio:
+                        <a href="@Url.Action("Details", "Contenido", new { id = Model.ElementAt(2).Id })"><div class="foto boton_rojo archivo"><i class="glyphicon glyphicon-volume-up"></i></div></a>
+                        break;
+                    case YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum.imagen:
+                        <a href="@Url.Action("Details", "Contenido", new { id = Model.ElementAt(2).Id })"><img class="foto" src="@Html.DisplayFor(model => model.ElementAt(2).Ruta)" /></a>
+                        break;
+                    case YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum.texto:
+                        <a href="@Url.Action("Details", "Contenido", new { id = Model.ElementAt(2).Id })"><div class="foto boton_rojo archivo"><i class="glyphicon glyphicon-book"></i></div></a>
+                        break;
+                    case YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum.video:
+                        <a href="@Url.Action("Details", "Contenido", new { id = Model.ElementAt(2).Id })"><div class="foto boton_rojo archivo"><i class="glyphicon glyphicon-facetime-video"></i></div></a>
+                        break;
+                }
+            }
             <p class="detalles-index"><b>Título: </b>@Model.ElementAt(2).Titulo</p>
             <p class="detalles-index"><b>Autor: </b>@Model.ElementAt(2).Autor</p>
 
         </div>
         <div class="col-sm-3">
-            <a href="@Url.Action("Details", "Contenido",  new { id = Model.ElementAt(3).Id })"><img src="@Html.DisplayFor(model => model.ElementAt(3).Ruta)" /></a>
+            @{
+                switch (Model.ElementAt(3).Tipo)
+                {
+                    case YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum.audio:
+                        <a href="@Url.Action("Details", "Contenido", new { id = Model.ElementAt(3).Id })"><div class="foto boton_rojo archivo"><i class="glyphicon glyphicon-volume-up"></i></div></a>
+                        break;
+                    case YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum.imagen:
+                        <a href="@Url.Action("Details", "Contenido", new { id = Model.ElementAt(3).Id })"><img class="foto" src="@Html.DisplayFor(model => model.ElementAt(3).Ruta)" /></a>
+                        break;
+                    case YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum.texto:
+                        <a href="@Url.Action("Details", "Contenido", new { id = Model.ElementAt(3).Id })"><div class="foto boton_rojo archivo"><i class="glyphicon glyphicon-book"></i></div></a>
+                        break;
+                    case YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum.video:
+                        <a href="@Url.Action("Details", "Contenido", new { id = Model.ElementAt(3).Id })"><div class="foto boton_rojo archivo"><i class="glyphicon glyphicon-facetime-video"></i></div></a>
+                        break;
+                }
+            }
             <p class="detalles-index"><b>Título: </b>@Model.ElementAt(3).Titulo</p>
             <p class="detalles-index"><b>Autor: </b>@Model.ElementAt(3).Autor</p>
 

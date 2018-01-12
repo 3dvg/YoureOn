@@ -10,8 +10,26 @@
     <hr />
     <div class="container-fluid">
         <div class="row-contenido">
-            <div class="col-sm-9">
-                <img src="@Html.DisplayFor(model => model.Ruta)" />
+            <p class="col-sm-9">
+                @{
+                    switch (Model.Tipo)
+                    {
+                        case YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum.audio:
+                            <p><div class="foto boton_rojo archivo"><i class="glyphicon glyphicon-volume-up"></i></div></p>
+                            <audio src="@Html.DisplayFor(model => model.Ruta)" controls autoplay />
+                            break;
+                        case YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum.imagen:
+                            <img class="foto" src="@Html.DisplayFor(model => model.Ruta)" />
+                            break;
+                        case YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum.texto:
+                            <embed class="foto" src="@Html.DisplayFor(model => model.Ruta)">
+                            break;
+                        case YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum.video:
+                            <iframe src="@Html.DisplayFor(model => model.Ruta)" allowfullscreen></iframe>
+                            break;
+                    }
+                }
+
             </div>
             <div class="col-sm-3">
                 <div class="info">

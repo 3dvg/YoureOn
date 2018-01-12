@@ -105,12 +105,12 @@ public static void InitializeData ()
                 int contenidoID3 = contenido.SubirContenido ("Emoji", TipoArchivoEnum.imagen, "contenidoimagen", TipoLicenciaEnum.CC_BY_NC, email3, "autor", false, @"/Archivos/foto3.jpg", DateTime.Now);
                 int contenidoID4 = contenido.SubirContenido ("Pues una foto", YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum.imagen, "es una foto", TipoLicenciaEnum.CC_BY_NC_SA, email1, "fotografo", false, @"/Archivos/foto4.jpg", DateTime.Now);
                 int contenidoID5 = contenido.SubirContenido ("Libro Gordo", TipoArchivoEnum.texto, "contenidotexto", TipoLicenciaEnum.CC_BY_NC_ND, email4, "Peres-Reverte", false, @"/Archivos/Perez-Reverte, Arturo - Alatriste 1 - El capitan Alatriste.pdf", DateTime.Now);
-                int contenidoID6 = contenido.SubirContenido ("Libro Gordo", YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum.video, "contenidovideo", TipoLicenciaEnum.CC_BY_ND, email1, "Muse", false, @"https://www.youtube.com/watch?v=3dm_5qWWDV8", DateTime.Now);
-                int contenidoID7 = contenido.SubirContenido ("Song 84", YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum.audio, "contenidoaudio", TipoLicenciaEnum.Sin_licencia, email3, "Blor", true, @"https://www.youtube.com/watch?v=3dm_5qWWDV8", DateTime.Now);
+                int contenidoID6 = contenido.SubirContenido ("Histeria", YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum.video, "contenidovideo", TipoLicenciaEnum.CC_BY_ND, email1, "Muse", false, @"/Archivos/Histeria.mp4", DateTime.Now);
+                int contenidoID7 = contenido.SubirContenido ("Song 84", YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum.audio, "contenidoaudio", TipoLicenciaEnum.Sin_licencia, email3, "Blor", true, @"/Archivos/Histeria.mp4", DateTime.Now);
 
                 System.Console.WriteLine ("Creando video");
                 VideoCEN videoCEN = new VideoCEN ();
-                int videoID1 = videoCEN.New_ ("Titulo", YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum.video, "Descripcion", TipoLicenciaEnum.Sin_licencia, email4, "Conde Mor", false, @"https://www.youtube.com/watch?v=3dm_5qWWDV8", DateTime.Now, 200, 1080, YoureOnGenNHibernate.Enumerated.YoureOn.FormatoVideoEnum.avi);
+                int videoID1 = videoCEN.New_ ("Titulo", YoureOnGenNHibernate.Enumerated.YoureOn.TipoArchivoEnum.video, "Descripcion", TipoLicenciaEnum.Sin_licencia, email4, "Conde Mor", false, @"/Archivos/Histeria.mp4", DateTime.Now, 200, 1080, YoureOnGenNHibernate.Enumerated.YoureOn.FormatoVideoEnum.avi);
 
                 System.Console.WriteLine ("Creando comentarios");
                 ComentarioCEN comentario = new ComentarioCEN ();
