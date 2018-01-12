@@ -8,6 +8,8 @@ using YoureOnGenNHibernate.CAD.YoureOn;
 using YoureOnBootsTrap.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.Globalization;
+using System.Diagnostics;
 
 namespace YoureOnBootsTrap.Controllers
 {
@@ -45,6 +47,13 @@ namespace YoureOnBootsTrap.Controllers
             Usuario usu = new AssemblerUsuario().ConvertENToModelUI(usuarioen);
             usu.Perfil = ObtenerRol();
             ViewBag.Rol = usu.Perfil;
+
+            // Cambiamos el formato a yyyy-MM-dd
+            string fAux = usu.FechaNac.Value.Year.ToString("0000") + "-" +
+                usu.FechaNac.Value.Month.ToString("00") + "-" +
+                usu.FechaNac.Value.Day.ToString("00");
+            ViewBag.Fecha = fAux;
+
             SessionClose();
             return View(usu);
         }
@@ -60,7 +69,11 @@ namespace YoureOnBootsTrap.Controllers
                 usuario.Nombre = u.Nombre;
                 usuario.Apellidos = u.Apellidos;
                 usuario.NIF = u.NIF;
-                //usuario.FechaNac = u.FechaNac;
+
+                // Fecha
+                DateTime dt = Convert.ToDateTime(Request.Form["fecha"]);
+                usuario.FechaNac = dt;
+                
                 usuarioCad.EditarPerfil(usuario);
                 
 
