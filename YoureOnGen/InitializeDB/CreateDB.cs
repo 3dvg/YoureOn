@@ -131,8 +131,10 @@ public static void InitializeData ()
 
                 System.Console.WriteLine ("Creando bibliotecas");
                 BibliotecaCEN biblioteca = new BibliotecaCEN ();
-                biblioteca.New_ (email1);
-                biblioteca.New_ (email3);
+                int bibliotecaID1 = biblioteca.New_ (email1);
+                int bibliotecaID2 = biblioteca.New_ (email3);
+                //biblioteca.Anyadir_a_biblioteca(bibliotecaID1,contenido.CargarContenido(contenidoID1));
+                //biblioteca.Anyadir_a_biblioteca(bibliotecaID1, contenido.CargarContenido(contenidoID4));
 
                 System.Console.WriteLine ("Creando idiomas");
                 IdiomaCEN idioma = new IdiomaCEN ();

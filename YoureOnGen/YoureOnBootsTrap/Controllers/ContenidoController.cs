@@ -295,7 +295,7 @@ namespace YoureOnBootsTrap.Controllers
         [Authorize]
         public ActionResult Biblioteca()
         {
-            /*IList<Biblioteca> lista = new List<Biblioteca>();
+            IList<Contenido> lista = new List<Contenido>();
 
             SessionInitialize();
             UsuarioEN usuarioen = new UsuarioCAD(session).ReadOIDDefault(User.Identity.GetUserName());
@@ -303,17 +303,15 @@ namespace YoureOnBootsTrap.Controllers
 
             if (usu.Biblioteca != null)
             {
-
                 // Copiamos los datos para la vista
-                foreach (BibliotecaEN f in usu.Biblioteca)
+                foreach (ContenidoEN f in usu.Biblioteca)
                 {
-                    Biblioteca b = new AssemblerBiblioteca().ConvertENToModelUI(f);
-                    lista.Add(b);
+                    Contenido c = new AssemblerContenido().ConvertENToModelUI(f);
+                    lista.Add(c);
                 }
             }
             SessionClose();
-            return View(lista);*/
-            return View();
+            return View(lista);
         }
 
         // Para sacar los datos de un enum y meterlos en una lista

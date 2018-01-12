@@ -89,7 +89,6 @@ C:\Users\José Manuel\Documents\workspace\YoureOn\YoureOnGen\YoureOnGenNHibernat
 C:\Users\José Manuel\Documents\workspace\YoureOn\YoureOnGen\YoureOnGenNHibernate\bin\Debug\Iesi.Collections.dll
 C:\Users\José Manuel\Documents\workspace\YoureOn\YoureOnGen\YoureOnGenNHibernate\bin\Debug\Antlr3.Runtime.dll
 C:\Users\José Manuel\Documents\workspace\YoureOn\YoureOnGen\YoureOnGenNHibernate\bin\Debug\log4net.dll
-C:\Users\José Manuel\Documents\workspace\YoureOn\YoureOnGen\YoureOnGenNHibernate\obj\Debug\YoureOnGenNHibernate.csprojResolveAssemblyReference.cache
 C:\Users\José Manuel\Documents\workspace\YoureOn\YoureOnGen\YoureOnGenNHibernate\obj\Debug\YoureOnGenNHibernate.csproj.CoreCompileInputs.cache
 C:\Users\José Manuel\Documents\workspace\YoureOn\YoureOnGen\YoureOnGenNHibernate\obj\Debug\YoureOnGenNHibernate.dll
 C:\Users\José Manuel\Documents\workspace\YoureOn\YoureOnGen\YoureOnGenNHibernate\obj\Debug\YoureOnGenNHibernate.pdb
