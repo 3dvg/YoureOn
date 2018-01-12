@@ -21,28 +21,39 @@
                     <p><b>Licencia: </b>@Model.Licencia</p>
                     <p><b>Tipo: </b>@Model.Tipo</p>
                 </div>
+
+                <div class="info">
+                    @using (Html.BeginForm("Votar", "Contenido", new { id = Model.Id }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                    {
+                        <label for="votos">Votar:</label>
+                        @Html.DropDownList("votos", (List<SelectListItem>)ViewBag.ListaEnum)
+                        <input type="submit" class="btn btn-default" value="Votar" />
+                    }
+
+                </div>
+
                 <div class="info">
                     @using (Html.BeginForm("Comentar", "Contenido", new { id = Model.Id }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-                    {
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.Comentarios, new { @class = "col-md-2 control-label" })
-                            @Html.EditorFor(model => model.Comentar, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Comentar, "", new { @class = "text-danger" })
-                            <input type="submit" class="btn btn-default" value="Comentar" />
-                        </div>
-                    }
+        {
+            <div class="form-group">
+                @Html.LabelFor(model => model.Comentarios, new { @class = "col-md-2 control-label" })
+                @Html.EditorFor(model => model.Comentar, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Comentar, "", new { @class = "text-danger" })
+                <input type="submit" class="btn btn-default" value="Comentar" />
+            </div>
+}
                 </div>
 
                 @if (Model.ListaComentarios != null)
-                {
-                    for (int i = 0; i < Model.ListaComentarios.Count; i++)
-                    {
-                        <p>
-                            <b>@Html.DisplayFor(model => model.ListaComentarios.ElementAt(i).Usuario.Email): </b>
-                            @Html.DisplayFor(model => model.ListaComentarios.ElementAt(i).Texto)
-                        </p>
-                    }
-                }
+    {
+        for (int i = 0; i < Model.ListaComentarios.Count; i++)
+        {
+            <p>
+                <b>@Html.DisplayFor(model => model.ListaComentarios.ElementAt(i).Usuario.Email): </b>
+                @Html.DisplayFor(model => model.ListaComentarios.ElementAt(i).Texto)
+            </p>
+}
+}
             </div>
         </div>
     </div>

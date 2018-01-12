@@ -49,14 +49,16 @@ namespace YoureOnBootsTrap.Controllers
             SessionInitialize();
             ContenidoCAD contenidoCad = new ContenidoCAD(session);
             ContenidoEN contenidoEn = contenidoCad.ReadOIDDefault(id);
-
             ContenidoYComentarios contenido = new AssemblerContenidoYComentarios().ConvertENToModel(contenidoEn);
-
             SessionClose();
+
+            // Lista de Tipos de votos
+            ViewBag.ListaEnum = ToListSelectListItem<PuntosVotoEnum>();
 
             //el contenido tiene que pasar a través del modelo
             return View(contenido);
         }
+
         //Débora: Comentar en detalle foto
         [Authorize]
         // POST: Contenido/Comentar/5
@@ -80,8 +82,13 @@ namespace YoureOnBootsTrap.Controllers
         
         public ActionResult Votar(int id)
         {
-            // Lista de Tipos de faltas
-            ViewBag.ListaEnum = ToListSelectListItem<PuntosVotoEnum>();
+            int voto = Convert.ToInt32(Request.Form["votos"]);
+
+            Debug.WriteLine(id);// id del contenido ej: 32768
+            Debug.WriteLine(voto);// voto ej: 5
+
+            //TODO..........................................................................
+
             return View();
         }
 

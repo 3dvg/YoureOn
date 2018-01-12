@@ -30,7 +30,6 @@ namespace YoureOnBootsTrap.Models
 
         [Required(ErrorMessage = "Éste dato es requerido")]
         [DataType(DataType.Date)]
-        //[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "0:yyyy/MM/dd}")]
         [Display(Name = "Fecha de nacimiento")]
         public DateTime? FechaNac { get; set; }
 
