@@ -230,73 +230,68 @@ namespace YoureOnBootsTrap.Controllers
             return View(lista);
         }
 
-        /* Esto está en el index de index.cshtml
-	public ActionResult MostrarFotos()
+        // GET: Contenido/Delete/5
+        [Authorize]
+        public ActionResult Delete(int id)
         {
-            SessionInitialize();
-            ContenidoCAD contenidosCad = new ContenidoCAD(session);
-            ContenidoCEN contenidosCen = new ContenidoCEN(contenidosCad);
-            IList<ContenidoEN> contenidos = contenidosCen.DameContenidoPorFecha(DateTime.Today);
-
-            IEnumerable<Contenido> listaContenidos = new AssemblerContenido().ConvertListENToModel(contenidos).ToList();
-            for (int i = 0; i < listaContenidos.Count<Contenido>(); i++)
-                if (listaContenidos.ElementAt<Contenido>(i) == null)
-                    ViewData["Contenido"] = "Esto no funciona";
-                else
-                    ViewData["Contenido"] = listaContenidos.ElementAt<Contenido>(i).Ruta;
-
-            SessionClose();
-            return View(listaContenidos);
-        }*/
-
-            /* public ActionResult Edit()
-             {*/
-            /*int id = 32768;
-            SessionInitialize();
-            ContenidoEN usuarioen = new ContenidoCAD(session).ReadOIDDefault(id);
-            Contenido usu = new AssemblerContenido().ConvertENToModelUI(usuarioen);
-            SessionClose();
-            return View(usu);*/
-            /*return View();
-        }*/
-
-            // POST: Usuario/Editar
-            /*[HttpPost]
-            public ActionResult Edit(Contenido u)
+            try
             {
-                try
-                {
-                    // TODO: Add delete logic here
-
-                    return RedirectToAction("Index");
-                }
-                catch
-                {
-                    return View();
-                }
-            }*/
-
-            // GET: Contenido/Delete/5
-            /*public ActionResult Delete(int id)
+                ContenidoCAD dirCAD = new ContenidoCAD();
+                dirCAD.Borrar(id);
+                return RedirectToAction("Index");
+            }
+            catch
             {
                 return View();
-            }*/
+            }
+        }
 
-            // POST: Contenido/Delete/5
-            /*[HttpPost]
-            public ActionResult Delete(int id, FormCollection collection)
+    /* Esto está en el index de index.cshtml
+public ActionResult MostrarFotos()
+    {
+        SessionInitialize();
+        ContenidoCAD contenidosCad = new ContenidoCAD(session);
+        ContenidoCEN contenidosCen = new ContenidoCEN(contenidosCad);
+        IList<ContenidoEN> contenidos = contenidosCen.DameContenidoPorFecha(DateTime.Today);
+
+        IEnumerable<Contenido> listaContenidos = new AssemblerContenido().ConvertListENToModel(contenidos).ToList();
+        for (int i = 0; i < listaContenidos.Count<Contenido>(); i++)
+            if (listaContenidos.ElementAt<Contenido>(i) == null)
+                ViewData["Contenido"] = "Esto no funciona";
+            else
+                ViewData["Contenido"] = listaContenidos.ElementAt<Contenido>(i).Ruta;
+
+        SessionClose();
+        return View(listaContenidos);
+    }*/
+
+        /* public ActionResult Edit()
+         {*/
+        /*int id = 32768;
+        SessionInitialize();
+        ContenidoEN usuarioen = new ContenidoCAD(session).ReadOIDDefault(id);
+        Contenido usu = new AssemblerContenido().ConvertENToModelUI(usuarioen);
+        SessionClose();
+        return View(usu);*/
+        /*return View();
+    }*/
+
+        // POST: Usuario/Editar
+        /*[HttpPost]
+        public ActionResult Edit(Contenido u)
+        {
+            try
             {
-                try
-                {
-                    // TODO: Add delete logic here
+                // TODO: Add delete logic here
 
-                    return RedirectToAction("Index");
-                }
-                catch
-                {
-                    return View();
-                }
-            }*/
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }*/
+
 
 
         [Authorize]
