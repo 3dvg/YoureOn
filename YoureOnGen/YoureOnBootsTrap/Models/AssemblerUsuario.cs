@@ -40,15 +40,5 @@ namespace YoureOnBootsTrap.Models
             }
             return usus;
         }
-
-        /*internal IList<Contenido> ConvertBibliotecaENToModel(UsuarioEN usuarioen)
-        {
-            throw new NotImplementedException();
-        }
-
-        internal IList<Contenido> ConvertContenidosENToModel(UsuarioEN usuarioen)
-        {
-            throw new NotImplementedException();
-        }*/
     }
 }

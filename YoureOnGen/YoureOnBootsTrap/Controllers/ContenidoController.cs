@@ -80,8 +80,15 @@ namespace YoureOnBootsTrap.Controllers
             return RedirectToAction("Details", "Contenido", new { id });
         }
         
-        public ActionResult Votar()
+        public ActionResult Votar(int id)
         {
+            int voto = Convert.ToInt32(Request.Form["votos"]);
+
+            Debug.WriteLine(id);// id del contenido ej: 32768
+            Debug.WriteLine(voto);// voto ej: 5
+
+            //TODO..........................................................................
+
             return View();
         }
 
